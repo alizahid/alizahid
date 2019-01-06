@@ -1,0 +1,15 @@
+@import '../../assets/variables';
+
+.page {
+  margin: $margin;
+}
+
+// mobile
+
+@media only screen and (max-width: $responsive-break) {
+}
+
+// desktop
+
+@media only screen and (min-width: $responsive-break) {
+}

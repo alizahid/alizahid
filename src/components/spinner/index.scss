@@ -1,0 +1,39 @@
+@import '../../assets/variables';
+
+.spinner {
+  align-items: center;
+  display: flex;
+  height: $spinner-size;
+  justify-content: center;
+  position: relative;
+  width: $spinner-size;
+
+  &:after,
+  &:before {
+    animation: spinner 1s linear infinite;
+    border-radius: 100%;
+    border: $spinner-border-width solid $color-background-dark;
+    content: '';
+    height: $spinner-size;
+    position: absolute;
+    width: $spinner-size;
+  }
+
+  &:after {
+    border-left-color: $color-accent;
+  }
+
+  &[data-fullscreen] {
+    margin: $margin;
+  }
+}
+
+@keyframes spinner {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

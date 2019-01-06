@@ -1,0 +1,68 @@
+@import '../../assets/variables';
+
+.playground {
+  section {
+    article {
+      align-items: flex-start;
+      display: flex;
+      margin: $margin 0;
+
+      &:not(:first-child) {
+        margin-top: $margin * 2;
+      }
+
+      > figure {
+        border-radius: 100%;
+        line-height: 6em;
+        width: 6em;
+
+        figcaption {
+          font-size: 6em * 1/3;
+          text-align: center;
+        }
+      }
+
+      > div {
+        flex: 1;
+        margin-left: $margin;
+
+        h2 {
+          margin: 0;
+        }
+
+        footer {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 -#{$padding / 2};
+
+          a {
+            margin: $padding / 2;
+
+            &:hover {
+              border-color: $color-accent;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// mobile
+
+@media only screen and (max-width: $responsive-break) {
+  .playground {
+    section {
+      article {
+        > figure {
+          line-height: 4em;
+          width: 4em;
+
+          figcaption {
+            font-size: 4em * 1/3;
+          }
+        }
+      }
+    }
+  }
+}

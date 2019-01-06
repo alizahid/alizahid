@@ -1,0 +1,53 @@
+@import '../../assets/variables';
+
+.post {
+  a {
+    color: $color-text;
+
+    &:hover {
+      .feature {
+        img {
+          filter: brightness(1.1);
+        }
+      }
+    }
+  }
+
+  h1 {
+    margin: 0 0 $padding;
+  }
+
+  a + p {
+    color: $color-text-light;
+    font-size: $text-size-small;
+    margin: $padding 0;
+
+    span {
+      &:not(:first-child):before {
+        content: ' ';
+      }
+    }
+  }
+
+  figure + p {
+    color: $color-text-light;
+    font-size: $text-size-small;
+    margin-top: $padding;
+  }
+
+  footer {
+    align-items: center;
+    color: $color-text-light;
+    display: flex;
+    font-size: $text-size-small;
+    margin-top: $margin * 2;
+
+    a {
+      background: $color-primary;
+      border-radius: $border-radius;
+      color: #fff;
+      margin-left: $padding;
+      padding: $padding / 2;
+    }
+  }
+}
