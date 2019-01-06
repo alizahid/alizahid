@@ -3,12 +3,12 @@ import { Link, RichText } from 'prismic-reactjs'
 
 const { REACT_APP_API_URI } = process.env
 
-class API {
-  async init() {
+export default class API {
+  static async init() {
     this.api = await Prismic.api(REACT_APP_API_URI)
   }
 
-  async getProjects() {
+  static async getProjects() {
     const { results } = await this.api.query(
       Prismic.Predicates.at('document.type', 'project')
     )
@@ -16,7 +16,7 @@ class API {
     return results.map(this.normalizeProject)
   }
 
-  async getMeta() {
+  static async getMeta() {
     const { results } = await this.api.query(
       Prismic.Predicates.at('document.type', 'meta')
     )
@@ -48,7 +48,7 @@ class API {
     }
   }
 
-  normalizeProject(project) {
+  static normalizeProject(project) {
     const {
       id,
       uid,
@@ -67,5 +67,3 @@ class API {
     }
   }
 }
-
-export default new API()
