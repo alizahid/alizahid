@@ -4,21 +4,16 @@
   .social {
     align-items: center;
     display: flex;
-    margin: $margin 0;
+    margin: $margin * 2 0 0;
 
     nav {
       display: flex;
 
       a {
         align-items: center;
+        color: $color-text;
         display: flex;
-        filter: grayscale(1);
         margin-left: $padding;
-
-        &:hover {
-          color: $color-text;
-          filter: grayscale(0);
-        }
 
         &:before {
           content: '';
