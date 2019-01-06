@@ -16,6 +16,14 @@ export default class API {
     return results.map(this.normalizeProject)
   }
 
+  static async getPages() {
+    const { results } = await this.api.query(
+      Prismic.Predicates.at('document.type', 'page')
+    )
+
+    return results.map(this.normalizePage)
+  }
+
   static async getMeta() {
     const { results } = await this.api.query(
       Prismic.Predicates.at('document.type', 'meta')
@@ -62,6 +70,21 @@ export default class API {
       initials,
       id,
       links: links.map(({ link }) => Link.url(link)),
+      slug: uid,
+      title: RichText.asText(title)
+    }
+  }
+
+  static normalizePage(page) {
+    const {
+      id,
+      uid,
+      data: { content, title }
+    } = page
+
+    return {
+      content,
+      id,
       slug: uid,
       title: RichText.asText(title)
     }
