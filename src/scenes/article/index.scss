@@ -2,6 +2,29 @@
 
 .article {
   margin: $margin;
+
+  h1 {
+    margin: 0;
+  }
+
+  header {
+    color: $color-text-light;
+    margin-top: $padding;
+
+    span {
+      &:not(:first-child) {
+        margin-left: $padding;
+      }
+    }
+  }
+
+  article {
+    margin: $margin 0;
+  }
+
+  .block-img {
+    max-width: 50em;
+  }
 }
 
 // mobile

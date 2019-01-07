@@ -1,17 +1,65 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+
+import { getPosts } from '../../actions'
+import { Head, Spinner } from '../../components'
 
 import './index.scss'
 
 class Blog extends Component {
+  componentDidMount() {
+    const { getPosts } = this.props
+
+    getPosts()
+  }
+
+  more = () => {
+    const {
+      getPosts,
+      meta: { next }
+    } = this.props
+
+    if (next) {
+      getPosts(next)
+    }
+  }
+
   render() {
-    return <main className="blog">Blog</main>
+    const {
+      posts,
+      loading,
+      meta: { next }
+    } = this.props
+
+    return (
+      <main className="blog">
+        <Head title="Blog" />
+        {posts.map(({ date, excerpt, id, slug, title }) => (
+          <Link key={id} to={`/blog/${slug}`}>
+            <article>
+              <h2>{title}</h2>
+              <p>{excerpt}</p>
+              <span title={date.format('LLLL')}>{date.fromNow()}</span>
+            </article>
+          </Link>
+        ))}
+        {loading && <Spinner />}
+        {next && <button onClick={this.more}>More</button>}
+      </main>
+    )
   }
 }
 
-const mapStateToProps = () => ({})
+const mapStateToProps = ({ posts: { meta, posts, loading } }) => ({
+  meta,
+  loading,
+  posts: posts.filter(({ single }) => !single)
+})
 
-const mapDispatchToProps = dispatch => ({})
+const mapDispatchToProps = dispatch => ({
+  getPosts: page => dispatch(getPosts(page))
+})
 
 export default connect(
   mapStateToProps,

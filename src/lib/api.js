@@ -1,5 +1,6 @@
 import Prismic from 'prismic-javascript'
 import { Link, RichText } from 'prismic-reactjs'
+import moment from 'moment'
 
 const { REACT_APP_API_URI } = process.env
 
@@ -14,6 +15,29 @@ export default class API {
     )
 
     return results.map(this.normalizeProject)
+  }
+
+  static async getPosts(page = 1) {
+    const { results, total_pages } = await this.api.query(
+      Prismic.Predicates.at('document.type', 'post'),
+      {
+        page
+      }
+    )
+
+    return {
+      meta: {
+        next: total_pages > page && page + 1,
+        total: total_pages
+      },
+      posts: results.map(this.normalizePost)
+    }
+  }
+
+  static async getPost(slug) {
+    const post = await this.api.getByUID('post', slug)
+
+    return this.normalizePost(post)
   }
 
   static async getPages() {
@@ -70,6 +94,34 @@ export default class API {
       initials,
       id,
       links: links.map(({ link }) => Link.url(link)),
+      slug: uid,
+      title: RichText.asText(title)
+    }
+  }
+
+  static normalizePost(post) {
+    const {
+      first_publication_date,
+      id,
+      tags,
+      uid,
+      data: {
+        content,
+        excerpt,
+        featured,
+        title,
+        image: { url }
+      }
+    } = post
+
+    return {
+      content,
+      id,
+      tags,
+      date: moment(first_publication_date),
+      excerpt: RichText.asText(excerpt),
+      featured: featured === 'Yes',
+      image: url,
       slug: uid,
       title: RichText.asText(title)
     }

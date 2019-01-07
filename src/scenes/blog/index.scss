@@ -2,6 +2,44 @@
 
 .blog {
   margin: $margin;
+
+  article {
+    margin: $margin 0;
+
+    h2 {
+      color: $color-accent;
+      margin: 0;
+    }
+
+    p {
+      color: $color-text;
+    }
+
+    span {
+      color: $color-text-light;
+    }
+  }
+
+  button {
+    appearance: none;
+    background: $color-accent;
+    border-radius: $border-radius;
+    border: none;
+    color: $color-background;
+    cursor: pointer;
+    font: inherit;
+    margin: $margin 0;
+    padding: $padding;
+    transition: $transition;
+
+    &:hover {
+      filter: brightness(1.1);
+    }
+
+    &:active {
+      filter: brightness(1.2);
+    }
+  }
 }
 
 // mobile

@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "immutability-helper": "^2.9.0",
-    "lodash.get": "^4.4.2",
+    "lodash.orderby": "^4.6.0",
     "lodash.uniqby": "^4.7.0",
     "moment": "^2.23.0",
     "node-sass": "^4.11.0",
