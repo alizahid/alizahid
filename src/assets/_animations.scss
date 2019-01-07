@@ -1,0 +1,30 @@
+@keyframes header {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -2em, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes content {
+  50%,
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+header {
+  animation: header 0.4s linear;
+}
+
+main {
+  animation: content 0.8s linear;
+}
