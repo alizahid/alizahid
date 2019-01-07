@@ -103,6 +103,7 @@ export default class API {
     const {
       first_publication_date,
       id,
+      last_publication_date,
       tags,
       uid,
       data: {
@@ -123,7 +124,8 @@ export default class API {
       featured: featured === 'Yes',
       image: url,
       slug: uid,
-      title: RichText.asText(title)
+      title: RichText.asText(title),
+      updated: moment(last_publication_date)
     }
   }
 

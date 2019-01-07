@@ -31,14 +31,17 @@ class Article extends Component {
       )
     }
 
-    const { content, date, tags, title } = post
+    const { content, date, tags, title, updated } = post
 
     return (
       <main className="article">
         <Head title={title} />
         <h1>{title}</h1>
         <header>
-          <span title={date.format('LLLL')}>{date.fromNow()}</span>
+          <span title={date.format('LLLL')}>Posted {date.fromNow()}</span>
+          <span title={updated.format('LLLL')}>
+            Updated {updated.fromNow()}
+          </span>
           <span>Tagged {tags.join(', ')}</span>
         </header>
         <article>{RichText.render(content)}</article>

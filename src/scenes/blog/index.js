@@ -40,7 +40,7 @@ class Blog extends Component {
             <article>
               <h2>{title}</h2>
               <p>{excerpt}</p>
-              <span title={date.format('LLLL')}>{date.fromNow()}</span>
+              <span title={date.format('LLLL')}>Posted {date.fromNow()}</span>
             </article>
           </Link>
         ))}
