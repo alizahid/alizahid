@@ -1,3 +1,5 @@
+import orderBy from 'lodash.orderby'
+
 import { api } from '../lib'
 
 export const GET_PROJECTS_PENDING = 'GET_PROJECTS_PENDING'
@@ -24,7 +26,9 @@ export default () => async dispatch => {
   try {
     const projects = await api.getProjects()
 
-    dispatch(getProjectsSuccess(projects))
+    const data = orderBy(projects, 'updated', 'desc')
+
+    dispatch(getProjectsSuccess(data))
   } catch (error) {
     dispatch(getProjectsFailure(error))
   }

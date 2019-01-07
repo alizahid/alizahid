@@ -82,7 +82,9 @@ export default class API {
 
   static normalizeProject(project) {
     const {
+      first_publication_date,
       id,
+      last_publication_date,
       uid,
       data: { background, color, content, initials, links, title }
     } = project
@@ -93,9 +95,11 @@ export default class API {
       content,
       initials,
       id,
+      date: moment(first_publication_date),
       links: links.map(({ link }) => Link.url(link)),
       slug: uid,
-      title: RichText.asText(title)
+      title: RichText.asText(title),
+      updated: moment(last_publication_date)
     }
   }
 
