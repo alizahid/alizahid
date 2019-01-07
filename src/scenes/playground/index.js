@@ -38,28 +38,26 @@ class Playground extends Component {
     return (
       <main className="playground">
         <Head title="Playground" />
-        <section>
-          {loading && <Spinner />}
-          {projects.map(
-            ({ background, color, content, initials, links, slug, title }) => (
-              <article key={slug}>
-                <figure
-                  style={{
-                    background,
-                    color
-                  }}
-                >
-                  <figcaption>{initials}</figcaption>
-                </figure>
-                <div>
-                  <h2>{title}</h2>
-                  {RichText.render(content)}
-                  <footer>{links.map(this.renderLink)}</footer>
-                </div>
-              </article>
-            )
-          )}
-        </section>
+        {loading && <Spinner />}
+        {projects.map(
+          ({ background, color, content, initials, links, slug, title }) => (
+            <article key={slug}>
+              <figure
+                style={{
+                  background,
+                  color
+                }}
+              >
+                <figcaption>{initials}</figcaption>
+              </figure>
+              <div>
+                <h2>{title}</h2>
+                {RichText.render(content)}
+                <footer>{links.map(this.renderLink)}</footer>
+              </div>
+            </article>
+          )
+        )}
       </main>
     )
   }
