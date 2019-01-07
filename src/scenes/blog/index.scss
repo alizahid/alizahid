@@ -3,6 +3,14 @@
 .blog {
   margin: $margin;
 
+  a {
+    &:nth-child(even) {
+      h2 {
+        color: $color-primary;
+      }
+    }
+  }
+
   article {
     margin: $margin 0;
 
