@@ -42,7 +42,7 @@ class Article extends Component {
           <span title={updated.format('LLLL')}>
             Updated {updated.fromNow()}
           </span>
-          <span>Tagged {tags.join(', ')}</span>
+          <span>{tags.join(', ')}</span>
         </header>
         <article>{RichText.render(content)}</article>
       </main>

@@ -4,6 +4,12 @@
   margin: $margin;
 
   a {
+    &:not(:first-child) {
+      article {
+        margin-top: $margin * 2;
+      }
+    }
+
     &:nth-child(even) {
       h2 {
         color: $color-primary;
@@ -25,6 +31,10 @@
 
     span {
       color: $color-text-light;
+
+      &:not(:first-of-type) {
+        margin-left: $padding;
+      }
     }
   }
 
