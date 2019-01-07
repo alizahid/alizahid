@@ -65,13 +65,23 @@ h2 {
 }
 
 h3 {
-  font-size: 1em;
+  font-size: 1.5em;
 }
 
 img {
   border: none;
   max-width: 100%;
   vertical-align: top;
+}
+
+ol,
+ul {
+  li {
+    line-height: 1.6;
+    list-style: square;
+    margin: $padding 0 $padding $margin;
+    max-width: 40em - $margin;
+  }
 }
 
 p {
