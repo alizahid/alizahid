@@ -4,15 +4,11 @@
   margin: $margin;
 
   a {
+    color: $color-text;
+
     &:not(:first-child) {
       article {
         margin-top: $margin * 2;
-      }
-    }
-
-    &:nth-child(even) {
-      h2 {
-        color: $color-primary;
       }
     }
   }
@@ -21,7 +17,6 @@
     margin: $margin 0;
 
     h2 {
-      color: $color-accent;
       margin: 0;
     }
 

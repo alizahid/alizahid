@@ -56,10 +56,12 @@ h3 {
 
 h1 {
   font-size: 2em;
+  line-height: 1.2;
 }
 
 h2 {
   font-size: 2em;
+  line-height: 1.2;
 }
 
 h3 {
@@ -75,7 +77,11 @@ img {
 p {
   line-height: 1.6;
   margin: $padding 0;
-  max-width: 30em;
+  max-width: 40em;
+}
+
+span {
+  line-height: 1.6;
 }
 
 // layout

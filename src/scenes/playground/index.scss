@@ -50,15 +50,13 @@
 
 @media only screen and (max-width: $responsive-break) {
   .playground {
-    section {
-      article {
-        > figure {
-          line-height: 4em;
-          width: 4em;
+    article {
+      > figure {
+        line-height: 4em;
+        width: 4em;
 
-          figcaption {
-            font-size: 4em * 1/3;
-          }
+        figcaption {
+          font-size: 4em * 1/3;
         }
       }
     }
