@@ -5,15 +5,13 @@
   padding: $margin;
 
   > a {
-    align-items: center;
-    display: flex;
+    flex: 0 0 4em;
 
     img {
       background: $color-accent;
       border-radius: 100%;
       color: $color-background;
       height: 4em;
-      width: 4em;
     }
   }
 
