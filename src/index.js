@@ -8,6 +8,7 @@ import { api } from './lib'
 import { Article, Blog, Home, Page, Playground } from './scenes'
 
 import store from './store'
+import * as serviceWorker from './serviceWorker'
 
 import './index.scss'
 
@@ -49,3 +50,5 @@ class Ali extends Component {
 }
 
 ReactDOM.render(<Ali />, document.getElementById('root'))
+
+serviceWorker.unregister()
