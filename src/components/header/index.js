@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import { getMeta } from '../../actions'
@@ -24,12 +24,14 @@ class Header extends Component {
 
     return (
       <header className="header">
-        <Link to="/">
+        <NavLink to="/">
           <img src={image} alt={title} />
-        </Link>
+        </NavLink>
         <nav>
-          <Link to="/playground">Playground</Link>
-          <Link to="/blog">Blog</Link>
+          <NavLink to="/playground">Playground</NavLink>
+          <NavLink to="/ideas">Ideas</NavLink>
+          <NavLink to="/goals">Goals</NavLink>
+          <NavLink to="/blog">Blog</NavLink>
           <a href={email}>Email</a>
         </nav>
       </header>
@@ -45,7 +47,9 @@ const mapDispatchToProps = dispatch => ({
   getMeta: () => dispatch(getMeta())
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Header)
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Header)
+)

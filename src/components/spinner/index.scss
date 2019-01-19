@@ -23,8 +23,12 @@
     border-left-color: $color-accent;
   }
 
-  &[data-fullscreen] {
+  &[data-full] {
     margin: $margin;
+  }
+
+  &[data-half] {
+    margin: $margin 0;
   }
 }
 

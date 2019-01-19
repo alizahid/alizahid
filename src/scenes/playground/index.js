@@ -33,15 +33,16 @@ class Playground extends Component {
   }
 
   render() {
-    const { projects, loading } = this.props
+    const { about_playground, projects, loading } = this.props
 
     return (
       <main className="playground">
         <Head title="Playground" />
+        {about_playground && RichText.render(about_playground)}
         {loading && <Spinner />}
         {projects.map(
-          ({ background, color, content, initials, links, slug, title }) => (
-            <article key={slug}>
+          ({ background, color, content, id, initials, links, title }) => (
+            <article key={id}>
               <figure
                 style={{
                   background,
@@ -63,7 +64,13 @@ class Playground extends Component {
   }
 }
 
-const mapStateToProps = ({ projects: { projects, loading } }) => ({
+const mapStateToProps = ({
+  projects: { projects, loading },
+  meta: {
+    meta: { about_playground }
+  }
+}) => ({
+  about_playground,
   projects,
   loading
 })

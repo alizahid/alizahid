@@ -1,5 +1,6 @@
 import Prismic from 'prismic-javascript'
 import { Link, RichText } from 'prismic-reactjs'
+import orderBy from 'lodash.orderby'
 import moment from 'moment'
 
 const { REACT_APP_API_URI } = process.env
@@ -7,6 +8,22 @@ const { REACT_APP_API_URI } = process.env
 export default class API {
   static async init() {
     this.api = await Prismic.api(REACT_APP_API_URI)
+  }
+
+  static async getGoals() {
+    const { results } = await this.api.query(
+      Prismic.Predicates.at('document.type', 'goal')
+    )
+
+    return results.map(this.normalizeGoal)
+  }
+
+  static async getIdeas() {
+    const { results } = await this.api.query(
+      Prismic.Predicates.at('document.type', 'idea')
+    )
+
+    return results.map(this.normalizeIdea)
   }
 
   static async getProjects() {
@@ -55,6 +72,9 @@ export default class API {
 
     const {
       data: {
+        about_goals,
+        about_ideas,
+        about_playground,
         about,
         dribbble,
         email,
@@ -67,6 +87,9 @@ export default class API {
     } = results.pop()
 
     return {
+      about_goals,
+      about_ideas,
+      about_playground,
       about,
       email: Link.url(email),
       image: url,
@@ -80,12 +103,52 @@ export default class API {
     }
   }
 
+  static normalizeGoal(goal) {
+    const {
+      id,
+      last_publication_date,
+      data: { deadline, description, title, updates }
+    } = goal
+
+    return {
+      description,
+      id,
+      deadline: deadline && moment(deadline),
+      title: RichText.asText(title),
+      updated: moment(last_publication_date),
+      updates: orderBy(
+        updates.map(({ content, time }) => ({
+          content,
+          time: moment(time)
+        })),
+        'time',
+        'desc'
+      )
+    }
+  }
+
+  static normalizeIdea(idea) {
+    const {
+      id,
+      last_publication_date,
+      data: { description, links, status, title }
+    } = idea
+
+    return {
+      description,
+      id,
+      status,
+      links: links.map(({ link }) => Link.url(link)),
+      title: RichText.asText(title),
+      updated: moment(last_publication_date)
+    }
+  }
+
   static normalizeProject(project) {
     const {
       first_publication_date,
       id,
       last_publication_date,
-      uid,
       data: { background, color, content, initials, links, title }
     } = project
 
@@ -97,7 +160,6 @@ export default class API {
       id,
       date: moment(first_publication_date),
       links: links.map(({ link }) => Link.url(link)),
-      slug: uid,
       title: RichText.asText(title),
       updated: moment(last_publication_date)
     }

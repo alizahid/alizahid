@@ -26,6 +26,7 @@
 
     span {
       color: $color-text-light;
+      font-size: 0.875em;
 
       &:not(:first-of-type) {
         margin-left: $padding;

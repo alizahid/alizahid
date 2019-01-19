@@ -1,6 +1,7 @@
 @import '../../assets/variables';
 
 .header {
+  align-items: center;
   display: flex;
   padding: $margin;
 
@@ -18,10 +19,15 @@
   > nav {
     align-items: center;
     display: flex;
+    flex-wrap: wrap;
     margin-left: $padding;
 
     a {
       padding: $padding;
+
+      &.active {
+        color: $color-accent;
+      }
     }
   }
 }

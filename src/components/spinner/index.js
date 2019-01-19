@@ -4,8 +4,8 @@ import './index.scss'
 
 export default class Spinner extends Component {
   render() {
-    const { fullscreen } = this.props
+    const { full, half } = this.props
 
-    return <div className="spinner" data-fullscreen={fullscreen} />
+    return <div className="spinner" data-full={full} data-half={half} />
   }
 }

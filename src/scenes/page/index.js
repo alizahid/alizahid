@@ -18,7 +18,7 @@ class Page extends Component {
     const { page, loading } = this.props
 
     if (loading) {
-      return <Spinner fullscreen />
+      return <Spinner full />
     }
 
     if (!page) {

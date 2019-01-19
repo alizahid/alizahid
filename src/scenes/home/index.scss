@@ -2,18 +2,13 @@
 
 .home {
   .social {
-    align-items: center;
-    display: flex;
     margin: $margin * 2 0 0;
 
     nav {
-      display: flex;
-
       a {
         align-items: center;
         color: $color-text;
         display: flex;
-        margin-left: $padding;
 
         &:before {
           content: '';
@@ -52,14 +47,28 @@
 @media only screen and (max-width: $responsive-break) {
   .home {
     .social {
-      align-items: flex-start;
-      flex-direction: column;
-
       nav {
         a {
-          &:first-child {
-            margin-left: 0;
-          }
+          margin: $padding 0;
+        }
+      }
+    }
+  }
+}
+
+// desktop
+
+@media only screen and (min-width: $responsive-break) {
+  .home {
+    .social {
+      align-items: center;
+      display: flex;
+
+      nav {
+        display: flex;
+
+        a {
+          margin-left: $padding;
         }
       }
     }

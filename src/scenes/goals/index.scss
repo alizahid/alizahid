@@ -1,0 +1,45 @@
+@import '../../assets/variables';
+
+.goals {
+  article {
+    margin: $margin 0;
+
+    h3 {
+      color: $color-text-light;
+      font-size: 1em;
+    }
+
+    section {
+      border-left: 0.25em solid $color-background-dark;
+      border-radius: $border-radius;
+      margin: $padding 0;
+      padding-left: $padding;
+
+      footer {
+        margin-top: -$padding;
+      }
+    }
+
+    footer {
+      color: $color-text-light;
+      font-size: 0.875em;
+      margin-top: $padding;
+
+      span {
+        &:not(:first-child) {
+          margin-left: $padding;
+        }
+      }
+    }
+  }
+}
+
+// mobile
+
+@media only screen and (max-width: $responsive-break) {
+}
+
+// desktop
+
+@media only screen and (min-width: $responsive-break) {
+}
