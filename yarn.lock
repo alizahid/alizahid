@@ -8982,6 +8982,11 @@ react-router-dom@^4.3.1:
     react-router "^4.3.1"
     warning "^4.0.1"
 
+react-router-scroll-top@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/react-router-scroll-top/-/react-router-scroll-top-0.1.1.tgz#83ac4c2d0d26b349069b33e95a0add8ff90713c1"
+  integrity sha1-g6xMLQ0ms0kGmzPpWgrdj/kHE8E=
+
 react-router@^4.3.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/react-router/-/react-router-4.3.1.tgz#aada4aef14c809cb2e686b05cee4742234506c4e"

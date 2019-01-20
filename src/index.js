@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import ReactDOM from 'react-dom'
+import ScrollToTop from 'react-router-scroll-top'
 
 import { Header, Spinner } from './components'
 import { api } from './lib'
@@ -33,7 +34,7 @@ class Ali extends Component {
     return (
       <Provider store={store}>
         <BrowserRouter>
-          <div>
+          <ScrollToTop>
             <Header />
             <Switch>
               <Route path="/" exact component={Home} />
@@ -44,7 +45,7 @@ class Ali extends Component {
               <Route path="/blog/:slug" component={Article} />
               <Route path="/:slug" component={Page} />
             </Switch>
-          </div>
+          </ScrollToTop>
         </BrowserRouter>
       </Provider>
     )
