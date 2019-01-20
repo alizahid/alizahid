@@ -26,7 +26,18 @@
       padding: $padding;
 
       &.active {
-        color: $color-accent;
+        position: relative;
+
+        &:before {
+          background: $color-primary;
+          border-radius: $border-radius;
+          bottom: 0;
+          content: '';
+          height: 2px;
+          left: $padding;
+          position: absolute;
+          width: calc(100% - #{$padding * 2});
+        }
       }
     }
   }
