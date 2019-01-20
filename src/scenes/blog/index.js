@@ -35,9 +35,14 @@ class Blog extends Component {
     return (
       <main className="blog">
         <Head title="Blog" />
-        {posts.map(({ date, excerpt, id, slug, tags, title }) => (
+        {posts.map(({ date, excerpt, id, slug, thumb, tags, title }) => (
           <Link key={id} to={`/blog/${slug}`}>
             <article>
+              {thumb && (
+                <figure>
+                  <img src={thumb} alt={title} />
+                </figure>
+              )}
               <h2>{title}</h2>
               <p>{excerpt}</p>
               <span title={date.format('LLLL')}>Posted {date.fromNow()}</span>

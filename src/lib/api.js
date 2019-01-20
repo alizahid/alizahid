@@ -177,18 +177,22 @@ export default class API {
         excerpt,
         featured,
         title,
-        image: { url }
+        image: {
+          url: hero,
+          list: { url: thumb }
+        }
       }
     } = post
 
     return {
       content,
+      hero,
       id,
       tags,
+      thumb,
       date: moment(first_publication_date),
       excerpt: RichText.asText(excerpt),
       featured: featured === 'Yes',
-      image: url,
       slug: uid,
       title: RichText.asText(title),
       updated: moment(last_publication_date)

@@ -31,11 +31,16 @@ class Article extends Component {
       )
     }
 
-    const { content, date, tags, title, updated } = post
+    const { content, date, hero, tags, title, updated } = post
 
     return (
       <main className="article">
         <Head title={title} />
+        {hero && (
+          <figure className="hero">
+            <img src={hero} alt={title} />
+          </figure>
+        )}
         <h1>{title}</h1>
         <header>
           <span title={date.format('LLLL')}>Posted {date.fromNow()}</span>

@@ -16,8 +16,24 @@
   article {
     margin: $margin 0;
 
-    h2 {
-      margin: 0;
+    figure {
+      background: $color-background-dark;
+      border-radius: $border-radius;
+      max-width: 20em;
+      overflow: hidden;
+      position: relative;
+
+      &:before {
+        content: '';
+        display: block;
+        padding-bottom: 50%;
+      }
+
+      img {
+        left: 0;
+        position: absolute;
+        top: 0;
+      }
     }
 
     p {
