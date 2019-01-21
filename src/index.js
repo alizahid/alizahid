@@ -54,4 +54,4 @@ class Ali extends Component {
 
 ReactDOM.render(<Ali />, document.getElementById('root'))
 
-serviceWorker.register()
+serviceWorker.unregister()
