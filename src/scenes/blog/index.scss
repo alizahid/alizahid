@@ -18,8 +18,6 @@
 
     figure {
       background: $color-background-dark;
-      border-radius: $border-radius;
-      max-width: 20em;
       overflow: hidden;
       position: relative;
 
@@ -75,9 +73,24 @@
 // mobile
 
 @media only screen and (max-width: $responsive-break) {
+  .blog {
+    article {
+      figure {
+        margin: 0 #{-$margin};
+      }
+    }
+  }
 }
 
 // desktop
 
 @media only screen and (min-width: $responsive-break) {
+  .blog {
+    article {
+      figure {
+        border-radius: $border-radius;
+        max-width: 30em;
+      }
+    }
+  }
 }

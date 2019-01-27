@@ -39,7 +39,6 @@
     margin: $margin 0;
 
     img {
-      border-radius: $border-radius;
     }
   }
 
@@ -51,9 +50,21 @@
 // mobile
 
 @media only screen and (max-width: $responsive-break) {
+  .article {
+    .block-img {
+      margin: $margin #{-$margin};
+    }
+  }
 }
 
 // desktop
 
 @media only screen and (min-width: $responsive-break) {
+  .article {
+    article {
+      img {
+        border-radius: $border-radius;
+      }
+    }
+  }
 }
