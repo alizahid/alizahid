@@ -78,9 +78,14 @@ ol,
 ul {
   li {
     line-height: 1.6;
-    list-style: square;
     margin: $padding 0 $padding $margin;
     max-width: 40em - $margin;
+  }
+}
+
+ul {
+  li {
+    list-style: square;
   }
 }
 
@@ -88,6 +93,16 @@ p {
   line-height: 1.6;
   margin: $padding 0;
   max-width: 40em;
+}
+
+pre {
+  background: $color-background-dark;
+  border-radius: $border-radius;
+  font: normal 1em/1.6 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo,
+    Courier, monospace;
+  max-width: 60em;
+  overflow: auto;
+  padding: $padding;
 }
 
 span {
@@ -102,6 +117,15 @@ strong {
 
 main {
   margin: $margin;
+}
+
+// components
+
+.code {
+  @extend pre;
+  background: darken($color-background, 2%);
+  line-height: inherit;
+  padding: 0;
 }
 
 // responsive
