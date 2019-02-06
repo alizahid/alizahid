@@ -1,6 +1,5 @@
 import Prismic from 'prismic-javascript'
 import { Link, RichText } from 'prismic-reactjs'
-import orderBy from 'lodash.orderby'
 import moment from 'moment'
 
 const { REACT_APP_API_URI } = process.env
@@ -116,14 +115,10 @@ export default class API {
       deadline: deadline && moment(deadline),
       title: RichText.asText(title),
       updated: moment(last_publication_date),
-      updates: orderBy(
-        updates.map(({ content, time }) => ({
-          content,
-          time: moment(time)
-        })),
-        'time',
-        'desc'
-      )
+      updates: updates.map(({ content, time }) => ({
+        content,
+        time: time && moment(time)
+      }))
     }
   }
 

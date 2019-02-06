@@ -32,9 +32,13 @@ class Goals extends Component {
                 {updates.map(({ content, time }, index) => (
                   <section key={index}>
                     {RichText.render(content)}
-                    <footer>
-                      <span title={time.format('LLLL')}>{time.fromNow()}</span>
-                    </footer>
+                    {time && (
+                      <footer>
+                        <span title={time.format('LLLL')}>
+                          {time.fromNow()}
+                        </span>
+                      </footer>
+                    )}
                   </section>
                 ))}
               </div>
