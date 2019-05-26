@@ -1,0 +1,43 @@
+@import "../assets/variables";
+
+.playground {
+  article {
+    align-items: center;
+    display: flex;
+    margin: #{$margin * 2} 0;
+
+    figure {
+      height: $max-width / 8;
+      width: $max-width / 8;
+    }
+
+    .details {
+      flex: 1;
+      margin-left: $margin;
+
+      h2 {
+        margin: 0;
+      }
+
+      .links {
+        display: flex;
+        margin-top: $padding;
+
+        a {
+          background: $color-primary;
+          border-radius: $border-radius;
+          color: $color-background;
+          padding: $padding / 2;
+
+          &:not(:first-child) {
+            margin-left: $padding;
+          }
+
+          &:hover {
+            background: $color-accent;
+          }
+        }
+      }
+    }
+  }
+}

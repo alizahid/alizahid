@@ -1,5 +1,5 @@
 $color-primary: #ff2d55;
-$color-accent: darken($color-primary, 5%);
+$color-accent: lighten($color-primary, 10%);
 
 $color-background: #fff;
 $color-background-dark: darken($color-background, 5%);
@@ -9,12 +9,17 @@ $color-text-light: #999;
 
 $transition: 0.2s;
 
+$text-line-height: 1.6;
+
 $margin: 2em;
 $padding: 1em;
 
 $border-radius: 0.25em;
+$box-shadow: 0 0 1em rgba(0, 0, 0, 0.05);
 
 $responsive-break: 480px;
 
 $spinner-size: 2em;
 $spinner-border-width: 2px;
+
+$max-width: 60em;

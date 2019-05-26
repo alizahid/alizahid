@@ -1,0 +1,21 @@
+@import "../assets/variables";
+
+.about {
+  text-align: center;
+
+  img {
+    border-radius: 100%;
+    display: block;
+    height: $max-width / 4;
+    margin: auto;
+    width: $max-width / 4;
+  }
+
+  h2 {
+    margin-bottom: $margin;
+  }
+
+  h3 {
+    margin-top: $margin;
+  }
+}
