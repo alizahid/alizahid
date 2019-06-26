@@ -4,13 +4,13 @@ import moment from 'moment'
 import obj from 'obj-str'
 
 import { Spinner, Title } from '../components'
-import { useActions, useStore } from '../store'
+import { useStoreActions, useStoreState } from '../store'
 
 import './blog.scss'
 
 const Blog: FunctionComponent = () => {
-  const { fetch } = useActions(actions => actions.posts)
-  const { posts, meta, loading } = useStore(state => state.posts)
+  const { fetch } = useStoreActions(actions => actions.posts)
+  const { posts, meta, loading } = useStoreState(state => state.posts)
 
   useEffect(() => {
     if (posts.length <= 1) {

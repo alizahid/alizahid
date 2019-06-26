@@ -5,7 +5,7 @@ import { RichText } from 'prismic-reactjs'
 import moment from 'moment'
 
 import { Error, Spinner, Title } from '../components'
-import { useActions, useStore } from '../store'
+import { useStoreActions, useStoreState } from '../store'
 
 import './article.scss'
 
@@ -18,8 +18,8 @@ const Article: FunctionComponent<RouteComponentProps<Props>> = ({
     params: { slug }
   }
 }) => {
-  const { fetchOne } = useActions(actions => actions.posts)
-  const { posts, loading } = useStore(state => state.posts)
+  const { fetchOne } = useStoreActions(actions => actions.posts)
+  const { posts, loading } = useStoreState(state => state.posts)
 
   const post = posts.find(post => post.slug === slug)
 

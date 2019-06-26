@@ -3,13 +3,13 @@ import React, { FunctionComponent, useEffect } from 'react'
 import { RichText } from 'prismic-reactjs'
 
 import { Spinner, Title } from '../components'
-import { useActions, useStore } from '../store'
+import { useStoreActions, useStoreState } from '../store'
 
 import './playground.scss'
 
 const Playground: FunctionComponent = () => {
-  const { fetch } = useActions(actions => actions.projects)
-  const { projects, loading } = useStore(state => state.projects)
+  const { fetch } = useStoreActions(actions => actions.projects)
+  const { projects, loading } = useStoreState(state => state.projects)
 
   useEffect(() => {
     if (projects.length === 0) {
