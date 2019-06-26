@@ -1,27 +1,27 @@
-import { sortBy } from "lodash";
+import { sortBy } from 'lodash'
 // @ts-ignore
-import { Link, RichText } from "prismic-reactjs";
-import Prismic from "prismic-javascript";
-import moment from "moment";
+import { Link, RichText } from 'prismic-reactjs'
+import Prismic from 'prismic-javascript'
+import moment from 'moment'
 
 class Content {
-  client: any;
+  client: any
 
   async init() {
-    this.client = await Prismic.api("https://alizahid.cdn.prismic.io/api/v2");
+    this.client = await Prismic.api('https://alizahid.cdn.prismic.io/api/v2')
   }
 
   async fetchPosts(page: number = 1) {
     if (!this.client) {
-      await this.init();
+      await this.init()
     }
 
     const { results, total_pages } = await this.client.query(
-      Prismic.Predicates.at("document.type", "post"),
+      Prismic.Predicates.at('document.type', 'post'),
       {
         page
       }
-    );
+    )
 
     return {
       meta: {
@@ -30,29 +30,29 @@ class Content {
         total: total_pages
       },
       posts: results.map(this.normalizePost)
-    };
+    }
   }
 
   async fetchPost(slug: string) {
     if (!this.client) {
-      await this.init();
+      await this.init()
     }
 
-    const post = await this.client.getByUID("post", slug);
+    const post = await this.client.getByUID('post', slug)
 
-    return this.normalizePost(post);
+    return this.normalizePost(post)
   }
 
   async fetchProjects() {
     if (!this.client) {
-      await this.init();
+      await this.init()
     }
 
     const { results } = await this.client.query(
-      Prismic.Predicates.at("document.type", "project")
-    );
+      Prismic.Predicates.at('document.type', 'project')
+    )
 
-    return sortBy(results.map(this.normalizeProject), "order");
+    return sortBy(results.map(this.normalizeProject), 'order')
   }
 
   normalizePost(post: any) {
@@ -71,7 +71,7 @@ class Content {
           list: { url: thumb }
         }
       }
-    } = post;
+    } = post
 
     return {
       content,
@@ -80,11 +80,11 @@ class Content {
       thumb,
       created: moment(first_publication_date),
       excerpt: RichText.asText(excerpt),
-      featured: featured === "Yes",
+      featured: featured === 'Yes',
       slug: uid,
       title: RichText.asText(title),
       updated: moment(last_publication_date)
-    };
+    }
   }
 
   normalizeProject(project: any) {
@@ -99,7 +99,7 @@ class Content {
         title,
         image: { url }
       }
-    } = project;
+    } = project
 
     return {
       content,
@@ -113,8 +113,8 @@ class Content {
       slug: uid,
       title: RichText.asText(title),
       updated: moment(last_publication_date)
-    };
+    }
   }
 }
 
-export default new Content();
+export default new Content()

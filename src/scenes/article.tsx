@@ -1,16 +1,16 @@
-import React, { FunctionComponent, useEffect } from "react";
-import { RouteComponentProps } from "react-router-dom";
+import React, { FunctionComponent, useEffect } from 'react'
+import { RouteComponentProps } from 'react-router-dom'
 // @ts-ignore
-import { RichText } from "prismic-reactjs";
-import moment from "moment";
+import { RichText } from 'prismic-reactjs'
+import moment from 'moment'
 
-import { Error, Spinner, Title } from "../components";
-import { useActions, useStore } from "../store";
+import { Error, Spinner, Title } from '../components'
+import { useActions, useStore } from '../store'
 
-import "./article.scss";
+import './article.scss'
 
 interface Props {
-  slug: string;
+  slug: string
 }
 
 const Article: FunctionComponent<RouteComponentProps<Props>> = ({
@@ -18,34 +18,34 @@ const Article: FunctionComponent<RouteComponentProps<Props>> = ({
     params: { slug }
   }
 }) => {
-  const { fetchOne } = useActions(actions => actions.posts);
-  const { posts, loading } = useStore(state => state.posts);
+  const { fetchOne } = useActions(actions => actions.posts)
+  const { posts, loading } = useStore(state => state.posts)
 
-  const post = posts.find(post => post.slug === slug);
+  const post = posts.find(post => post.slug === slug)
 
   useEffect(() => {
     const fetchPost = async () => {
-      await fetchOne(slug);
-    };
+      await fetchOne(slug)
+    }
 
     if (!post) {
-      fetchPost();
+      fetchPost()
     }
-  }, [slug, post, fetchOne]);
+  }, [slug, post, fetchOne])
 
   if (loading) {
     return (
       <main>
         <Spinner />
       </main>
-    );
+    )
   }
 
   if (!post) {
-    return <Error />;
+    return <Error />
   }
 
-  const { content, created, hero, tags, title } = post;
+  const { content, created, hero, tags, title } = post
 
   return (
     <main className="article">
@@ -59,12 +59,12 @@ const Article: FunctionComponent<RouteComponentProps<Props>> = ({
           <span title={moment(created).format()}>
             {moment(created).fromNow()}
           </span>
-          <span>{tags.join(", ")}</span>
+          <span>{tags.join(', ')}</span>
         </div>
       </div>
       {RichText.render(content)}
     </main>
-  );
-};
+  )
+}
 
-export default Article;
+export default Article

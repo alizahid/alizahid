@@ -1,24 +1,24 @@
-import React, { FunctionComponent, useEffect } from "react";
-import { Link } from "react-router-dom";
-import moment from "moment";
-import obj from "obj-str";
+import React, { FunctionComponent, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import moment from 'moment'
+import obj from 'obj-str'
 
-import { Spinner, Title } from "../components";
-import { useActions, useStore } from "../store";
+import { Spinner, Title } from '../components'
+import { useActions, useStore } from '../store'
 
-import "./blog.scss";
+import './blog.scss'
 
 const Blog: FunctionComponent = () => {
-  const { fetch } = useActions(actions => actions.posts);
-  const { posts, meta, loading } = useStore(state => state.posts);
+  const { fetch } = useActions(actions => actions.posts)
+  const { posts, meta, loading } = useStore(state => state.posts)
 
   useEffect(() => {
     if (posts.length <= 1) {
-      fetch(1);
+      fetch(1)
     }
-  }, [posts, fetch]);
+  }, [posts, fetch])
 
-  const { more, next } = meta;
+  const { more, next } = meta
 
   return (
     <main className="blog">
@@ -48,7 +48,7 @@ const Blog: FunctionComponent = () => {
       {loading && <Spinner />}
       {more && next && <button onClick={() => fetch(next)}>More</button>}
     </main>
-  );
-};
+  )
+}
 
-export default Blog;
+export default Blog

@@ -1,4 +1,4 @@
-@import "../assets/variables";
+@import '../assets/variables';
 
 header {
   align-items: center;
@@ -37,7 +37,7 @@ header {
           background: $color-primary;
           border-radius: $border-radius;
           bottom: -$padding;
-          content: "";
+          content: '';
           height: 2px;
           left: 0;
           position: absolute;

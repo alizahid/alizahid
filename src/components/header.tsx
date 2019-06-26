@@ -1,9 +1,9 @@
-import React, { FunctionComponent } from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { FunctionComponent } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 
-import ali from "../assets/ali-zahid.jpg";
+import ali from '../assets/ali-zahid.jpg'
 
-import "./header.scss";
+import './header.scss'
 
 const Header: FunctionComponent = () => {
   return (
@@ -20,7 +20,7 @@ const Header: FunctionComponent = () => {
         <NavLink to="/about">About</NavLink>
       </nav>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

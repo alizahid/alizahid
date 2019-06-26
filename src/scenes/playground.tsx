@@ -1,21 +1,21 @@
-import React, { FunctionComponent, useEffect } from "react";
+import React, { FunctionComponent, useEffect } from 'react'
 // @ts-ignore
-import { RichText } from "prismic-reactjs";
+import { RichText } from 'prismic-reactjs'
 
-import { Spinner, Title } from "../components";
-import { useActions, useStore } from "../store";
+import { Spinner, Title } from '../components'
+import { useActions, useStore } from '../store'
 
-import "./playground.scss";
+import './playground.scss'
 
 const Playground: FunctionComponent = () => {
-  const { fetch } = useActions(actions => actions.projects);
-  const { projects, loading } = useStore(state => state.projects);
+  const { fetch } = useActions(actions => actions.projects)
+  const { projects, loading } = useStore(state => state.projects)
 
   useEffect(() => {
     if (projects.length === 0) {
-      fetch();
+      fetch()
     }
-  }, [projects, fetch]);
+  }, [projects, fetch])
 
   return (
     <main className="playground">
@@ -40,7 +40,7 @@ const Playground: FunctionComponent = () => {
         </article>
       ))}
     </main>
-  );
-};
+  )
+}
 
-export default Playground;
+export default Playground

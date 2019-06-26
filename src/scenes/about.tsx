@@ -1,9 +1,9 @@
-import React, { FunctionComponent } from "react";
-import { Link } from "react-router-dom";
+import React, { FunctionComponent } from 'react'
+import { Link } from 'react-router-dom'
 
-import ali from "../assets/ali-zahid.jpg";
+import ali from '../assets/ali-zahid.jpg'
 
-import "./about.scss";
+import './about.scss'
 
 const About: FunctionComponent = () => {
   return (
@@ -40,7 +40,7 @@ const About: FunctionComponent = () => {
         <a href="https://github.com/alizahid/alizahid">GitHub</a>.
       </p>
     </main>
-  );
-};
+  )
+}
 
-export default About;
+export default About

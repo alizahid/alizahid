@@ -1,9 +1,9 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent } from 'react'
 
-import "./spinner.scss";
+import './spinner.scss'
 
 const Spinner: FunctionComponent = () => {
-  return <div className="spinner" />;
-};
+  return <div className="spinner" />
+}
 
-export default Spinner;
+export default Spinner

@@ -1,10 +1,10 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent } from 'react'
 
-import "./error.scss";
+import './error.scss'
 
 interface Props {
-  message?: string;
-  title?: string;
+  message?: string
+  title?: string
 }
 
 const Error: FunctionComponent<Props> = ({
@@ -16,7 +16,7 @@ const Error: FunctionComponent<Props> = ({
       <h1>{title}</h1>
       <p>{message}</p>
     </div>
-  );
-};
+  )
+}
 
-export default Error;
+export default Error
