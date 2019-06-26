@@ -12,33 +12,33 @@
     "build": "react-scripts build"
   },
   "dependencies": {
-    "easy-peasy": "^2.3.0",
+    "easy-peasy": "^2.6.3",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "node-sass": "^4.12.0",
     "obj-str": "^1.0.3",
     "prismic-javascript": "^2.0.3",
-    "prismic-reactjs": "^0.3.2",
+    "prismic-reactjs": "^1.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
-    "react-router-dom": "^5.0.0",
-    "react-router-scroll-top": "^0.1.1",
+    "react-router-dom": "^5.0.1",
+    "react-router-scroll-top": "^0.2.1",
     "react-scripts": "3.0.1"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.132",
-    "@types/node": "^12.0.2",
+    "@types/lodash": "^4.14.134",
+    "@types/node": "^12.0.10",
     "@types/obj-str": "^1.0.0",
-    "@types/react": "16.8.18",
+    "@types/react": "16.8.22",
     "@types/react-dom": "16.8.4",
     "@types/react-helmet": "^5.0.8",
-    "@types/react-router-dom": "^4.3.3",
-    "husky": "^2.3.0",
-    "prettier": "^1.17.1",
-    "pretty-quick": "^1.11.0",
-    "typescript": "3.4.5"
+    "@types/react-router-dom": "^4.3.4",
+    "husky": "^2.5.0",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
+    "typescript": "3.5.2"
   },
   "eslintConfig": {
     "extends": "react-app"
