@@ -1,59 +1,51 @@
 {
   "name": "alizahid",
+  "license": "MIT",
   "author": {
     "name": "Ali Zahid",
     "email": "ali.zahid@live.com",
     "url": "https://designplox.com"
   },
-  "license": "MIT",
-  "private": true,
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "ts-node src/index.ts",
+    "dev": "concurrently 'yarn watch' 'yarn serve'",
+    "new": "ts-node scripts/create-post.ts",
+    "serve": "serve build",
+    "watch": "watch 'yarn build' posts src --wait 2"
   },
   "dependencies": {
-    "easy-peasy": "^2.6.3",
+    "copy": "^0.3.2",
+    "fs-extra": "^8.1.0",
+    "globby": "^10.0.0",
+    "imagemin": "^7.0.0",
+    "imagemin-jpegtran": "^6.0.0",
+    "imagemin-pngquant": "^8.0.0",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "node-sass": "^4.12.0",
-    "obj-str": "^1.0.3",
-    "prismic-javascript": "^2.0.3",
-    "prismic-reactjs": "^1.0.0",
-    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.1",
-    "react-router-dom": "^5.0.1",
-    "react-router-scroll-top": "^0.2.1",
-    "react-scripts": "3.0.1"
+    "react-markdown": "^4.1.0",
+    "sharp": "^0.22.1"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.134",
-    "@types/node": "^12.0.10",
-    "@types/obj-str": "^1.0.0",
-    "@types/react": "16.8.22",
-    "@types/react-dom": "16.8.4",
-    "@types/react-helmet": "^5.0.8",
-    "@types/react-router-dom": "^4.3.4",
-    "husky": "^2.5.0",
+    "@types/copy": "^0.3.1",
+    "@types/fs-extra": "^8.0.0",
+    "@types/imagemin": "^6.0.0",
+    "@types/imagemin-jpegtran": "^5.0.0",
+    "@types/lodash": "^4.14.135",
+    "@types/node-sass": "^4.11.0",
+    "@types/react": "^16.8.22",
+    "@types/react-dom": "^16.8.4",
+    "@types/sharp": "^0.22.2",
+    "concurrently": "^4.1.1",
+    "husky": "^3.0.0",
     "prettier": "^1.18.2",
     "pretty-quick": "^1.11.1",
-    "typescript": "3.5.2"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "serve": "^11.0.2",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.2",
+    "watch": "^1.0.2"
   },
   "husky": {
     "hooks": {

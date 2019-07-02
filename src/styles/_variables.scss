@@ -1,0 +1,19 @@
+$color-primary: #ff2d55;
+$color-accent: #5856d6;
+
+$color-background: #fff;
+$color-background-dark: darken($color-background, 2%);
+
+$color-text: #000;
+$color-text-light: lighten($color-text, 40%);
+
+$color-border: darken($color-background, 5%);
+$color-shadow: rgba(0, 0, 0, 0.05);
+
+$layout-margin: 2em;
+$layout-padding: 1em;
+$layout-size: 40em;
+
+$border-radius: 0.25em;
+
+$transition: 0.3s;

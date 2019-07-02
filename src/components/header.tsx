@@ -1,24 +1,16 @@
 import React, { FunctionComponent } from 'react'
-import { Link, NavLink } from 'react-router-dom'
-
-import ali from '../assets/ali-zahid.jpg'
-
-import './header.scss'
 
 const Header: FunctionComponent = () => {
   return (
-    <header>
-      <Link to="/">
-        <img src={ali} alt="Ali Zahid" />
+    <header className="header">
+      <div className="container">
+        <img src="/img/ali-zahid.jpg" />
         <h1>Ali Zahid</h1>
-      </Link>
-      <nav>
-        <NavLink to="/" exact>
-          Blog
-        </NavLink>
-        <NavLink to="/playground">Playground</NavLink>
-        <NavLink to="/about">About</NavLink>
-      </nav>
+        <nav>
+          <a href="/">Blog</a>
+          <a href="mailto:ali.zahid@live.com">Email</a>
+        </nav>
+      </div>
     </header>
   )
 }

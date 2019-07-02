@@ -1,4 +1,4 @@
-export { default as Error } from './error'
+export { default as Article } from './article'
 export { default as Header } from './header'
-export { default as Spinner } from './spinner'
-export { default as Title } from './title'
+export { default as Home } from './home'
+export { default as Layout } from './layout'
