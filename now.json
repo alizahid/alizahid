@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "name": "alizahid",
+  "alias": "alizahid.dev",
+  "builds": [
+    {
+      "config": {
+        "distDir": "build"
+      },
+      "src": "package.json",
+      "use": "@now/static-build"
+    }
+  ],
+  "regions": ["dub1", "hnd1", "sfo1"]
+}
