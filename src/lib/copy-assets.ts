@@ -71,7 +71,7 @@ export default async (posts: Post[]) => {
     posts.map(({ slug }) =>
       // @ts-ignore
       imagemin([`${out}/img/${slug}/*.{jpg,png}`], {
-        destination: `${out}/img/${slug}`,
+        destination: resolve(out, 'img', slug),
         plugins: [imageminJpegtran(), imageminPngquant()]
       })
     )
