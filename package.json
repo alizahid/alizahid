@@ -1,61 +1,32 @@
 {
   "name": "alizahid",
+  "private": true,
   "license": "MIT",
-  "author": {
-    "name": "Ali Zahid",
-    "email": "ali.zahid@live.com",
-    "url": "https://designplox.com"
-  },
   "scripts": {
-    "build": "ts-node src/index.ts",
-    "dev": "concurrently 'yarn watch' 'yarn serve'",
-    "new": "ts-node scripts/create-post.ts",
-    "serve": "serve build",
-    "watch": "watch 'yarn build' posts src --wait 2"
+    "build": "next build",
+    "dev": "env-cmd next",
+    "start": "next start"
   },
   "dependencies": {
-    "copy": "^0.3.2",
-    "fs-extra": "^8.1.0",
-    "globby": "^10.0.0",
-    "imagemin": "^7.0.0",
-    "imagemin-jpegtran": "^6.0.0",
-    "imagemin-pngquant": "^8.0.0",
-    "lodash": "^4.17.11",
+    "isomorphic-unfetch": "^3.0.0",
     "moment": "^2.24.0",
-    "node-sass": "^4.12.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-markdown": "^4.1.0",
-    "sharp": "^0.22.1"
+    "next": "^9.0.5",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-markdown": "^4.2.2"
   },
   "devDependencies": {
-    "@types/copy": "^0.3.1",
-    "@types/fs-extra": "^8.0.0",
-    "@types/imagemin": "^6.0.0",
-    "@types/imagemin-jpegtran": "^5.0.0",
-    "@types/lodash": "^4.14.135",
-    "@types/node-sass": "^4.11.0",
-    "@types/react": "^16.8.23",
-    "@types/react-dom": "^16.8.4",
-    "@types/sharp": "^0.22.2",
-    "concurrently": "^4.1.1",
-    "husky": "^3.0.0",
+    "@types/node": "^12.7.4",
+    "@types/react": "^16.9.2",
+    "env-cmd": "^10.0.1",
+    "husky": "^3.0.5",
     "prettier": "^1.18.2",
     "pretty-quick": "^1.11.1",
-    "serve": "^11.0.2",
-    "ts-node": "^8.3.0",
-    "typescript": "^3.5.2",
-    "watch": "^1.0.2"
+    "typescript": "^3.6.2"
   },
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged"
     }
-  },
-  "prettier": {
-    "bracketSpacing": true,
-    "semi": false,
-    "singleQuote": true,
-    "trailingComma": "none"
   }
 }
