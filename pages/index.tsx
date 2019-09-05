@@ -67,7 +67,7 @@ const Home: NextPage<Props> = ({ posts }) => {
 
         @media (max-width: 480px) {
           img {
-            margin-left: calc(-${layout.gutter} / 2);
+            margin-left: -${layout.gutter};
             max-width: 100vw;
             width: 100vw;
           }

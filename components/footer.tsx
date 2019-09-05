@@ -81,6 +81,11 @@ const Footer: FunctionComponent = () => {
             align-items: center;
             justify-content: space-between;
           }
+
+          nav a {
+            height: 1em;
+            width: 1em;
+          }
         }
 
         @media (max-width: 480px) {

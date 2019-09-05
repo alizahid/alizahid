@@ -95,7 +95,7 @@ const Article: NextPage<Props> = ({ post }) => {
 
         @media (max-width: 480px) {
           .hero {
-            margin-left: calc(-${layout.gutter} / 2);
+            margin-left: -${layout.gutter};
             width: 100vw;
           }
         }
