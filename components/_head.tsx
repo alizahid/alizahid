@@ -28,7 +28,7 @@ const Head: FunctionComponent<Props> = ({ description, title }) => (
         rel="stylesheet"
       />
     </NextHead>
-    <style global jsx>{`
+    <style jsx global>{`
       * {
         border-radius: 0;
         box-sizing: border-box;
@@ -89,6 +89,28 @@ const Head: FunctionComponent<Props> = ({ description, title }) => (
       h3 {
         font-size: 2em;
         margin-bottom: 0.5em;
+      }
+
+      hr {
+        border: none;
+        height: 2px;
+        margin: 2em 0;
+        position: relative;
+      }
+
+      hr:before {
+        background: linear-gradient(
+          to left,
+          rgba(0, 0, 0, 0.01),
+          rgba(0, 0, 0, 0.05),
+          rgba(0, 0, 0, 0.01)
+        );
+        content: '';
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
       }
 
       img {
