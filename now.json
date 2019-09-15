@@ -1,7 +1,6 @@
 {
   "version": 2,
   "name": "alizahid",
-  "alias": "alizahid.dev",
   "regions": ["dub1", "hnd1", "sfo1"],
   "build": {
     "env": {
