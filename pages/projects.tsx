@@ -15,6 +15,7 @@ const Projects: NextPage<Props> = ({ projects }) => {
     <Fragment>
       <Header description="My works" title="Ali Zahid" />
       <main>
+        <h1>Projects</h1>
         {projects.map(({ description, links, name }, index) => (
           <article key={index}>
             <figure>
