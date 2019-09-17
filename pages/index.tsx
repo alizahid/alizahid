@@ -17,14 +17,17 @@ const Home: NextPage<Props> = ({ posts }) => {
     <Fragment>
       <Header description="My works and words" title="Ali Zahid" />
       <main>
-        {posts.map(({ excerpt, published, slug, title }, index) => (
+        {posts.map(({ excerpt, published, slug, tags, title }, index) => (
           <Link key={index} href={`/blog/${slug}`}>
             <a>
               <article>
                 <img src={`/static/blog/${slug}/hero.png`} alt={title} />
                 <h2>{title}</h2>
                 <p>{excerpt}</p>
-                <span>{moment(published).fromNow()}</span>
+                <footer>
+                  <span>{moment(published).fromNow()}</span>
+                  <span>{tags.sort().join(', ')}</span>
+                </footer>
               </article>
             </a>
           </Link>
@@ -44,15 +47,23 @@ const Home: NextPage<Props> = ({ posts }) => {
           margin: 3em 0;
         }
 
+        img {
+          display: block;
+          margin: 1em 0;
+        }
+
         h2 {
           font-size: 1.5em;
           margin: 1em 0 0;
           transition: 0.3s;
         }
 
-        img {
-          display: block;
-          margin: 1em 0;
+        footer {
+          line-height: 1.6;
+        }
+
+        footer span:not(:first-child) {
+          margin-left: 1em;
         }
 
         span {

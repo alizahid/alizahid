@@ -28,7 +28,7 @@ const Article: NextPage<Props> = ({ post }) => {
         <h1>{title}</h1>
         <p className="meta">
           <span>{moment(published).fromNow()}</span>
-          <span>{tags.join(', ')}</span>
+          <span>{tags.sort().join(', ')}</span>
         </p>
         <figure className="hero">
           <img src={`/static/blog/${slug}/hero.png`} alt={title} />
