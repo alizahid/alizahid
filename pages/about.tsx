@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React, { Fragment, FunctionComponent } from 'react'
 
 import { Header } from '../components'
-import { colors } from '../lib/styles'
+import { colors, layout } from '../lib/styles'
 
 const About: FunctionComponent = () => {
   return (
@@ -79,7 +79,7 @@ const About: FunctionComponent = () => {
           background-image: url('/static/social/twitter.svg');
         }
 
-        @media (min-width: 480px) {
+        @media (min-width: ${layout.width}) {
           footer {
             align-items: center;
             display: flex;
@@ -91,7 +91,7 @@ const About: FunctionComponent = () => {
           }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: ${layout.width}) {
           footer {
             display: flex;
             flex-direction: column;

@@ -59,13 +59,13 @@ const Home: NextPage<Props> = ({ posts }) => {
           color: ${colors.foregroundLight};
         }
 
-        @media (min-width: 480px) {
+        @media (min-width: ${layout.width}) {
           img {
             border-radius: 0.25em;
           }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: ${layout.width}) {
           img {
             margin-left: -${layout.gutter};
             max-width: 100vw;

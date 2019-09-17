@@ -77,7 +77,7 @@ const Article: NextPage<Props> = ({ post }) => {
           text-align: center;
         }
 
-        @media (min-width: 480px) {
+        @media (min-width: ${layout.width}) {
           img {
             border-radius: 0.25em;
           }
@@ -93,7 +93,7 @@ const Article: NextPage<Props> = ({ post }) => {
           }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: ${layout.width}) {
           .hero {
             margin-left: -${layout.gutter};
             width: 100vw;

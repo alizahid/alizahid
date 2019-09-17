@@ -1,6 +1,6 @@
 import React, { Fragment, FunctionComponent } from 'react'
 
-import { colors } from '../lib/styles'
+import { colors, layout } from '../lib/styles'
 
 const Footer: FunctionComponent = () => {
   const date = new Date()
@@ -76,7 +76,7 @@ const Footer: FunctionComponent = () => {
           background-image: url('/static/social/twitter.svg');
         }
 
-        @media (min-width: 480px) {
+        @media (min-width: ${layout.width}) {
           footer {
             align-items: center;
             justify-content: space-between;
@@ -88,7 +88,7 @@ const Footer: FunctionComponent = () => {
           }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: ${layout.width}) {
           footer {
             display: flex;
             flex-direction: column;
