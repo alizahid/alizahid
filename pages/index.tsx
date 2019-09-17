@@ -46,7 +46,7 @@ const Home: NextPage<Props> = ({ posts }) => {
 
         h2 {
           font-size: 1.5em;
-          margin: 0;
+          margin: 1em 0 0;
           transition: 0.3s;
         }
 
