@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-unfetch'
 import { NextPage } from 'next'
 import React, { Fragment } from 'react'
+import Markdown from 'react-markdown'
 
 import { Footer, Header } from '../components'
 import { Project } from '../lib/types'
@@ -24,7 +25,7 @@ const Projects: NextPage<Props> = ({ projects }) => {
             </figure>
             <section>
               <h2>{name}</h2>
-              <p>{description}</p>
+              <Markdown source={description} />
               <footer>
                 {links.map(({ label, link }, index) => (
                   <a key={index} href={link}>
@@ -50,6 +51,7 @@ const Projects: NextPage<Props> = ({ projects }) => {
         }
 
         section {
+          flex: 1;
           margin-left: 2em;
         }
 
