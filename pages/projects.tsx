@@ -16,26 +16,46 @@ const Projects: NextPage<Props> = ({ projects }) => {
       <main>
         {projects.map(({ description, links, name }, index) => (
           <article key={index}>
-            <h2>{name}</h2>
-            <p>{description}</p>
-            <footer>
-              {links.map(({ label, link }, index) => (
-                <a key={index} href={link}>
-                  {label}
-                </a>
-              ))}
-            </footer>
+            <figure>
+              <img
+                src={`/static/projects/${name.toLowerCase()}.png`}
+                alt={name}
+              />
+            </figure>
+            <section>
+              <h2>{name}</h2>
+              <p>{description}</p>
+              <footer>
+                {links.map(({ label, link }, index) => (
+                  <a key={index} href={link}>
+                    {label}
+                  </a>
+                ))}
+              </footer>
+            </section>
           </article>
         ))}
       </main>
       <Footer />
       <style jsx>{`
         article {
+          align-items: center;
+          display: flex;
           margin: 3em 0;
+        }
+
+        img {
+          height: 4em;
+          width: 4em;
+        }
+
+        section {
+          margin-left: 2em;
         }
 
         h2 {
           font-size: 2em;
+          margin: 0;
         }
 
         footer {
