@@ -13,7 +13,7 @@ interface Props {
 const Projects: NextPage<Props> = ({ projects }) => {
   return (
     <Fragment>
-      <Header description="My works and words" title="Ali Zahid" />
+      <Header description="My works" title="Ali Zahid" />
       <main>
         {projects.map(({ description, links, name }, index) => (
           <article key={index}>
