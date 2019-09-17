@@ -10,12 +10,12 @@ interface Props {
   projects: Project[]
 }
 
-const Projects: NextPage<Props> = ({ projects }) => {
+const Playground: NextPage<Props> = ({ projects }) => {
   return (
     <Fragment>
       <Header description="My works" title="Ali Zahid" />
       <main>
-        <h1>Projects</h1>
+        <h1>Playground</h1>
         {projects.map(({ description, links, name }, index) => (
           <article key={index}>
             <figure>
@@ -73,7 +73,7 @@ const Projects: NextPage<Props> = ({ projects }) => {
   )
 }
 
-Projects.getInitialProps = async () => {
+Playground.getInitialProps = async () => {
   const response = await fetch(process.env.uri + '/projects')
 
   const { projects } = await response.json()
@@ -83,4 +83,4 @@ Projects.getInitialProps = async () => {
   }
 }
 
-export default Projects
+export default Playground

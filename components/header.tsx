@@ -25,9 +25,9 @@ const Header: FunctionComponent<Props> = ({ description, title }) => {
           </a>
         </Link>
         <nav>
-          <Link href="/projects">
-            <a className={`${route === '/projects' ? 'active' : ''}`}>
-              Projects
+          <Link href="/playground">
+            <a className={`${route === '/playground' ? 'active' : ''}`}>
+              Playground
             </a>
           </Link>
           <Link href="/about">

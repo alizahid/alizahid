@@ -12,7 +12,7 @@ const About: FunctionComponent = () => {
       <h1>I have a patent on blowing minds with epic design.</h1>
       <p>
         Hi. I'm Ali Zahid. I love to build cool stuff. Check out my&nbsp;
-        <Link href="/projects">
+        <Link href="/playground">
           <a>playground</a>
         </Link>
         .
