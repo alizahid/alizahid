@@ -72,8 +72,18 @@ const Article: NextPage<Props> = ({ post }) => {
 
         figcaption {
           color: ${colors.foregroundLight};
-          line-height: 1.4;
+          line-height: 1.6;
           margin: 1em;
+          text-align: center;
+        }
+
+        .image :global(img) {
+          display: block;
+          margin: auto;
+        }
+
+        :global(blockquote) {
+          color: ${colors.foregroundLight};
           text-align: center;
         }
 
@@ -83,7 +93,7 @@ const Article: NextPage<Props> = ({ post }) => {
           }
 
           .hero {
-            margin: 0 -10em;
+            margin: 0 -10em 4em;
             width: calc(${layout.width} - (${layout.gutter} * 2) + 20em);
           }
 
@@ -95,6 +105,7 @@ const Article: NextPage<Props> = ({ post }) => {
 
         @media (max-width: ${layout.width}) {
           .hero {
+            margin-bottom: 2em;
             margin-left: -${layout.gutter};
             width: 100vw;
           }

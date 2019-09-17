@@ -129,13 +129,21 @@ const Head: FunctionComponent<Props> = ({ description, title }) => (
         margin: 1em 0 1em 2em;
       }
 
-      ol li {
+      ul li {
         list-style: square;
       }
 
       p {
         margin: 1em 0;
         line-height: 1.6;
+      }
+
+      pre {
+        background: #f6f7f8;
+        border-radius: 0.25em;
+        margin: 1em 0;
+        overflow: auto;
+        padding: 1em;
       }
 
       #__next {
