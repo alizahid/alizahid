@@ -126,7 +126,7 @@ const Head: FunctionComponent<Props> = ({ description, title }) => (
       ol li,
       ul li {
         line-height: 1.6;
-        margin: 1em 0 1em 2em;
+        margin: 0.5em 0 -em 2em;
       }
 
       ul li {
