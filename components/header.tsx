@@ -40,7 +40,7 @@ const Header: FunctionComponent<Props> = ({ description, title }) => {
           align-items: center;
           display: flex;
           justify-content: space-between;
-          margin: 2em 0;
+          margin: 3em 0;
         }
 
         img {

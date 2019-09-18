@@ -28,7 +28,7 @@ const Footer: FunctionComponent = () => {
       <style jsx>{`
         footer {
           display: flex;
-          margin: 2em 0;
+          margin: 3em 0;
         }
 
         footer a {
