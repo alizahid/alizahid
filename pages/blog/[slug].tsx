@@ -27,7 +27,7 @@ const Article: NextPage<Props> = ({ post }) => {
       <main>
         <h1>{title}</h1>
         <p className="meta">
-          <span>{moment(published).fromNow()}</span>
+          <span>{moment(Number(published.$date.$numberLong)).fromNow()}</span>
           <span>{tags.sort().join(', ')}</span>
         </p>
         <figure className="hero">

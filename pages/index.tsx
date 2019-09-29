@@ -25,7 +25,9 @@ const Home: NextPage<Props> = ({ posts }) => {
                 <h2>{title}</h2>
                 <p>{excerpt}</p>
                 <footer>
-                  <span>{moment(published).fromNow()}</span>
+                  <span>
+                    {moment(Number(published.$date.$numberLong)).fromNow()}
+                  </span>
                   <span>{tags.sort().join(', ')}</span>
                 </footer>
               </article>

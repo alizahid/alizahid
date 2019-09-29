@@ -1,7 +1,11 @@
 export interface Post {
   content: string
   excerpt: string
-  published: string
+  published: {
+    $date: {
+      $numberLong: string
+    }
+  }
   slug: string
   tags: string[]
   title: string
