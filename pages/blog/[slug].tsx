@@ -47,7 +47,11 @@ const Article: NextPage<Props> = ({ post }) => {
                 children[0].props &&
                 children[0].props.src
               ) {
-                return <figure className="image">{children}</figure>
+                return (
+                  <a href={children[0].props.src}>
+                    <figure className="image">{children}</figure>
+                  </a>
+                )
               }
 
               return <p>{children}</p>
