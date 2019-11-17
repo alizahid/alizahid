@@ -1,11 +1,11 @@
-import fetch from 'isomorphic-unfetch'
+import axios from 'axios'
 import moment from 'moment'
 import { NextPage } from 'next'
+import Head from 'next/head'
 import Link from 'next/link'
-import React, { Fragment } from 'react'
+import React from 'react'
 
 import { Footer, Header } from '../components'
-import { colors, layout } from '../lib/styles'
 import { Post } from '../lib/types'
 
 interface Props {
@@ -14,86 +14,47 @@ interface Props {
 
 const Home: NextPage<Props> = ({ posts }) => {
   return (
-    <Fragment>
-      <Header description="My works and words" title="Ali Zahid" />
+    <>
+      <Head>
+        <title>Ali Zahid</title>
+        <meta name="description" content="My works and words" />
+      </Head>
+
+      <Header />
+
       <main>
         {posts.map(({ excerpt, published, slug, tags, title }, index) => (
           <Link key={index} href={`/blog/${slug}`}>
-            <a>
-              <article>
-                <img src={`/static/blog/${slug}/hero.png`} alt={title} />
-                <h2>{title}</h2>
-                <p>{excerpt}</p>
+            <a className="block my-12 hover:text-primary">
+              <figure className="-mx-8 lg:mx-0 lg:rounded lg:overflow-hidden lg:shadow">
+                <img src={`/blog/${slug}/hero.png`} alt={title} />
+              </figure>
+              <article className="mt-4">
+                <h2 className="text-3xl font-semibold">{title}</h2>
+                <p className="my-4 text-gray-900">{excerpt}</p>
                 <footer>
-                  <span>
+                  <span className="text-gray-500">
                     {moment(Number(published.$date.$numberLong)).fromNow()}
                   </span>
-                  <span>{tags.sort().join(', ')}</span>
+                  <span className="text-gray-500 ml-4">
+                    {tags.sort().join(', ')}
+                  </span>
                 </footer>
               </article>
             </a>
           </Link>
         ))}
       </main>
+
       <Footer />
-      <style jsx>{`
-        a {
-          color: ${colors.foreground};
-        }
-
-        a:hover h2 {
-          color: ${colors.primary};
-        }
-
-        article {
-          margin: 3em 0;
-        }
-
-        img {
-          display: block;
-          margin: 1em 0;
-        }
-
-        h2 {
-          font-size: 1.5em;
-          margin: 1em 0 0;
-          transition: 0.3s;
-        }
-
-        footer {
-          line-height: 1.6;
-        }
-
-        footer span:not(:first-child) {
-          margin-left: 1em;
-        }
-
-        span {
-          color: ${colors.foregroundLight};
-        }
-
-        @media (min-width: ${layout.width}) {
-          img {
-            border-radius: 0.25em;
-          }
-        }
-
-        @media (max-width: ${layout.width}) {
-          img {
-            margin-left: -${layout.gutter};
-            max-width: 100vw;
-            width: 100vw;
-          }
-        }
-      `}</style>
-    </Fragment>
+    </>
   )
 }
 
 Home.getInitialProps = async () => {
-  const response = await fetch(process.env.uri + '/posts')
-
-  const { posts } = await response.json()
+  const {
+    data: { posts }
+  } = await axios(`${process.env.uri}/posts`)
 
   return {
     posts

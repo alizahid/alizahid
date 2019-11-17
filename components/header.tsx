@@ -1,75 +1,48 @@
+import clsx from 'clsx'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React, { Fragment, FunctionComponent } from 'react'
+import React, { FunctionComponent } from 'react'
 
-import { colors } from '../lib/styles'
-import Head from './_head'
-
-interface Props {
-  description: string
-  title: string
-}
-
-const Header: FunctionComponent<Props> = ({ description, title }) => {
+export const Header: FunctionComponent = () => {
   const { route } = useRouter()
 
   return (
-    <Fragment>
-      <Head description={description} title={title} />
-      <header>
-        <Link href="/">
-          <a>
-            <img
-              src={`/static/${Date.now() % 2 === 0 ? 'square' : 'circle'}.svg`}
-            />
+    <header className="flex items-center justify-between my-8">
+      <Link href="/">
+        <a>
+          <img
+            className="h-12"
+            src={`/${Date.now() % 2 === 0 ? 'square' : 'circle'}.svg`}
+          />
+        </a>
+      </Link>
+      <nav>
+        <Link href="/playground">
+          <a
+            className={clsx(
+              'text-gray-500',
+
+              'hover:text-primary',
+
+              route === '/playground' && 'text-primary'
+            )}>
+            Playground
           </a>
         </Link>
-        <nav>
-          <Link href="/playground">
-            <a className={`${route === '/playground' ? 'active' : ''}`}>
-              Playground
-            </a>
-          </Link>
-          <Link href="/about">
-            <a className={`${route === '/about' ? 'active' : ''}`}>About</a>
-          </Link>
-        </nav>
-      </header>
-      <style jsx>{`
-        header {
-          align-items: center;
-          display: flex;
-          justify-content: space-between;
-          margin: 3em 0;
-        }
+        <Link href="/about">
+          <a
+            className={clsx(
+              'ml-4',
+              'text-gray-500',
 
-        img {
-          height: 3em;
-        }
+              'hover:text-primary',
 
-        nav {
-          align-items: center;
-          display: flex;
-        }
-
-        nav a {
-          color: ${colors.foregroundLight};
-        }
-
-        nav a:hover {
-          color: ${colors.foreground};
-        }
-
-        nav a:not(:first-child) {
-          margin-left: 1em;
-        }
-
-        nav a.active {
-          color: ${colors.primary};
-        }
-      `}</style>
-    </Fragment>
+              route === '/about' && 'text-primary'
+            )}>
+            About
+          </a>
+        </Link>
+      </nav>
+    </header>
   )
 }
-
-export default Header

@@ -1,13 +1,11 @@
-import fetch from 'isomorphic-unfetch'
+import axios from 'axios'
 import moment from 'moment'
 import { NextPage } from 'next'
 import Error from 'next/error'
-import React, { Fragment } from 'react'
-import Markdown from 'react-markdown'
+import Head from 'next/head'
+import React from 'react'
 
-import { Footer, Header } from '../../components'
-import { imagePath } from '../../lib'
-import { colors, layout } from '../../lib/styles'
+import { Body, Footer, Header } from '../../components'
 import { Post } from '../../lib/types'
 
 interface Props {
@@ -22,109 +20,40 @@ const Article: NextPage<Props> = ({ post }) => {
   const { content, excerpt, published, slug, tags, title } = post
 
   return (
-    <Fragment>
-      <Header description={excerpt} title={title} />
+    <>
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={excerpt} />
+      </Head>
+
+      <Header />
+
       <main>
-        <h1>{title}</h1>
-        <p className="meta">
+        <h1 className="text-5xl font-semibold">{title}</h1>
+        <p className="text-gray-500">
           <span>{moment(Number(published.$date.$numberLong)).fromNow()}</span>
-          <span>{tags.sort().join(', ')}</span>
+          <span className="ml-4">{tags.sort().join(', ')}</span>
         </p>
-        <figure className="hero">
-          <img src={`/static/blog/${slug}/hero.png`} alt={title} />
-          <figcaption>{excerpt}</figcaption>
+        <figure className="-mx-8 mt-8 lg:mb-8 lg:mx-0 lg:rounded lg:overflow-hidden lg:shadow">
+          <img src={`/blog/${slug}/hero.png`} alt={title} />
+          <figcaption className="text-gray-700 p-8 lg:p-4">
+            {excerpt}
+          </figcaption>
         </figure>
-        <Markdown
-          source={content}
-          renderers={{
-            paragraph(props) {
-              const { children } = props
-
-              if (
-                children &&
-                children[0] &&
-                children.length === 1 &&
-                children[0].props &&
-                children[0].props.src
-              ) {
-                return (
-                  <a href={children[0].props.src}>
-                    <figure className="image">{children}</figure>
-                  </a>
-                )
-              }
-
-              return <p>{children}</p>
-            }
-          }}
-          transformImageUri={path => imagePath(slug, path)}
-        />
+        <Body className="mb-12" body={content} slug={slug} />
       </main>
+
       <Footer />
-      <style jsx>{`
-        .meta {
-          color: ${colors.foregroundLight};
-        }
-
-        .meta span:not(:first-child) {
-          margin-left: 1em;
-        }
-
-        .hero {
-          display: block;
-        }
-
-        figcaption {
-          color: ${colors.foregroundLight};
-          line-height: 1.6;
-          margin: 1em;
-          text-align: center;
-        }
-
-        .image :global(img) {
-          display: block;
-          margin: auto;
-        }
-
-        :global(blockquote) {
-          color: ${colors.foregroundLight};
-          text-align: center;
-        }
-
-        @media (min-width: ${layout.width}) {
-          img {
-            border-radius: 0.25em;
-          }
-
-          .hero {
-            margin: 0 -10em 4em;
-            width: calc(${layout.width} - (${layout.gutter} * 2) + 20em);
-          }
-
-          .image {
-            margin: 2em -5em;
-            width: calc(${layout.width} - (${layout.gutter} * 2) + 10em);
-          }
-        }
-
-        @media (max-width: ${layout.width}) {
-          .hero {
-            margin-bottom: 2em;
-            margin-left: -${layout.gutter};
-            width: 100vw;
-          }
-        }
-      `}</style>
-    </Fragment>
+    </>
   )
 }
 
 Article.getInitialProps = async ({ query }) => {
   const { slug } = query
 
-  const response = await fetch(process.env.uri + `/post?slug=${slug}`)
-
-  const { post } = await response.json()
+  const {
+    data: { post }
+  } = await axios(`${process.env.uri}/post?slug=${slug}`)
 
   return {
     post
