@@ -22,7 +22,7 @@ const Article: NextPage<Props> = ({ post }) => {
   return (
     <>
       <Head>
-        <title>{title}</title>
+        <title>{title} / Ali Zahid</title>
         <meta name="description" content={excerpt} />
       </Head>
 

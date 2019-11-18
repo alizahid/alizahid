@@ -8,7 +8,7 @@ const About: FunctionComponent = () => {
   return (
     <>
       <Head>
-        <title>About</title>
+        <title>About / Ali Zahid</title>
         <meta name="description" content="About me" />
       </Head>
 

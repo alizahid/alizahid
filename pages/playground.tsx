@@ -14,7 +14,7 @@ const Playground: NextPage<Props> = ({ projects }) => {
   return (
     <>
       <Head>
-        <title>Ali Zahid</title>
+        <title>Playground / Ali Zahid</title>
         <meta name="description" content="My works" />
       </Head>
 
