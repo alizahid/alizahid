@@ -4,7 +4,7 @@ import Head from 'next/head'
 import React from 'react'
 
 import { Footer, Header } from '../components'
-import { content } from '../lib'
+import { api } from '../lib'
 import { Post } from '../types'
 
 interface Props {
@@ -42,7 +42,7 @@ const Home: NextPage<Props> = ({ posts }) => (
         <a
           className="bg-primary px-3 py-2 rounded text-white hover:text-white"
           href="https://medium.com/@alizahid0">
-          More
+          More on Medium
         </a>
       </div>
     </main>
@@ -52,9 +52,7 @@ const Home: NextPage<Props> = ({ posts }) => (
 )
 
 Home.getInitialProps = async () => {
-  const posts = await content.posts()
-
-  console.log(posts)
+  const posts = await api.posts()
 
   return {
     posts

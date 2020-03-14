@@ -1,5 +1,10 @@
 {
   "version": 2,
   "name": "alizahid",
-  "regions": ["dub1", "hnd1", "sfo1"]
+  "regions": ["dub1", "hnd1", "sfo1"],
+  "build": {
+    "env": {
+      "URI": "@blog-uri"
+    }
+  }
 }
