@@ -11,75 +11,15 @@
 // global
 
 a {
+  @apply text-primary;
+
+  &:hover {
+    @apply text-black;
+  }
+
   transition: 0.2s;
 }
 
-// components
-
-.markdown {
-  a {
-    @apply text-primary;
-  }
-
-  blockquote {
-    @apply text-gray-500 text-center;
-  }
-
-  h2,
-  h3,
-  h4 {
-    @apply my-4 font-semibold;
-  }
-
-  h2 {
-    @apply text-4xl;
-  }
-
-  h3 {
-    @apply text-3xl;
-  }
-
-  h4 {
-    @apply text-2xl;
-  }
-
-  hr {
-    @apply my-8;
-  }
-
-  li {
-    @apply my-4 ml-8;
-  }
-
-  ol {
-    li {
-      @apply list-decimal;
-    }
-  }
-
-  p {
-    @apply my-4;
-  }
-
-  pre {
-    @apply bg-gray-100 shadow rounded overflow-auto p-4 my-4;
-  }
-
-  ul {
-    li {
-      list-style: square;
-    }
-  }
-
-  .image {
-    @apply block mx-auto my-8;
-
-    img {
-      @apply mx-auto;
-    }
-
-    & + blockquote {
-      @apply -mt-4 mb-8;
-    }
-  }
+p {
+  @apply my-2;
 }

@@ -10,27 +10,25 @@ export const Footer: FunctionComponent = () => {
   }
 
   return (
-    <footer className="flex flex-col lg:flex-row lg:items-center lg:justify-between my-8">
-      <span className="text-gray-600 text-center lg:text-left">
-        &copy; {year} / Powered by&nbsp;
-        <a href="https://www.mongodb.com/cloud/stitch">Stitch</a> and&nbsp;
-        <a href="https://nextjs.org/">Next</a>
+    <footer className="flex flex-row items-center justify-between my-8">
+      <span className="text-sm text-gray-600 text-center lg:text-left">
+        &copy; {year}
       </span>
       <nav className="flex items-center justify-center mt-4 lg:mt-0">
         <a
           className="opacity-25 hover:opacity-100"
           href="https://github.com/alizahid">
-          <img className="h-6" src="/social/github.svg" alt="GitHub" />
+          <img alt="GitHub" className="h-4" src="/social/github.svg" />
         </a>
         <a
           className="opacity-25 hover:opacity-100 ml-4"
           href="https://twitter.com/alizahid0">
-          <img className="h-6" src="/social/twitter.svg" alt="Twitter" />
+          <img alt="Twitter" className="h-4" src="/social/twitter.svg" />
         </a>
         <a
           className="opacity-25 hover:opacity-100 ml-4"
           href="https://dribbble.com/alizahid">
-          <img className="h-6" src="/social/dribbble.svg" alt="Dribbble" />
+          <img alt="Dribbble" className="h-4" src="/social/dribbble.svg" />
         </a>
       </nav>
     </footer>

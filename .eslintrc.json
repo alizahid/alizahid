@@ -1,4 +1,7 @@
 {
+  "env": {
+    "node": true
+  },
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
@@ -6,18 +9,29 @@
     "plugin:react/recommended",
     "prettier/@typescript-eslint"
   ],
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    }
+  ],
   "parser": "@typescript-eslint/parser",
   "plugins": [
     "@typescript-eslint",
     "sort-keys-fix",
+    "sort-destructure-keys",
     "simple-import-sort",
     "prettier"
   ],
   "rules": {
     "@typescript-eslint/explicit-function-return-type": "off",
     "prettier/prettier": "error",
+    "react/jsx-sort-props": "error",
     "react/prop-types": "off",
     "simple-import-sort/sort": "error",
+    "sort-destructure-keys/sort-destructure-keys": "error",
     "sort-keys-fix/sort-keys-fix": "error"
   },
   "settings": {
