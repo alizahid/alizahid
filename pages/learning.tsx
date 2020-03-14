@@ -40,7 +40,7 @@ const Learning: NextPage<Props> = ({ courses }) => {
                 <figure>
                   <img
                     alt={title}
-                    className="w-full lg:w-auto lg:h-24 rounded"
+                    className="w-full lg:w-32 lg:h-24 rounded"
                     src={video.image}
                   />
                 </figure>
@@ -52,6 +52,11 @@ const Learning: NextPage<Props> = ({ courses }) => {
             ))}
           </article>
         ))}
+        {courses.length === 0 && (
+          <div>
+            <p>Nothing here right now. Please check back later.</p>
+          </div>
+        )}
       </main>
 
       <Footer />
