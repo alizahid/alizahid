@@ -11,14 +11,10 @@
 // global
 
 a {
-  @apply text-primary duration-200 transition-all;
+  @apply text-primary duration-200 transition-colors;
 
   &:hover {
-    filter: brightness(1.1);
-  }
-
-  &:active {
-    filter: brightness(0.9);
+    @apply text-accent;
   }
 }
 
