@@ -19,6 +19,9 @@ module.exports = {
           'Apple Color Emoji',
           'Segoe UI Emoji'
         ]
+      },
+      width: {
+        product: 'calc(100% / 3 - 2rem)'
       }
     }
   },

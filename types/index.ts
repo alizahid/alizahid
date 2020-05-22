@@ -7,6 +7,18 @@ export interface Post {
   title: string
 }
 
+export interface Product {
+  available: boolean
+  condition: string
+  description: string
+  image: string
+  link: string
+  name: string
+  originalPrice: number
+  price: number
+  quantity: number
+}
+
 export interface Course {
   chapters: CourseChapter[]
   description: []

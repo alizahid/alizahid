@@ -8,6 +8,7 @@ import {
   Post,
   PrismicChapter,
   PrismicLink,
+  Product,
   Project
 } from '../types'
 
@@ -82,6 +83,43 @@ class Content {
         title: title.pop().text
       }))
       .sort((one, two) => (one.order > two.order ? 1 : -1))
+  }
+
+  async products(): Promise<Product[]> {
+    const prismic = await this.initPrismic()
+
+    const { results } = await prismic.query(
+      Prismic.Predicates.at('document.type', 'product'),
+      {
+        orderings: '[my.product.name]'
+      }
+    )
+
+    return results.map(
+      ({
+        data: {
+          available,
+          condition,
+          description,
+          image,
+          link,
+          name,
+          original_price,
+          price,
+          quantity
+        }
+      }) => ({
+        available: available !== 'No',
+        condition,
+        description,
+        image,
+        link,
+        name,
+        originalPrice: original_price,
+        price,
+        quantity: Number(quantity)
+      })
+    )
   }
 }
 
