@@ -45,10 +45,10 @@ const Sale: NextPage<Props> = ({ products }) => (
         </a>
         .
       </p>
-      <section className="flex flex-wrap -mx-4">
+      <section className="lg:flex lg:flex-wrap lg:-mx-4">
         {products.map((product, index) => (
           <article
-            className={`w-product relative rounded shadow m-4 p-4 ${
+            className={`lg:w-product relative rounded shadow mt-8 lg:m-4 p-4 ${
               product.available ? '' : 'opacity-25'
             }`}
             key={index}>
