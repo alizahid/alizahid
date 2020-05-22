@@ -39,7 +39,7 @@ const Learning: NextPage<Props> = ({ courses }) => (
                 />
               </figure>
               <section className="text-black mt-4 lg:mt-0 lg:ml-4">
-                <h4 className="text-primary text-lg font-medium">{title}</h4>
+                <h4 className="text-red-500 text-lg font-medium">{title}</h4>
                 <RichText render={details} />
               </section>
             </a>

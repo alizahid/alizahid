@@ -20,7 +20,7 @@ const Home: NextPage<Props> = ({ posts }) => (
     <main>
       {posts.map(({ date, excerpt, image, link, tags, title }, index) => (
         <a
-          className="block my-12 text-black hover:text-primary"
+          className="block my-12 text-black hover:text-red-500"
           href={link}
           key={index}>
           <figure className="-mx-8 lg:mx-0">
@@ -40,7 +40,7 @@ const Home: NextPage<Props> = ({ posts }) => (
       ))}
       <div className="flex">
         <a
-          className="bg-primary px-3 py-2 rounded text-white hover:text-white"
+          className="bg-red-500 px-3 py-2 rounded text-white hover:text-white"
           href="https://medium.com/@alizahid0">
           More on Medium
         </a>

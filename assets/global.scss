@@ -11,10 +11,14 @@
 // global
 
 a {
-  @apply text-primary duration-200 transition-colors;
+  @apply text-red-500 duration-200 transition-colors;
 
   &:hover {
-    @apply text-accent;
+    @apply text-red-400;
+  }
+
+  &:active {
+    @apply text-red-600;
   }
 }
 

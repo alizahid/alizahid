@@ -3,10 +3,6 @@ module.exports = {
   purge: ['./**/*.tsx', './assets/global.scss'],
   theme: {
     extend: {
-      colors: {
-        accent: '#4cd964',
-        primary: '#ff2d55'
-      },
       fontFamily: {
         sans: [
           'Inter',

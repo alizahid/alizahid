@@ -34,7 +34,7 @@ const Playground: NextPage<Props> = ({ projects }) => (
             <footer className="flex flex-wrap -mx-2 -mb-2 mt-2 leading-none">
               {links.map(({ label, link }, index) => (
                 <a
-                  className="bg-primary text-sm text-white p-3 font-medium rounded m-2 hover:text-white"
+                  className="bg-red-500 text-sm text-white p-3 font-medium rounded m-2 hover:text-white"
                   href={link}
                   key={index}>
                   {label}

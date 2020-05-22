@@ -17,9 +17,7 @@ const Sale: NextPage<Props> = ({ products }) => (
     </Head>
 
     <main>
-      <h1 className="text-5xl font-semibold leading-tight">
-        COVID-19 garage sale
-      </h1>
+      <h1 className="text-5xl font-semibold">COVID-19 garage sale</h1>
       <p>
         I lost my job and my lease has ended so I&apos;m selling my stuff at
         crazy prices so I don&apos;t have to put it in storage.
