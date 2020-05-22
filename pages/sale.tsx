@@ -12,15 +12,38 @@ interface Props {
 const Sale: NextPage<Props> = ({ products }) => (
   <>
     <Head>
-      <title>Sale / Ali Zahid</title>
-      <meta content="COVID-19 sale" name="description" />
+      <title>COVID-19 garage sale / Ali Zahid</title>
+      <meta content="COVID-19 garage sale" name="description" />
     </Head>
 
     <main>
-      <h1 className="text-5xl font-semibold">COVID-19 Sale</h1>
+      <h1 className="text-5xl font-semibold">COVID-19 garage sale</h1>
       <p>
         I lost my job and my lease has ended so I&apos;m selling my stuff at
         crazy prices so I don&apos;t have to put it in storage.
+      </p>
+      <p>
+        The main items are listed below. Other than these, I have a bunch of
+        stuff like cutlery, plates, glasses, and wall shelves.
+      </p>
+      <p>
+        I live in{' '}
+        <a
+          href="https://goo.gl/maps/1qtdLgK8mzXosV759"
+          rel="noreferrer"
+          target="_blank">
+          Marina, Dubai, UAE
+        </a>
+        . You&apos;ll have to pick up stuff yourself. You can reach out to me on{' '}
+        <a
+          href={`https://wa.me/971559651960?text=${encodeURIComponent(
+            "I'm interested in your COVID-19 garage sale."
+          )}`}
+          rel="noreferrer"
+          target="_blank">
+          WhatsApp
+        </a>
+        .
       </p>
       <section className="flex flex-wrap -mx-4">
         {products.map((product, index) => (
@@ -57,7 +80,9 @@ const Sale: NextPage<Props> = ({ products }) => (
               }`}>
               {product.condition} condition
             </div>
-            <a href={product.link}>Link</a>
+            <a href={product.link} rel="noreferrer" target="_blank">
+              Link
+            </a>
           </article>
         ))}
       </section>
