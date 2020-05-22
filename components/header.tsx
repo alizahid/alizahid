@@ -1,13 +1,29 @@
-import clsx from 'clsx'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { FunctionComponent } from 'react'
+
+interface NavLinkProps {
+  href: string
+  label: string
+  route: string
+}
+
+const NavLink: FunctionComponent<NavLinkProps> = ({ href, label, route }) => (
+  <Link href={href}>
+    <a
+      className={`text-gray-500 hover:text-primary ml-4 first:ml-0 ${
+        route === href ? 'text-primary' : ''
+      }`}>
+      {label}
+    </a>
+  </Link>
+)
 
 export const Header: FunctionComponent = () => {
   const { route } = useRouter()
 
   return (
-    <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between my-8">
+    <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between m-8">
       <Link href="/">
         <a className="flex items-center">
           <img
@@ -19,33 +35,9 @@ export const Header: FunctionComponent = () => {
         </a>
       </Link>
       <nav className="mt-8 lg:mt-0">
-        <Link href="/learning">
-          <a
-            className={clsx(
-              'text-gray-500 hover:text-primary',
-              route === '/learning' && 'text-primary'
-            )}>
-            Learning
-          </a>
-        </Link>
-        <Link href="/playground">
-          <a
-            className={clsx(
-              'ml-4 text-gray-500 hover:text-primary',
-              route === '/playground' && 'text-primary'
-            )}>
-            Playground
-          </a>
-        </Link>
-        <Link href="/about">
-          <a
-            className={clsx(
-              'ml-4 text-gray-500 hover:text-primary',
-              route === '/about' && 'text-primary'
-            )}>
-            About
-          </a>
-        </Link>
+        <NavLink href="/learning" label="Learning" route={route} />
+        <NavLink href="/playground" label="Playground" route={route} />
+        <NavLink href="/about" label="About" route={route} />
       </nav>
     </header>
   )

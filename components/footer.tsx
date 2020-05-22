@@ -10,7 +10,7 @@ export const Footer: FunctionComponent = () => {
   }
 
   return (
-    <footer className="flex flex-row items-center justify-between my-8">
+    <footer className="flex flex-row items-center justify-between m-8">
       <span className="text-sm text-gray-600 text-center lg:text-left">
         &copy; {year}
       </span>

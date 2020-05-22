@@ -1,11 +1,8 @@
-import { NextPage } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
 import { RichText } from 'prismic-reactjs'
 import React from 'react'
 
-import { Footer, Header } from '../components'
 import { content } from '../lib'
 import { Course } from '../types'
 
@@ -19,8 +16,6 @@ const Learning: NextPage<Props> = ({ courses }) => (
       <title>Learning / Ali Zahid</title>
       <meta content="My courses" name="description" />
     </Head>
-
-    <Header />
 
     <main>
       <h1 className="text-5xl font-semibold">Learning</h1>
@@ -57,16 +52,16 @@ const Learning: NextPage<Props> = ({ courses }) => (
         </div>
       )}
     </main>
-
-    <Footer />
   </>
 )
 
-Learning.getInitialProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const courses = await content.courses()
 
   return {
-    courses
+    props: {
+      courses
+    }
   }
 }
 

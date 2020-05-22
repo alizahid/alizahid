@@ -3,12 +3,20 @@ import '../assets/global.scss'
 import App from 'next/app'
 import React from 'react'
 
-class Application extends App {
-  render() {
+import { Footer, Header } from '../components'
+
+class AZ extends App {
+  render(): JSX.Element {
     const { Component, pageProps } = this.props
 
-    return <Component {...pageProps} />
+    return (
+      <>
+        <Header />
+        <Component {...pageProps} />
+        <Footer />
+      </>
+    )
   }
 }
 
-export default Application
+export default AZ

@@ -1,9 +1,4 @@
 {
-  "version": 2,
-  "regions": ["dub1", "hnd1", "sfo1"],
-  "build": {
-    "env": {
-      "URI": "@blog-uri"
-    }
-  }
+  "regions": ["dub1"],
+  "version": 2
 }

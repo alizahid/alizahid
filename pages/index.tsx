@@ -1,10 +1,9 @@
 import moment from 'moment'
-import { NextPage } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import React from 'react'
 
-import { Footer, Header } from '../components'
-import { api } from '../lib'
+import { content } from '../lib'
 import { Post } from '../types'
 
 interface Props {
@@ -18,11 +17,12 @@ const Home: NextPage<Props> = ({ posts }) => (
       <meta content="My works and words" name="description" />
     </Head>
 
-    <Header />
-
     <main>
       {posts.map(({ date, excerpt, image, link, tags, title }, index) => (
-        <a className="block my-12 hover:text-primary" href={link} key={index}>
+        <a
+          className="block my-12 text-black hover:text-primary"
+          href={link}
+          key={index}>
           <figure className="-mx-8 lg:mx-0">
             <img alt={title} className="lg:rounded" src={image} />
           </figure>
@@ -46,16 +46,16 @@ const Home: NextPage<Props> = ({ posts }) => (
         </a>
       </div>
     </main>
-
-    <Footer />
   </>
 )
 
-Home.getInitialProps = async () => {
-  const posts = await api.posts()
+export const getServerSideProps: GetServerSideProps = async () => {
+  const posts = await content.posts()
 
   return {
-    posts
+    props: {
+      posts
+    }
   }
 }
 

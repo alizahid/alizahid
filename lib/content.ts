@@ -27,7 +27,7 @@ class Content {
 
     const posts = Object.values(references.Post) as MediumPost[]
 
-    return posts.map(post => ({
+    return posts.map((post) => ({
       date: moment(post.firstPublishedAt).toISOString(),
       excerpt: post.virtuals.subtitle,
       image: `https://miro.medium.com/fit/c/1800/900/${post.virtuals.previewImage.imageId}`,

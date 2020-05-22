@@ -20,6 +20,20 @@ a {
   transition: 0.2s;
 }
 
+body {
+  @apply font-sans cursor-default antialiased max-w-4xl;
+}
+
 p {
   @apply my-2;
+}
+
+// layout
+
+#__next {
+  @apply flex flex-col min-h-screen;
+
+  > main {
+    @apply flex-1 m-8;
+  }
 }

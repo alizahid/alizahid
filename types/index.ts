@@ -9,7 +9,7 @@ export interface Post {
 
 export interface Course {
   chapters: CourseChapter[]
-  description: string
+  description: []
   name: string
 }
 
@@ -25,13 +25,17 @@ interface CourseChapterVideo {
 }
 
 export interface Project {
-  content: string
+  content: []
   image: string
   links: ProjectLink[]
   order: number
   title: string
 }
 
+interface ProjectLink {
+  label: string
+  link: string
+}
 export interface MediumPost {
   firstPublishedAt: number
   title: string
@@ -45,11 +49,6 @@ export interface MediumPost {
       name: string
     }[]
   }
-}
-
-interface ProjectLink {
-  label: string
-  link: string
 }
 
 export interface PrismicChapter {

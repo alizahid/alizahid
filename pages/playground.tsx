@@ -1,11 +1,8 @@
-import { NextPage } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
 import { RichText } from 'prismic-reactjs'
 import React from 'react'
 
-import { Footer, Header } from '../components'
 import { content } from '../lib'
 import { Project } from '../types'
 
@@ -20,13 +17,11 @@ const Playground: NextPage<Props> = ({ projects }) => (
       <meta content="My works" name="description" />
     </Head>
 
-    <Header />
-
     <main>
       <h1 className="text-5xl font-semibold">Playground</h1>
       {projects.map(({ content, image, links, title }, index) => (
         <article
-          className="flex flex-col my-12 lg:flex-row lg:items-center"
+          className="flex flex-col mt-12 lg:flex-row lg:items-center"
           key={index}>
           <figure>
             <img alt={title} className="h-20 w-20" src={image} />
@@ -36,10 +31,10 @@ const Playground: NextPage<Props> = ({ projects }) => (
               {title}
             </h2>
             <RichText render={content} />
-            <footer className="mt-4">
+            <footer className="flex flex-wrap -mx-2">
               {links.map(({ label, link }, index) => (
                 <a
-                  className="bg-primary text-sm text-white p-2 rounded ml-4 first:ml-0 hover:text-white"
+                  className="bg-primary text-sm text-white p-2 rounded m-2 hover:text-white"
                   href={link}
                   key={index}>
                   {label}
@@ -50,16 +45,16 @@ const Playground: NextPage<Props> = ({ projects }) => (
         </article>
       ))}
     </main>
-
-    <Footer />
   </>
 )
 
-Playground.getInitialProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const projects = await content.projects()
 
   return {
-    projects
+    props: {
+      projects
+    }
   }
 }
 
