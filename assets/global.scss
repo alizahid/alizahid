@@ -26,6 +26,14 @@ body {
   @apply font-sans cursor-default antialiased max-w-4xl;
 }
 
+button {
+  &,
+  &:focus,
+  &:active {
+    @apply outline-none;
+  }
+}
+
 p {
   @apply my-2;
 }

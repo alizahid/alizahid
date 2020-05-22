@@ -1,6 +1,7 @@
 import { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import React from 'react'
+import Zoom from 'react-medium-image-zoom'
 
 import { content } from '../lib'
 import { Product } from '../types'
@@ -62,9 +63,9 @@ const Sale: NextPage<Props> = ({ products }) => (
               </span>{' '}
               <span className="text-green-500">{product.price}</span>
             </div>
-            <a className="block my-4 w-full" href={product.image}>
-              <img src={product.image} />
-            </a>
+            <Zoom zoomMargin={20}>
+              <img className="block my-4" src={product.image} />
+            </Zoom>
             <div>
               {product.quantity} &#215; {product.description}
             </div>

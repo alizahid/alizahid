@@ -1,3 +1,4 @@
+import 'react-medium-image-zoom/dist/styles.css'
 import '../assets/global.scss'
 
 import App from 'next/app'
