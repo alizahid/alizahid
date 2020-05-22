@@ -11,13 +11,15 @@
 // global
 
 a {
-  @apply text-primary;
+  @apply text-primary duration-200 transition-all;
 
   &:hover {
-    @apply text-black;
+    filter: brightness(1.1);
   }
 
-  transition: 0.2s;
+  &:active {
+    filter: brightness(0.9);
+  }
 }
 
 body {

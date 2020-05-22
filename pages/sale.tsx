@@ -17,7 +17,9 @@ const Sale: NextPage<Props> = ({ products }) => (
     </Head>
 
     <main>
-      <h1 className="text-5xl font-semibold">COVID-19 garage sale</h1>
+      <h1 className="text-5xl font-semibold leading-tight">
+        COVID-19 garage sale
+      </h1>
       <p>
         I lost my job and my lease has ended so I&apos;m selling my stuff at
         crazy prices so I don&apos;t have to put it in storage.
@@ -45,7 +47,7 @@ const Sale: NextPage<Props> = ({ products }) => (
         </a>
         .
       </p>
-      <section className="lg:flex lg:flex-wrap lg:-mx-4">
+      <section className="lg:flex lg:flex-wrap mt-4 lg:-mx-4 lg:-mb-4">
         {products.map((product, index) => (
           <article
             className={`lg:w-product relative rounded shadow mt-8 lg:m-4 p-4 ${

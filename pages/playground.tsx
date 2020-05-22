@@ -31,7 +31,7 @@ const Playground: NextPage<Props> = ({ projects }) => (
               {title}
             </h2>
             <RichText render={content} />
-            <footer className="flex flex-wrap -mx-2">
+            <footer className="flex flex-wrap -mx-2 -mb-2 mt-2">
               {links.map(({ label, link }, index) => (
                 <a
                   className="bg-primary text-sm text-white p-2 rounded m-2 hover:text-white"
