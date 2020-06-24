@@ -4,6 +4,15 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        mono: [
+          'IBM Plex Mono',
+          'Menlo',
+          'Monaco',
+          'Consolas',
+          'Liberation Mono',
+          'Courier New',
+          'monospace'
+        ],
         sans: [
           'Inter',
           '-apple-system',
@@ -15,13 +24,10 @@ module.exports = {
           'Apple Color Emoji',
           'Segoe UI Emoji'
         ]
-      },
-      width: {
-        product: 'calc(100% / 3 - 2rem)'
       }
     }
   },
   variants: {
-    margin: ['responsive', 'first']
+    margin: ['responsive', 'first', 'last']
   }
 }

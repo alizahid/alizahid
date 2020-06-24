@@ -1,86 +1,40 @@
-export interface Post {
+export type Post = {
+  body: string
   date: string
   excerpt: string
-  image: string
-  link: string
+  slug: string
   tags: string[]
   title: string
 }
 
-export interface Product {
-  available: boolean
-  condition: string
-  description: string
-  image: string
-  link: string
-  name: string
-  originalPrice: number
-  price: number
-  quantity: number
-}
-
-export interface Course {
-  chapters: CourseChapter[]
-  description: []
-  name: string
-}
-
-interface CourseChapter {
-  details: string
+export type PostAttributes = {
+  slug: string
   title: string
-  video: CourseChapterVideo
+  excerpt: string
+  tags: string
+  date: string
 }
 
-interface CourseChapterVideo {
-  image: string
-  link: string
-}
-
-export interface Project {
-  content: []
-  image: string
+export type Project = {
+  body: string
   links: ProjectLink[]
   order: number
+  slug: string
   title: string
 }
 
-interface ProjectLink {
+export type ProjectLink = {
   label: string
   link: string
 }
-export interface MediumPost {
-  firstPublishedAt: number
+
+export type ProjectAttributes = {
+  link_app_store: string
+  link_demo: string
+  link_github: string
+  link_google_play: string
+  link_web: string
+  order: number
+  slug: string
   title: string
-  uniqueSlug: string
-  virtuals: {
-    previewImage: {
-      imageId: string
-    }
-    subtitle: string
-    tags: {
-      name: string
-    }[]
-  }
-}
-
-export interface PrismicChapter {
-  details: {
-    text: string
-  }[]
-  title: {
-    text: string
-  }[]
-  video: PrismicVideo
-}
-
-export interface PrismicLink {
-  label: string
-  link: {
-    url: string
-  }
-}
-
-export interface PrismicVideo {
-  embed_url: string
-  thumbnail_url: string
 }

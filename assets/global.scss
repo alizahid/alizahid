@@ -1,6 +1,7 @@
 // fonts
 
 @import url('https://rsms.me/inter/inter.css');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
 
 // tailwind
 
@@ -34,10 +35,6 @@ button {
   }
 }
 
-p {
-  @apply my-2;
-}
-
 // layout
 
 #__next {
@@ -45,5 +42,81 @@ p {
 
   > main {
     @apply flex-1 m-8;
+  }
+}
+
+// components
+
+.post {
+  @apply mt-8;
+
+  figure {
+    @apply my-8;
+
+    img {
+      @apply rounded-lg block mx-auto;
+    }
+
+    figcaption {
+      @apply mt-4 text-center text-gray-500;
+    }
+  }
+
+  h2 {
+    @apply text-3xl font-semibold mt-8 mb-4;
+
+    &:first-child {
+      @apply mt-0;
+    }
+  }
+
+  h3 {
+    @apply text-2xl font-semibold mt-8 mb-4;
+
+    &:first-child {
+      @apply mt-0;
+    }
+  }
+
+  hr {
+    @apply border-0 border-t border-gray-300 my-8;
+  }
+
+  p {
+    @apply my-3;
+  }
+
+  p,
+  li {
+    code {
+      @apply bg-gray-200 rounded;
+    }
+  }
+
+  pre {
+    @apply my-8 bg-gray-200 p-4 rounded-lg leading-relaxed overflow-hidden overflow-x-auto;
+  }
+
+  ol,
+  ul {
+    @apply my-4 ml-8;
+
+    li {
+      @apply my-2;
+    }
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+}
+
+.project {
+  p {
+    @apply my-2;
   }
 }
