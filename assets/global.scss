@@ -15,11 +15,11 @@ a {
   @apply text-red-500 duration-200 transition-colors;
 
   &:hover {
-    @apply text-red-400;
+    @apply text-red-600;
   }
 
   &:active {
-    @apply text-red-600;
+    @apply text-red-400;
   }
 }
 
