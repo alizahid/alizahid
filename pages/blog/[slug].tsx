@@ -14,7 +14,7 @@ interface Props {
   post: Post
 }
 
-const Home: NextPage<Props> = ({ post }) => (
+const Blog: NextPage<Props> = ({ post }) => (
   <>
     <Head>
       <title>{post.title} / Blog / Ali Zahid</title>
@@ -103,4 +103,4 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 }
 
-export default Home
+export default Blog
