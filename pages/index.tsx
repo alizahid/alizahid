@@ -35,7 +35,7 @@ const Home: NextPage<Props> = ({ posts }) => (
             <section className="mt-4">
               <h2 className="text-4xl font-semibold leading-tight">{title}</h2>
               <p className="mt-2 text-gray-900">{excerpt}</p>
-              <footer className="mt-4 flex flex-col lg:flex-row">
+              <footer className="mt-4 flex flex-col lg:flex-row text-sm">
                 <span
                   className="text-gray-500"
                   title={moment(date).format('LL')}>

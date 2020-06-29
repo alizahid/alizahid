@@ -18,17 +18,17 @@ export const Footer: FunctionComponent = () => {
         <a
           className="opacity-25 hover:opacity-100"
           href="https://github.com/alizahid">
-          <img alt="GitHub" className="h-4" src="/social/github.svg" />
+          <img alt="GitHub" className="h-6 w-6" src="/social/github.svg" />
         </a>
         <a
           className="opacity-25 hover:opacity-100 ml-4"
           href="https://twitter.com/alizahid0">
-          <img alt="Twitter" className="h-4" src="/social/twitter.svg" />
+          <img alt="Twitter" className="h-6 w-6" src="/social/twitter.svg" />
         </a>
         <a
           className="opacity-25 hover:opacity-100 ml-4"
           href="https://dribbble.com/alizahid">
-          <img alt="Dribbble" className="h-4" src="/social/dribbble.svg" />
+          <img alt="Dribbble" className="h-6 w-6" src="/social/dribbble.svg" />
         </a>
       </nav>
     </footer>

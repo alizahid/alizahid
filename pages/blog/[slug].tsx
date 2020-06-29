@@ -31,7 +31,8 @@ const Blog: NextPage<Props> = ({ post }) => (
       </figure>
       <section className="mt-8">
         <h1 className="text-5xl font-semibold leading-tight">{post.title}</h1>
-        <footer className="mt-4 flex flex-col lg:flex-row">
+        <p className="mt-2 text-gray-900">{post.excerpt}</p>
+        <footer className="mt-4 flex flex-col lg:flex-row text-sm">
           <span
             className="text-gray-500"
             title={moment(post.date).format('LL')}>

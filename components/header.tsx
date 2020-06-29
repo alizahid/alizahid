@@ -11,7 +11,7 @@ export const Header: FunctionComponent = () => {
         <a className="flex items-center">
           <img
             alt="Ali Zahid"
-            className="h-10 w-10 rounded-full mr-4"
+            className="h-12 w-12 rounded-full mr-4"
             src="/ali-zahid.jpg"
           />
           <h1 className="text-2xl font-semibold text-black">Ali Zahid</h1>
