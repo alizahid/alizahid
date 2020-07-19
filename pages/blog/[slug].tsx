@@ -22,7 +22,7 @@ const Blog: NextPage<Props> = ({ post }) => (
     </Head>
 
     <main>
-      <figure className="-mx-8 lg:mx-0">
+      <figure className="-mx-8 lg:-mx-20">
         <img
           alt={post.title}
           className="lg:rounded-lg"
@@ -51,7 +51,7 @@ const Blog: NextPage<Props> = ({ post }) => (
               return (
                 <figure>
                   <a href={src}>
-                    <img src={src} />
+                    <img className="lg:rounded-lg" src={src} />
                   </a>
                   {alt && <figcaption>{alt}</figcaption>}
                 </figure>

@@ -51,10 +51,10 @@ button {
   @apply mt-8;
 
   figure {
-    @apply my-8;
+    @apply my-8 -mx-8;
 
     img {
-      @apply rounded-lg block mx-auto;
+      @apply block mx-auto;
     }
 
     figcaption {
@@ -90,6 +90,10 @@ button {
   li {
     code {
       @apply bg-gray-200 rounded;
+    }
+
+    strong {
+      @apply font-semibold;
     }
   }
 
