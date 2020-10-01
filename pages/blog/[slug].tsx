@@ -8,6 +8,7 @@ import React from 'react'
 import Markdown from 'react-markdown'
 import unwrapImages from 'remark-unwrap-images'
 
+import { Footer, Header } from '../../components'
 import { Post, PostAttributes } from '../../types'
 
 interface Props {
@@ -21,18 +22,16 @@ const Blog: NextPage<Props> = ({ post }) => (
       <meta content="My words" name="description" />
     </Head>
 
-    <main>
-      <figure className="-mx-8 lg:-mx-20">
-        <img
-          alt={post.title}
-          className="lg:rounded-lg"
-          src={`/blog/${post.slug}/hero.png`}
-        />
+    <main className="min-h-screen flex flex-col justify-center p-8 lg:p-12">
+      <Header title="Blog" />
+
+      <figure className="mt-12 -mx-8 lg:mx-0 overflow-hidden lg:rounded-lg">
+        <img alt={post.title} src={`/blog/${post.slug}/hero.png`} />
       </figure>
       <section className="mt-8">
-        <h1 className="text-5xl font-semibold leading-tight">{post.title}</h1>
-        <p className="mt-2 text-gray-900">{post.excerpt}</p>
-        <footer className="mt-4 flex flex-col lg:flex-row text-sm">
+        <h1 className="text-6xl font-semibold leading-tight">{post.title}</h1>
+        <p className="mt-2 text-2xl text-gray-900">{post.excerpt}</p>
+        <footer className="mt-2 flex flex-col lg:flex-row text-xl">
           <span
             className="text-gray-500"
             title={moment(post.date).format('LL')}>
@@ -62,6 +61,8 @@ const Blog: NextPage<Props> = ({ post }) => (
           transformImageUri={(uri) => `/blog/${post.slug}/${uri}`}
         />
       </article>
+
+      <Footer />
     </main>
   </>
 )

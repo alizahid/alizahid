@@ -1,87 +1,52 @@
-import frontMatter from 'front-matter'
-import { readdir, readFile } from 'fs-extra'
-import { orderBy } from 'lodash'
-import moment from 'moment'
-import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
-import { join } from 'path'
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 
-import { Post, PostAttributes } from '../types'
+import { Footer, Header } from '../components'
 
-interface Props {
-  posts: Post[]
-}
-
-const Home: NextPage<Props> = ({ posts }) => (
+const About: FunctionComponent = () => (
   <>
     <Head>
-      <title>Blog / Ali Zahid</title>
-      <meta content="My words" name="description" />
+      <title>Ali Zahid</title>
+      <meta content="About me" name="description" />
     </Head>
 
-    <main>
-      {posts.map(({ date, excerpt, slug, tags, title }, index) => (
-        <Link href={`/blog/${slug}`} key={index}>
-          <a className="block my-12 first:mt-0 last:mb-0 text-black hover:text-red-500">
-            <figure className="-mx-8 lg:mx-0">
-              <img
-                alt={title}
-                className="lg:rounded-lg"
-                src={`/blog/${slug}/hero.png`}
-              />
-            </figure>
-            <section className="mt-4">
-              <h2 className="text-4xl font-semibold leading-tight">{title}</h2>
-              <p className="mt-2 text-gray-900">{excerpt}</p>
-              <footer className="mt-4 flex flex-col lg:flex-row text-sm">
-                <span
-                  className="text-gray-500"
-                  title={moment(date).format('LL')}>
-                  {moment(date).fromNow()}
-                </span>
-                <span className="text-gray-500 mt-2 lg:mt-0 lg:ml-4">
-                  {tags.sort().join(', ')}
-                </span>
-              </footer>
-            </section>
-          </a>
-        </Link>
-      ))}
+    <main className="min-h-screen flex flex-col justify-center p-8 lg:p-12">
+      <Header title="Hello" />
+
+      <div className="flex flex-col lg:flex-row items-center my-12">
+        <section className="lg:mr-12 order-2 lg:order-1">
+          <h2 className="text-6xl font-semibold leading-tight mt-8">
+            I have a patent on blowing minds with epic design.
+          </h2>
+          <p className="text-2xl mt-4">
+            Hi. I&apos;m Ali Zahid. I love to build cool stuff. Check out my{' '}
+            <Link href="/playground">
+              <a>playground</a>
+            </Link>
+            . And here&apos;s my{' '}
+            <a href="https://www.dropbox.com/s/n38xqrlhn99aneq">resume</a>.
+          </p>
+          <p className="text-2xl mt-4">
+            I&apos;ve worked with large enterprises, government organizations,
+            Academy and Emmy award-winning filmmakers, esports teams, student
+            groups, and everything in between, to help realize their ideas.
+          </p>
+          <p className="text-2xl mt-4">
+            Are you looking for help building your next epic idea or product?{' '}
+            <a href="mailto:ali.zahid@live.com">Reach out</a> and see if we can
+            work together.
+          </p>
+        </section>
+        <img
+          className="h-64 w-64 rounded-full shadow order-1"
+          src="/ali-zahid.jpg"
+        />
+      </div>
+
+      <Footer />
     </main>
   </>
 )
 
-export const getStaticProps: GetStaticProps = async () => {
-  const path = join(process.cwd(), 'posts')
-
-  const files = await readdir(path)
-
-  const posts: Post[] = []
-
-  for await (const file of files) {
-    const content = await readFile(join(path, file), 'utf8')
-
-    const data = frontMatter<PostAttributes>(content)
-
-    const post: Post = {
-      body: data.body,
-      date: moment(data.attributes.date).toISOString(),
-      excerpt: data.attributes.excerpt,
-      slug: data.attributes.slug,
-      tags: data.attributes.tags.split(', '),
-      title: data.attributes.title
-    }
-
-    posts.push(post)
-  }
-
-  return {
-    props: {
-      posts: orderBy(posts, 'date', 'desc')
-    }
-  }
-}
-
-export default Home
+export default About

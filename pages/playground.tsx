@@ -7,6 +7,7 @@ import { join } from 'path'
 import React from 'react'
 import Markdown from 'react-markdown'
 
+import { Footer, Header } from '../components'
 import { Project, ProjectAttributes, ProjectLink } from '../types'
 
 interface Props {
@@ -20,36 +21,40 @@ const Playground: NextPage<Props> = ({ projects }) => (
       <meta content="My works" name="description" />
     </Head>
 
-    <main>
-      <h1 className="text-5xl font-semibold">Playground</h1>
-      {projects.map(({ body, links, slug, title }, index) => (
-        <article
-          className="flex flex-col mt-12 lg:flex-row lg:items-center"
-          key={index}>
-          <figure>
-            <img
-              alt={title}
-              className="h-20 w-20"
-              src={`/playground/${slug}.png`}
-            />
-          </figure>
-          <section className="flex-1 mt-8 lg:mt-0 lg:ml-8">
-            <h2 className="text-3xl font-semibold mb-4 leading-none">
-              {title}
-            </h2>
-            <article className="project">
-              <Markdown source={body} />
-            </article>
-            <footer className="flex flex-wrap -mx-2 -mb-2 mt-2 leading-none">
-              {links.map(({ label, link }, index) => (
-                <a className="font-medium m-2" href={link} key={index}>
-                  {label}
-                </a>
-              ))}
-            </footer>
-          </section>
-        </article>
-      ))}
+    <main className="min-h-screen flex flex-col justify-center p-8 lg:p-12">
+      <Header title="Playground" />
+
+      <div className="my-12 grid lg:grid-cols-2 gap-12">
+        {projects.map(({ body, links, slug, title }) => (
+          <article className="flex flex-col lg:flex-row" key={slug}>
+            <figure>
+              <img
+                alt={title}
+                className="h-20 w-20"
+                src={`/playground/${slug}.png`}
+              />
+            </figure>
+            <section className="flex-1 mt-8 lg:mt-0 lg:ml-8">
+              <h2 className="text-5xl font-semibold leading-tight">{title}</h2>
+              <article className="project">
+                <Markdown source={body} />
+              </article>
+              <footer className="mt-4">
+                {links.map(({ label, link }) => (
+                  <a
+                    className="font-medium text-xl ml-4 first:ml-0"
+                    href={link}
+                    key={label}>
+                    {label}
+                  </a>
+                ))}
+              </footer>
+            </section>
+          </article>
+        ))}
+      </div>
+
+      <Footer />
     </main>
   </>
 )

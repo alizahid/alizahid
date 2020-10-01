@@ -11,20 +11,24 @@
 
 // global
 
-a {
-  @apply text-red-500 duration-200 transition-all;
-
-  &:hover {
-    @apply text-red-600;
-  }
-
-  &:active {
-    @apply text-red-400;
-  }
+html {
+  @apply bg-gray-800;
 }
 
 body {
-  @apply bg-gray-100 font-sans cursor-default antialiased max-w-4xl mx-auto;
+  @apply bg-white font-sans cursor-default antialiased mx-auto;
+}
+
+a {
+  @apply text-teal-500 duration-200 transition-all;
+
+  &:hover {
+    @apply text-teal-600;
+  }
+
+  &:active {
+    @apply text-teal-400;
+  }
 }
 
 button {
@@ -35,35 +39,25 @@ button {
   }
 }
 
-// layout
-
-#__next {
-  @apply flex flex-col min-h-screen;
-
-  > main {
-    @apply flex-1 m-8;
-  }
-}
-
 // components
 
 .post {
-  @apply mt-8;
+  @apply mt-8 mb-12 text-2xl;
 
   figure {
-    @apply my-8 -mx-8;
+    @apply my-8;
 
     img {
       @apply block mx-auto;
     }
 
     figcaption {
-      @apply mt-4 text-center text-gray-500;
+      @apply mt-4 text-xl text-center text-gray-500;
     }
   }
 
   h2 {
-    @apply text-3xl font-semibold mt-8 mb-4;
+    @apply text-4xl font-semibold mt-8 mb-4;
 
     &:first-child {
       @apply mt-0;
@@ -71,7 +65,7 @@ button {
   }
 
   h3 {
-    @apply text-2xl font-semibold mt-8 mb-4;
+    @apply text-3xl font-semibold mt-8 mb-4;
 
     &:first-child {
       @apply mt-0;
@@ -79,7 +73,14 @@ button {
   }
 
   hr {
-    @apply border-0 border-t border-gray-300 my-8;
+    @apply border-0 my-12 h-px;
+
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.04) 0%,
+      rgba(0, 0, 0, 0.08) 50%,
+      rgba(0, 0, 0, 0.04) 100%
+    );
   }
 
   p {
@@ -89,7 +90,7 @@ button {
   p,
   li {
     code {
-      @apply bg-gray-200 rounded;
+      @apply bg-gray-100 rounded;
     }
 
     strong {
@@ -98,12 +99,16 @@ button {
   }
 
   pre {
-    @apply my-8 bg-gray-200 p-4 rounded-lg leading-relaxed overflow-hidden overflow-x-auto;
+    @apply my-8 bg-gray-200 p-8 rounded-lg leading-relaxed overflow-hidden overflow-x-auto;
+
+    code {
+      @apply text-xl;
+    }
   }
 
   ol,
   ul {
-    @apply my-4 ml-8;
+    @apply my-4 ml-12;
 
     li {
       @apply my-2;
@@ -120,6 +125,8 @@ button {
 }
 
 .project {
+  @apply text-2xl;
+
   p {
     @apply my-2;
   }

@@ -22,7 +22,8 @@ I wasn't a fan of the project structure and some architecture decisions, so I st
 
 A few weeks later, the project died when the Irish government went with another app, which had a different approach to ours. The death of the app freed me up to work on my app fulltime.
 
-![](pandemicli.png)
+![Today and contacts](pandemicli.png)
+![Places and profile](pandemicli-2.png)
 
 By then, I had almost built out all the features I thought were essential. A few countries had already deployed contact-tracing apps. So I pitched my app to the government of Pakistan to use as their official app. I spoke to several parties, including representatives of IT and health ministers. But they all insisted that I share data with them.
 
@@ -48,7 +49,8 @@ I built [Helpling](https://helpling.app) in January this year as a web app. Insp
 
 I've since taken the web app down and rebuilt into a mobile app and added a feature where people can also create offers. Before, you could only add requests for things you want. Now, if you have something you'd like to give someone, you can create an offer.
 
-![](helpling.png)
+![Requests and offers](helpling.png)
+![Messages and profile](helpling-2.png)
 
 The app is in beta right now, and you can [take it for a spin](https://testflight.apple.com/join/PQSjkuHG) on iOS. Once the testing is complete, I'll publish it to App Store.
 
