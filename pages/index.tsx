@@ -11,7 +11,7 @@ const About: FunctionComponent = () => (
       <meta content="About me" name="description" />
     </Head>
 
-    <main className="min-h-screen flex flex-col justify-center p-8 lg:p-20">
+    <main className="min-h-screen bg-white flex flex-col justify-center p-8 lg:p-20">
       <Header title="Hello" />
 
       <div className="flex flex-1 flex-col lg:flex-row items-center my-20">
@@ -38,10 +38,7 @@ const About: FunctionComponent = () => (
             work together.
           </p>
         </section>
-        <img
-          className="h-64 w-64 rounded-full shadow order-1"
-          src="/ali-zahid.jpg"
-        />
+        <img className="h-64 w-64 rounded-full order-1" src="/ali-zahid.jpg" />
       </div>
 
       <Footer />

@@ -10,7 +10,7 @@ const NotFound: FunctionComponent = () => (
       <meta content="Not found" name="description" />
     </Head>
 
-    <main className="min-h-screen flex flex-col justify-center p-8 lg:p-20">
+    <main className="min-h-screen bg-white flex flex-col justify-center p-8 lg:p-20">
       <Header title="404" />
 
       <div className="my-12">

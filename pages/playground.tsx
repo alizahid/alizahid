@@ -21,7 +21,7 @@ const Playground: NextPage<Props> = ({ projects }) => (
       <meta content="My works" name="description" />
     </Head>
 
-    <main className="min-h-screen flex flex-col justify-center p-8 lg:p-20">
+    <main className="min-h-screen bg-white flex flex-col justify-center p-8 lg:p-20">
       <Header title="Playground" />
 
       <div className="my-20">

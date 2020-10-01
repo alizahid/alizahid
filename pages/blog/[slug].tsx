@@ -22,7 +22,7 @@ const Blog: NextPage<Props> = ({ post }) => (
       <meta content="My words" name="description" />
     </Head>
 
-    <main className="min-h-screen flex flex-col justify-center p-8 lg:p-20">
+    <main className="min-h-screen bg-white flex flex-col justify-center p-8 lg:p-20">
       <Header title="Blog" />
 
       <figure className="mt-20 -mx-8 lg:mx-0 overflow-hidden lg:rounded-lg">

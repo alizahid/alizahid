@@ -11,12 +11,8 @@
 
 // global
 
-html {
-  @apply bg-gray-800;
-}
-
 body {
-  @apply bg-white font-sans cursor-default antialiased mx-auto;
+  @apply bg-gray-800 font-sans cursor-default antialiased mx-auto;
 }
 
 a {
