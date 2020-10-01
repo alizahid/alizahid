@@ -24,7 +24,10 @@ const About: FunctionComponent = () => (
             <a>playground</a>
           </Link>
           . And here&apos;s my{' '}
-          <a href="https://www.dropbox.com/s/n38xqrlhn99aneq">resume</a>.
+          <Link href="/resume">
+            <a>resume</a>
+          </Link>
+          .
         </p>
         <p className="mt-4">
           I&apos;ve worked with large enterprises, government organizations,

@@ -19,6 +19,7 @@ export const Header: FunctionComponent = () => {
       </Link>
       <nav className="mt-8 lg:mt-0">
         <NavLink href="/playground" label="Playground" route={route} />
+        <NavLink href="/resume" label="Resume" route={route} />
         <NavLink href="/about" label="About" route={route} />
       </nav>
     </header>
