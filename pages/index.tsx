@@ -4,7 +4,7 @@ import React, { FunctionComponent } from 'react'
 
 import { Footer, Header } from '../components'
 
-const About: FunctionComponent = () => (
+const Home: FunctionComponent = () => (
   <>
     <Head>
       <title>Ali Zahid</title>
@@ -46,4 +46,4 @@ const About: FunctionComponent = () => (
   </>
 )
 
-export default About
+export default Home
