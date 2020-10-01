@@ -1,17 +1,17 @@
-import Document, { Head, Main, NextScript } from 'next/document'
+import Document, { Head, Html, Main, NextScript } from 'next/document'
 import React from 'react'
 
 class Doc extends Document {
   render(): JSX.Element {
     return (
-      <html>
+      <Html>
         <Head />
 
         <body>
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     )
   }
 }
