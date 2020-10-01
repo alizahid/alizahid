@@ -3,6 +3,7 @@ slug: pandemicli
 title: Pandemic.li
 order: 1
 link_web: https://pandemic.li
+link_github: https://github.com/pandemicli
 ---
 
 Pandemic.li is a privacy-focused contact tracing app for COVID-19.
