@@ -21,7 +21,7 @@ const Playground: NextPage<Props> = ({ projects }) => (
       <meta content="My works" name="description" />
     </Head>
 
-    <main className="min-h-screen flex flex-col justify-center p-8 lg:p-12">
+    <main className="min-h-screen flex flex-col justify-center p-8 lg:p-20">
       <Header title="Playground" />
 
       <div className="my-12">
@@ -44,7 +44,7 @@ const Playground: NextPage<Props> = ({ projects }) => (
               <footer className="mt-4">
                 {links.map(({ label, link }) => (
                   <a
-                    className="font-medium text-xl ml-4 first:ml-0"
+                    className="font-medium text-lg ml-4 first:ml-0"
                     href={link}
                     key={label}>
                     {label}

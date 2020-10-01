@@ -22,7 +22,7 @@ const Blog: NextPage<Props> = ({ post }) => (
       <meta content="My words" name="description" />
     </Head>
 
-    <main className="min-h-screen flex flex-col justify-center p-8 lg:p-12">
+    <main className="min-h-screen flex flex-col justify-center p-8 lg:p-20">
       <Header title="Blog" />
 
       <figure className="mt-12 -mx-8 lg:mx-0 overflow-hidden lg:rounded-lg">
@@ -30,8 +30,8 @@ const Blog: NextPage<Props> = ({ post }) => (
       </figure>
       <section className="mt-8">
         <h1 className="text-6xl font-semibold leading-tight">{post.title}</h1>
-        <p className="mt-2 text-2xl text-gray-900">{post.excerpt}</p>
-        <footer className="mt-2 flex flex-col lg:flex-row text-xl">
+        <p className="mt-2 text-2xl text-gray-800">{post.excerpt}</p>
+        <footer className="mt-2 flex flex-col lg:flex-row text-lg">
           <span
             className="text-gray-500"
             title={moment(post.date).format('LL')}>
@@ -50,7 +50,7 @@ const Blog: NextPage<Props> = ({ post }) => (
               return (
                 <figure>
                   <a href={src}>
-                    <img className="lg:rounded-lg" src={src} />
+                    <img src={src} />
                   </a>
                   {alt && <figcaption>{alt}</figcaption>}
                 </figure>

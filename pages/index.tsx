@@ -11,10 +11,10 @@ const About: FunctionComponent = () => (
       <meta content="About me" name="description" />
     </Head>
 
-    <main className="min-h-screen flex flex-col justify-center p-8 lg:p-12">
+    <main className="min-h-screen flex flex-col justify-center p-8 lg:p-20">
       <Header title="Hello" />
 
-      <div className="flex flex-col lg:flex-row items-center my-12">
+      <div className="flex flex-1 flex-col lg:flex-row items-center my-12">
         <section className="lg:mr-12 order-2 lg:order-1">
           <h2 className="text-6xl font-semibold leading-tight mt-8">
             I have a patent on blowing minds with epic design.

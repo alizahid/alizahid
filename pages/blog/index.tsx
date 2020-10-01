@@ -22,7 +22,7 @@ const Blog: NextPage<Props> = ({ posts }) => (
       <meta content="My words" name="description" />
     </Head>
 
-    <main className="min-h-screen flex flex-col justify-center p-8 lg:p-12">
+    <main className="min-h-screen flex flex-col justify-center p-8 lg:p-20">
       <Header title="Blog" />
 
       <div className="my-12">
@@ -40,8 +40,8 @@ const Blog: NextPage<Props> = ({ posts }) => (
                 <h2 className="text-5xl font-semibold leading-tight">
                   {title}
                 </h2>
-                <p className="mt-2 text-2xl text-gray-900">{excerpt}</p>
-                <footer className="mt-2 flex flex-col lg:flex-row text-xl">
+                <p className="mt-2 text-xl text-gray-800">{excerpt}</p>
+                <footer className="mt-2 flex flex-col lg:flex-row text-lg">
                   <span
                     className="text-gray-500"
                     title={moment(date).format('LL')}>
