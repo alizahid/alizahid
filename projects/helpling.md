@@ -3,6 +3,7 @@ slug: helpling
 title: Helpling
 order: 2
 link_web: https://helpling.app
+link_github: https://github.com/khairat
 ---
 
 Helpling is a place to help you find people who are less fortunate or in dire circumstanes and see how you can help out.
