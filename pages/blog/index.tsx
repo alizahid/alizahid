@@ -25,14 +25,18 @@ const Blog: NextPage<Props> = ({ posts }) => (
     <main className="min-h-screen flex flex-col justify-center p-8 lg:p-12">
       <Header title="Blog" />
 
-      <div className="my-12 grid lg:grid-cols-2 gap-12">
+      <div className="my-12">
         {posts.map(({ date, excerpt, slug, tags, title }, index) => (
           <Link href={`/blog/${slug}`} key={index}>
-            <a className="block text-black hover:text-teal-600">
-              <figure className="-mx-8 lg:mx-0 overflow-hidden lg:rounded-lg">
-                <img alt={title} src={`/blog/${slug}/hero.png`} />
+            <a className="flex flex-col lg:flex-row items-center mt-12 first:mt-0 text-black hover:text-teal-600">
+              <figure className="-mx-8 lg:mx-0 bg-gray-100 overflow-hidden lg:rounded-lg">
+                <img
+                  alt={title}
+                  className="w-full lg:w-64"
+                  src={`/blog/${slug}/hero.png`}
+                />
               </figure>
-              <section className="mt-4">
+              <section className="flex-1 mt-8 lg:mt-0 lg:ml-8">
                 <h2 className="text-5xl font-semibold leading-tight">
                   {title}
                 </h2>
