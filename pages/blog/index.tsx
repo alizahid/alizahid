@@ -25,7 +25,7 @@ const Blog: NextPage<Props> = ({ posts }) => (
     <main className="min-h-screen flex flex-col justify-center p-8 lg:p-20">
       <Header title="Blog" />
 
-      <div className="my-12">
+      <div className="my-20">
         {posts.map(({ date, excerpt, slug, tags, title }, index) => (
           <Link href={`/blog/${slug}`} key={index}>
             <a className="flex flex-col lg:flex-row items-center mt-12 first:mt-0 text-black hover:text-teal-600">

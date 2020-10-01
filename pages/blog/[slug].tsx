@@ -25,7 +25,7 @@ const Blog: NextPage<Props> = ({ post }) => (
     <main className="min-h-screen flex flex-col justify-center p-8 lg:p-20">
       <Header title="Blog" />
 
-      <figure className="mt-12 -mx-8 lg:mx-0 overflow-hidden lg:rounded-lg">
+      <figure className="mt-20 -mx-8 lg:mx-0 overflow-hidden lg:rounded-lg">
         <img alt={post.title} src={`/blog/${post.slug}/hero.png`} />
       </figure>
       <section className="mt-8">
@@ -42,7 +42,7 @@ const Blog: NextPage<Props> = ({ post }) => (
           </span>
         </footer>
       </section>
-      <article className="post">
+      <article className="post mb-20">
         <Markdown
           plugins={[unwrapImages]}
           renderers={{

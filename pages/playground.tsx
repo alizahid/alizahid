@@ -24,7 +24,7 @@ const Playground: NextPage<Props> = ({ projects }) => (
     <main className="min-h-screen flex flex-col justify-center p-8 lg:p-20">
       <Header title="Playground" />
 
-      <div className="my-12">
+      <div className="my-20">
         {projects.map(({ body, links, slug, title }) => (
           <article
             className="flex flex-col lg:flex-row items-center mt-12 first:mt-0"
