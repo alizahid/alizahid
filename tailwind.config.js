@@ -28,10 +28,16 @@ module.exports = {
           'Apple Color Emoji',
           'Segoe UI Emoji'
         ]
+      },
+      screens: {
+        dark: {
+          raw: '(prefers-color-scheme: dark)'
+        }
       }
     }
   },
   variants: {
-    margin: ['responsive', 'first']
+    margin: ['responsive', 'first'],
+    textColor: ['responsive', 'hover', 'focus', 'group-hover']
   }
 }

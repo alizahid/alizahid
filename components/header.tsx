@@ -11,10 +11,10 @@ export const Header: FunctionComponent<Props> = ({ title }) => {
 
   return (
     <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
-      <h1 className="text-4xl font-semibold mb-4 lg:mb-0 hidden lg:block">
+      <h1 className="text-4xl font-semibold mt-8 lg:mt-0 order-2 lg:order-1">
         {title}
       </h1>
-      <nav className="flex items-center">
+      <nav className="flex items-center order-1 lg:order-2">
         <NavLink href="/" label="About" path={asPath} />
         <NavLink href="/blog" label="Blog" path={asPath} />
         <NavLink href="/playground" label="Playground" path={asPath} />
@@ -32,10 +32,10 @@ interface NavLinkProps {
 const NavLink: FunctionComponent<NavLinkProps> = ({ href, label, path }) => (
   <Link href={href}>
     <a
-      className={`text-gray-800 text-2xl font-medium hover:text-teal-500 ml-4 first:ml-0 ${
+      className={`font-medium ml-4 first:ml-0 ${
         (href === '/' ? path === href : path.indexOf(href) === 0)
           ? 'text-teal-500'
-          : 'text-black'
+          : 'text-gray-600'
       }`}>
       {label}
     </a>

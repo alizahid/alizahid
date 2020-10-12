@@ -1,96 +1,89 @@
-import frontMatter from 'front-matter'
-import { readdir, readFile } from 'fs-extra'
-import { orderBy } from 'lodash'
-import moment from 'moment'
-import { GetStaticProps, NextPage } from 'next'
-import Head from 'next/head'
-import Link from 'next/link'
-import { join } from 'path'
+import { NextPage } from 'next'
 import React from 'react'
 
-import { Footer, Header } from '../../components'
-import { Post, PostAttributes } from '../../types'
+import { Page, Post } from '../../components'
 
-interface Props {
-  posts: Post[]
-}
-
-const Blog: NextPage<Props> = ({ posts }) => (
-  <>
-    <Head>
-      <title>Blog / Ali Zahid</title>
-      <meta content="My words" name="description" />
-    </Head>
-
-    <main className="min-h-screen bg-white flex flex-col justify-center p-8 lg:p-20">
-      <Header title="Blog" />
-
-      <div className="my-20">
-        {posts.map(({ date, excerpt, slug, tags, title }, index) => (
-          <Link href={`/blog/${slug}`} key={index}>
-            <a className="flex flex-col lg:flex-row items-center mt-12 first:mt-0 text-black hover:text-teal-600">
-              <figure className="-mx-8 lg:mx-0 bg-gray-100 overflow-hidden lg:rounded-lg">
-                <img
-                  alt={title}
-                  className="w-full lg:w-64"
-                  src={`/blog/${slug}/hero.png`}
-                />
-              </figure>
-              <section className="flex-1 mt-8 lg:mt-0 lg:ml-8">
-                <h2 className="text-5xl font-semibold leading-tight">
-                  {title}
-                </h2>
-                <p className="mt-2 text-xl text-gray-800">{excerpt}</p>
-                <footer className="mt-2 flex flex-col lg:flex-row text-lg">
-                  <span
-                    className="text-gray-500"
-                    title={moment(date).format('LL')}>
-                    {moment(date).fromNow()}
-                  </span>
-                  <span className="text-gray-500 mt-2 lg:mt-0 lg:ml-4">
-                    {tags.sort().join(', ')}
-                  </span>
-                </footer>
-              </section>
-            </a>
-          </Link>
-        ))}
-      </div>
-
-      <Footer />
-    </main>
-  </>
+const Blog: NextPage = () => (
+  <Page description="My words" title="Blog">
+    <Post date="2020-06-24" slug="corona-times" title="Corona times">
+      <p>
+        It&apos;s been a long time since I posted anything. Time for a catch-up.
+      </p>
+    </Post>
+    <Post date="2019-09-29" slug="prodo" title="Prodo">
+      <p>
+        Prodo is a name I used for an SMS API I built years ago. But that never
+        panned out, so I repurposed it when I built a snippet manager last
+        weekend.
+      </p>
+    </Post>
+    <Post date="2019-09-18" slug="planbear" title="PlanBear">
+      <p>
+        I first built PlanBear with Ember and Cordova during a Hackathon.
+        It&apos;s like Meetup for smaller and more spontaneous plans.
+      </p>
+    </Post>
+    <Post
+      date="2019-09-16"
+      slug="building-a-new-website-with-mongo-db-atlas-stitch-and-next-js"
+      title="Building a website with Stitch and Next">
+      <p>
+        I&apos;m always trying to rebuild my blog with different tech to see
+        what works best. This approach uses Stitch, Next.js and React.
+      </p>
+    </Post>
+    <Post
+      date="2019-07-03"
+      slug="surviving-azure-functions"
+      title="Surviving Azure Functions">
+      <p>My year with Azure Functions and how I survived.</p>
+    </Post>
+    <Post date="2019-05-19" slug="bijli" title="Bijli">
+      <p>The past, present, and future of one of my oldest ideas.</p>
+    </Post>
+    <Post date="2019-05-17" slug="last-two-months" title="Last two months">
+      <p>
+        What I&apos;ve been up to for the last two months and why I&apos;ve
+        abandoned all my goals.
+      </p>
+    </Post>
+    <Post date="2019-03-10" slug="mittens" title="Mittens">
+      <p>Mittens brings you push notifications from GitHub.</p>
+    </Post>
+    <Post date="2019-02-06" slug="goodbye-metro" title="Goodbye, Metro">
+      <p>I shut down my first app ever. A story of being outdone.</p>
+    </Post>
+    <Post
+      date="2019-02-03"
+      slug="setting-up-a-new-react-native-project"
+      title="Starting with React Native">
+      <p>
+        Setting up a React Native projects with CocoaPods can be tricky. Here
+        are some of my tricks so you can avoid Xcode hell.
+      </p>
+    </Post>
+    <Post date="2019-01-17" slug="building-wowdb" title="Building WoWdb">
+      <p>
+        WoWdb is a mobile World of Warcraft database. It&apos;s built with
+        React, React Native, Fastify, MongoDB, and hosted on Render.
+      </p>
+    </Post>
+    <Post
+      date="2019-01-07"
+      slug="keep-marker-in-center-and-move-map-around-it"
+      title="Location picker with React Native">
+      <p>
+        A performance-oriented approach to let users pick their location on a
+        map.
+      </p>
+    </Post>
+    <Post
+      date="2019-01-06"
+      slug="building-a-new-website-with-prismic"
+      title="Building a website with Prismic">
+      <p>How I rebuilt my website using Prismic, a headless CMS, and React.</p>
+    </Post>
+  </Page>
 )
-
-export const getStaticProps: GetStaticProps = async () => {
-  const path = join(process.cwd(), 'posts')
-
-  const files = await readdir(path)
-
-  const posts: Post[] = []
-
-  for await (const file of files) {
-    const content = await readFile(join(path, file), 'utf8')
-
-    const data = frontMatter<PostAttributes>(content)
-
-    const post: Post = {
-      body: data.body,
-      date: moment(data.attributes.date).toISOString(),
-      excerpt: data.attributes.excerpt,
-      slug: data.attributes.slug,
-      tags: data.attributes.tags.split(', '),
-      title: data.attributes.title
-    }
-
-    posts.push(post)
-  }
-
-  return {
-    props: {
-      posts: orderBy(posts, 'date', 'desc')
-    }
-  }
-}
 
 export default Blog

@@ -10,26 +10,22 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "lint": "eslint . --ext jsx,ts,tsx",
+    "lint": "eslint . --ext js,jsx,ts,tsx",
     "start": "next start"
   },
   "dependencies": {
-    "front-matter": "^4.0.2",
-    "fs-extra": "^9.0.1",
-    "lodash": "^4.17.20",
-    "moment": "^2.29.1",
+    "clipboardy": "^2.3.0",
+    "dayjs": "^1.9.1",
     "next": "^9.5.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-markdown": "^4.3.1",
-    "remark-unwrap-images": "^2.0.0",
+    "react-highlight.js": "^1.0.7",
     "sass": "^1.27.0"
   },
   "devDependencies": {
-    "@types/fs-extra": "^9.0.1",
-    "@types/lodash": "^4.14.162",
     "@types/node": "^14.11.8",
     "@types/react": "^16.9.52",
+    "@types/react-highlight.js": "^1.0.0",
     "@typescript-eslint/eslint-plugin": "^4.4.0",
     "@typescript-eslint/parser": "^4.4.0",
     "eslint": "^7.11.0",

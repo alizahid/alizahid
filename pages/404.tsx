@@ -1,28 +1,15 @@
-import Head from 'next/head'
-import React, { FunctionComponent } from 'react'
+import { NextPage } from 'next'
+import React from 'react'
 
-import { Footer, Header } from '../components'
+import { Page } from '../components'
 
-const NotFound: FunctionComponent = () => (
-  <>
-    <Head>
-      <title>404 / Ali Zahid</title>
-      <meta content="Not found" name="description" />
-    </Head>
-
-    <main className="min-h-screen bg-white flex flex-col justify-center p-8 lg:p-20">
-      <Header title="404" />
-
-      <div className="my-12">
-        <h2 className="text-6xl font-semibold leading-tight mt-8">
-          Looks like you&apos;re looking for something that doesn&apos;t exist.
-        </h2>
-        <p className="mt-4 text-2xl">Are you sure you got the right link?</p>
-      </div>
-
-      <Footer />
-    </main>
-  </>
+const NotFound: NextPage = () => (
+  <Page description="Not found" title="404">
+    <h2 className="text-6xl font-semibold leading-tight mt-8">
+      Looks like you&apos;re looking for something that doesn&apos;t exist.
+    </h2>
+    <p className="mt-4">Are you sure you got the right link?</p>
+  </Page>
 )
 
 export default NotFound

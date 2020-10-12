@@ -1,110 +1,214 @@
-import frontMatter from 'front-matter'
-import { readdir, readFile } from 'fs-extra'
-import { orderBy } from 'lodash'
-import { GetStaticProps, NextPage } from 'next'
-import Head from 'next/head'
-import { join } from 'path'
+import { NextPage } from 'next'
+import Link from 'next/link'
 import React from 'react'
-import Markdown from 'react-markdown'
 
-import { Footer, Header } from '../components'
-import { Project, ProjectAttributes, ProjectLink } from '../types'
+import { Page, Project } from '../components'
 
-interface Props {
-  projects: Project[]
-}
-
-const Playground: NextPage<Props> = ({ projects }) => (
-  <>
-    <Head>
-      <title>Playground / Ali Zahid</title>
-      <meta content="My works" name="description" />
-    </Head>
-
-    <main className="min-h-screen bg-white flex flex-col justify-center p-8 lg:p-20">
-      <Header title="Playground" />
-
-      <div className="my-20">
-        {projects.map(({ body, links, slug, title }) => (
-          <article
-            className="flex flex-col lg:flex-row items-center mt-12 first:mt-0"
-            key={slug}>
-            <figure>
-              <img
-                alt={title}
-                className="h-20 w-20"
-                src={`/playground/${slug}.png`}
-              />
-            </figure>
-            <section className="flex-1 mt-8 lg:mt-0 lg:ml-8">
-              <h2 className="text-5xl font-semibold leading-tight">{title}</h2>
-              <article className="project">
-                <Markdown source={body} />
-              </article>
-              <footer className="mt-4">
-                {links.map(({ label, link }) => (
-                  <a
-                    className="font-medium text-lg ml-4 first:ml-0"
-                    href={link}
-                    key={label}>
-                    {label}
-                  </a>
-                ))}
-              </footer>
-            </section>
-          </article>
-        ))}
-      </div>
-
-      <Footer />
-    </main>
-  </>
+const Playground: NextPage = () => (
+  <Page
+    className="flex flex-col lg:flex-row my-20 gap-16"
+    description="My works"
+    title="Playground">
+    <section className="flex-1">
+      <Project
+        links={[
+          {
+            label: 'Web',
+            link: 'https://pandemic.li'
+          },
+          {
+            label: 'GitHub',
+            link: 'https://github.com/pandemicli'
+          }
+        ]}
+        name="Pandemic.li">
+        <p>
+          Pandemic.li is a privacy-focused contact tracing app for COVID-19.
+        </p>
+        <p className="mt-2">
+          You can use it to track your symptoms, the people you meet, and the
+          places you visit.
+        </p>
+        <p className="mt-2">
+          All your data is end-to-end encrypted and safe from any prying eyes.
+        </p>
+      </Project>
+      <Project
+        links={[
+          {
+            label: 'Web',
+            link: 'https://helpling.app'
+          },
+          {
+            label: 'GitHub',
+            link: 'https://github.com/khairat'
+          }
+        ]}
+        name="Helpling">
+        <p>
+          Helpling is a place to help you find people who are less fortunate or
+          in dire circumstanes and see how you can help out.
+        </p>
+        <p className="mt-2">
+          People can make requests for things; food, money, physical goods, and
+          invites.
+        </p>
+        <p className="mt-2">
+          Whether they need warm food on a cold night, some cash to travel to
+          see family, a new couch or mattress, or an job interview; you can step
+          in and help them.
+        </p>
+      </Project>
+      <Project
+        links={[
+          {
+            label: 'Web',
+            link: 'https://bother.app'
+          },
+          {
+            label: 'GitHub',
+            link: 'https://github.com/bother'
+          }
+        ]}
+        name="Bother">
+        <p>
+          Bother is an anonymous social network for sharing things that bother
+          you. It&apos;s the cuter successor to{' '}
+          <a href="https://www.producthunt.com/posts/boar">Boar</a>, rebuilt
+          from scratch.
+        </p>
+      </Project>
+    </section>
+    <section className="flex-1">
+      <Project
+        links={[
+          {
+            label: 'Web',
+            link: 'https://mittens.app'
+          },
+          {
+            label: 'App Store',
+            link: 'https://itunes.apple.com/us/app/mittens/id1453383568'
+          },
+          {
+            label: 'Google Play',
+            link: 'https://play.google.com/store/apps/details?id=app.mittens'
+          },
+          {
+            label: 'GitHub',
+            link: 'https://github.com/mittens'
+          }
+        ]}
+        name="Mittens">
+        <p>Mittens brings you push notifications from GitHub.</p>
+        <p className="mt-2">
+          The app is built with React Native and Firebase for authentication,
+          serverless functions, and push notifications. step in and help them.
+        </p>
+      </Project>
+      <Project
+        links={[
+          {
+            label: 'Web',
+            link: 'https://wowdb.app'
+          },
+          {
+            label: 'App Store',
+            link: 'https://itunes.apple.com/us/app/wowdb/id1366381234'
+          },
+          {
+            label: 'Google Play',
+            link:
+              'https://play.google.com/store/apps/details?id=com.designplox.wowhead'
+          },
+          {
+            label: 'GitHub',
+            link: 'https://github.com/wowdb'
+          }
+        ]}
+        name="MovieMate">
+        <p>
+          MovieMate lets you find which people have worked on films together.
+        </p>
+        <p className="mt-2">
+          The API is built with Express and uses{' '}
+          <a href="https://www.themoviedb.org" rel="noreferrer" target="_blank">
+            TMDB
+          </a>{' '}
+          for data, and Redis for caching. The web app is built with React and
+          the mobile app is built with React Native.
+        </p>
+      </Project>
+      <Project
+        links={[
+          {
+            label: 'Demo',
+            link: 'https://slinky.js.org'
+          },
+          {
+            label: 'GitHub',
+            link: 'https://github.com/alizahid/slinky'
+          }
+        ]}
+        name="Slinky">
+        <p>
+          Slinky is a light-weight and responsive navigation menu plugin for
+          jQuery.
+        </p>
+        <p className="mt-2">
+          It&apos;s quite popular on GitHub, with over 600 stars. I&apos;m quite
+          proud of that!
+        </p>
+      </Project>
+      <Project
+        links={[
+          {
+            label: 'Web',
+            link: 'https://wowdb.app'
+          },
+          {
+            label: 'App Store',
+            link: 'https://itunes.apple.com/us/app/wowdb/id1366381234'
+          },
+          {
+            label: 'Google Play',
+            link:
+              'https://play.google.com/store/apps/details?id=com.designplox.wowhead'
+          },
+          {
+            label: 'GitHub',
+            link: 'https://github.com/wowdb'
+          }
+        ]}
+        name="WoWdb">
+        <p>
+          WoWdb is a World of Warcraft database in your pocket. It lets you
+          search for items, quests, achievements, mounts, and more, and view
+          details and stats and{' '}
+          <a href="https://wowhead.com" rel="noreferrer" target="_blank">
+            Wowhead
+          </a>{' '}
+          comments for everything in the game.
+        </p>
+        <p className="mt-2">
+          <Link href="/blog/building-wowdb">
+            <a>Read more</a>
+          </Link>{' '}
+          about the architecture on my blog.
+        </p>
+        <p className="mt-2">
+          WoWdb is built using Fastify, MongoDB, React Native, and{' '}
+          <a
+            href="https://github.com/jeancroy/FuzzySearch"
+            rel="noreferrer"
+            target="_blank">
+            Fuzzy
+          </a>{' '}
+          for search.
+        </p>
+      </Project>
+    </section>
+  </Page>
 )
-
-export const getStaticProps: GetStaticProps = async () => {
-  const path = join(process.cwd(), 'projects')
-
-  const files = await readdir(path)
-
-  const projects: Project[] = []
-
-  for await (const file of files) {
-    const content = await readFile(join(path, file), 'utf8')
-
-    const data = frontMatter<ProjectAttributes>(content)
-
-    const links: ProjectLink[] = Object.entries(data.attributes)
-      .filter(([key]) => key.includes('link_'))
-      .map(([type, link]) => ({
-        label:
-          type === 'link_app_store'
-            ? 'App Store'
-            : type === 'link_demo'
-            ? 'Demo'
-            : type === 'link_github'
-            ? 'GitHub'
-            : type === 'link_google_play'
-            ? 'Google Play'
-            : 'Web',
-        link: String(link)
-      }))
-
-    const project: Project = {
-      body: data.body,
-      links,
-      order: data.attributes.order,
-      slug: data.attributes.slug,
-      title: data.attributes.title
-    }
-
-    projects.push(project)
-  }
-
-  return {
-    props: {
-      projects: orderBy(projects, 'order', 'asc')
-    }
-  }
-}
 
 export default Playground
