@@ -169,17 +169,17 @@ const Post: NextPage = () => (
       <div className="flex flex-col lg:flex-row my-16">
         <Screenshot
           caption="List of plans"
-          image="/blog/bijli/bijli-v2-1.png"
+          image="/blog/bijli/screenshot-1.png"
         />
         <Screenshot
           caption="Comments on a plan"
           className="mt-8 lg:mt-0 lg:ml-8"
-          image="/blog/bijli/bijli-v2-3.png"
+          image="/blog/bijli/screenshot-3.png"
         />
         <Screenshot
           caption="Creating a plan"
           className="mt-8 lg:mt-0 lg:ml-8"
-          image="/blog/bijli/bijli-v2-2.png"
+          image="/blog/bijli/screenshot-2.png"
         />
       </div>
       <p>

@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import React from 'react'
 
-import { Page, PostHeader } from '../../components'
+import { Page, PostHeader, Screenshot } from '../../components'
 
 const Post: NextPage = () => (
   <Page
@@ -80,6 +80,27 @@ const Post: NextPage = () => (
         refused to publish the app for me. The code is sitting on my GitHub,
         unused.
       </p>
+      <div className="flex flex-col lg:flex-row my-8 overflow-x-auto">
+        <Screenshot
+          caption="Today view"
+          image="/blog/corona-times/pandemicli-1.png"
+        />
+        <Screenshot
+          caption="Places"
+          className="mt-8 lg:mt-0 lg:ml-8"
+          image="/blog/corona-times/pandemicli-3.png"
+        />
+        <Screenshot
+          caption="Contacts"
+          className="mt-8 lg:mt-0 lg:ml-8"
+          image="/blog/corona-times/pandemicli-2.png"
+        />
+        <Screenshot
+          caption="Profile"
+          className="mt-8 lg:mt-0 lg:ml-8"
+          image="/blog/corona-times/pandemicli-4.png"
+        />
+      </div>
       <p>
         You can learn more about it on the{' '}
         <a href="https://pandemic.li">Pandemic.li website</a>.
@@ -124,6 +145,36 @@ const Post: NextPage = () => (
         only add requests for things you want. Now, if you have something
         you&#39;d like to give someone, you can create an offer.
       </p>
+      <div className="flex flex-col lg:flex-row my-8 overflow-x-auto">
+        <Screenshot
+          caption="Requests for help"
+          image="/blog/corona-times/helpling-1.png"
+        />
+        <Screenshot
+          caption="Offers to help"
+          image="/blog/corona-times/helpling-2.png"
+        />
+        <Screenshot
+          caption="Request / offer"
+          className="mt-8 lg:mt-0 lg:ml-8"
+          image="/blog/corona-times/helpling-3.png"
+        />
+        <Screenshot
+          caption="Chat"
+          className="mt-8 lg:mt-0 lg:ml-8"
+          image="/blog/corona-times/helpling-4.png"
+        />
+        <Screenshot
+          caption="Profile"
+          className="mt-8 lg:mt-0 lg:ml-8"
+          image="/blog/corona-times/helpling-5.png"
+        />
+        <Screenshot
+          caption="Profile"
+          className="mt-8 lg:mt-0 lg:ml-8"
+          image="/blog/corona-times/helpling-6.png"
+        />
+      </div>
       <p>
         The app is in beta right now, and you can{' '}
         <a
