@@ -22,7 +22,7 @@ const Post: NextPage = () => (
         for me. Medium was cool, but I wanted to use my own domain and Medium{' '}
         <a
           href="https://help.medium.com/hc/en-us/articles/115003053487-Custom-Domains-service-deprecation"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           target="_blank">
           recently
         </a>{' '}
@@ -30,7 +30,7 @@ const Post: NextPage = () => (
       </p>
       <p>
         The first iteration was with{' '}
-        <a href="https://prismic.io" rel="noreferrer" target="_blank">
+        <a href="https://prismic.io" rel="noopener noreferrer" target="_blank">
           Prismic
         </a>{' '}
         and React. It was a grand project with a blog, my goals, and my
@@ -41,11 +41,17 @@ const Post: NextPage = () => (
       <p>
         Iteration 1.5 was to refactor the Prismic / React site with TypeScript
         and{' '}
-        <a href="https://easy-peasy.now.sh" rel="noreferrer" target="_blank">
+        <a
+          href="https://easy-peasy.now.sh"
+          rel="noopener noreferrer"
+          target="_blank">
           <code>easy-peasy</code>
         </a>{' '}
         instead of JS and{' '}
-        <a href="https://redux.js.org" rel="noreferrer" target="_blank">
+        <a
+          href="https://redux.js.org"
+          rel="noopener noreferrer"
+          target="_blank">
           Redux
         </a>
         .
@@ -61,7 +67,7 @@ const Post: NextPage = () => (
         with{' '}
         <a
           href="https://www.mongodb.com/cloud/stitch"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           target="_blank">
           MongoDB Stitch
         </a>
@@ -119,7 +125,7 @@ const Post: NextPage = () => (
       <p>
         While my Prismic / React app was sufficient, it lacked server-side
         rendering and thus SEO. For this rebuild, I decided to go with{' '}
-        <a href="https://nextjs.org" rel="noreferrer" target="_blank">
+        <a href="https://nextjs.org" rel="noopener noreferrer" target="_blank">
           Next.js
         </a>{' '}
         so I could have both. Check out the{' '}
@@ -127,7 +133,7 @@ const Post: NextPage = () => (
         used{' '}
         <a
           href="https://github.com/zeit/styled-jsx"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           target="_blank">
           <code>jsx-styled</code>
         </a>{' '}
@@ -164,7 +170,7 @@ const Post: NextPage = () => (
         amazing on my{' '}
         <a
           href="https://www.apple.com/ae/shop/product/HMUB2B/A/lg-ultrafine-5k-display"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           target="_blank">
           desktop screen
         </a>{' '}

@@ -120,7 +120,10 @@ const Post: NextPage = () => (
       <p>
         So I&#39;ve started recording another, where I build a todo app.
         I&#39;ve been waiting for the next version of{' '}
-        <a href="https://twitter.com/useclear" rel="noreferrer" target="_blank">
+        <a
+          href="https://twitter.com/useclear"
+          rel="noopener noreferrer"
+          target="_blank">
           Clear
         </a>
         , and it made more sense to create something similar, with more mass
@@ -175,7 +178,7 @@ const Post: NextPage = () => (
         The app is in beta right now, and you can{' '}
         <a
           href="https://testflight.apple.com/join/PQSjkuHG"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           target="_blank">
           take it for a spin
         </a>{' '}

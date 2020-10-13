@@ -31,11 +31,11 @@ const Post: NextPage = () => (
       </p>
       <p>
         The long term plan is to have{' '}
-        <a href="https://flynn.io" rel="noreferrer" target="_blank">
+        <a href="https://flynn.io" rel="noopener noreferrer" target="_blank">
           Flynn
         </a>{' '}
         on a Digital Ocean box for APIs, or even go serverless with{' '}
-        <a href="https://vercel.com" rel="noreferrer" target="_blank">
+        <a href="https://vercel.com" rel="noopener noreferrer" target="_blank">
           Vercel
         </a>
         , and use Firebase more. This site is also hosted on{' '}
@@ -46,7 +46,7 @@ const Post: NextPage = () => (
       </p>
       <p>
         Let&#39;s talk about what went into building this and why I chose{' '}
-        <a href="https://prismic.io" rel="noreferrer" target="_blank">
+        <a href="https://prismic.io" rel="noopener noreferrer" target="_blank">
           Prismic
         </a>{' '}
         as my headless CMS.
@@ -61,7 +61,10 @@ const Post: NextPage = () => (
       </p>
       <p>
         At my day job, I&#39;ve used{' '}
-        <a href="https://www.contentful.com" rel="noreferrer" target="_blank">
+        <a
+          href="https://www.contentful.com"
+          rel="noopener noreferrer"
+          target="_blank">
           Contentful
         </a>{' '}
         extensively. It&#39;s pretty great but also costs a pretty penny.
@@ -72,23 +75,32 @@ const Post: NextPage = () => (
       </p>
       <p>
         I went over to{' '}
-        <a href="https://headlesscms.org" rel="noreferrer" target="_blank">
+        <a
+          href="https://headlesscms.org"
+          rel="noopener noreferrer"
+          target="_blank">
           headlessCMS
         </a>{' '}
         and looked at the top options. I tried{' '}
-        <a href="https://strapi.io" rel="noreferrer" target="_blank">
+        <a href="https://strapi.io" rel="noopener noreferrer" target="_blank">
           Strapi
         </a>
         ,{' '}
-        <a href="https://getpublii.com" rel="noreferrer" target="_blank">
+        <a
+          href="https://getpublii.com"
+          rel="noopener noreferrer"
+          target="_blank">
           Publii
         </a>
         ,{' '}
-        <a href="https://directus.io" rel="noreferrer" target="_blank">
+        <a href="https://directus.io" rel="noopener noreferrer" target="_blank">
           Directus
         </a>
         , and{' '}
-        <a href="https://getcockpit.com" rel="noreferrer" target="_blank">
+        <a
+          href="https://getcockpit.com"
+          rel="noopener noreferrer"
+          target="_blank">
           Cockpit
         </a>
         . I was hoping to self-host but eventually decided against it. One less
@@ -104,7 +116,7 @@ const Post: NextPage = () => (
       <h3>Choosing the frontend</h3>
       <p>
         I love{' '}
-        <a href="https://reactjs.org" rel="noreferrer" target="_blank">
+        <a href="https://reactjs.org" rel="noopener noreferrer" target="_blank">
           React
         </a>
         . I&#39;ve built so many apps with React and React Native over the last
@@ -116,7 +128,7 @@ const Post: NextPage = () => (
       </p>
       <p>
         I love{' '}
-        <a href="https://emberjs.com" rel="noreferrer" target="_blank">
+        <a href="https://emberjs.com" rel="noopener noreferrer" target="_blank">
           Ember
         </a>{' '}
         even more. It&#39;s very opinionated but still open. It comes with a

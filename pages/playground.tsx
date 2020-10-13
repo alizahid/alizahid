@@ -132,7 +132,10 @@ const Playground: NextPage = () => (
         </p>
         <p className="mt-2">
           The API is built with Express and uses{' '}
-          <a href="https://www.themoviedb.org" rel="noreferrer" target="_blank">
+          <a
+            href="https://www.themoviedb.org"
+            rel="noopener noreferrer"
+            target="_blank">
             TMDB
           </a>{' '}
           for data, and Redis for caching. The web app is built with React and
@@ -185,7 +188,10 @@ const Playground: NextPage = () => (
           WoWdb is a World of Warcraft database in your pocket. It lets you
           search for items, quests, achievements, mounts, and more, and view
           details and stats and{' '}
-          <a href="https://wowhead.com" rel="noreferrer" target="_blank">
+          <a
+            href="https://wowhead.com"
+            rel="noopener noreferrer"
+            target="_blank">
             Wowhead
           </a>{' '}
           comments for everything in the game.
@@ -200,7 +206,7 @@ const Playground: NextPage = () => (
           WoWdb is built using Fastify, MongoDB, React Native, and{' '}
           <a
             href="https://github.com/jeancroy/FuzzySearch"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             target="_blank">
             Fuzzy
           </a>{' '}

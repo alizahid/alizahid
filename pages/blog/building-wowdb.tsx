@@ -17,17 +17,20 @@ const Post: NextPage = () => (
     <div className="post">
       <p>
         I built <em>Mr. Bigglesworth</em>, an app that would let you search for{' '}
-        <a href="http://worldofwarcraft.com" rel="noreferrer" target="_blank">
+        <a
+          href="http://worldofwarcraft.com"
+          rel="noopener noreferrer"
+          target="_blank">
           World of Warcraft
         </a>{' '}
         content and view{' '}
-        <a href="http://wowhead.com" rel="noreferrer" target="_blank">
+        <a href="http://wowhead.com" rel="noopener noreferrer" target="_blank">
           Wowhead
         </a>{' '}
         comments for them. It was based on an{' '}
         <a
           href="https://wow.gamepedia.com/Mr._Bigglesworth"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           target="_blank">
           in-game cat
         </a>
@@ -36,13 +39,16 @@ const Post: NextPage = () => (
       <p>
         It was a pretty simple solution. I wrote a script in Node.js, which
         would use the{' '}
-        <a href="https://develop.battle.net" rel="noreferrer" target="_blank">
+        <a
+          href="https://develop.battle.net"
+          rel="noopener noreferrer"
+          target="_blank">
           Blizzard APIs
         </a>{' '}
         to fetch data. Which I then transferred to my{' '}
         <a
           href="https://www.mongodb.com/cloud/atlas"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           target="_blank">
           MongoDB Atlas
         </a>{' '}
@@ -102,7 +108,7 @@ const Post: NextPage = () => (
       <p>A major hurdle to the ideal setup was my infrastructure.</p>
       <p>
         I was hosting the API on{' '}
-        <a href="http://heroku.com" rel="noreferrer" target="_blank">
+        <a href="http://heroku.com" rel="noopener noreferrer" target="_blank">
           Heroku
         </a>
         , which would connect to MongoDB and fetch data, search, and hit up
@@ -113,13 +119,13 @@ const Post: NextPage = () => (
         Recently,{' '}
         <a
           href="https://cloud.google.com/scheduler"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           target="_blank">
           Google Cloud introduced Cloud Scheduler
         </a>
         , and it was cheap. I looked into it. But before I could finalize it, I
         came across{' '}
-        <a href="https://render.com" rel="noreferrer" target="_blank">
+        <a href="https://render.com" rel="noopener noreferrer" target="_blank">
           Render
         </a>
         . Suddenly, so many new doors opened.
@@ -169,12 +175,12 @@ const Post: NextPage = () => (
         and uses{' '}
         <a
           href="https://github.com/jeancroy/FuzzySearch"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           target="_blank">
           FuzzySearch
         </a>{' '}
         to run queries. I also tried the more popular{' '}
-        <a href="http://fusejs.io" rel="noreferrer" target="_blank">
+        <a href="http://fusejs.io" rel="noopener noreferrer" target="_blank">
           Fuse
         </a>
         , but couldn&#39;t get decent performance. Not sure if it was my
@@ -235,7 +241,7 @@ const Post: NextPage = () => (
           I want to redesign the visuals of the app, to match the{' '}
           <a
             href="https://worldofwarcraft.com/en-gb/battle-for-azeroth"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             target="_blank">
             Battle for Azeroth website
           </a>

@@ -34,7 +34,7 @@ const Post: NextPage = () => (
         then I came across this app:{' '}
         <a
           href="https://www.mapway.com/apps/dubai-metro"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           target="_blank">
           Dubai Metro Interactive Map
         </a>

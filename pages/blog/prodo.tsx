@@ -20,7 +20,10 @@ const Post: NextPage = () => (
       <p>
         From the offset, I knew this had to be a primarily desktop app. I&#39;ve
         built some stuff with{' '}
-        <a href="https://electronjs.org" rel="noreferrer" target="_blank">
+        <a
+          href="https://electronjs.org"
+          rel="noopener noreferrer"
+          target="_blank">
           Electron
         </a>{' '}
         in the past, but never finished or published anything. I was excited to
@@ -31,7 +34,10 @@ const Post: NextPage = () => (
       <h3>Setup</h3>
       <p>
         I started with{' '}
-        <a href="https://create-react-app.dev" rel="noreferrer" target="_blank">
+        <a
+          href="https://create-react-app.dev"
+          rel="noopener noreferrer"
+          target="_blank">
           <code>create-react-app</code>
         </a>{' '}
         and added Electron to it. It took some effort to figure out the
@@ -44,7 +50,7 @@ const Post: NextPage = () => (
         I&#39;m using{' '}
         <a
           href="https://github.com/mawie81/electron-window-state"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           target="_blank">
           <code>electron-window-state</code>
         </a>{' '}
@@ -61,7 +67,7 @@ const Post: NextPage = () => (
         and rendering. A{' '}
         <a
           href="https://blog.avocode.com/4-must-know-tips-for-building-cross-platform-electron-apps-f3ae9c2bffff"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           target="_blank">
           Medium article
         </a>{' '}
@@ -76,7 +82,7 @@ const Post: NextPage = () => (
         essential to make sure proper rules are in place or anyone can{' '}
         <a
           href="https://news.ycombinator.com/item?id=17424538"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           target="_blank">
           mess around
         </a>{' '}
@@ -112,7 +118,7 @@ service cloud.firestore {
         the list item is just a link. Maybe in the future, I can add{' '}
         <a
           href="https://github.com/bvaughn/react-window"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           target="_blank">
           <code>react-window</code>
         </a>{' '}

@@ -73,7 +73,7 @@ const Post: NextPage = () => (
         After years of eyeing it, I finally bought a{' '}
         <a
           href="https://www.hermanmiller.com/en_eur/products/seating/office-chairs/aeron-chairs"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           target="_blank">
           Herman Miller Aeron chair
         </a>
