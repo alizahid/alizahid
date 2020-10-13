@@ -21,12 +21,12 @@ const Home: NextPage = () => (
         . And here&apos;s my{' '}
         <a href="https://www.dropbox.com/s/n38xqrlhn99aneq">resume</a>.
       </p>
-      <p className="mt-4">
+      <p className="mt-2">
         I&apos;ve worked with large enterprises, government organizations,
         Academy and Emmy award-winning filmmakers, esports teams, student
         groups, and everything in between, to help realize their ideas.
       </p>
-      <p className="mt-4">
+      <p className="mt-2">
         Are you looking for help building your next epic idea or product?{' '}
         <a href="mailto:ali.zahid@live.com">Reach out</a> and see if we can work
         together.
