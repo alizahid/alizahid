@@ -18,8 +18,8 @@ const Post: NextPage = () => (
     <div className="post">
       <p>
         I&#39;ve rebuilt my blog three times this year and moved all posts to
-        Medium because I can&#39;t decide on what I want/what&#39;s easiest for
-        me. Medium was cool, but I wanted to use my own domain and Medium{' '}
+        Medium because I can&#39;t decide on what I want / what&#39;s easiest
+        for me. Medium was cool, but I wanted to use my own domain and Medium{' '}
         <a
           href="https://help.medium.com/hc/en-us/articles/115003053487-Custom-Domains-service-deprecation"
           rel="noreferrer"
@@ -39,7 +39,8 @@ const Post: NextPage = () => (
         everything updated, so I decided to shutter that for the next rebuild.
       </p>
       <p>
-        Iteration 1.5 was to refactor the Prismic/React site with TypeScript and{' '}
+        Iteration 1.5 was to refactor the Prismic / React site with TypeScript
+        and{' '}
         <a href="https://easy-peasy.now.sh" rel="noreferrer" target="_blank">
           <code>easy-peasy</code>
         </a>{' '}
@@ -91,7 +92,7 @@ const Post: NextPage = () => (
       <h4>Setting up</h4>
       <p>
         The setup was fairly simple, although a little time-consuming.
-        Everything has a provision/setup delay in MongoDB cloud and Stitch
+        Everything has a provision / setup delay in MongoDB cloud and Stitch
         wasn&#39;t an exception.
       </p>
       <ul>
@@ -116,7 +117,7 @@ const Post: NextPage = () => (
 
       <h3>Blog</h3>
       <p>
-        While my Prismic/React app was sufficient, it lacked server-side
+        While my Prismic / React app was sufficient, it lacked server-side
         rendering and thus SEO. For this rebuild, I decided to go with{' '}
         <a href="https://nextjs.org" rel="noreferrer" target="_blank">
           Next.js

@@ -27,7 +27,7 @@ const Post: NextPage = () => (
         My main server is a MediaTemple DV, which I&#39;ve been meaning to do
         away with for a while now. Between Digital Ocean and Heroku and Media
         Temple, I&#39;m paying a considerable amount in monthly fees for my
-        personal sites/projects.
+        personal sites / projects.
       </p>
       <p>
         The long term plan is to have{' '}
