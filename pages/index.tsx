@@ -9,8 +9,8 @@ const Home: NextPage = () => (
     className="flex flex-col lg:flex-row items-center"
     description="About me"
     title="Hello">
-    <section className="lg:mr-12 order-2 lg:order-1">
-      <h2 className="text-6xl font-semibold leading-tight mt-8">
+    <section className="order-2 lg:order-1">
+      <h2 className="text-6xl font-semibold leading-tight">
         I have a patent on blowing minds with epic design.
       </h2>
       <p className="mt-4">
@@ -32,7 +32,10 @@ const Home: NextPage = () => (
         together.
       </p>
     </section>
-    <img className="h-48 w-48 rounded-full order-1" src="/ali-zahid.jpg" />
+    <img
+      className="h-48 w-48 rounded-full order-1 mb-8 lg:mb-0 lg:ml-8"
+      src="/ali-zahid.jpg"
+    />
   </Page>
 )
 
