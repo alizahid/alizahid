@@ -32,7 +32,9 @@ const Post: NextPage = () => (
       <img
         alt="Pandemic.li"
         className="floaty"
+        height="200"
         src="/playground/pandemicli.png"
+        width="200"
       />
       <p>
         Pandemic.li is a contact-tracing app for COVID-19 (and future pandemics,
@@ -136,7 +138,13 @@ const Post: NextPage = () => (
       </p>
 
       <h3>Helpling</h3>
-      <img alt="Helpling" className="floaty" src="/playground/helpling.png" />
+      <img
+        alt="Helpling"
+        className="floaty"
+        height="200"
+        src="/playground/helpling.png"
+        width="200"
+      />
       <p>
         I built <Link href="https://helpling.app">Helpling</Link> in January
         this year as a web app. Inspired by a post that I saw on Imgur, where a
@@ -186,7 +194,13 @@ const Post: NextPage = () => (
       </p>
 
       <h3>Pickle</h3>
-      <img alt="Pickle" className="floaty" src="/playground/pickle.png" />
+      <img
+        alt="Pickle"
+        className="floaty"
+        height="200"
+        src="/playground/pickle.png"
+        width="200"
+      />
       <p>
         Two years ago, I was building some operations apps at my day job, and we
         needed to push some analytics data from the app somewhere. My first

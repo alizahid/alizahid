@@ -4,7 +4,7 @@ import React from 'react'
 class Doc extends Document {
   render(): JSX.Element {
     return (
-      <Html>
+      <Html lang="en">
         <Head />
 
         <body className="text-gray-900 bg-gray-100 dark:text-gray-100 dark:bg-gray-900">

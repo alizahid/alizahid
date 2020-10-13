@@ -33,8 +33,11 @@ const Home: NextPage = () => (
       </p>
     </section>
     <img
-      className="h-48 w-48 rounded-full order-1 mb-8 lg:mb-0 lg:ml-8"
+      alt="Ali Zahid"
+      className="rounded-full order-1 mb-8 lg:mb-0 lg:ml-8"
+      height="200"
       src="/ali-zahid.jpg"
+      width="200"
     />
   </Page>
 )
