@@ -170,11 +170,6 @@ const Post: NextPage = () => (
           className="mt-8 lg:mt-0 lg:ml-8"
           image="/blog/corona-times/helpling-5.png"
         />
-        <Screenshot
-          caption="Profile"
-          className="mt-8 lg:mt-0 lg:ml-8"
-          image="/blog/corona-times/helpling-6.png"
-        />
       </div>
       <p>
         The app is in beta right now, and you can{' '}
