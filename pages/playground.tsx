@@ -1,8 +1,7 @@
 import { NextPage } from 'next'
-import Link from 'next/link'
 import React from 'react'
 
-import { Page, Project } from '../components'
+import { Link, Page, Project } from '../components'
 
 const Playground: NextPage = () => (
   <Page
@@ -74,8 +73,8 @@ const Playground: NextPage = () => (
         <p>
           Bother is an anonymous social network for sharing things that bother
           you. It&apos;s the cuter successor to{' '}
-          <a href="https://www.producthunt.com/posts/boar">Boar</a>, rebuilt
-          from scratch.
+          <Link href="https://www.producthunt.com/posts/boar">Boar</Link>,
+          rebuilt from scratch.
         </p>
       </Project>
     </section>
@@ -132,12 +131,9 @@ const Playground: NextPage = () => (
         </p>
         <p className="mt-2">
           The API is built with Express and uses{' '}
-          <a
-            href="https://www.themoviedb.org"
-            rel="noopener noreferrer"
-            target="_blank">
+          <Link external href="https://www.themoviedb.org">
             TMDB
-          </a>{' '}
+          </Link>{' '}
           for data, and Redis for caching. The web app is built with React and
           the mobile app is built with React Native.
         </p>
@@ -188,28 +184,20 @@ const Playground: NextPage = () => (
           WoWdb is a World of Warcraft database in your pocket. It lets you
           search for items, quests, achievements, mounts, and more, and view
           details and stats and{' '}
-          <a
-            href="https://wowhead.com"
-            rel="noopener noreferrer"
-            target="_blank">
+          <Link external href="https://wowhead.com">
             Wowhead
-          </a>{' '}
+          </Link>{' '}
           comments for everything in the game.
         </p>
         <p className="mt-2">
-          <Link href="/blog/building-wowdb">
-            <a>Read more</a>
-          </Link>{' '}
-          about the architecture on my blog.
+          <Link href="/blog/building-wowdb">Read more</Link> about the
+          architecture on my blog.
         </p>
         <p className="mt-2">
           WoWdb is built using Fastify, MongoDB, React Native, and{' '}
-          <a
-            href="https://github.com/jeancroy/FuzzySearch"
-            rel="noopener noreferrer"
-            target="_blank">
+          <Link external href="https://github.com/jeancroy/FuzzySearch">
             Fuzzy
-          </a>{' '}
+          </Link>{' '}
           for search.
         </p>
       </Project>
