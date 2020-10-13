@@ -79,7 +79,7 @@ const Playground: NextPage = () => (
         </p>
       </Project>
     </section>
-    <section className="flex-1 ml-16">
+    <section className="flex-1 mt-16 lg:mt-0 lg:ml-16">
       <Project
         links={[
           {
