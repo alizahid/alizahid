@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import React from 'react'
 
-import { Page, PostHeader, Screenshot } from '../../components'
+import { Link, Page, PostHeader, Screenshot } from '../../components'
 
 const Post: NextPage = () => (
   <Page
@@ -66,9 +66,9 @@ const Post: NextPage = () => (
       <h4>Code</h4>
       <p>
         Check out the{' '}
-        <a href="https://github.com/alizahid/location-picker-demo">
+        <Link href="https://github.com/alizahid/location-picker-demo">
           GitHub repo
-        </a>
+        </Link>
         .
       </p>
 

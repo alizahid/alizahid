@@ -1,7 +1,13 @@
 import { NextPage } from 'next'
 import React from 'react'
 
-import { Page, PostHeader, Screenshot } from '../../components'
+import {
+  Link,
+  Page,
+  PostHeader,
+  Screenshot,
+  Screenshots
+} from '../../components'
 
 const Post: NextPage = () => (
   <Page
@@ -71,7 +77,7 @@ const Post: NextPage = () => (
       <hr />
 
       <p>
-        So I built <a href="https://bijli.co">Bijli</a>.
+        So I built <Link href="https://bijli.co">Bijli</Link>.
       </p>
       <p>
         It was a crowd-sourced app; people would drop a pin on a map when the
@@ -166,7 +172,7 @@ const Post: NextPage = () => (
         I&#39;ve decided to merge CityMap and Bijli into one, keeping the name
         and the crowd-sourced approach.
       </p>
-      <div className="flex flex-col lg:flex-row my-16">
+      <Screenshots>
         <Screenshot
           caption="List of plans"
           image="/blog/bijli/screenshot-1.png"
@@ -181,7 +187,7 @@ const Post: NextPage = () => (
           className="mt-8 lg:mt-0 lg:ml-8"
           image="/blog/bijli/screenshot-2.png"
         />
-      </div>
+      </Screenshots>
       <p>
         The items are one of two major types; positive and negative, with
         multiple categories, possibly dynamic, within each. Users can up or down

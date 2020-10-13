@@ -1,8 +1,7 @@
 import { NextPage } from 'next'
-import Link from 'next/link'
 import React from 'react'
 
-import { Page, PostHeader } from '../../components'
+import { Link, Page, PostHeader } from '../../components'
 
 const Post: NextPage = () => (
   <Page
@@ -20,19 +19,18 @@ const Post: NextPage = () => (
         I&#39;ve rebuilt my blog three times this year and moved all posts to
         Medium because I can&#39;t decide on what I want / what&#39;s easiest
         for me. Medium was cool, but I wanted to use my own domain and Medium{' '}
-        <a
-          href="https://help.medium.com/hc/en-us/articles/115003053487-Custom-Domains-service-deprecation"
-          rel="noopener noreferrer"
-          target="_blank">
+        <Link
+          external
+          href="https://help.medium.com/hc/en-us/articles/115003053487-Custom-Domains-service-deprecation">
           recently
-        </a>{' '}
+        </Link>{' '}
         killed that.
       </p>
       <p>
         The first iteration was with{' '}
-        <a href="https://prismic.io" rel="noopener noreferrer" target="_blank">
+        <Link external href="https://prismic.io">
           Prismic
-        </a>{' '}
+        </Link>{' '}
         and React. It was a grand project with a blog, my goals, and my
         playground. I soon realized that it was probably too ambitious,
         especially the goals. I work a lot and it&#39;s difficult to keep
@@ -41,19 +39,13 @@ const Post: NextPage = () => (
       <p>
         Iteration 1.5 was to refactor the Prismic / React site with TypeScript
         and{' '}
-        <a
-          href="https://easy-peasy.now.sh"
-          rel="noopener noreferrer"
-          target="_blank">
+        <Link external href="https://easy-peasy.now.sh">
           <code>easy-peasy</code>
-        </a>{' '}
+        </Link>{' '}
         instead of JS and{' '}
-        <a
-          href="https://redux.js.org"
-          rel="noopener noreferrer"
-          target="_blank">
+        <Link external href="https://redux.js.org">
           Redux
-        </a>
+        </Link>
         .
       </p>
       <p>
@@ -65,18 +57,12 @@ const Post: NextPage = () => (
       <p>
         The third, and current, iteration came when I decided to play around
         with{' '}
-        <a
-          href="https://www.mongodb.com/cloud/stitch"
-          rel="noopener noreferrer"
-          target="_blank">
+        <Link external href="https://www.mongodb.com/cloud/stitch">
           MongoDB Stitch
-        </a>
+        </Link>
         . Over the last year and a half, I&#39;ve used Azure Functions a lot.
         I&#39;ve written about that in{' '}
-        <Link href="/blog/surviving-azure-functions">
-          <a>another post</a>
-        </Link>
-        .
+        <Link href="/blog/surviving-azure-functions">another post</Link>.
       </p>
       <p>
         While we misused functions for that project, it made a lot of sense for
@@ -93,7 +79,10 @@ const Post: NextPage = () => (
         I wrote 9 functions to cover CRUD for posts and projects. It had a bit
         of a learning curve because the documentation isn&#39;t fantastic. But
         the end result was quite nice. Check out the{' '}
-        <a href="https://github.com/alizahid/blog-functions">code on GitHub</a>.
+        <Link href="https://github.com/alizahid/blog-functions">
+          code on GitHub
+        </Link>
+        .
       </p>
       <h4>Setting up</h4>
       <p>
@@ -125,18 +114,15 @@ const Post: NextPage = () => (
       <p>
         While my Prismic / React app was sufficient, it lacked server-side
         rendering and thus SEO. For this rebuild, I decided to go with{' '}
-        <a href="https://nextjs.org" rel="noopener noreferrer" target="_blank">
+        <Link external href="https://nextjs.org">
           Next.js
-        </a>{' '}
+        </Link>{' '}
         so I could have both. Check out the{' '}
-        <a href="https://github.com/alizahid/alizahid">code on GitHub</a>. I
-        used{' '}
-        <a
-          href="https://github.com/zeit/styled-jsx"
-          rel="noopener noreferrer"
-          target="_blank">
+        <Link href="https://github.com/alizahid/alizahid">code on GitHub</Link>.
+        I used{' '}
+        <Link external href="https://github.com/zeit/styled-jsx">
           <code>jsx-styled</code>
-        </a>{' '}
+        </Link>{' '}
         for my component styling, which was my first experience with the
         package. Can&#39;t say I&#39;m too happy with it, but that&#39;s another
         story.
@@ -160,20 +146,21 @@ const Post: NextPage = () => (
       </p>
       <p>
         I decided to bite the bullet and build a CMS using React. Check out the{' '}
-        <a href="https://github.com/alizahid/blog-admin">code on GitHub</a>.
-        Take it for a <a href="https://admin.alizahid.dev">spin</a>, if you
-        want.
+        <Link href="https://github.com/alizahid/blog-admin">
+          code on GitHub
+        </Link>
+        . Take it for a <Link href="https://admin.alizahid.dev">spin</Link>, if
+        you want.
       </p>
       <p>
         It&#39;s nice and minimal, although a bit rudimentary. I decided not to
         use a store so some changes do not reflect throughout the app. It looks
         amazing on my{' '}
-        <a
-          href="https://www.apple.com/ae/shop/product/HMUB2B/A/lg-ultrafine-5k-display"
-          rel="noopener noreferrer"
-          target="_blank">
+        <Link
+          external
+          href="https://www.apple.com/ae/shop/product/HMUB2B/A/lg-ultrafine-5k-display">
           desktop screen
-        </a>{' '}
+        </Link>{' '}
         but not so much on my 15&quot; MacBook Pro. It&#39;s not responsive
         either, but that&#39;s by design.
       </p>

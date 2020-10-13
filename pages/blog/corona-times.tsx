@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import React from 'react'
 
-import { Page, PostHeader, Screenshot } from '../../components'
+import { Page, PostHeader, Screenshot, Screenshots } from '../../components'
 
 const Post: NextPage = () => (
   <Page
@@ -80,7 +80,7 @@ const Post: NextPage = () => (
         refused to publish the app for me. The code is sitting on my GitHub,
         unused.
       </p>
-      <div className="flex flex-col lg:flex-row my-8 overflow-x-auto">
+      <Screenshots>
         <Screenshot
           caption="Today view"
           image="/blog/corona-times/pandemicli-1.png"
@@ -100,7 +100,7 @@ const Post: NextPage = () => (
           className="mt-8 lg:mt-0 lg:ml-8"
           image="/blog/corona-times/pandemicli-4.png"
         />
-      </div>
+      </Screenshots>
       <p>
         You can learn more about it on the{' '}
         <a href="https://pandemic.li">Pandemic.li website</a>.
@@ -148,7 +148,7 @@ const Post: NextPage = () => (
         only add requests for things you want. Now, if you have something
         you&#39;d like to give someone, you can create an offer.
       </p>
-      <div className="flex flex-col lg:flex-row my-8 overflow-x-auto">
+      <Screenshots>
         <Screenshot
           caption="Requests for help"
           image="/blog/corona-times/helpling-1.png"
@@ -173,7 +173,7 @@ const Post: NextPage = () => (
           className="mt-8 lg:mt-0 lg:ml-8"
           image="/blog/corona-times/helpling-5.png"
         />
-      </div>
+      </Screenshots>
       <p>
         The app is in beta right now, and you can{' '}
         <a

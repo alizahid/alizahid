@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import React from 'react'
 
-import { Code, Page, PostHeader } from '../../components'
+import { Code, Link, Page, PostHeader } from '../../components'
 
 const Post: NextPage = () => (
   <Page
@@ -119,25 +119,45 @@ end`}
       <h3>Prerequisites</h3>
       <ul>
         <li>
-          <a href="https://nodejs.org/en">Node and NPM</a> /{' '}
-          <a href="https://yarnpkg.com/lang/en">Yarn</a> (preferred)
+          <Link external href="https://nodejs.org/en">
+            Node and NPM
+          </Link>{' '}
+          /{' '}
+          <Link external href="https://yarnpkg.com/lang/en">
+            Yarn
+          </Link>{' '}
+          (preferred)
         </li>
         <li>
-          <a href="https://developer.apple.com/xcode">Xcode</a> and / or{' '}
-          <a href="https://developer.android.com/studio">Android Studio</a>
+          <Link external href="https://developer.apple.com/xcode">
+            Xcode
+          </Link>{' '}
+          and / or{' '}
+          <Link external href="https://developer.android.com/studio">
+            Android Studio
+          </Link>
         </li>
         <li>
-          <a href="https://facebook.github.io/watchman">Watchman</a>
+          <Link external href="https://facebook.github.io/watchman">
+            Watchman
+          </Link>
         </li>
         <li>
-          <a href="https://facebook.github.io/react-native/docs/understanding-cli">
+          <Link
+            external
+            href="https://facebook.github.io/react-native/docs/understanding-cli">
             React Native CLI
-          </a>
+          </Link>
         </li>
         <li>
           Editor of your choice:{' '}
-          <a href="https://code.visualstudio.com">Visual Studio Code</a>{' '}
-          (preferred) / <a href="https://atom.io">Atom</a>
+          <Link external href="https://code.visualstudio.com">
+            Visual Studio Code
+          </Link>{' '}
+          (preferred) /{' '}
+          <Link external href="https://atom.io">
+            Atom
+          </Link>
         </li>
       </ul>
 

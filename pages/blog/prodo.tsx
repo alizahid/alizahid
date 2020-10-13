@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import React from 'react'
 
-import { Code, Image, Page, PostHeader } from '../../components'
+import { Code, Image, Link, Page, PostHeader } from '../../components'
 
 const Post: NextPage = () => (
   <Page
@@ -20,12 +20,9 @@ const Post: NextPage = () => (
       <p>
         From the offset, I knew this had to be a primarily desktop app. I&#39;ve
         built some stuff with{' '}
-        <a
-          href="https://electronjs.org"
-          rel="noopener noreferrer"
-          target="_blank">
+        <Link external href="https://electronjs.org">
           Electron
-        </a>{' '}
+        </Link>{' '}
         in the past, but never finished or published anything. I was excited to
         finally make something with Electron that I&#39;d get to publish and use
         myself. The final product, however, runs well in the browser, too.
@@ -34,12 +31,9 @@ const Post: NextPage = () => (
       <h3>Setup</h3>
       <p>
         I started with{' '}
-        <a
-          href="https://create-react-app.dev"
-          rel="noopener noreferrer"
-          target="_blank">
+        <Link external href="https://create-react-app.dev">
           <code>create-react-app</code>
-        </a>{' '}
+        </Link>{' '}
         and added Electron to it. It took some effort to figure out the
         different nuisances of Electron, but I have a decent setup working now.
       </p>
@@ -48,12 +42,9 @@ const Post: NextPage = () => (
       </h4>
       <p>
         I&#39;m using{' '}
-        <a
-          href="https://github.com/mawie81/electron-window-state"
-          rel="noopener noreferrer"
-          target="_blank">
+        <Link external href="https://github.com/mawie81/electron-window-state">
           <code>electron-window-state</code>
-        </a>{' '}
+        </Link>{' '}
         to manage the window state of my app. It remembers the size and position
         of my window, so I don&#39;t have to resize and reposition it every time
         I open the app.
@@ -65,12 +56,11 @@ const Post: NextPage = () => (
         Here&#39;s an interesting piece I found during my research; there&#39;s
         a small delay between the window opening and the React bundle loading
         and rendering. A{' '}
-        <a
-          href="https://blog.avocode.com/4-must-know-tips-for-building-cross-platform-electron-apps-f3ae9c2bffff"
-          rel="noopener noreferrer"
-          target="_blank">
+        <Link
+          external
+          href="https://blog.avocode.com/4-must-know-tips-for-building-cross-platform-electron-apps-f3ae9c2bffff">
           Medium article
-        </a>{' '}
+        </Link>{' '}
         suggested I don&#39;t show the window until it&#39;s ready. I have
         loading states for different parts of the app, but the solution is
         supposed to make it seem more like a native app than an Electron app. I
@@ -80,12 +70,9 @@ const Post: NextPage = () => (
       <p>
         I&#39;m using Firebase for authentication and data store. It&#39;s
         essential to make sure proper rules are in place or anyone can{' '}
-        <a
-          href="https://news.ycombinator.com/item?id=17424538"
-          rel="noopener noreferrer"
-          target="_blank">
+        <Link external href="https://news.ycombinator.com/item?id=17424538">
           mess around
-        </a>{' '}
+        </Link>{' '}
         with the data. Here are my settings. Feel free to take inspiration.
       </p>
       <Code
@@ -116,12 +103,9 @@ service cloud.firestore {
       <p>
         With 30 snippets, the list is very performant. Mostly because it&#39;s
         the list item is just a link. Maybe in the future, I can add{' '}
-        <a
-          href="https://github.com/bvaughn/react-window"
-          rel="noopener noreferrer"
-          target="_blank">
+        <Link external href="https://github.com/bvaughn/react-window">
           <code>react-window</code>
-        </a>{' '}
+        </Link>{' '}
         for a virtualized list if it grows beyond a certain number where
         performance is affected.
       </p>
@@ -191,8 +175,8 @@ service cloud.firestore {
       <p>
         As usual, all the projects I build are open source. You can find the
         Prodo source code on{' '}
-        <a href="https://github.com/alizahid/prodo">GitHub</a>. You can also
-        take it for a <a href="https://prodo.onrender.com">spin</a>.
+        <Link href="https://github.com/alizahid/prodo">GitHub</Link>. You can
+        also take it for a <Link href="https://prodo.onrender.com">spin</Link>.
       </p>
     </div>
   </Page>

@@ -1,7 +1,14 @@
 import { NextPage } from 'next'
 import React from 'react'
 
-import { Image, Page, PostHeader, Screenshot } from '../../components'
+import {
+  Image,
+  Link,
+  Page,
+  PostHeader,
+  Screenshot,
+  Screenshots
+} from '../../components'
 
 const Post: NextPage = () => (
   <Page
@@ -100,8 +107,8 @@ const Post: NextPage = () => (
       </p>
       <p>
         The idea excited me, though. And some of the elements later became part
-        of <a href="https://beangry.co">Boar</a>. I have a fascination with
-        social apps and have taken a crack at many different ideas over the
+        of <Link href="https://beangry.co">Boar</Link>. I have a fascination
+        with social apps and have taken a crack at many different ideas over the
         years.
       </p>
 
@@ -111,7 +118,7 @@ const Post: NextPage = () => (
         began as an experiment with GraphQL, React Native, TypeScript. Before I
         knew it, I had a functional app on my hands.
       </p>
-      <div className="flex flex-col lg:flex-row my-16">
+      <Screenshots>
         <Screenshot
           caption="List of plans"
           image="/blog/planbear/screenshot-1.png"
@@ -126,7 +133,7 @@ const Post: NextPage = () => (
           className="mt-8 lg:mt-0 lg:ml-8"
           image="/blog/planbear/screenshot-2.png"
         />
-      </div>
+      </Screenshots>
       <h4>Features</h4>
       <p>The app looks slick and has a lot of cool features.</p>
       <ul>
@@ -150,7 +157,7 @@ const Post: NextPage = () => (
         It&#39;s not finished and probably will never be. It&#39;s another one
         of my experiments and may never see the light of the App Store. But the
         good news is, like all my experiments, it&#39;s open-source. You can
-        find the code on <a href="https://github.com/planbear">GitHub</a>.
+        find the code on <Link href="https://github.com/planbear">GitHub</Link>.
       </p>
     </div>
   </Page>

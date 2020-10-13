@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import React from 'react'
 
-import { Page, PostHeader } from '../../components'
+import { Link, Page, PostHeader } from '../../components'
 
 const Post: NextPage = () => (
   <Page
@@ -35,9 +35,11 @@ const Post: NextPage = () => (
         You can toggle individual functions on and off. Azure offers a lot of
         bindings and triggers for its different services such as Blob Storage,
         ServiceBus queue, CosmosDB, and{' '}
-        <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings">
+        <Link
+          external
+          href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings">
           many more
-        </a>
+        </Link>
         .
       </p>
       <p>
@@ -154,7 +156,8 @@ const Post: NextPage = () => (
       <h3>Learnings and discoveries</h3>
       <p>
         I&#39;ve taken a year&#39;s worth of learnings and put them into a
-        package called <a href="https://github.com/alizahid/tote">Tote</a>.
+        package called <Link href="https://github.com/alizahid/tote">Tote</Link>
+        .
       </p>
       <p>
         I think Tote is an excellent starter for Azure Functions. It uses Docker
@@ -172,9 +175,9 @@ const Post: NextPage = () => (
       </p>
       <p>
         Tote uses another package called{' '}
-        <a href="https://github.com/alizahid/tote-lib">
+        <Link href="https://github.com/alizahid/tote-lib">
           <code>tote-lib</code>
-        </a>{' '}
+        </Link>{' '}
         which has all the helpers in it.
       </p>
       <p>

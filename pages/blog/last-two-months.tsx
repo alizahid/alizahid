@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import React from 'react'
 
-import { Page, PostHeader } from '../../components'
+import { Link, Page, PostHeader } from '../../components'
 
 const Post: NextPage = () => (
   <Page
@@ -71,12 +71,11 @@ const Post: NextPage = () => (
       <h3>Furniture</h3>
       <p>
         After years of eyeing it, I finally bought a{' '}
-        <a
-          href="https://www.hermanmiller.com/en_eur/products/seating/office-chairs/aeron-chairs"
-          rel="noopener noreferrer"
-          target="_blank">
+        <Link
+          external
+          href="https://www.hermanmiller.com/en_eur/products/seating/office-chairs/aeron-chairs">
           Herman Miller Aeron chair
-        </a>
+        </Link>
         . Along with a height-adjustable desk. The desk is massive and can house
         both my PC and MacBook setups, which is convenient.
       </p>

@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import React from 'react'
 
-import { Image, Page, PostHeader } from '../../components'
+import { Image, Link, Page, PostHeader } from '../../components'
 
 const Post: NextPage = () => (
   <Page
@@ -54,13 +54,13 @@ const Post: NextPage = () => (
 
       <p>
         The code, as usual, is publicly available on{' '}
-        <a href="https://github.com/mittens">GitHub</a>.
+        <Link href="https://github.com/mittens">GitHub</Link>.
       </p>
       <p>
         Take it for a spin, and let me know what you think:{' '}
-        <a href="https://itunes.apple.com/us/app/mittens/id1453383568">
+        <Link href="https://itunes.apple.com/us/app/mittens/id1453383568">
           Mittens on the App Store
-        </a>
+        </Link>
         .
       </p>
     </div>

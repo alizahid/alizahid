@@ -48,3 +48,9 @@ export const Screenshot: FunctionComponent<Props> = ({
     </figure>
   </>
 )
+
+export const Screenshots: FunctionComponent = ({ children }) => (
+  <div className="flex flex-col lg:flex-row my-8 overflow-x-auto">
+    {children}
+  </div>
+)

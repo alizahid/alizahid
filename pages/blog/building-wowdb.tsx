@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import React from 'react'
 
-import { Image, Page, PostHeader } from '../../components'
+import { Image, Link, Page, PostHeader } from '../../components'
 
 const Post: NextPage = () => (
   <Page
@@ -17,41 +17,29 @@ const Post: NextPage = () => (
     <div className="post">
       <p>
         I built <em>Mr. Bigglesworth</em>, an app that would let you search for{' '}
-        <a
-          href="http://worldofwarcraft.com"
-          rel="noopener noreferrer"
-          target="_blank">
+        <Link external href="http://worldofwarcraft.com">
           World of Warcraft
-        </a>{' '}
+        </Link>{' '}
         content and view{' '}
-        <a href="http://wowhead.com" rel="noopener noreferrer" target="_blank">
+        <Link external href="http://wowhead.com">
           Wowhead
-        </a>{' '}
+        </Link>{' '}
         comments for them. It was based on an{' '}
-        <a
-          href="https://wow.gamepedia.com/Mr._Bigglesworth"
-          rel="noopener noreferrer"
-          target="_blank">
+        <Link external href="https://wow.gamepedia.com/Mr._Bigglesworth">
           in-game cat
-        </a>
+        </Link>
         .
       </p>
       <p>
         It was a pretty simple solution. I wrote a script in Node.js, which
         would use the{' '}
-        <a
-          href="https://develop.battle.net"
-          rel="noopener noreferrer"
-          target="_blank">
+        <Link external href="https://develop.battle.net">
           Blizzard APIs
-        </a>{' '}
+        </Link>{' '}
         to fetch data. Which I then transferred to my{' '}
-        <a
-          href="https://www.mongodb.com/cloud/atlas"
-          rel="noopener noreferrer"
-          target="_blank">
+        <Link external href="https://www.mongodb.com/cloud/atlas">
           MongoDB Atlas
-        </a>{' '}
+        </Link>{' '}
         database. I also wrote an API in Node.js, which would search through the
         items, quests, achievements, etc, and return to the mobile app, along
         with comments from Wowhead. The mobile app was built with React Native.
@@ -99,8 +87,8 @@ const Post: NextPage = () => (
           Because I couldn&#39;t find someone who could do a{' '}
           <em>Mr. Bigglesworth</em> icon for me cheaply, I decided to rebrand
           the app to <em>WoWdb</em>. I chose that capitalization as to not
-          conflict with <a href="https://wowdb.com">WoWDB</a>, a competitor to
-          Wowhead.
+          conflict with <Link href="https://wowdb.com">WoWDB</Link>, a
+          competitor to Wowhead.
         </li>
       </ul>
 
@@ -108,26 +96,23 @@ const Post: NextPage = () => (
       <p>A major hurdle to the ideal setup was my infrastructure.</p>
       <p>
         I was hosting the API on{' '}
-        <a href="http://heroku.com" rel="noopener noreferrer" target="_blank">
+        <Link external href="http://heroku.com">
           Heroku
-        </a>
+        </Link>
         , which would connect to MongoDB and fetch data, search, and hit up
         Wowhead for comments. It was fast and it worked. But that was it. It was
         expensive, so I was still doing the data updates manually, and rarely.
       </p>
       <p>
         Recently,{' '}
-        <a
-          href="https://cloud.google.com/scheduler"
-          rel="noopener noreferrer"
-          target="_blank">
+        <Link external href="https://cloud.google.com/scheduler">
           Google Cloud introduced Cloud Scheduler
-        </a>
+        </Link>
         , and it was cheap. I looked into it. But before I could finalize it, I
         came across{' '}
-        <a href="https://render.com" rel="noopener noreferrer" target="_blank">
+        <Link external href="https://render.com">
           Render
-        </a>
+        </Link>
         . Suddenly, so many new doors opened.
       </p>
       <p>
@@ -173,16 +158,13 @@ const Post: NextPage = () => (
       <p>
         Then I wrote the new search microservice. It loads all data from MongoDB
         and uses{' '}
-        <a
-          href="https://github.com/jeancroy/FuzzySearch"
-          rel="noopener noreferrer"
-          target="_blank">
+        <Link external href="https://github.com/jeancroy/FuzzySearch">
           FuzzySearch
-        </a>{' '}
+        </Link>{' '}
         to run queries. I also tried the more popular{' '}
-        <a href="http://fusejs.io" rel="noopener noreferrer" target="_blank">
+        <Link external href="http://fusejs.io">
           Fuse
-        </a>
+        </Link>
         , but couldn&#39;t get decent performance. Not sure if it was my
         configuration or just the sheer size of my dataset; roughly 550k
         records. Average search time with Fuse was 1 second. It was a mere 100
@@ -239,18 +221,19 @@ const Post: NextPage = () => (
         </li>
         <li>
           I want to redesign the visuals of the app, to match the{' '}
-          <a
-            href="https://worldofwarcraft.com/en-gb/battle-for-azeroth"
-            rel="noopener noreferrer"
-            target="_blank">
+          <Link
+            external
+            href="https://worldofwarcraft.com/en-gb/battle-for-azeroth">
             Battle for Azeroth website
-          </a>
+          </Link>
           . I think it&#39;s fantastic artwork, which people will really
           appreciate. I redesigned{' '}
-          <a href="https://misty-bfa.onrender.com">my guild&#39;s website</a>{' '}
+          <Link href="https://misty-bfa.onrender.com">
+            my guild&#39;s website
+          </Link>{' '}
           last year from the{' '}
-          <a href="https://misty-legion.onrender.com">Legion design</a> and it
-          was a hit.
+          <Link href="https://misty-legion.onrender.com">Legion design</Link>{' '}
+          and it was a hit.
         </li>
       </ul>
 
@@ -258,9 +241,9 @@ const Post: NextPage = () => (
 
       <p>
         Head on over and check out the{' '}
-        <a href="https://wowdb.app">updated app</a>. As always, my side projects
-        are completely open-source. You can find the{' '}
-        <a href="https://github.com/wowdb">code on GitHub</a>.
+        <Link href="https://wowdb.app">updated app</Link>. As always, my side
+        projects are completely open-source. You can find the{' '}
+        <Link href="https://github.com/wowdb">code on GitHub</Link>.
       </p>
     </div>
   </Page>

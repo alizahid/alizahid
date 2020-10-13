@@ -1,8 +1,7 @@
 import { NextPage } from 'next'
-import Link from 'next/link'
 import React from 'react'
 
-import { Page, PostHeader } from '../../components'
+import { Link, Page, PostHeader } from '../../components'
 
 const Post: NextPage = () => (
   <Page
@@ -31,24 +30,22 @@ const Post: NextPage = () => (
       </p>
       <p>
         The long term plan is to have{' '}
-        <a href="https://flynn.io" rel="noopener noreferrer" target="_blank">
+        <Link external href="https://flynn.io">
           Flynn
-        </a>{' '}
-        on a Digital Ocean box for APIs, or even go serverless with{' '}
-        <a href="https://vercel.com" rel="noopener noreferrer" target="_blank">
-          Vercel
-        </a>
-        , and use Firebase more. This site is also hosted on{' '}
-        <Link href="/blog/building-a-new-website-with-prismic">
-          <a>Vercel</a>
         </Link>{' '}
+        on a Digital Ocean box for APIs, or even go serverless with{' '}
+        <Link external href="https://vercel.com">
+          Vercel
+        </Link>
+        , and use Firebase more. This site is also hosted on{' '}
+        <Link href="/blog/building-a-new-website-with-prismic">Vercel</Link>{' '}
         right now!
       </p>
       <p>
         Let&#39;s talk about what went into building this and why I chose{' '}
-        <a href="https://prismic.io" rel="noopener noreferrer" target="_blank">
+        <Link external href="https://prismic.io">
           Prismic
-        </a>{' '}
+        </Link>{' '}
         as my headless CMS.
       </p>
 
@@ -61,12 +58,9 @@ const Post: NextPage = () => (
       </p>
       <p>
         At my day job, I&#39;ve used{' '}
-        <a
-          href="https://www.contentful.com"
-          rel="noopener noreferrer"
-          target="_blank">
+        <Link external href="https://www.contentful.com">
           Contentful
-        </a>{' '}
+        </Link>{' '}
         extensively. It&#39;s pretty great but also costs a pretty penny.
       </p>
       <p>
@@ -75,34 +69,25 @@ const Post: NextPage = () => (
       </p>
       <p>
         I went over to{' '}
-        <a
-          href="https://headlesscms.org"
-          rel="noopener noreferrer"
-          target="_blank">
+        <Link external href="https://headlesscms.org">
           headlessCMS
-        </a>{' '}
+        </Link>{' '}
         and looked at the top options. I tried{' '}
-        <a href="https://strapi.io" rel="noopener noreferrer" target="_blank">
+        <Link external href="https://strapi.io">
           Strapi
-        </a>
+        </Link>
         ,{' '}
-        <a
-          href="https://getpublii.com"
-          rel="noopener noreferrer"
-          target="_blank">
+        <Link external href="https://getpublii.com">
           Publii
-        </a>
+        </Link>
         ,{' '}
-        <a href="https://directus.io" rel="noopener noreferrer" target="_blank">
+        <Link external href="https://directus.io">
           Directus
-        </a>
+        </Link>
         , and{' '}
-        <a
-          href="https://getcockpit.com"
-          rel="noopener noreferrer"
-          target="_blank">
+        <Link external href="https://getcockpit.com">
           Cockpit
-        </a>
+        </Link>
         . I was hoping to self-host but eventually decided against it. One less
         element in my serverless end goal.
       </p>
@@ -116,9 +101,9 @@ const Post: NextPage = () => (
       <h3>Choosing the frontend</h3>
       <p>
         I love{' '}
-        <a href="https://reactjs.org" rel="noopener noreferrer" target="_blank">
+        <Link external href="https://reactjs.org">
           React
-        </a>
+        </Link>
         . I&#39;ve built so many apps with React and React Native over the last
         couple of years. But I&#39;m not a fan of Redux and general state
         management in React apps. And the fact that we have to bootstrap the
@@ -128,9 +113,9 @@ const Post: NextPage = () => (
       </p>
       <p>
         I love{' '}
-        <a href="https://emberjs.com" rel="noopener noreferrer" target="_blank">
+        <Link external href="https://emberjs.com">
           Ember
-        </a>{' '}
+        </Link>{' '}
         even more. It&#39;s very opinionated but still open. It comes with a
         fantastic router and data library builtin. While I do like JSX better,
         Handlebars is all right in my book.
@@ -209,7 +194,7 @@ const Post: NextPage = () => (
       <p>
         I love open source things. So most of my personal projects are also open
         source, including this new website. You can find the source on{' '}
-        <a href="https://github.com/alizahid/alizahid">my GitHub</a>.
+        <Link href="https://github.com/alizahid/alizahid">my GitHub</Link>.
       </p>
     </div>
   </Page>

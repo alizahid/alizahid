@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import React from 'react'
 
-import { Image, Page, PostHeader } from '../../components'
+import { Image, Link, Page, PostHeader } from '../../components'
 
 const Post: NextPage = () => (
   <Page
@@ -32,12 +32,9 @@ const Post: NextPage = () => (
         Last week, as part of my effort to update older apps, I started updating
         it. Better UX, newer maps, updated data using Firestore; the works. But
         then I came across this app:{' '}
-        <a
-          href="https://www.mapway.com/apps/dubai-metro"
-          rel="noopener noreferrer"
-          target="_blank">
+        <Link external href="https://www.mapway.com/apps/dubai-metro">
           Dubai Metro Interactive Map
-        </a>
+        </Link>
         .
       </p>
       <Image
