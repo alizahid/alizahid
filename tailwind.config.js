@@ -10,9 +10,9 @@ module.exports = {
       fontFamily: {
         mono: [
           'IBM Plex Mono',
+          'Consolas',
           'Menlo',
           'Monaco',
-          'Consolas',
           'Liberation Mono',
           'Courier New',
           'monospace'

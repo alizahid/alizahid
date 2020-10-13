@@ -11,7 +11,7 @@ export const Footer: FunctionComponent = () => (
         className="h-6 w-6 fill-current text-gray-900 dark:text-gray-100"
         name="github"
       />
-      <span className="absolute">GitHub</span>
+      <span className="absolute text-black dark:text-white">GitHub</span>
     </a>
     <a
       className="h-6 w-6 relative overflow-hidden opacity-25 hover:opacity-100 ml-4"
@@ -20,7 +20,7 @@ export const Footer: FunctionComponent = () => (
         className="h-6 w-6 fill-current text-gray-900 dark:text-gray-100"
         name="twitter"
       />
-      <span className="absolute">Twitter</span>
+      <span className="absolute text-black dark:text-white">Twitter</span>
     </a>
     <a
       className="h-6 w-6 relative overflow-hidden opacity-25 hover:opacity-100 ml-4"
@@ -29,7 +29,7 @@ export const Footer: FunctionComponent = () => (
         className="h-6 w-6 fill-current text-gray-900 dark:text-gray-100"
         name="dribbble"
       />
-      <span className="absolute">Dribbble</span>
+      <span className="absolute text-black dark:text-white">Dribbble</span>
     </a>
   </footer>
 )
