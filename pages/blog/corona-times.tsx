@@ -152,6 +152,7 @@ const Post: NextPage = () => (
         />
         <Screenshot
           caption="Offers to help"
+          className="mt-8 lg:mt-0 lg:ml-8"
           image="/blog/corona-times/helpling-2.png"
         />
         <Screenshot

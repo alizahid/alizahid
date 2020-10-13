@@ -6,7 +6,7 @@ import { Page, Project } from '../components'
 
 const Playground: NextPage = () => (
   <Page
-    className="flex flex-col lg:flex-row my-20 gap-16"
+    className="flex flex-col lg:flex-row my-20"
     description="My works"
     title="Playground">
     <section className="flex-1">
@@ -79,7 +79,7 @@ const Playground: NextPage = () => (
         </p>
       </Project>
     </section>
-    <section className="flex-1">
+    <section className="flex-1 ml-16">
       <Project
         links={[
           {
