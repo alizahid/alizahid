@@ -20,7 +20,7 @@ export const PostHeader: FunctionComponent<Props> = ({ date, slug, title }) => (
     </Head>
 
     <header className="mb-8">
-      <h2 className="text-5xl font-semibold">{title}</h2>
+      <h2 className="text-5xl font-semibold leading-tight">{title}</h2>
       <div className="text-gray-600">{dayjs(date).format('MMMM, YYYY')}</div>
     </header>
   </>
