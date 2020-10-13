@@ -1,7 +1,13 @@
 import { NextPage } from 'next'
 import React from 'react'
 
-import { Page, PostHeader, Screenshot, Screenshots } from '../../components'
+import {
+  Link,
+  Page,
+  PostHeader,
+  Screenshot,
+  Screenshots
+} from '../../components'
 
 const Post: NextPage = () => (
   <Page
@@ -103,7 +109,7 @@ const Post: NextPage = () => (
       </Screenshots>
       <p>
         You can learn more about it on the{' '}
-        <a href="https://pandemic.li">Pandemic.li website</a>.
+        <Link href="https://pandemic.li">Pandemic.li website</Link>.
       </p>
 
       <h3>Video courses</h3>
@@ -120,12 +126,9 @@ const Post: NextPage = () => (
       <p>
         So I&#39;ve started recording another, where I build a todo app.
         I&#39;ve been waiting for the next version of{' '}
-        <a
-          href="https://twitter.com/useclear"
-          rel="noopener noreferrer"
-          target="_blank">
+        <Link external href="https://twitter.com/useclear">
           Clear
-        </a>
+        </Link>
         , and it made more sense to create something similar, with more mass
         appeal. It&#39;s slightly advanced than your average todo app tutorial
         with Firebase authentication and data store, transitions, and a slick
@@ -135,12 +138,12 @@ const Post: NextPage = () => (
       <h3>Helpling</h3>
       <img alt="Helpling" className="floaty" src="/playground/helpling.png" />
       <p>
-        I built <a href="https://helpling.app">Helpling</a> in January this year
-        as a web app. Inspired by a post that I saw on Imgur, where a guy had to
-        wait a long time to buy a couch after moving into a new apartment
-        because he couldn&#39;t afford to, I decided to build a platform where
-        people could post things they needed, and others in their area could
-        help out.
+        I built <Link href="https://helpling.app">Helpling</Link> in January
+        this year as a web app. Inspired by a post that I saw on Imgur, where a
+        guy had to wait a long time to buy a couch after moving into a new
+        apartment because he couldn&#39;t afford to, I decided to build a
+        platform where people could post things they needed, and others in their
+        area could help out.
       </p>
       <p>
         I&#39;ve since taken the web app down and rebuilt into a mobile app and
@@ -176,12 +179,9 @@ const Post: NextPage = () => (
       </Screenshots>
       <p>
         The app is in beta right now, and you can{' '}
-        <a
-          href="https://testflight.apple.com/join/PQSjkuHG"
-          rel="noopener noreferrer"
-          target="_blank">
+        <Link external href="https://testflight.apple.com/join/PQSjkuHG">
           take it for a spin
-        </a>{' '}
+        </Link>{' '}
         on iOS. Once the testing is complete, I&#39;ll publish it to App Store.
       </p>
 
