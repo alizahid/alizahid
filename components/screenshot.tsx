@@ -23,7 +23,7 @@ export const Screenshot: FunctionComponent<Props> = ({
 
       div .screenshot {
         position: absolute;
-        transform: scale(0.895);
+        transform: scale(0.9);
       }
 
       div .frame {
