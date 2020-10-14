@@ -109,20 +109,19 @@ const Playground: NextPage = () => (
         links={[
           {
             label: 'Web',
-            link: 'https://wowdb.app'
+            link: 'https://moviemate.co'
           },
           {
             label: 'App Store',
-            link: 'https://itunes.apple.com/us/app/wowdb/id1366381234'
+            link: 'https://apps.apple.com/us/app/moviemate/id1246294471'
           },
           {
             label: 'Google Play',
-            link:
-              'https://play.google.com/store/apps/details?id=com.designplox.wowhead'
+            link: 'https://play.google.com/store/apps/details?id=co.moviemate'
           },
           {
             label: 'GitHub',
-            link: 'https://github.com/wowdb'
+            link: 'https://github.com/alizahid/moviemate'
           }
         ]}
         name="MovieMate">
