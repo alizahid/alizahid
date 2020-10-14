@@ -83,6 +83,23 @@ const Playground: NextPage = () => (
         links={[
           {
             label: 'Web',
+            link: 'https://simplish.app'
+          },
+          {
+            label: 'GitHub',
+            link: 'https://github.com/alizahid/simplish-web'
+          }
+        ]}
+        name="Simplish">
+        <p>Beautiful to do lists and Kanban boards.</p>
+        <p className="mt-2">
+          To do lists, Kanban boards, drag-and-drop, elegant design.
+        </p>
+      </Project>
+      <Project
+        links={[
+          {
+            label: 'Web',
             link: 'https://mittens.app'
           },
           {
