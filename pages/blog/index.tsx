@@ -5,6 +5,12 @@ import { Page, Post } from '../../components'
 
 const Blog: NextPage = () => (
   <Page description="My words" title="Blog">
+    <Post
+      date="2020-10-14"
+      slug="eslint-for-new-projects"
+      title="ESLint for new projects">
+      <p>A reference store of my ESLint configurations for new projects.</p>
+    </Post>
     <Post date="2020-06-24" slug="corona-times" title="Corona times">
       <p>
         It&apos;s been a long time since I posted anything. Time for a catch-up.
