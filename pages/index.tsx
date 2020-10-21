@@ -1,8 +1,7 @@
 import { NextPage } from 'next'
-import Link from 'next/link'
 import React from 'react'
 
-import { Page } from '../components'
+import { Link, Page } from '../components'
 
 const Home: NextPage = () => (
   <Page
@@ -15,11 +14,8 @@ const Home: NextPage = () => (
       </h2>
       <p className="mt-4">
         Hi. I&#39;m Ali Zahid. I love to build cool stuff. Check out my{' '}
-        <Link href="/playground">
-          <a>playground</a>
-        </Link>
-        . And here&#39;s my{' '}
-        <a href="https://www.dropbox.com/s/n38xqrlhn99aneq">resume</a>.
+        <Link href="/playground">playground</Link>. And here&#39;s my{' '}
+        <Link href="/resume.pdf">resume</Link>.
       </p>
       <p className="mt-2">
         I&#39;ve worked with large enterprises, government organizations,
@@ -28,8 +24,8 @@ const Home: NextPage = () => (
       </p>
       <p className="mt-2">
         Are you looking for help building your next epic idea or product?{' '}
-        <a href="mailto:ali.zahid@live.com">Reach out</a> and see if we can work
-        together.
+        <Link href="mailto:ali.zahid@live.com">Reach out</Link> and see if we
+        can work together.
       </p>
     </section>
     <img
