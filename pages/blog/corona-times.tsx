@@ -8,13 +8,14 @@ import {
   Screenshot,
   Screenshots
 } from '../../components'
+import blog from '../../data/blog.json'
+import { Post } from '../../types'
 
-const Post: NextPage = () => (
-  <Page
-    description="It's been a long time since I posted anything. Time for a catch-up."
-    subtitle="Corona Times"
-    title="Blog">
-    <PostHeader date="2020-06-24" slug="corona-times" title="Corona Times" />
+const post = blog.find(({ slug }) => slug === 'corona-times') as Post
+
+const Blog: NextPage = () => (
+  <Page description={post.excerpt} subtitle={post.title} title="Blog">
+    <PostHeader date={post.date} slug={post.slug} title={post.title} />
 
     <div className="post">
       <p>
@@ -259,4 +260,4 @@ const Post: NextPage = () => (
   </Page>
 )
 
-export default Post
+export default Blog

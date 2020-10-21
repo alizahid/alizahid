@@ -2,17 +2,16 @@ import { NextPage } from 'next'
 import React from 'react'
 
 import { Link, Page, PostHeader, Screenshot } from '../../components'
+import blog from '../../data/blog.json'
+import { Post } from '../../types'
 
-const Post: NextPage = () => (
-  <Page
-    description="A performance-oriented approach to let users pick their location on a map."
-    subtitle="Location picker with React Native"
-    title="Blog">
-    <PostHeader
-      date="2019-01-07"
-      slug="keep-marker-in-center-and-move-map-around-it"
-      title="Location picker with React Native"
-    />
+const post = blog.find(
+  ({ slug }) => slug === 'keep-marker-in-center-and-move-map-around-it'
+) as Post
+
+const Blog: NextPage = () => (
+  <Page description={post.excerpt} subtitle={post.title} title="Blog">
+    <PostHeader date={post.date} slug={post.slug} title={post.title} />
 
     <div className="post">
       <Screenshot
@@ -93,4 +92,4 @@ const Post: NextPage = () => (
   </Page>
 )
 
-export default Post
+export default Blog

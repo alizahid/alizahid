@@ -9,13 +9,14 @@ import {
   Screenshot,
   Screenshots
 } from '../../components'
+import blog from '../../data/blog.json'
+import { Post } from '../../types'
 
-const Post: NextPage = () => (
-  <Page
-    description="I first built PlanBear with Ember and Cordova during a Hackathon. It's like Meetup for smaller and more spontaneous plans."
-    subtitle="PlanBear"
-    title="Blog">
-    <PostHeader date="2019-09-18" slug="planbear" title="PlanBear" />
+const post = blog.find(({ slug }) => slug === 'planbear') as Post
+
+const Blog: NextPage = () => (
+  <Page description={post.excerpt} subtitle={post.title} title="Blog">
+    <PostHeader date={post.date} slug={post.slug} title={post.title} />
 
     <div className="post">
       <h3>The very distant past</h3>
@@ -163,4 +164,4 @@ const Post: NextPage = () => (
   </Page>
 )
 
-export default Post
+export default Blog

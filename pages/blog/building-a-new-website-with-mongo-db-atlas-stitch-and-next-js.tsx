@@ -2,17 +2,17 @@ import { NextPage } from 'next'
 import React from 'react'
 
 import { Link, Page, PostHeader } from '../../components'
+import blog from '../../data/blog.json'
+import { Post } from '../../types'
 
-const Post: NextPage = () => (
-  <Page
-    description="I'm always trying to rebuild my blog with different tech to see what works best. This approach uses Stitch, Next.js and React."
-    subtitle="Building a website with Stitch and Next"
-    title="Blog">
-    <PostHeader
-      date="2019-09-16"
-      slug="building-a-new-website-with-mongo-db-atlas-stitch-and-next-js"
-      title="Building a website with Stitch and Next"
-    />
+const post = blog.find(
+  ({ slug }) =>
+    slug === 'building-a-new-website-with-mongo-db-atlas-stitch-and-next-js'
+) as Post
+
+const Blog: NextPage = () => (
+  <Page description={post.excerpt} subtitle={post.title} title="Blog">
+    <PostHeader date={post.date} slug={post.slug} title={post.title} />
 
     <div className="post">
       <p>
@@ -184,4 +184,4 @@ const Post: NextPage = () => (
   </Page>
 )
 
-export default Post
+export default Blog

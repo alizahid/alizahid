@@ -2,13 +2,14 @@ import { NextPage } from 'next'
 import React from 'react'
 
 import { Code, Image, Link, Page, PostHeader } from '../../components'
+import blog from '../../data/blog.json'
+import { Post } from '../../types'
 
-const Post: NextPage = () => (
-  <Page
-    description="Prodo is a name I used for an SMS API I built years ago. But that never panned out, so I repurposed it when I built a snippet manager last weekend."
-    subtitle="Prodo"
-    title="Blog">
-    <PostHeader date="2019-09-29" slug="prodo" title="Prodo" />
+const post = blog.find(({ slug }) => slug === 'prodo') as Post
+
+const Blog: NextPage = () => (
+  <Page description={post.excerpt} subtitle={post.title} title="Blog">
+    <PostHeader date={post.date} slug={post.slug} title={post.title} />
 
     <div className="post">
       <p>
@@ -182,4 +183,4 @@ service cloud.firestore {
   </Page>
 )
 
-export default Post
+export default Blog

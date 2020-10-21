@@ -2,17 +2,16 @@ import { NextPage } from 'next'
 import React from 'react'
 
 import { Code, Link, Page, PostHeader } from '../../components'
+import blog from '../../data/blog.json'
+import { Post } from '../../types'
 
-const Post: NextPage = () => (
-  <Page
-    description="Setting up a React Native projects with CocoaPods can be tricky. Here are some of my tricks so you can avoid Xcode hell."
-    subtitle="Starting with React Native"
-    title="Blog">
-    <PostHeader
-      date="2019-02-03"
-      slug="setting-up-a-new-react-native-project"
-      title="Starting with React Native"
-    />
+const post = blog.find(
+  ({ slug }) => slug === 'setting-up-a-new-react-native-project'
+) as Post
+
+const Blog: NextPage = () => (
+  <Page description={post.excerpt} subtitle={post.title} title="Blog">
+    <PostHeader date={post.date} slug={post.slug} title={post.title} />
 
     <div className="post">
       <p>
@@ -217,4 +216,4 @@ end`}
   </Page>
 )
 
-export default Post
+export default Blog

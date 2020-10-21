@@ -2,17 +2,14 @@ import { NextPage } from 'next'
 import React from 'react'
 
 import { Image, Link, Page, PostHeader } from '../../components'
+import blog from '../../data/blog.json'
+import { Post } from '../../types'
 
-const Post: NextPage = () => (
-  <Page
-    description="WoWdb is a mobile World of Warcraft database. It's built with React, React Native, Fastify, MongoDB, and hosted on Render."
-    subtitle="Building WoWdb"
-    title="Blog">
-    <PostHeader
-      date="2019-01-17"
-      slug="building-wowdb"
-      title="Building WoWdb"
-    />
+const post = blog.find(({ slug }) => slug === 'building-wowdb') as Post
+
+const Blog: NextPage = () => (
+  <Page description={post.excerpt} subtitle={post.title} title="Blog">
+    <PostHeader date={post.date} slug={post.slug} title={post.title} />
 
     <div className="post">
       <p>
@@ -249,4 +246,4 @@ const Post: NextPage = () => (
   </Page>
 )
 
-export default Post
+export default Blog

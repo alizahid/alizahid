@@ -2,13 +2,14 @@ import { NextPage } from 'next'
 import React from 'react'
 
 import { Image, Link, Page, PostHeader } from '../../components'
+import blog from '../../data/blog.json'
+import { Post } from '../../types'
 
-const Post: NextPage = () => (
-  <Page
-    description="Mittens brings you push notifications from GitHub."
-    subtitle="Mittens"
-    title="Blog">
-    <PostHeader date="2019-03-10" slug="mittens" title="Mittens" />
+const post = blog.find(({ slug }) => slug === 'mittens') as Post
+
+const Blog: NextPage = () => (
+  <Page description={post.excerpt} subtitle={post.title} title="Blog">
+    <PostHeader date={post.date} slug={post.slug} title={post.title} />
 
     <div className="post">
       <p>
@@ -67,4 +68,4 @@ const Post: NextPage = () => (
   </Page>
 )
 
-export default Post
+export default Blog

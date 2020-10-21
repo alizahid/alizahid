@@ -2,17 +2,16 @@ import { NextPage } from 'next'
 import React from 'react'
 
 import { Link, Page, PostHeader } from '../../components'
+import blog from '../../data/blog.json'
+import { Post } from '../../types'
 
-const Post: NextPage = () => (
-  <Page
-    description="How I rebuilt my website using Prismic, a headless CMS, and React."
-    subtitle="Building a website with Prismic"
-    title="Blog">
-    <PostHeader
-      date="2019-01-06"
-      slug="building-a-new-website-with-prismic"
-      title="Building a website with Prismic"
-    />
+const post = blog.find(
+  ({ slug }) => slug === 'building-a-new-website-with-prismic'
+) as Post
+
+const Blog: NextPage = () => (
+  <Page description={post.excerpt} subtitle={post.title} title="Blog">
+    <PostHeader date={post.date} slug={post.slug} title={post.title} />
 
     <div className="post">
       <p>
@@ -200,4 +199,4 @@ const Post: NextPage = () => (
   </Page>
 )
 
-export default Post
+export default Blog
