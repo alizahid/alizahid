@@ -14,15 +14,15 @@ const Home: NextPage = () => (
         I have a patent on blowing minds with epic design.
       </h2>
       <p className="mt-4">
-        Hi. I&apos;m Ali Zahid. I love to build cool stuff. Check out my{' '}
+        Hi. I&#39;m Ali Zahid. I love to build cool stuff. Check out my{' '}
         <Link href="/playground">
           <a>playground</a>
         </Link>
-        . And here&apos;s my{' '}
+        . And here&#39;s my{' '}
         <a href="https://www.dropbox.com/s/n38xqrlhn99aneq">resume</a>.
       </p>
       <p className="mt-2">
-        I&apos;ve worked with large enterprises, government organizations,
+        I&#39;ve worked with large enterprises, government organizations,
         Academy and Emmy award-winning filmmakers, esports teams, student
         groups, and everything in between, to help realize their ideas.
       </p>

@@ -72,7 +72,7 @@ const Playground: NextPage = () => (
         name="Bother">
         <p>
           Bother is an anonymous social network for sharing things that bother
-          you. It&apos;s the cuter successor to{' '}
+          you. It&#39;s the cuter successor to{' '}
           <Link href="https://www.producthunt.com/posts/boar">Boar</Link>,
           rebuilt from scratch.
         </p>
@@ -171,7 +171,7 @@ const Playground: NextPage = () => (
           jQuery.
         </p>
         <p className="mt-2">
-          It&apos;s quite popular on GitHub, with over 600 stars. I&apos;m quite
+          It&#39;s quite popular on GitHub, with over 600 stars. I&#39;m quite
           proud of that!
         </p>
       </Project>
