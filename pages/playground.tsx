@@ -128,6 +128,13 @@ const description = (name: string): ReactNode => {
           </p>
         </>
       )
+
+    case 'Willa':
+      return (
+        <>
+          <p>Willa is a simple and beautiful expense tracking app.</p>
+        </>
+      )
   }
 }
 

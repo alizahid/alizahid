@@ -45,6 +45,19 @@
       "links": [
         {
           "label": "Web",
+          "link": "https://willa.app"
+        },
+        {
+          "label": "GitHub",
+          "link": "https://github.com/willa"
+        }
+      ],
+      "name": "Willa"
+    },
+    {
+      "links": [
+        {
+          "label": "Web",
           "link": "https://simplish.app"
         },
         {
