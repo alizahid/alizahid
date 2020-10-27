@@ -15,21 +15,21 @@
   },
   "dependencies": {
     "clipboardy": "^2.3.0",
-    "dayjs": "^1.9.3",
-    "next": "^9.5.5",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
+    "dayjs": "^1.9.4",
+    "next": "^10.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-highlight.js": "^1.0.7",
     "sass": "^1.27.0"
   },
   "devDependencies": {
-    "@types/node": "^14.14.0",
+    "@types/node": "^14.14.5",
     "@types/react": "^16.9.53",
     "@types/react-highlight.js": "^1.0.0",
-    "@typescript-eslint/eslint-plugin": "^4.5.0",
-    "@typescript-eslint/parser": "^4.5.0",
-    "eslint": "^7.11.0",
-    "eslint-config-prettier": "^6.13.0",
+    "@typescript-eslint/eslint-plugin": "^4.6.0",
+    "@typescript-eslint/parser": "^4.6.0",
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.14.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
@@ -40,8 +40,8 @@
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.1.2",
     "pretty-quick": "^3.1.0",
-    "tailwindcss": "^1.9.5",
-    "typescript": "^4.0.3"
+    "tailwindcss": "^1.9.6",
+    "typescript": "^4.0.5"
   },
   "husky": {
     "hooks": {
