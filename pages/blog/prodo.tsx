@@ -13,7 +13,7 @@ const Blog: NextPage = () => (
 
     <div className="post">
       <p>
-        So far, I&#39;ve kept my snippets in the macOS/iOS Notes app. I never
+        So far, I&#39;ve kept my snippets in the macOS / iOS Notes app. I never
         realized the <em>collection</em> would grow so big that I&#39;d need a
         proper app. After I got disappointed by the design of the options
         available, I decided to take a crack at it myself.
