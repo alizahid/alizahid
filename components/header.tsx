@@ -34,7 +34,7 @@ const NavLink: FunctionComponent<NavLinkProps> = ({ href, label, path }) => (
     <a
       className={`font-medium ml-4 first:ml-0 ${
         (href === '/' ? path === href : path.indexOf(href) === 0)
-          ? 'text-teal-500'
+          ? 'text-red-500'
           : 'text-gray-700 dark:text-gray-300'
       }`}>
       {label}

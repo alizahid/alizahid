@@ -5,7 +5,10 @@ import { Page, Post } from '../../components'
 import blog from '../../data/blog.json'
 
 const Blog: NextPage = () => (
-  <Page description="My words" title="Blog">
+  <Page
+    className="flex flex-col lg:flex-row lg:flex-wrap lg:-mx-8"
+    description="My words"
+    title="Blog">
     {blog.map((post) => (
       <Post
         date={post.date}

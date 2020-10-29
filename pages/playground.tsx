@@ -135,6 +135,16 @@ const description = (name: string): ReactNode => {
           <p>Willa is a simple and beautiful expense tracking app.</p>
         </>
       )
+
+    case 'Misty':
+      return (
+        <>
+          <p>
+            I play World of Warcraft and used to raid with a guild called Misty
+            so I made a website for them. Comes in two flavors.
+          </p>
+        </>
+      )
   }
 }
 

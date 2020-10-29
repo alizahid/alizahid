@@ -125,6 +125,24 @@
     {
       "links": [
         {
+          "label": "Battle for Azeroth",
+          "link": "https://misty-bfa.onrender.com/"
+        },
+        {
+          "label": "Legion",
+          "link": "https://misty-legion.onrender.com/"
+        },
+
+        {
+          "label": "GitHub",
+          "link": "https://github.com/alizahid/misty"
+        }
+      ],
+      "name": "Misty"
+    },
+    {
+      "links": [
+        {
           "label": "Web",
           "link": "https://wowdb.app"
         },

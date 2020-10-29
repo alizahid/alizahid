@@ -13,7 +13,14 @@ export const Project: FunctionComponent<Props> = ({
   name
 }) => (
   <article className="mt-16 first:mt-0">
-    <h2 className="text-xl font-semibold leading-tight">{name}</h2>
+    <header className="flex items-center">
+      <img
+        alt={name}
+        className="h-16 w-16"
+        src={`/playground/${name.toLowerCase()}.png`}
+      />
+      <h2 className="text-xl font-semibold leading-tight ml-4">{name}</h2>
+    </header>
     <div className="my-4 text-gray-700 dark:text-gray-300">{children}</div>
     <footer>
       {links.map(({ label, link }) => (

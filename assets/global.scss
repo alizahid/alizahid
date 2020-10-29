@@ -16,14 +16,14 @@ body {
 }
 
 a {
-  @apply text-teal-500 duration-200 transition-all;
+  @apply text-red-500 duration-200 transition-all;
 
   &:hover {
-    filter: brightness(1.2);
+    filter: brightness(1.1);
   }
 
   &:active {
-    filter: brightness(0.8);
+    filter: brightness(0.9);
   }
 }
 
