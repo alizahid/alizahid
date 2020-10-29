@@ -1,5 +1,6 @@
 import dayjs from 'dayjs'
 import Head from 'next/head'
+import Image from 'next/image'
 import React, { FunctionComponent } from 'react'
 
 interface Props {
@@ -21,7 +22,7 @@ export const PostHeader: FunctionComponent<Props> = ({ date, slug, title }) => (
 
     <header className="mb-8">
       <figure className="overflow-hidden lg:rounded-lg -ml-8 lg:ml-0 w-screen lg:w-full">
-        <img className="w-full" src={`/blog/${slug}/hero.png`} />
+        <Image src={`/blog/${slug}/hero.png`} unsized />
       </figure>
       <h2 className="text-5xl font-semibold leading-tight mt-8">{title}</h2>
       <div className="text-gray-600 mt-2">

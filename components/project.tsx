@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React, { FunctionComponent } from 'react'
 
 import { Link } from '../types'
@@ -14,10 +15,11 @@ export const Project: FunctionComponent<Props> = ({
 }) => (
   <article className="mt-16 first:mt-0">
     <header className="flex items-center">
-      <img
+      <Image
         alt={name}
-        className="h-16 w-16"
+        height={64}
         src={`/playground/${name.toLowerCase()}.png`}
+        width={64}
       />
       <h2 className="text-xl font-semibold leading-tight ml-4">{name}</h2>
     </header>

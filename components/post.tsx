@@ -1,4 +1,5 @@
 import dayjs from 'dayjs'
+import Image from 'next/image'
 import Link from 'next/link'
 import React, { FunctionComponent } from 'react'
 
@@ -17,7 +18,11 @@ export const Post: FunctionComponent<Props> = ({
   <Link href={`/blog/${slug}`}>
     <a className="lg:w-1/2">
       <div className="block group lg:mx-8 my-16 first:mt-0">
-        <img className="w-full rounded-lg" src={`/blog/${slug}/hero.png`} />
+        <Image
+          className="w-full rounded-lg"
+          src={`/blog/${slug}/hero.png`}
+          unsized
+        />
         <h2 className="text-xl font-semibold leading-tight mt-4 text-gray-900 dark:text-gray-100 duration-200 group-hover:text-red-500">
           {title}
         </h2>

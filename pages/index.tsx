@@ -1,4 +1,5 @@
 import { NextPage } from 'next'
+import Image from 'next/image'
 import React from 'react'
 
 import { Link, Page } from '../components'
@@ -8,7 +9,7 @@ const Home: NextPage = () => (
     className="flex flex-col lg:flex-row items-center"
     description="About me"
     title="Hello">
-    <section className="order-2 lg:order-1">
+    <section className="flex-1 order-2 lg:order-1">
       <h2 className="text-6xl font-semibold leading-tight">
         I have a patent on blowing minds with epic design.
       </h2>
@@ -28,13 +29,9 @@ const Home: NextPage = () => (
         can work together.
       </p>
     </section>
-    <img
-      alt="Ali Zahid"
-      className="rounded-full order-1 mb-8 lg:mb-0 lg:ml-8"
-      height="200"
-      src="/ali-zahid.jpg"
-      width="200"
-    />
+    <figure className="rounded-full overflow-hidden order-1 mb-8 lg:mb-0 lg:ml-8">
+      <Image alt="Ali Zahid" height={200} src="/ali-zahid.jpg" width={200} />
+    </figure>
   </Page>
 )
 

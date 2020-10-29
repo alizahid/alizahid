@@ -34,7 +34,7 @@ const Blog: NextPage = () => (
         alt="Pandemic.li"
         className="floaty"
         height="200"
-        src="/playground/pandemicli.png"
+        src="/playground/pandemic.li.png"
         width="200"
       />
       <p>
