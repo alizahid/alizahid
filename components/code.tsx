@@ -5,7 +5,7 @@ import Highlight from 'react-highlight.js'
 interface Props {
   className?: string
   code: string
-  language: string
+  language: 'typescript' | 'javascript' | 'json' | 'ruby' | 'shell'
 }
 
 export const Code: FunctionComponent<Props> = ({

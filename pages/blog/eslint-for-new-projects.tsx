@@ -67,7 +67,7 @@ const Blog: NextPage = () => (
   singleQuote: true,
   trailingComma: 'none'
 }`}
-        language="js"
+        language="javascript"
       />
 
       <h3>ESLint</h3>

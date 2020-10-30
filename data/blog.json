@@ -1,5 +1,11 @@
 [
   {
+    "date": "2020-10-30",
+    "excerpt": "Prisma doesn't support a lot of native types yet. So what's the workaround for PostGIS queries?",
+    "slug": "geo-queries-with-prisma",
+    "title": "Geo queries with Prisma"
+  },
+  {
     "date": "2020-10-14",
     "excerpt": "A reference store of my ESLint configurations for new projects.",
     "slug": "eslint-for-new-projects",

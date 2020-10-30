@@ -42,8 +42,13 @@ a {
     @apply border-none h-12;
   }
 
-  p {
-    @apply mt-2;
+  p,
+  li {
+    @apply mt-2 leading-relaxed;
+
+    code {
+      @apply bg-gray-300 rounded p-1 leading-none;
+    }
   }
 
   ol {
@@ -52,10 +57,6 @@ a {
 
   ul {
     @apply list-disc ml-8;
-  }
-
-  li {
-    @apply mt-2;
   }
 
   strong {
@@ -73,6 +74,19 @@ a {
   .post {
     .floaty {
       @apply float-right mt-2 ml-8 mb-8;
+    }
+  }
+}
+
+// dark
+
+@media (prefers-color-scheme: dark) {
+  .post {
+    p,
+    li {
+      code {
+        @apply bg-gray-800;
+      }
     }
   }
 }
