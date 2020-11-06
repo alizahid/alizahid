@@ -67,7 +67,7 @@ export const Code: FunctionComponent<Props> = ({
 
   return (
     <div
-      className={`rounded-lg overflow-hidden shadow-sm ${className}`}
+      className={`rounded-lg overflow-hidden ${className}`}
       style={{
         background: '#2E3440',
         color: '#f8f8f2'

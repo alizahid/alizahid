@@ -17,14 +17,14 @@ export const Post: FunctionComponent<Props> = ({
 }) => (
   <Link href={`/blog/${slug}`}>
     <a className="block group">
-      <figure className="relative w-full pb-hero rounded-lg shadow-sm">
-        <Image
-          className="rounded-lg"
-          layout="fill"
-          priority
-          src={`/blog/${slug}/hero.png`}
-        />
-      </figure>
+      <Image
+        alt={title}
+        className="rounded-lg"
+        height={864 * (1200 / 1800)}
+        priority
+        src={`/blog/${slug}/hero.png`}
+        width={864}
+      />
       <h2 className="text-2xl font-medium leading-tight mt-4 text-gray-900 dark:text-gray-100 duration-200 group-hover:text-teal-500">
         {title}
       </h2>

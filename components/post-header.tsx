@@ -21,14 +21,14 @@ export const PostHeader: FunctionComponent<Props> = ({ date, slug, title }) => (
     </Head>
 
     <header className="mb-8">
-      <figure className="relative w-full pb-hero rounded-lg shadow-sm">
-        <Image
-          className="rounded-lg"
-          layout="fill"
-          priority
-          src={`/blog/${slug}/hero.png`}
-        />
-      </figure>
+      <Image
+        alt={title}
+        className="rounded-lg"
+        height={864 * (1200 / 1800)}
+        priority
+        src={`/blog/${slug}/hero.png`}
+        width={864}
+      />
       <h2 className="text-5xl font-medium leading-tight mt-8">{title}</h2>
       <div className="text-gray-600 mt-2">
         {dayjs(date).format('MMMM, YYYY')}
