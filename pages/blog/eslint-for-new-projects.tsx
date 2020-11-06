@@ -82,7 +82,6 @@ const Blog: NextPage = () => (
           Object (including destructured) keys should be sorted alphabetically
         </li>
         <li>Component props should be sorted alphabetically</li>
-        <li>Component props should be sorted alphabetically</li>
       </ul>
       <p>
         By using these rules, I can be certain that code across repos will be
