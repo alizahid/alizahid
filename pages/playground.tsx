@@ -150,17 +150,17 @@ const description = (name: string): ReactNode => {
 
 const Playground: NextPage = () => (
   <Page
-    className="flex flex-col lg:flex-row my-20"
+    className="grid lg:grid-cols-2 gap-16 my-20"
     description="My works"
     title="Playground">
-    <section className="flex-1">
+    <section>
       {playground.left.map((project) => (
         <Project key={project.name} links={project.links} name={project.name}>
           {description(project.name)}
         </Project>
       ))}
     </section>
-    <section className="flex-1 mt-16 lg:mt-0 lg:ml-16">
+    <section>
       {playground.right.map((project) => (
         <Project key={project.name} links={project.links} name={project.name}>
           {description(project.name)}

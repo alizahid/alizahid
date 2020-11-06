@@ -39,7 +39,7 @@ const Blog: NextPage = () => (
       <Code
         className="my-4"
         code="yarn add --dev prettier husky pretty-quick"
-        language="shell"
+        language="bash"
       />
       <h4>
         Precommit hook &#8212; <code>package.json</code>
@@ -94,12 +94,12 @@ const Blog: NextPage = () => (
       <Code
         className="my-4"
         code="yarn add --dev @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier eslint-plugin-prettier eslint-plugin-simple-import-sort eslint-plugin-sort-destructure-keys eslint-plugin-sort-keys-fix"
-        language="shell"
+        language="bash"
       />
       <h4>
         Script &#8212; <code>package.json</code>
       </h4>
-      <Code className="my-4" code="eslint . --ext js,ts" language="shell" />
+      <Code className="my-4" code="eslint . --ext js,ts" language="bash" />
       <h4>
         Configuration &#8212; <code>.eslintrc.json</code>
       </h4>
@@ -134,12 +134,12 @@ const Blog: NextPage = () => (
       <Code
         className="my-4"
         code="yarn add --dev @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-simple-import-sort eslint-plugin-sort-destructure-keys eslint-plugin-sort-keys-fix"
-        language="shell"
+        language="bash"
       />
       <h4>
         Script &#8212; <code>package.json</code>
       </h4>
-      <Code className="my-4" code="eslint . --ext js,ts,tsx" language="shell" />
+      <Code className="my-4" code="eslint . --ext js,ts,tsx" language="bash" />
       <h4>
         Configuration &#8212; <code>.eslintrc.json</code>
       </h4>
@@ -201,12 +201,12 @@ const Blog: NextPage = () => (
       <Code
         className="my-4"
         code="yarn add --dev @react-native-community/eslint-config @react-native-community/eslint-plugin @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-react-native eslint-plugin-simple-import-sort eslint-plugin-sort-destructure-keys eslint-plugin-sort-keys-fix"
-        language="shell"
+        language="bash"
       />
       <h4>
         Script &#8212; <code>package.json</code>
       </h4>
-      <Code className="my-4" code="eslint . --ext js,ts,tsx" language="shell" />
+      <Code className="my-4" code="eslint . --ext js,ts,tsx" language="bash" />
       <h4>
         Configuration &#8212; <code>.eslintrc.json</code>
       </h4>

@@ -18,15 +18,16 @@ export const Project: FunctionComponent<Props> = ({
       <Image
         alt={name}
         height={64}
+        priority
         src={`/playground/${name.toLowerCase()}.png`}
         width={64}
       />
-      <h2 className="text-xl font-semibold leading-tight ml-4">{name}</h2>
+      <h2 className="text-xl font-medium leading-tight ml-4">{name}</h2>
     </header>
     <div className="my-4 text-gray-700 dark:text-gray-300">{children}</div>
     <footer>
       {links.map(({ label, link }) => (
-        <a className="text-red-500 ml-4 first:ml-0" href={link} key={label}>
+        <a className="text-primary ml-4 first:ml-0" href={link} key={label}>
           {label}
         </a>
       ))}

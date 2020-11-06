@@ -6,7 +6,7 @@ import blog from '../../data/blog.json'
 
 const Blog: NextPage = () => (
   <Page
-    className="flex flex-col lg:flex-row lg:flex-wrap lg:-mx-8"
+    className="grid lg:grid-cols-2 gap-16 my-20"
     description="My words"
     title="Blog">
     {blog.map((post) => (

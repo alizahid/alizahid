@@ -103,7 +103,7 @@ model Post {
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
 }`}
-        language="typescript"
+        language="prisma"
       />
       <p>
         Our <code>Chef</code> model has <code>latitude</code> and{' '}

@@ -7,6 +7,10 @@ module.exports = {
   purge: ['./**/*.tsx', './assets/global.scss'],
   theme: {
     extend: {
+      colors: {
+        highlight: 'rgba(0, 0, 0, 0.5)',
+        primary: '#48bb78'
+      },
       fontFamily: {
         mono: [
           'IBM Plex Mono',
@@ -18,7 +22,7 @@ module.exports = {
           'monospace'
         ],
         sans: [
-          'Inter',
+          'Rubik',
           '-apple-system',
           'BlinkMacSystemFont',
           'Segoe UI',
@@ -28,6 +32,9 @@ module.exports = {
           'Apple Color Emoji',
           'Segoe UI Emoji'
         ]
+      },
+      padding: {
+        hero: 'calc(100% / 3 * 2)'
       },
       screens: {
         dark: {

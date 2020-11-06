@@ -10,7 +10,7 @@ const Home: NextPage = () => (
     description="About me"
     title="Hello">
     <section className="flex-1 order-2 lg:order-1">
-      <h2 className="text-6xl font-semibold leading-tight">
+      <h2 className="text-6xl font-medium leading-tight">
         I have a patent on blowing minds with epic design.
       </h2>
       <p className="mt-4">
@@ -29,8 +29,15 @@ const Home: NextPage = () => (
         can work together.
       </p>
     </section>
-    <figure className="rounded-full overflow-hidden order-1 mb-8 lg:mb-0 lg:ml-8">
-      <Image alt="Ali Zahid" height={200} src="/ali-zahid.jpg" width={200} />
+    <figure className="order-1 mb-8 lg:mb-0 lg:ml-8">
+      <Image
+        alt="Ali Zahid"
+        className="rounded-full"
+        height={200}
+        priority
+        src="/ali-zahid.jpg"
+        width={200}
+      />
     </figure>
   </Page>
 )

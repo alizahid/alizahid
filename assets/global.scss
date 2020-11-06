@@ -1,7 +1,6 @@
 // fonts
 
-@import url('https://rsms.me/inter/inter.css');
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Rubik:wght@400;500;600&display=swap');
 
 // tailwind
 
@@ -16,7 +15,7 @@ body {
 }
 
 a {
-  @apply text-red-500 duration-200 transition-all;
+  @apply text-primary duration-200 transition-all;
 
   &:hover {
     filter: brightness(1.1);
@@ -31,11 +30,11 @@ a {
 
 .post {
   h3 {
-    @apply text-2xl font-semibold mt-16 leading-tight;
+    @apply text-2xl font-medium mt-16 leading-tight;
   }
 
   h4 {
-    @apply text-xl font-semibold mt-8 leading-tight;
+    @apply text-xl font-medium mt-8 leading-tight;
   }
 
   hr {
@@ -89,76 +88,4 @@ a {
       }
     }
   }
-}
-
-// syntax
-
-.hljs {
-  background: #282a36;
-  border-radius: 0.5em;
-  color: #fff;
-  display: block;
-  overflow-x: auto;
-  padding: 1em;
-}
-
-.hljs-built_in,
-.hljs-selector-tag,
-.hljs-section,
-.hljs-link {
-  color: #8be9fd;
-}
-
-.hljs-keyword {
-  color: #ff79c6;
-}
-
-.hljs,
-.hljs-subst {
-  color: #f8f8f2;
-}
-
-.hljs-title {
-  color: #50fa7b;
-}
-
-.hljs-string,
-.hljs-meta,
-.hljs-name,
-.hljs-type,
-.hljs-attr,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition,
-.hljs-variable,
-.hljs-template-tag,
-.hljs-template-variable {
-  color: #f1fa8c;
-}
-
-.hljs-comment,
-.hljs-quote,
-.hljs-deletion {
-  color: #6272a4;
-}
-
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-literal,
-.hljs-title,
-.hljs-section,
-.hljs-doctag,
-.hljs-type,
-.hljs-name,
-.hljs-strong {
-  font-weight: bold;
-}
-
-.hljs-literal,
-.hljs-number {
-  color: #bd93f9;
-}
-
-.hljs-emphasis {
-  font-style: italic;
 }
