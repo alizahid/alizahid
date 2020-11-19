@@ -38,7 +38,8 @@
     "react-hooks/rules-of-hooks": "error",
     "react/jsx-sort-props": "error",
     "react/prop-types": "off",
-    "simple-import-sort/sort": "error",
+    "simple-import-sort/exports": "error",
+    "simple-import-sort/imports": "error",
     "sort-destructure-keys/sort-destructure-keys": "error",
     "sort-keys-fix/sort-keys-fix": "error"
   },
