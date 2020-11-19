@@ -121,7 +121,8 @@ const Blog: NextPage = () => (
   ],
   "rules": {
     "prettier/prettier": "error",
-    "simple-import-sort/sort": "error",
+    "simple-import-sort/exports": "error",
+    "simple-import-sort/imports": "error",
     "sort-destructure-keys/sort-destructure-keys": "error",
     "sort-keys-fix/sort-keys-fix": "error"
   }
@@ -183,7 +184,7 @@ const Blog: NextPage = () => (
     "react-hooks/exhaustive-deps": "error",
     "react-hooks/rules-of-hooks": "error",
     "react/jsx-sort-props": "error",
-    "simple-import-sort/sort": "error",
+    "simple-import-sort/exports": "error",
     "sort-destructure-keys/sort-destructure-keys": "error",
     "sort-keys-fix/sort-keys-fix": "error"
   },
@@ -250,7 +251,7 @@ const Blog: NextPage = () => (
     "react-native/no-unused-styles": "error",
     "react-native/split-platform-components": "error",
     "react/jsx-sort-props": "error",
-    "simple-import-sort/sort": "error",
+    "simple-import-sort/imports": "error",
     "sort-destructure-keys/sort-destructure-keys": "error",
     "sort-keys-fix/sort-keys-fix": "error"
   }
