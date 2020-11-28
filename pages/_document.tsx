@@ -7,7 +7,7 @@ class Doc extends Document {
       <Html lang="en">
         <Head />
 
-        <body className="text-gray-900 bg-gray-50 dark:text-gray-100 dark:bg-gray-900">
+        <body>
           <Main />
           <NextScript />
         </body>

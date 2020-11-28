@@ -137,7 +137,7 @@ service cloud.firestore {
       <ul>
         <li>
           Add end-to-end encryption, cause it&#39;s{' '}
-          <span className="line-through text-gray-500">2019</span>{' '}
+          <span className="line-through text-trueGray-500">2019</span>{' '}
           {new Date().getFullYear()}
         </li>
         <li>Look into improving performance by reducing re-renders</li>

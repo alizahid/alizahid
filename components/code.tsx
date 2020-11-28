@@ -73,9 +73,11 @@ export const Code: FunctionComponent<Props> = ({
         color: '#f8f8f2'
       }}>
       <header className="bg-highlight flex items-stretch leading-none">
-        <span className="p-4 font-medium">{prettyLanguageName(language)}</span>
+        <span className="p-4 text-base font-medium">
+          {prettyLanguageName(language)}
+        </span>
         <a
-          className="flex items-center justify-center px-4 ml-auto"
+          className="text-base font-normal flex items-center justify-center px-4 ml-auto"
           href="#copy"
           onClick={async (event) => {
             event.preventDefault()

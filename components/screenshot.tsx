@@ -42,7 +42,7 @@ export const Screenshot: FunctionComponent<Props> = ({
         <img alt={caption} className="screenshot" src={image} />
         <img className="frame" src="/frame.png" />
       </div>
-      <figcaption className="text-gray-500 text-center mt-4 mx-4">
+      <figcaption className="text-trueGray-500 text-center mt-4 mx-4">
         {caption}
       </figcaption>
     </figure>

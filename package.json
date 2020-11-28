@@ -14,7 +14,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "clipboardy": "^2.3.0",
     "dayjs": "^1.9.6",
     "next": "^10.0.2",
     "react": "^17.0.1",

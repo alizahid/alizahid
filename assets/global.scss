@@ -11,11 +11,11 @@
 // global
 
 body {
-  @apply cursor-default antialiased;
+  @apply cursor-default antialiased font-body text-trueGray-900 dark:text-trueGray-100 bg-trueGray-50 dark:bg-trueGray-900;
 }
 
 a {
-  @apply text-primary duration-200 transition-all;
+  @apply text-emerald-500 duration-200 transition-all;
 
   &:hover {
     filter: brightness(1.1);
@@ -29,6 +29,10 @@ a {
 // components
 
 .post {
+  a {
+    @apply font-medium;
+  }
+
   h3 {
     @apply text-2xl font-medium mt-16 leading-tight;
   }
@@ -43,10 +47,10 @@ a {
 
   p,
   li {
-    @apply mt-2 leading-relaxed;
+    @apply mt-4 leading-relaxed;
 
     code {
-      @apply bg-gray-300 rounded p-1 leading-none;
+      @apply font-medium;
     }
   }
 
@@ -61,31 +65,8 @@ a {
   strong {
     @apply font-medium;
   }
-
-  .floaty {
-    @apply block my-8 mx-auto;
-  }
 }
 
-// responsive
-
-@media (min-width: 1024px) {
-  .post {
-    .floaty {
-      @apply float-right mt-2 ml-8 mb-8;
-    }
-  }
-}
-
-// dark
-
-@media (prefers-color-scheme: dark) {
-  .post {
-    p,
-    li {
-      code {
-        @apply bg-gray-800;
-      }
-    }
-  }
+.floaty {
+  @apply block my-8 mx-auto lg:float-right lg:mt-2 lg:ml-8 lg:mb-8;
 }

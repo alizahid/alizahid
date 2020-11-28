@@ -13,7 +13,7 @@ export const Image: FunctionComponent<Props> = ({
 }) => (
   <figure className={className}>
     <img alt={caption} className="block mx-auto rounded-lg" src={image} />
-    <figcaption className="text-gray-500 text-center mt-4 mx-4">
+    <figcaption className="text-trueGray-500 text-center mt-4 mx-4">
       {caption}
     </figcaption>
   </figure>

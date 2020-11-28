@@ -32,10 +32,10 @@ interface NavLinkProps {
 const NavLink: FunctionComponent<NavLinkProps> = ({ href, label, path }) => (
   <Link href={href}>
     <a
-      className={`font-medium ml-4 first:ml-0 ${
+      className={`font-medium ml-4 first:ml-0 hover:text-emerald-600 ${
         (href === '/' ? path === href : path.indexOf(href) === 0)
-          ? 'text-primary'
-          : 'text-gray-700 dark:text-gray-300'
+          ? 'text-emerald-500'
+          : 'text-trueGray-700 dark:text-trueGray-300'
       }`}>
       {label}
     </a>
