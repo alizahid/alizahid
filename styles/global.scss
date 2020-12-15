@@ -1,12 +1,6 @@
 // fonts
 
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Rubik:wght@400;500;600&display=swap');
-
-// tailwind
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&family=Poppins:wght@500;600&display=swap');
 
 // global
 
@@ -26,6 +20,15 @@ a {
   }
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-display;
+}
+
 // components
 
 .post {
@@ -34,11 +37,11 @@ a {
   }
 
   h3 {
-    @apply text-2xl font-medium mt-16 leading-tight;
+    @apply text-2xl font-semibold mt-16 leading-tight;
   }
 
   h4 {
-    @apply text-xl font-medium mt-8 leading-tight;
+    @apply text-xl font-semibold mt-8 leading-tight;
   }
 
   hr {

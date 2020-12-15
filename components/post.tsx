@@ -25,7 +25,7 @@ export const Post: FunctionComponent<Props> = ({
         src={`/blog/${slug}/hero.png`}
         width={864}
       />
-      <h2 className="text-2xl font-medium leading-tight mt-4 text-trueGray-900 dark:text-trueGray-100 duration-200 group-hover:text-emerald-500">
+      <h2 className="text-2xl font-semibold leading-tight mt-4 text-trueGray-900 dark:text-trueGray-100 duration-200 group-hover:text-emerald-500">
         {title}
       </h2>
       <div className="my-2 text-trueGray-700 dark:text-trueGray-300">

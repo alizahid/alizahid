@@ -11,7 +11,7 @@ export const Header: FunctionComponent<Props> = ({ title }) => {
 
   return (
     <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
-      <h1 className="text-4xl font-medium mt-8 lg:mt-0 order-2 lg:order-1">
+      <h1 className="text-4xl font-semibold mt-8 lg:mt-0 order-2 lg:order-1">
         {title}
       </h1>
       <nav className="flex items-center order-1 lg:order-2">

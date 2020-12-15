@@ -29,7 +29,7 @@ export const PostHeader: FunctionComponent<Props> = ({ date, slug, title }) => (
         src={`/blog/${slug}/hero.png`}
         width={864}
       />
-      <h2 className="text-5xl font-medium leading-tight mt-8">{title}</h2>
+      <h2 className="text-5xl font-semibold leading-tight mt-8">{title}</h2>
       <div className="text-trueGray-600 dark:text-trueGray-300 mt-2">
         {dayjs(date).format('MMMM, YYYY')}
       </div>

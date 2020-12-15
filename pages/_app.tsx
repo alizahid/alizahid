@@ -1,14 +1,11 @@
-import '../assets/global.scss'
+import '../styles/tailwind.scss'
+import '../styles/global.scss'
 
-import App from 'next/app'
-import React from 'react'
+import { AppProps } from 'next/app'
+import React, { FunctionComponent } from 'react'
 
-class Ali extends App {
-  render(): JSX.Element {
-    const { Component, pageProps } = this.props
-
-    return <Component {...pageProps} />
-  }
-}
+const Ali: FunctionComponent<AppProps> = ({ Component, pageProps }) => (
+  <Component {...pageProps} />
+)
 
 export default Ali

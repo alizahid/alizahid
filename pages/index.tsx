@@ -10,7 +10,7 @@ const Home: NextPage = () => (
     description="About me"
     title="Hello">
     <section className="flex-1 order-2 lg:order-1">
-      <h2 className="text-6xl font-medium leading-tight">
+      <h2 className="text-6xl font-semibold leading-tight">
         I have a patent on blowing minds with epic design.
       </h2>
       <p className="mt-4">

@@ -22,7 +22,7 @@ export const Project: FunctionComponent<Props> = ({
         src={`/playground/${name.toLowerCase()}.png`}
         width={64}
       />
-      <h2 className="text-xl font-medium leading-tight ml-4">{name}</h2>
+      <h2 className="text-xl font-semibold leading-tight ml-4">{name}</h2>
     </header>
     <div className="my-4 text-trueGray-700 dark:text-trueGray-300">
       {children}
