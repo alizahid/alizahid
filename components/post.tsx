@@ -1,38 +1,33 @@
 import dayjs from 'dayjs'
-import Image from 'next/image'
+import NextImage from 'next/image'
 import Link from 'next/link'
 import React, { FunctionComponent } from 'react'
 
-interface Props {
-  date: string
-  slug: string
-  title: string
+import { PostMeta } from '../types'
+
+type Props = {
+  post: PostMeta
 }
 
-export const Post: FunctionComponent<Props> = ({
-  children,
-  date,
-  slug,
-  title
-}) => (
-  <Link href={`/blog/${slug}`}>
+export const Post: FunctionComponent<Props> = ({ post }) => (
+  <Link href={`/blog/${post.slug}`}>
     <a className="block group">
-      <Image
-        alt={title}
-        className="rounded-lg bg-trueGray-50 dark:bg-trueGray-800"
-        height={864 * (1200 / 1800)}
+      <NextImage
+        alt={post.title}
+        className="rounded-xl bg-gray-50 dark:bg-gray-800"
+        height={896 * (1200 / 1800)}
         priority
-        src={`/blog/${slug}/hero.png`}
-        width={864}
+        src={`/blog/${post.slug}/hero.png`}
+        width={896}
       />
-      <h2 className="text-2xl font-semibold leading-tight mt-4 text-trueGray-900 dark:text-trueGray-100 duration-200 group-hover:text-emerald-500">
-        {title}
+      <h2 className="text-2xl font-semibold mt-4 text-gray-900 dark:text-gray-100 duration-200 group-hover:text-emerald-500">
+        {post.title}
       </h2>
-      <div className="my-2 text-trueGray-700 dark:text-trueGray-300">
-        {children}
+      <div className="my-2 text-gray-700 dark:text-gray-300">
+        {post.excerpt}
       </div>
-      <footer className="text-trueGray-600 text-sm">
-        {dayjs(date).format('MMMM, YYYY')}
+      <footer className="text-gray-600 dark:text-gray-400 text-sm">
+        {dayjs(post.date).format('MMMM, YYYY')}
       </footer>
     </a>
   </Link>

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
 
-interface Props {
+type Props = {
   className?: string
   name: 'dribbble' | 'github' | 'twitter'
 }

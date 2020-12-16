@@ -1,11 +1,13 @@
-export type Link = {
-  label: string
-  link: string
+export type ProjectMeta = {
+  name: string
+  slug: string
+  side: 'left' | 'right'
+  order: number
 }
 
-export type Post = {
+export type PostMeta = {
+  title: string
+  slug: string
   date: string
   excerpt: string
-  slug: string
-  title: string
 }

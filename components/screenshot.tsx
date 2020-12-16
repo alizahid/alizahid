@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
 
-interface Props {
+type Props = {
   caption: string
   className?: string
   image: string
@@ -11,42 +11,15 @@ export const Screenshot: FunctionComponent<Props> = ({
   className,
   image
 }) => (
-  <>
-    <style jsx>{`
-      div {
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        position: relative;
-        width: 100%;
-      }
-
-      div .screenshot {
-        position: absolute;
-        transform: scale(0.9);
-      }
-
-      div .frame {
-        pointer-events: none;
-        z-index: 1;
-      }
-
-      @media (min-width: 1024px) {
-        div {
-          width: 24rem;
-        }
-      }
-    `}</style>
-    <figure className={className}>
-      <div className="block mx-auto">
-        <img alt={caption} className="screenshot" src={image} />
-        <img className="frame" src="/frame.png" />
-      </div>
-      <figcaption className="text-trueGray-500 text-center mt-4 mx-4">
-        {caption}
-      </figcaption>
-    </figure>
-  </>
+  <figure className={`mt-8 lg:mt-0 first:mt-0 lg:ml-8 first:ml-0 ${className}`}>
+    <div className="flex items-center justify-center relative w-full lg:w-96 mx-auto">
+      <img alt={caption} className="absolute transform scale-90" src={image} />
+      <img className="pointer-events-none z-10" src="/frame.png" />
+    </div>
+    <figcaption className="text-gray-500 text-center mt-4 mx-4">
+      {caption}
+    </figcaption>
+  </figure>
 )
 
 export const Screenshots: FunctionComponent = ({ children }) => (

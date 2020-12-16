@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { FunctionComponent } from 'react'
 
-interface Props {
+type Props = {
   title: string
 }
 
@@ -23,7 +23,7 @@ export const Header: FunctionComponent<Props> = ({ title }) => {
   )
 }
 
-interface NavLinkProps {
+type NavLinkProps = {
   href: string
   label: string
   path: string
@@ -32,10 +32,10 @@ interface NavLinkProps {
 const NavLink: FunctionComponent<NavLinkProps> = ({ href, label, path }) => (
   <Link href={href}>
     <a
-      className={`font-medium ml-4 first:ml-0 hover:text-emerald-600 ${
+      className={`font-medium ml-4 first:ml-0 ${
         (href === '/' ? path === href : path.indexOf(href) === 0)
           ? 'text-emerald-500'
-          : 'text-trueGray-700 dark:text-trueGray-300'
+          : 'text-gray-700 dark:text-gray-300'
       }`}>
       {label}
     </a>

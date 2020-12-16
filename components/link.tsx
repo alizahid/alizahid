@@ -1,7 +1,7 @@
 import NextLink from 'next/link'
 import React, { FunctionComponent } from 'react'
 
-interface Props {
+type Props = {
   external?: boolean
   href: string
 }
@@ -11,7 +11,7 @@ export const Link: FunctionComponent<Props> = ({
   external,
   href
 }) => {
-  if (href.indexOf('/') === 0) {
+  if (href.startsWith('/')) {
     return (
       <NextLink href={href}>
         <a>{children}</a>

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
 
-interface Props {
+type Props = {
   caption: string
   className?: string
   image: string
@@ -11,9 +11,9 @@ export const Image: FunctionComponent<Props> = ({
   className,
   image
 }) => (
-  <figure className={className}>
+  <figure className={`my-8 ${className}`}>
     <img alt={caption} className="block mx-auto rounded-lg" src={image} />
-    <figcaption className="text-trueGray-500 text-center mt-4 mx-4">
+    <figcaption className="text-gray-500 text-center mt-4 mx-4">
       {caption}
     </figcaption>
   </figure>
