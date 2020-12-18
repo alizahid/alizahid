@@ -9,7 +9,7 @@ body {
 }
 
 a {
-  @apply text-emerald-500 duration-200 transition-all;
+  @apply text-emerald-500 duration-200 transition-colors;
 
   &:hover {
     @apply text-emerald-600;
