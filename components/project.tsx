@@ -14,7 +14,6 @@ export const Project: FunctionComponent<Props> = ({ content, meta }) => (
       <NextImage
         alt={meta.name}
         height={64}
-        priority
         src={`/playground/${meta.slug}.png`}
         width={64}
       />

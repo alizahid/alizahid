@@ -14,11 +14,10 @@ export const Post: FunctionComponent<Props> = ({ post }) => (
     <a className="block group">
       <NextImage
         alt={post.title}
-        className="rounded-xl bg-gray-50 dark:bg-gray-800"
-        height={896 * (1200 / 1800)}
-        priority
+        className="rounded-xl bg-white dark:bg-black"
+        height={832 * (1200 / 1800)}
         src={`/blog/${post.slug}/hero.png`}
-        width={896}
+        width={832}
       />
       <h2 className="text-2xl font-semibold mt-4 text-gray-900 dark:text-gray-100 duration-200 group-hover:text-emerald-500">
         {post.title}

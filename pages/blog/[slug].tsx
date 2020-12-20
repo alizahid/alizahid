@@ -52,11 +52,11 @@ const Blog: NextPage<Props> = ({ content, meta }) => (
       <div className="mb-8">
         <NextImage
           alt={meta.title}
-          className="rounded-xl bg-gray-50 dark:bg-gray-800"
-          height={896 * (1200 / 1800)}
+          className="rounded-xl bg-white dark:bg-black"
+          height={832 * (1200 / 1800)}
           priority
           src={`/blog/${meta.slug}/hero.png`}
-          width={896}
+          width={832}
         />
         <h2 className="text-5xl font-semibold mt-8">{meta.title}</h2>
         <div className="text-sm text-gray-600 dark:text-gray-300 mt-2">
