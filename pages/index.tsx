@@ -40,7 +40,7 @@ const Home: NextPage = () => (
       <figure className="order-1 mb-16 lg:mb-0 lg:ml-16">
         <NextImage
           alt="Ali Zahid"
-          className="rounded-full"
+          className="bg-white dark:bg-black rounded-full"
           height={200}
           priority
           src="/ali-zahid.jpg"
