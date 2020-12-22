@@ -58,10 +58,11 @@ const Blog: NextPage<Props> = ({ content, meta }) => (
           src={`/blog/${meta.slug}/hero.png`}
           width={832}
         />
-        <h2 className="text-5xl font-semibold mt-8">{meta.title}</h2>
-        <div className="text-sm text-gray-600 dark:text-gray-300 mt-2">
+        <div className="text-sm text-gray-600 dark:text-gray-400 mt-8">
           {dayjs(meta.date).format('MMMM, YYYY')}
         </div>
+        <h2 className="text-5xl font-semibold my-2">{meta.title}</h2>
+        <div className="text-gray-700 dark:text-gray-300">{meta.excerpt}</div>
       </div>
       <section className="post">
         {hydrate(content, {
