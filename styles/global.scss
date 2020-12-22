@@ -61,7 +61,7 @@ h6 {
   p,
   li {
     code {
-      @apply text-gray-800 font-medium;
+      @apply text-gray-800 dark:text-gray-200 font-medium;
     }
   }
 
