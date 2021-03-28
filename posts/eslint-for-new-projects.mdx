@@ -15,25 +15,15 @@ Let's get started.
 
 I love <Link external href="https://prettier.io">Prettier</Link>. It's opinionated and gives me a fantastic base to get started. I use a `precommit` hook alongside Prettier to make sure anything missed gets formatted.
 
-#### Dependencies
+Before you install Husky, make sure you've created a Git repository first or installing Git hooks will fail.
+
+#### Install dependencies
 
 ```bash
 yarn add --dev prettier husky pretty-quick
 ```
 
-#### Precommit hook — `package.json`
-
-```json
-{
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
-  }
-}
-```
-
-#### Config — `prettier.config.js`
+#### Prettier config — `prettier.config.js`
 
 ```javascript
 module.exports = {
@@ -44,6 +34,21 @@ module.exports = {
   singleQuote: true,
   trailingComma: 'none'
 }
+```
+
+#### Setup Husky
+
+```bash
+yarn husky init
+```
+
+#### Precommit hook — `.husky/pre-commit`
+
+```bash
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+pretty-quick --staged
 ```
 
 ### ESLint
