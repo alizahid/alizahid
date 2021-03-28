@@ -37,6 +37,7 @@ yarn add --dev prettier husky pretty-quick
 
 ```javascript
 module.exports = {
+  arrowParens: 'avoid',
   bracketSpacing: true,
   jsxBracketSameLine: true,
   semi: false,
@@ -75,8 +76,7 @@ eslint . --ext js,ts
 {
   "extends": [
     "plugin:@typescript-eslint/recommended",
-    "prettier",
-    "prettier/@typescript-eslint"
+    "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "plugins": [
@@ -124,9 +124,7 @@ eslint . --ext js,ts,tsx
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "prettier",
-    "prettier/react",
-    "prettier/@typescript-eslint"
+    "plugin:prettier/recommended"
   ],
   "overrides": [
     {
@@ -187,9 +185,7 @@ eslint . --ext js,ts,tsx
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react-hooks/recommended",
-    "prettier",
-    "prettier/react",
-    "prettier/@typescript-eslint"
+    "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "plugins": [
@@ -227,4 +223,4 @@ eslint . --ext js,ts,tsx
 }
 ```
 
-I'll keep updating this as I discover more useful stuff or remove redundant or incorrect stuff. If you have any suggestions, <Link href="https://twitter.com/alizahid0">hit me up</Link> on Twitter.
+I'll keep updating this as I discover more useful stuff or remove redundant or incorrect stuff. If you have any suggestions, hit me up on <Link href="https://twitter.com/alizahid0">Twitter</Link>.
