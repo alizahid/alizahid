@@ -1,45 +1,52 @@
-import NextImage from 'next/image'
+import Image from 'next/image'
+import Link from 'next/link'
 import React, { FunctionComponent } from 'react'
+import Markdown from 'react-markdown'
 
-import { ProjectMeta } from '../types'
+import { Project, ProjectLink } from '../types'
 
 type Props = {
-  content: unknown
-  meta: ProjectMeta
+  className?: string
+  project: Project
 }
 
-export const Project: FunctionComponent<Props> = ({ content, meta }) => (
-  <article className="mt-16 first:mt-0">
-    <header className="flex items-center">
-      <NextImage
-        alt={meta.name}
-        height={64}
-        src={`/playground/${meta.slug}.png`}
-        width={64}
-      />
-      <h2 className="text-xl font-semibold ml-4">{meta.name}</h2>
-    </header>
-    {content}
-  </article>
-)
-
-export const ProjectContent: FunctionComponent = ({ children }) => (
-  <div className="my-4 text-gray-700 dark:text-gray-300">{children}</div>
-)
-
-export const ProjectFooter: FunctionComponent = ({ children }) => (
-  <footer className="text-sm">{children}</footer>
-)
-
-type LinkProps = {
-  href: string
-}
-
-export const ProjectLink: FunctionComponent<LinkProps> = ({
-  children,
-  href
+export const ProjectCard: FunctionComponent<Props> = ({
+  className,
+  project
 }) => (
-  <a className="text-emerald-500 font-medium ml-4 first:ml-0" href={href}>
-    {children}
-  </a>
+  <div className={className}>
+    <div className="flex items-center">
+      <Image
+        height={Number(project.image.height) / 10}
+        src={project.image.url}
+        width={Number(project.image.width) / 10}
+      />
+      <div className="font-medium ml-4">{project.name}</div>
+    </div>
+
+    <Markdown
+      className="text-sm text-gray-600 dark:text-gray-400"
+      renderers={{
+        link({ children, href }) {
+          return (
+            <Link href={href}>
+              <a>{children}</a>
+            </Link>
+          )
+        },
+        paragraph({ children }) {
+          return <p className="mt-2 first:mt-4">{children}</p>
+        }
+      }}>
+      {project.content}
+    </Markdown>
+
+    <div className="flex flex-wrap items-start text-sm -ml-4">
+      {(project.links as ProjectLink[]).map(({ href, label }, index) => (
+        <Link href={href} key={`link-${index}`}>
+          <a className="mt-4 ml-4">{label}</a>
+        </Link>
+      ))}
+    </div>
+  </div>
 )

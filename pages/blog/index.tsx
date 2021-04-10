@@ -1,17 +1,14 @@
-import dayjs from 'dayjs'
-import { promises as fs } from 'fs'
-import matter from 'gray-matter'
-import { orderBy } from 'lodash'
+import { gql, GraphQLClient } from 'graphql-request'
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import { resolve } from 'path'
+import Link from 'next/link'
 import React from 'react'
 
-import { Footer, Header, Post } from '../../components'
-import { PostMeta } from '../../types'
+import { Footer, Header, PostCard } from '../../components'
+import { Post } from '../../types'
 
 type Props = {
-  posts: PostMeta[]
+  posts: Post[]
 }
 
 const Blog: NextPage<Props> = ({ posts }) => (
@@ -23,12 +20,20 @@ const Blog: NextPage<Props> = ({ posts }) => (
       <meta content="website" property="og:type" />
     </Head>
 
-    <Header title="Blog" />
+    <Header />
 
-    <main className="grid lg:grid-cols-2 gap-16">
-      {posts.map((post) => (
-        <Post key={post.slug} post={post} />
-      ))}
+    <main className="my-12">
+      <h1 className="text-2xl font-semibold">Blog</h1>
+
+      <div className="mt-12 grid gap-12 lg:grid-cols-3">
+        {posts.map((post) => (
+          <Link href={`/blog/${post.slug}`} key={post.slug}>
+            <a className="text-black dark:text-white">
+              <PostCard post={post} />
+            </a>
+          </Link>
+        ))}
+      </div>
     </main>
 
     <Footer />
@@ -36,30 +41,27 @@ const Blog: NextPage<Props> = ({ posts }) => (
 )
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const path = resolve('posts')
+  const client = new GraphQLClient(process.env.GRAPH_CMS_URL)
 
-  const files = await fs.readdir(path)
-
-  const posts: PostMeta[] = await Promise.all(
-    files.map(async (file) => {
-      const path = resolve('posts', file)
-
-      const markdown = await fs.readFile(path, 'utf8')
-
-      const { data } = matter(markdown)
-
-      return {
-        date: dayjs(data.date).toISOString(),
-        excerpt: data.excerpt,
-        slug: data.slug,
-        title: data.title
+  const { posts } = await client.request(gql`
+    {
+      posts(orderBy: date_DESC) {
+        slug
+        title
+        date
+        excerpt
+        image {
+          height
+          width
+          url
+        }
       }
-    })
-  )
+    }
+  `)
 
   return {
     props: {
-      posts: orderBy(posts, 'date', 'desc')
+      posts
     }
   }
 }

@@ -1,8 +1,11 @@
+// common
+
 export { Footer } from './footer'
 export { Header } from './header'
 export { Icon } from './icon'
-export { Image } from './image'
-export { Link } from './link'
-export { Post } from './post'
-export { Project, ProjectContent, ProjectFooter, ProjectLink } from './project'
-export { Screenshot, Screenshots } from './screenshot'
+export { HomeMoreLink, HomeTitle, SocialLinks } from './misc'
+
+// cards
+
+export { PostCard } from './post'
+export { ProjectCard } from './project'

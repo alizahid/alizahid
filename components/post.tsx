@@ -1,33 +1,32 @@
-import dayjs from 'dayjs'
-import NextImage from 'next/image'
-import Link from 'next/link'
+import { format, isSameYear, parseISO } from 'date-fns'
+import Image from 'next/image'
 import React, { FunctionComponent } from 'react'
 
-import { PostMeta } from '../types'
+import { Post } from '../types'
 
 type Props = {
-  post: PostMeta
+  className?: string
+  post: Post
 }
 
-export const Post: FunctionComponent<Props> = ({ post }) => (
-  <Link href={`/blog/${post.slug}`}>
-    <a className="block group">
-      <NextImage
-        alt={post.title}
-        className="rounded-xl bg-white dark:bg-black"
-        height={832 * (1200 / 1800)}
-        src={`/blog/${post.slug}/hero.png`}
-        width={832}
+export const PostCard: FunctionComponent<Props> = ({ className, post }) => {
+  const date = parseISO(post.date)
+
+  return (
+    <div className={className}>
+      <Image
+        className="rounded-lg bg-gray-100 dark:bg-gray-900"
+        height={Number(post.image.height) / 4}
+        src={post.image.url}
+        width={Number(post.image.width) / 4}
       />
-      <h2 className="text-2xl font-semibold mt-4 text-gray-900 dark:text-gray-100 duration-200 group-hover:text-emerald-500">
-        {post.title}
-      </h2>
-      <div className="my-2 text-gray-700 dark:text-gray-300">
+      <div className="font-medium mt-2">{post.title}</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400 mt-2">
         {post.excerpt}
       </div>
-      <footer className="text-gray-600 dark:text-gray-400 text-sm">
-        {dayjs(post.date).format('MMMM, YYYY')}
-      </footer>
-    </a>
-  </Link>
-)
+      <div className="text-sm text-gray-500 mt-2">
+        {format(date, isSameYear(date, new Date()) ? 'MMMM d' : 'MMMM d, y')}
+      </div>
+    </div>
+  )
+}

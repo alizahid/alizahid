@@ -1,96 +1,31 @@
 // fonts
 
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&family=Poppins:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap');
 
 // global
 
+::selection {
+  @apply bg-emerald-900 bg-opacity-20 dark:bg-opacity-60;
+}
+
 body {
-  @apply cursor-default antialiased font-body text-gray-900 dark:text-gray-100 bg-gray-50 dark:bg-gray-900;
+  @apply cursor-default antialiased text-black dark:text-white bg-white dark:bg-black;
 }
 
 a {
-  @apply text-emerald-500 duration-200 transition-colors;
-
-  &:hover {
-    @apply text-emerald-600;
-  }
-
-  &:active {
-    @apply text-emerald-400;
-  }
+  @apply transition-colors text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 dark:hover:text-emerald-300;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @apply font-display;
+hr {
+  @apply border-0 my-8;
 }
 
 // layout
 
 #__next {
-  @apply flex flex-col min-h-screen px-8 py-8 lg:py-16 max-w-4xl mx-auto;
+  @apply min-h-screen flex flex-col p-8 max-w-6xl mx-auto;
 
   & > main {
-    @apply flex-1 my-16;
+    @apply flex-1;
   }
-}
-
-// components
-
-.post {
-  a {
-    @apply font-medium;
-  }
-
-  h3 {
-    @apply text-2xl font-semibold mt-16;
-  }
-
-  h4 {
-    @apply text-xl font-semibold mt-8;
-  }
-
-  hr {
-    @apply border-none h-12;
-  }
-
-  p,
-  li {
-    code {
-      @apply text-gray-800 dark:text-gray-200 font-medium;
-    }
-  }
-
-  p {
-    @apply my-4;
-  }
-
-  li {
-    @apply my-2;
-  }
-
-  ol,
-  ul {
-    @apply my-4 ml-8;
-  }
-
-  ol {
-    @apply list-decimal;
-  }
-
-  ul {
-    @apply list-disc;
-  }
-
-  strong {
-    @apply font-semibold;
-  }
-}
-
-.floaty {
-  @apply block my-8 mx-auto lg:float-right lg:mt-4 lg:ml-8 lg:mb-8;
 }

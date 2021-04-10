@@ -1,25 +1,18 @@
 const colors = require('tailwindcss/colors')
+const typography = require('@tailwindcss/typography')
 
 module.exports = {
   darkMode: 'media',
-  plugins: [],
-  purge: ['./**/*.tsx', './**/*.mdx', './styles/global.scss'],
+  mode: 'jit',
+  plugins: [typography],
+  purge: ['components/**/*.tsx', 'pages/**/*.tsx', 'styles/*.scss'],
   theme: {
     colors,
-    extend: {
-      colors: {
-        highlight: 'rgba(0, 0, 0, 0.5)'
-      }
-    },
+    extend: {},
     fontFamily: {
-      body: ['Inter', 'sans-serif'],
-      display: ['Poppins', 'sans-serif'],
-      mono: ['IBM Plex Mono', 'monospace']
+      mono: ['Roboto Mono', 'monospace'],
+      sans: ['Inter', 'sans-serif']
     }
   },
-  variants: {
-    extend: {
-      margin: ['first']
-    }
-  }
+  variants: {}
 }

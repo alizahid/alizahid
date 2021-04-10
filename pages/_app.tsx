@@ -1,6 +1,5 @@
-import '../styles/tailwind.scss'
+import 'tailwindcss/tailwind.css'
 import '../styles/global.scss'
-import '../styles/prism.css'
 
 import { AppProps } from 'next/app'
 import React, { FunctionComponent } from 'react'

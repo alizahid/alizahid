@@ -1,43 +1,78 @@
+import clsx from 'clsx'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { FunctionComponent } from 'react'
 
 type Props = {
-  title: string
+  className?: string
 }
 
-export const Header: FunctionComponent<Props> = ({ title }) => {
+export const Header: FunctionComponent<Props> = ({ className }) => {
   const { asPath } = useRouter()
 
+  const isHome = asPath === '/'
+
   return (
-    <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
-      <h1 className="text-4xl font-semibold mt-8 lg:mt-0 order-2 lg:order-1">
-        {title}
-      </h1>
-      <nav className="flex items-center order-1 lg:order-2">
-        <NavLink href="/" label="About" path={asPath} />
-        <NavLink href="/blog" label="Blog" path={asPath} />
-        <NavLink href="/playground" label="Playground" path={asPath} />
-      </nav>
+    <header
+      className={clsx(
+        !isHome && 'flex items-center justify-between',
+        className
+      )}>
+      <Link href="/">
+        <a>
+          <Image
+            alt="Ali Zahid"
+            className="bg-white dark:bg-black rounded-full"
+            height={64}
+            priority
+            src="https://media.graphcms.com/GJrB3pURnqRlaj61Z3Qp"
+            width={64}
+          />
+        </a>
+      </Link>
+
+      {isHome ? (
+        <h1 className="text-2xl font-semibold mt-8">
+          I have a patent on blowing minds with epic design.
+        </h1>
+      ) : (
+        <nav className="flex">
+          <Link href="/">
+            <a
+              className={clsx(
+                'dark:text-white font-medium',
+                asPath === '/'
+                  ? 'text-emerald-600 dark:text-emerald-400'
+                  : 'text-black'
+              )}>
+              Home
+            </a>
+          </Link>
+          <Link href="/blog">
+            <a
+              className={clsx(
+                'dark:text-white font-medium ml-4',
+                asPath.startsWith('/blog')
+                  ? 'text-emerald-600 dark:text-emerald-400'
+                  : 'text-black'
+              )}>
+              Blog
+            </a>
+          </Link>
+          <Link href="/playground">
+            <a
+              className={clsx(
+                'dark:text-white font-medium ml-4',
+                asPath.startsWith('/playground')
+                  ? 'text-emerald-600 dark:text-emerald-400'
+                  : 'text-black'
+              )}>
+              Playground
+            </a>
+          </Link>
+        </nav>
+      )}
     </header>
   )
 }
-
-type NavLinkProps = {
-  href: string
-  label: string
-  path: string
-}
-
-const NavLink: FunctionComponent<NavLinkProps> = ({ href, label, path }) => (
-  <Link href={href}>
-    <a
-      className={`font-medium ml-4 first:ml-0 ${
-        (href === '/' ? path === href : path.startsWith(href))
-          ? 'text-emerald-500'
-          : 'text-gray-700 dark:text-gray-300'
-      }`}>
-      {label}
-    </a>
-  </Link>
-)

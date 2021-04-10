@@ -1,33 +1,18 @@
-import { promises as fs } from 'fs'
-import matter from 'gray-matter'
-import { groupBy, sortBy } from 'lodash'
+import { gql, GraphQLClient } from 'graphql-request'
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import hydrate from 'next-mdx-remote/hydrate'
-import renderToString from 'next-mdx-remote/render-to-string'
-import { resolve } from 'path'
 import React from 'react'
 
-import {
-  Footer,
-  Header,
-  Project,
-  ProjectContent,
-  ProjectFooter,
-  ProjectLink
-} from '../components'
-import { ProjectMeta } from '../types'
-
-type Project = {
-  content: unknown
-  meta: ProjectMeta
-}
+import { Footer, Header, ProjectCard } from '../components'
+import { Project } from '../types'
 
 type Props = {
-  projects: Project[]
+  featured: Project[]
+  other: Project[]
+  regular: Project[]
 }
 
-const Playground: NextPage<Props> = ({ projects }) => (
+const Playground: NextPage<Props> = ({ featured, other, regular }) => (
   <>
     <Head>
       <title>Playground / Ali Zahid</title>
@@ -36,61 +21,61 @@ const Playground: NextPage<Props> = ({ projects }) => (
       <meta content="website" property="og:type" />
     </Head>
 
-    <Header title="Playground" />
+    <Header />
 
-    <main className="grid lg:grid-cols-2 gap-16">
-      {Object.values(groupBy(projects, 'meta.side')).map((projects, index) => (
-        <section key={index}>
-          {sortBy(projects, 'meta.order').map((project) => (
-            <Project
-              content={hydrate(project.content, {
-                components
-              })}
-              key={project.meta.slug}
-              meta={project.meta}
-            />
-          ))}
-        </section>
-      ))}
+    <main className="my-12">
+      <h1 className="text-2xl font-semibold">Playground</h1>
+
+      <div className="mt-12 grid gap-12 lg:grid-cols-3">
+        {[featured, regular, other].map((projects, index) => (
+          <section key={index}>
+            {projects.map((project) => (
+              <ProjectCard
+                className="mt-12 first:mt-0"
+                key={project.slug}
+                project={project}
+              />
+            ))}
+          </section>
+        ))}
+      </div>
     </main>
 
     <Footer />
   </>
 )
 
-const components = {
-  Content: ProjectContent,
-  Footer: ProjectFooter,
-  Link: ProjectLink
-}
-
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const path = resolve('projects')
+  const client = new GraphQLClient(process.env.GRAPH_CMS_URL)
 
-  const files = await fs.readdir(path)
-
-  const projects: Project[] = await Promise.all(
-    files.map(async (file) => {
-      const path = resolve('projects', file)
-
-      const markdown = await fs.readFile(path, 'utf8')
-
-      const { content, data } = matter(markdown)
-
-      const mdx = await renderToString(content, {
-        components
-      })
-
-      return {
-        content: mdx,
-        meta: data as ProjectMeta
+  const { projects } = await client.request<{
+    projects: Project[]
+  }>(gql`
+    {
+      projects(orderBy: order_ASC) {
+        slug
+        name
+        content
+        featured
+        image {
+          height
+          width
+          url
+        }
+        links
       }
-    })
-  )
+    }
+  `)
+
+  const featured = projects.filter(({ featured }) => featured === true)
+  const regular = projects.filter(({ featured }) => featured === false)
+  const other = projects.filter(({ featured }) => featured === null)
 
   return {
     props: {
-      projects
+      featured,
+      other,
+      regular
     }
   }
 }
