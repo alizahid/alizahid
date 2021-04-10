@@ -125,7 +125,7 @@ const Blog: NextPage<Props> = ({ post }) => {
                 )
               }
 
-              return <div>foo</div>
+              return null
             },
             image({ alt, src }) {
               const url = new URL(src)

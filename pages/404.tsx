@@ -8,7 +8,7 @@ const NotFound: NextPage = () => (
       <title>404 / Ali Zahid</title>
     </Head>
 
-    <main className="my-12 flex flex-col justify-center">
+    <main className="flex flex-col justify-center">
       <h2 className="text-2xl font-semibold">
         Looks like you&#39;re looking for something that doesn&#39;t exist.
       </h2>
