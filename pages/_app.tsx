@@ -4,8 +4,12 @@ import '../styles/global.scss'
 import { AppProps } from 'next/app'
 import React, { FunctionComponent } from 'react'
 
-const Ali: FunctionComponent<AppProps> = ({ Component, pageProps }) => (
-  <Component {...pageProps} />
-)
+import { usePanelbear } from '../hooks'
 
-export default Ali
+const AZ: FunctionComponent<AppProps> = ({ Component, pageProps }) => {
+  usePanelbear('B2z8tNyK4Ls')
+
+  return <Component {...pageProps} />
+}
+
+export default AZ
