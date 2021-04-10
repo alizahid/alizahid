@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import React, { FunctionComponent } from 'react'
 import Markdown from 'react-markdown'
@@ -16,11 +15,7 @@ export const ProjectCard: FunctionComponent<Props> = ({
 }) => (
   <div className={className}>
     <div className="flex items-center">
-      <Image
-        height={Number(project.image.height) / 10}
-        src={project.image.url}
-        width={Number(project.image.width) / 10}
-      />
+      <img height={64} src={project.image.url} width={64} />
       <div className="font-medium ml-4">{project.name}</div>
     </div>
 

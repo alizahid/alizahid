@@ -115,7 +115,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
         image {
           height
           width
-          url
+          url(transformation: { image: { resize: { width: 600 } } })
         }
       }
       projects(where: { featured: true }) {
@@ -125,7 +125,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
         image {
           height
           width
-          url
+          url(transformation: { image: { resize: { width: 128 } } })
         }
         links
       }

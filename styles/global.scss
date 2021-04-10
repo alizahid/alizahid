@@ -16,6 +16,10 @@ a {
   @apply transition-colors text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 dark:hover:text-emerald-300;
 }
 
+button {
+  @apply focus:outline-none;
+}
+
 hr {
   @apply border-0 my-8;
 }

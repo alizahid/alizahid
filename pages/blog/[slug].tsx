@@ -1,14 +1,16 @@
+import 'react-medium-image-zoom/dist/styles.css'
+
 import clsx from 'clsx'
 import { format, isSameYear, parseISO } from 'date-fns'
 import { gql, GraphQLClient } from 'graphql-request'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import Link from 'next/link'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/oceanicNext'
 import React from 'react'
 import Markdown from 'react-markdown'
+import Zoom from 'react-medium-image-zoom'
 
 import { Footer, Header } from '../../components'
 import { Post } from '../../types'
@@ -42,11 +44,11 @@ const Blog: NextPage<Props> = ({ post }) => {
         <Header className="mb-16" />
 
         <div className="-mx-8 lg:-mx-16">
-          <Image
+          <img
             className="lg:rounded-lg bg-gray-100 dark:bg-gray-900"
-            height={Number(post.image.height) / 2}
+            height={900}
             src={post.image.url}
-            width={Number(post.image.width) / 2}
+            width={1800}
           />
         </div>
 
@@ -54,7 +56,7 @@ const Blog: NextPage<Props> = ({ post }) => {
         <div className="text-sm text-gray-700 dark:text-gray-300 mt-2">
           {post.excerpt}
         </div>
-        <div className="text-sm text-gray-500 mt-2">
+        <div className="text-sm mt-2">
           {format(date, isSameYear(date, new Date()) ? 'MMMM d' : 'MMMM d, y')}
         </div>
 
@@ -134,52 +136,36 @@ const Blog: NextPage<Props> = ({ post }) => {
 
               const height = (Number(url.searchParams.get('h')) || 200) / 2
               const width = (Number(url.searchParams.get('w')) || 200) / 2
-              const float = url.searchParams.get('float')
               const type = url.searchParams.get('type')
 
-              const [link] = src.split('?')
-
-              if (float) {
-                return (
-                  <figure
-                    className={clsx(
-                      'my-8 mx-auto lg:mt-0 lg:ml-8 lg:mb-8',
-                      float === 'right' ? 'lg:float-right' : 'lg:float-left'
-                    )}
-                    style={{
-                      height,
-                      width
-                    }}>
-                    <Image height={height} src={link} width={width} />
-                  </figure>
-                )
-              }
+              const [source] = src.split('?')
 
               return (
-                <Link href={link}>
-                  <a>
-                    <figure
+                <figure
+                  className={clsx(
+                    'flex flex-col items-center my-8',
+                    type === 'chart' && '-mx-8'
+                  )}>
+                  <Zoom
+                    overlayBgColorEnd="rgba(0, 0, 0, 0.8)"
+                    overlayBgColorStart="rgba(0, 0, 0, 0)"
+                    zoomMargin={64}>
+                    <img
+                      alt={alt}
                       className={clsx(
-                        'flex flex-col items-center my-8',
-                        type === 'chart' && '-mx-8'
-                      )}>
-                      <Image
-                        className={clsx(
-                          'rounded-lg',
-                          type === 'chart' && 'bg-white'
-                        )}
-                        height={height}
-                        src={link}
-                        width={width}
-                      />
-                      {!!alt && (
-                        <figcaption className="text-black dark:text-white mt-4 text-center">
-                          {alt}
-                        </figcaption>
+                        'rounded-lg',
+                        type === 'chart' && 'bg-white'
                       )}
-                    </figure>
-                  </a>
-                </Link>
+                      height={height}
+                      src={source}
+                      width={width}
+                    />
+                  </Zoom>
+
+                  <figcaption className="text-black dark:text-white mt-4 text-center">
+                    {alt}
+                  </figcaption>
+                </figure>
               )
             },
             inlineCode({ value }) {
