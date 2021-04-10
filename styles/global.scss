@@ -30,6 +30,6 @@ hr {
   @apply min-h-screen flex flex-col p-8 max-w-6xl mx-auto;
 
   & > main {
-    @apply flex-1;
+    @apply flex-1 my-16;
   }
 }

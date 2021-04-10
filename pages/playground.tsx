@@ -3,7 +3,7 @@ import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import React from 'react'
 
-import { Footer, Header, ProjectCard } from '../components'
+import { ProjectCard } from '../components'
 import { Project } from '../types'
 
 type Props = {
@@ -21,9 +21,7 @@ const Playground: NextPage<Props> = ({ featured, other, regular }) => (
       <meta content="website" property="og:type" />
     </Head>
 
-    <Header />
-
-    <main className="my-16">
+    <main>
       <h1 className="text-2xl font-semibold">Playground</h1>
 
       <div className="mt-12 grid gap-12 lg:grid-cols-3">
@@ -40,8 +38,6 @@ const Playground: NextPage<Props> = ({ featured, other, regular }) => (
         ))}
       </div>
     </main>
-
-    <Footer />
   </>
 )
 

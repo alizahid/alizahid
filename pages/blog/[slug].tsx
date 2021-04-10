@@ -12,7 +12,6 @@ import React from 'react'
 import Markdown from 'react-markdown'
 import Zoom from 'react-medium-image-zoom'
 
-import { Footer, Header } from '../../components'
 import { Post } from '../../types'
 
 type Props = {
@@ -40,18 +39,14 @@ const Blog: NextPage<Props> = ({ post }) => {
         <meta content={post.image.url} property="og:image" />
       </Head>
 
-      <main className="w-full max-w-3xl mx-auto">
-        <Header className="mb-16" />
-
-        <div className="-mx-8 lg:-mx-16">
-          <img
-            alt={post.title}
-            className="lg:rounded-lg bg-gray-100 dark:bg-gray-900"
-            height={900}
-            src={post.image.url}
-            width={1800}
-          />
-        </div>
+      <main>
+        <img
+          alt={post.title}
+          className="rounded-lg bg-gray-100 dark:bg-gray-900"
+          height={900}
+          src={post.image.url}
+          width={1800}
+        />
 
         <h1 className="text-2xl font-semibold mt-4">{post.title}</h1>
         <div className="text-sm text-gray-700 dark:text-gray-300 mt-2">
@@ -218,8 +213,6 @@ const Blog: NextPage<Props> = ({ post }) => {
           }}>
           {post.content}
         </Markdown>
-
-        <Footer className="mt-16" />
       </main>
     </>
   )

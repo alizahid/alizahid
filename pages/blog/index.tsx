@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import React from 'react'
 
-import { Footer, Header, PostCard } from '../../components'
+import { PostCard } from '../../components'
 import { Post } from '../../types'
 
 type Props = {
@@ -20,9 +20,7 @@ const Blog: NextPage<Props> = ({ posts }) => (
       <meta content="website" property="og:type" />
     </Head>
 
-    <Header />
-
-    <main className="my-16">
+    <main>
       <h1 className="text-2xl font-semibold">Blog</h1>
 
       <div className="mt-12 grid gap-12 lg:grid-cols-3">
@@ -35,8 +33,6 @@ const Blog: NextPage<Props> = ({ posts }) => (
         ))}
       </div>
     </main>
-
-    <Footer />
   </>
 )
 

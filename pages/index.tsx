@@ -4,13 +4,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import React from 'react'
 
-import {
-  Footer,
-  Header,
-  PostCard,
-  ProjectCard,
-  SocialLinks
-} from '../components'
+import { PostCard, ProjectCard, SocialLinks } from '../components'
 import { Post, Project } from '../types'
 
 type Props = {
@@ -27,9 +21,7 @@ const Home: NextPage<Props> = ({ posts, projects }) => (
       <meta content="website" property="og:type" />
     </Head>
 
-    <Header />
-
-    <main className="grid gap-12 lg:grid-cols-3 my-12">
+    <main className="grid gap-12 lg:grid-cols-3">
       <section>
         <h1 className="text-2xl font-semibold">
           I have a patent on blowing minds with epic design.
@@ -97,8 +89,6 @@ const Home: NextPage<Props> = ({ posts, projects }) => (
         ))}
       </section>
     </main>
-
-    <Footer />
   </>
 )
 
