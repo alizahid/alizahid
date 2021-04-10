@@ -6,25 +6,27 @@ import { Icon } from './icon'
 
 type SocialLinksProps = {
   className?: string
+  size?: number
 }
 
 export const SocialLinks: FunctionComponent<SocialLinksProps> = ({
-  className
+  className,
+  size = 32
 }) => (
   <div className={clsx('flex', className)}>
     <Link href="https://github.com/alizahid">
       <a className="text-gray-400 dark:text-gray-600">
-        <Icon name="github" />
+        <Icon name="github" size={size} />
       </a>
     </Link>
     <Link href="https://twitter.com/alizahid0">
       <a className="ml-4 text-gray-400 dark:text-gray-600">
-        <Icon name="twitter" />
+        <Icon name="twitter" size={size} />
       </a>
     </Link>
     <Link href="https://dribbble.com/alizahid">
       <a className="ml-4 text-gray-400 dark:text-gray-600">
-        <Icon name="dribbble" />
+        <Icon name="dribbble" size={size} />
       </a>
     </Link>
   </div>
