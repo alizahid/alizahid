@@ -5,9 +5,8 @@ import Link from 'next/link'
 import React from 'react'
 
 import {
+  Footer,
   Header,
-  HomeMoreLink,
-  HomeTitle,
   PostCard,
   ProjectCard,
   SocialLinks
@@ -28,9 +27,13 @@ const Home: NextPage<Props> = ({ posts, projects }) => (
       <meta content="website" property="og:type" />
     </Head>
 
-    <main className="grid gap-12 lg:grid-cols-3">
+    <Header />
+
+    <main className="grid gap-12 lg:grid-cols-3 my-12">
       <section>
-        <Header />
+        <h1 className="text-2xl font-semibold">
+          I have a patent on blowing minds with epic design.
+        </h1>
 
         <p className="mt-8 text-sm">
           Hello. I&#39;m Ali Zahid. I love to build cool stuff. Check out my{' '}
@@ -64,13 +67,16 @@ const Home: NextPage<Props> = ({ posts, projects }) => (
           and see if we can work together.
         </p>
 
-        <SocialLinks className="mt-12" />
+        <div className="flex items-center mt-12">
+          <div className="text-sm">Find me on</div>
+          <SocialLinks className="ml-4" />
+        </div>
       </section>
 
       <section className="flex flex-col">
-        <HomeTitle className="self-start" href="/blog">
-          Blog
-        </HomeTitle>
+        <h2 className="text-black dark:text-white font-semibold -mb-8">
+          Recent articles
+        </h2>
 
         {posts.map((post) => (
           <Link href={`/blog/${post.slug}`} key={post.slug}>
@@ -79,22 +85,20 @@ const Home: NextPage<Props> = ({ posts, projects }) => (
             </a>
           </Link>
         ))}
-
-        <HomeMoreLink className="self-start mt-12" href="/blog" />
       </section>
 
       <section className="flex flex-col">
-        <HomeTitle className="self-start" href="/playground">
-          Playground
-        </HomeTitle>
+        <h2 className="text-black dark:text-white font-semibold -mb-8">
+          Featured projects
+        </h2>
 
         {projects.map((project) => (
           <ProjectCard className="mt-12" key={project.slug} project={project} />
         ))}
-
-        <HomeMoreLink className="self-start mt-12" href="/playground" />
       </section>
     </main>
+
+    <Footer />
   </>
 )
 

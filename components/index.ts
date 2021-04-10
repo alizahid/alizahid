@@ -3,7 +3,7 @@
 export { Footer } from './footer'
 export { Header } from './header'
 export { Icon } from './icon'
-export { HomeMoreLink, HomeTitle, SocialLinks } from './misc'
+export { SocialLinks } from './social-links'
 
 // cards
 

@@ -6,7 +6,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import Highlight, { defaultProps } from 'prism-react-renderer'
-import theme from 'prism-react-renderer/themes/dracula'
+import theme from 'prism-react-renderer/themes/oceanicNext'
 import React from 'react'
 import Markdown from 'react-markdown'
 
@@ -39,7 +39,7 @@ const Blog: NextPage<Props> = ({ post }) => {
       </Head>
 
       <main className="w-full max-w-3xl mx-auto">
-        <Header className="mb-12" />
+        <Header className="mb-16" />
 
         <div className="-mx-8 lg:-mx-16">
           <Image
@@ -232,7 +232,7 @@ const Blog: NextPage<Props> = ({ post }) => {
           {post.content}
         </Markdown>
 
-        <Footer className="mt-12" />
+        <Footer className="mt-16" />
       </main>
     </>
   )

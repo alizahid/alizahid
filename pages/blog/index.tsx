@@ -22,7 +22,7 @@ const Blog: NextPage<Props> = ({ posts }) => (
 
     <Header />
 
-    <main className="my-12">
+    <main className="my-16">
       <h1 className="text-2xl font-semibold">Blog</h1>
 
       <div className="mt-12 grid gap-12 lg:grid-cols-3">

@@ -44,7 +44,9 @@ export const ProjectCard: FunctionComponent<Props> = ({
     <div className="flex flex-wrap items-start text-sm -ml-4">
       {(project.links as ProjectLink[]).map(({ href, label }, index) => (
         <Link href={href} key={`link-${index}`}>
-          <a className="mt-4 ml-4">{label}</a>
+          <a className="mt-4 ml-4 bg-emerald-200 hover:bg-emerald-300 dark:bg-emerald-800 dark:hover:bg-emerald-700 p-2 text-black hover:text-black dark:text-white dark:hover:text-white leading-none rounded-md">
+            {label}
+          </a>
         </Link>
       ))}
     </div>
