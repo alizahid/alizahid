@@ -14,6 +14,7 @@ export const PostCard: FunctionComponent<Props> = ({ className, post }) => {
   return (
     <div className={className}>
       <img
+        alt={post.title}
         className="rounded-lg bg-gray-100 dark:bg-gray-900"
         height={400}
         src={post.image.url}

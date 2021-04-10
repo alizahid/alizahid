@@ -15,7 +15,7 @@ export const ProjectCard: FunctionComponent<Props> = ({
 }) => (
   <div className={className}>
     <div className="flex items-center">
-      <img height={64} src={project.image.url} width={64} />
+      <img alt={project.name} height={64} src={project.image.url} width={64} />
       <div className="font-medium ml-4">{project.name}</div>
     </div>
 

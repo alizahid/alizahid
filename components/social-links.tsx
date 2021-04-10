@@ -17,16 +17,19 @@ export const SocialLinks: FunctionComponent<SocialLinksProps> = ({
     <Link href="https://github.com/alizahid">
       <a className="text-gray-600 dark:text-gray-400">
         <Icon name="github" size={size} />
+        <span className="hidden">GitHub</span>
       </a>
     </Link>
     <Link href="https://twitter.com/alizahid0">
       <a className="ml-4 text-gray-600 dark:text-gray-400">
         <Icon name="twitter" size={size} />
+        <span className="hidden">Twitter</span>
       </a>
     </Link>
     <Link href="https://dribbble.com/alizahid">
       <a className="ml-4 text-gray-600 dark:text-gray-400">
         <Icon name="dribbble" size={size} />
+        <span className="hidden">Dribbble</span>
       </a>
     </Link>
   </div>
