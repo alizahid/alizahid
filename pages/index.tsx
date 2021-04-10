@@ -44,9 +44,17 @@ const Home: NextPage<Props> = ({ posts, projects }) => (
           .
         </p>
         <p className="mt-4 text-sm">
-          I&#39;ve worked with large enterprises, government organizations,
-          Academy and Emmy award-winning filmmakers, e-sports teams, student
-          groups, and everything in between, to help realize their ideas.
+          I started my journey when I was 8 years old with FrontPage. Moved on
+          to Dreamweaver a few years later and finally learnt how to code. Over
+          the last 20 years or so, I&#39;ve played with dozens of technologies
+          and programming languages before finally settling on the JavaScript
+          ecosystem focusing on Node, React, and React Native.
+        </p>
+        <p className="mt-4 text-sm">
+          During my career, I&#39;ve worked with large enterprises, government
+          organizations, Academy and Emmy award-winning filmmakers, e-sports
+          teams, student groups, and everything in between, to help realize
+          their ideas.
         </p>
         <p className="mt-4 text-sm">
           Are you looking for help building your next epic idea or product?{' '}
