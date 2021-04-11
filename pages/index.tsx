@@ -33,7 +33,7 @@ const Home: NextPage<Props> = ({ posts, projects }) => (
             <a>playground</a>
           </Link>
           . And here&#39;s my{' '}
-          <Link href="https://media.graphcms.com/ymS9WJsRhadi8AMRHvQR">
+          <Link href="/resume">
             <a>resume</a>
           </Link>
           .
