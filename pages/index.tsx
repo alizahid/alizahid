@@ -10,9 +10,10 @@ import { Post, Project } from '../types'
 type Props = {
   posts: Post[]
   projects: Project[]
+  resume: string
 }
 
-const Home: NextPage<Props> = ({ posts, projects }) => (
+const Home: NextPage<Props> = ({ posts, projects, resume }) => (
   <>
     <Head>
       <title>Ali Zahid</title>
@@ -33,7 +34,7 @@ const Home: NextPage<Props> = ({ posts, projects }) => (
             <a>playground</a>
           </Link>
           . And here&#39;s my{' '}
-          <Link href="https://media.graphcms.com/DeFG6cTSZmUsoTosFoTx">
+          <Link href={resume}>
             <a>resume</a>
           </Link>
           .
@@ -95,8 +96,11 @@ const Home: NextPage<Props> = ({ posts, projects }) => (
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const client = new GraphQLClient(process.env.GRAPH_CMS_URL)
 
-  const { posts, projects } = await client.request(gql`
+  const { asset, posts, projects } = await client.request(gql`
     {
+      asset(where: { id: "cknafmzfk07zo0c61dqx7gq3h" }) {
+        url
+      }
       posts(orderBy: date_DESC, first: 3) {
         slug
         title
@@ -125,7 +129,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
       posts,
-      projects
+      projects,
+      resume: asset.url
     }
   }
 }
