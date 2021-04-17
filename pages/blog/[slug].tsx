@@ -44,7 +44,7 @@ const Blog: NextPage<Props> = ({ post }) => {
         <img
           alt={post.title}
           className="rounded-lg bg-gray-100 dark:bg-gray-900"
-          height={900}
+          height={1200}
           src={post.image.url}
           width={1800}
         />
