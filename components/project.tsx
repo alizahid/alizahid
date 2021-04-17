@@ -21,15 +21,15 @@ export const ProjectCard: FunctionComponent<Props> = ({
 
     <Markdown
       className="text-sm text-gray-600 dark:text-gray-400"
-      renderers={{
-        link({ children, href }) {
+      components={{
+        a({ children, href }) {
           return (
-            <Link href={href}>
+            <Link href={String(href)}>
               <a>{children}</a>
             </Link>
           )
         },
-        paragraph({ children }) {
+        p({ children }) {
           return <p className="mt-2 first:mt-4">{children}</p>
         }
       }}>

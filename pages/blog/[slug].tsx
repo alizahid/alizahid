@@ -6,11 +6,12 @@ import { gql, GraphQLClient } from 'graphql-request'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
-import Highlight, { defaultProps } from 'prism-react-renderer'
+import Highlight, { defaultProps, Language } from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/oceanicNext'
 import React from 'react'
 import Markdown from 'react-markdown'
 import Zoom from 'react-medium-image-zoom'
+import unwrapImages from 'remark-unwrap-images'
 
 import { Post } from '../../types'
 
@@ -58,12 +59,37 @@ const Blog: NextPage<Props> = ({ post }) => {
 
         <Markdown
           className="mt-12 text-sm text-gray-700 dark:text-gray-300"
-          renderers={{
-            code({ language, value }) {
+          components={{
+            a({ children, href }) {
+              const isExternal = String(href).startsWith('https')
+
+              return (
+                <Link href={String(href)}>
+                  {isExternal ? (
+                    <a rel="noopener" target="_blank">
+                      {children}
+                    </a>
+                  ) : (
+                    <a>{children}</a>
+                  )}
+                </Link>
+              )
+            },
+            code({ children, className, inline }) {
+              if (inline) {
+                return (
+                  <code className="font-medium text-black dark:text-white">
+                    {children}
+                  </code>
+                )
+              }
+
+              const language = String(className).slice(9) as Language
+
               return (
                 <Highlight
                   {...defaultProps}
-                  code={value}
+                  code={String(children).trim()}
                   language={language}
                   theme={theme}>
                   {({
@@ -100,34 +126,31 @@ const Blog: NextPage<Props> = ({ post }) => {
                 </Highlight>
               )
             },
-            heading({ children, level }) {
-              if (level === 2) {
-                return (
-                  <h2 className="text-xl font-medium text-black dark:text-white mt-12 mb-4 first:mt-0">
-                    {children}
-                  </h2>
-                )
-              }
-
-              if (level === 3) {
-                return (
-                  <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100 mt-8 mb-4 first:mt-0">
-                    {children}
-                  </h3>
-                )
-              }
-
-              if (level === 4) {
-                return (
-                  <h3 className="text-base font-medium text-gray-700 dark:text-gray-300 mt-4 mb-2 first:mt-0">
-                    {children}
-                  </h3>
-                )
-              }
-
-              return null
+            h2({ children }) {
+              return (
+                <h2 className="text-xl font-medium text-black dark:text-white mt-12 mb-4 first:mt-0">
+                  {children}
+                </h2>
+              )
             },
-            image({ alt, src }) {
+            h3({ children }) {
+              return (
+                <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100 mt-8 mb-4 first:mt-0">
+                  {children}
+                </h3>
+              )
+            },
+            h4({ children }) {
+              return (
+                <h4 className="text-base font-medium text-gray-700 dark:text-gray-300 mt-4 mb-2 first:mt-0">
+                  {children}
+                </h4>
+              )
+            },
+            img(props) {
+              const alt = String(props.alt)
+              const src = String(props.src)
+
               const url = new URL(src)
 
               const height = (Number(url.searchParams.get('h')) || 200) / 2
@@ -164,36 +187,7 @@ const Blog: NextPage<Props> = ({ post }) => {
                 </figure>
               )
             },
-            inlineCode({ value }) {
-              return (
-                <code className="font-medium text-black dark:text-white">
-                  {value}
-                </code>
-              )
-            },
-            link({ children, href }) {
-              const isExternal = href.startsWith('https')
-
-              return (
-                <Link href={href}>
-                  {isExternal ? (
-                    <a rel="noopener" target="_blank">
-                      {children}
-                    </a>
-                  ) : (
-                    <a>{children}</a>
-                  )}
-                </Link>
-              )
-            },
-            list({ children, ordered }) {
-              if (ordered) {
-                return <ol className="ml-8 my-4">{children}</ol>
-              }
-
-              return <ul className="ml-8 my-4">{children}</ul>
-            },
-            listItem({ children, index, ordered }) {
+            li({ children, index, ordered }) {
               return (
                 <li className="my-2 relative">
                   <span className="select-none text-black dark:text-white absolute right-full mr-2 h-full flex items-center">
@@ -203,14 +197,17 @@ const Blog: NextPage<Props> = ({ post }) => {
                 </li>
               )
             },
-            paragraph({ children }) {
-              if (children.length === 1 && children[0].type.name === 'image') {
-                return children
-              }
-
+            ol({ children }) {
+              return <ol className="ml-8 my-4">{children}</ol>
+            },
+            p({ children }) {
               return <p className="my-4 first:mt-0 last:mb-0">{children}</p>
+            },
+            ul({ children }) {
+              return <ul className="ml-8 my-4">{children}</ul>
             }
-          }}>
+          }}
+          remarkPlugins={[unwrapImages]}>
           {post.content}
         </Markdown>
       </main>
