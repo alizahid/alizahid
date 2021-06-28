@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { FunctionComponent } from 'react'
@@ -14,11 +15,12 @@ export const Header: FunctionComponent<Props> = ({ className }) => {
     <header className={clsx('flex items-center justify-between', className)}>
       <Link href="/">
         <a>
-          <img
+          <Image
             alt="Ali Zahid"
-            className="bg-white dark:bg-black rounded-full"
+            className="bg-white rounded-full dark:bg-black"
             height={48}
             src="https://media.graphcms.com/resize=width:96/GJrB3pURnqRlaj61Z3Qp"
+            unoptimized
             width={48}
           />
         </a>

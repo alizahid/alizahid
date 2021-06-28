@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import React, { FunctionComponent } from 'react'
 import Markdown from 'react-markdown'
@@ -15,8 +16,14 @@ export const ProjectCard: FunctionComponent<Props> = ({
 }) => (
   <div className={className}>
     <div className="flex items-center">
-      <img alt={project.name} height={64} src={project.image.url} width={64} />
-      <div className="font-medium ml-4">{project.name}</div>
+      <Image
+        alt={project.name}
+        height={64}
+        src={project.image.url}
+        unoptimized
+        width={64}
+      />
+      <div className="ml-4 font-medium">{project.name}</div>
     </div>
 
     <Markdown
@@ -36,10 +43,10 @@ export const ProjectCard: FunctionComponent<Props> = ({
       {project.content}
     </Markdown>
 
-    <div className="flex flex-wrap items-start text-sm -ml-4">
+    <div className="flex flex-wrap items-start -ml-4 text-sm">
       {(project.links as ProjectLink[]).map(({ href, label }, index) => (
         <Link href={href} key={`link-${index}`}>
-          <a className="mt-4 ml-4 bg-emerald-200 hover:bg-emerald-300 dark:bg-emerald-800 dark:hover:bg-emerald-700 p-2 text-black hover:text-black dark:text-white dark:hover:text-white leading-none rounded-md">
+          <a className="p-2 mt-4 ml-4 leading-none text-black rounded-md bg-emerald-200 hover:bg-emerald-300 dark:bg-emerald-800 dark:hover:bg-emerald-700 hover:text-black dark:text-white dark:hover:text-white">
             {label}
           </a>
         </Link>

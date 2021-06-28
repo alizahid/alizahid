@@ -5,6 +5,7 @@ import { format, isSameYear, parseISO } from 'date-fns'
 import { gql, GraphQLClient } from 'graphql-request'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
+import Image from 'next/image'
 import Link from 'next/link'
 import Highlight, { defaultProps, Language } from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/oceanicNext'
@@ -41,19 +42,19 @@ const Blog: NextPage<Props> = ({ post }) => {
       </Head>
 
       <main>
-        <img
+        <Image
           alt={post.title}
-          className="rounded-lg bg-gray-100 dark:bg-gray-900"
+          className="bg-gray-100 rounded-lg dark:bg-gray-900"
           height={1200}
           src={post.image.url}
           width={1800}
         />
 
-        <h1 className="text-2xl font-semibold mt-4">{post.title}</h1>
-        <div className="text-sm text-gray-700 dark:text-gray-300 mt-2">
+        <h1 className="mt-4 text-2xl font-semibold">{post.title}</h1>
+        <div className="mt-2 text-sm text-gray-700 dark:text-gray-300">
           {post.excerpt}
         </div>
-        <div className="text-sm mt-2">
+        <div className="mt-2 text-sm">
           {format(date, isSameYear(date, new Date()) ? 'MMMM d' : 'MMMM d, y')}
         </div>
 
@@ -128,21 +129,21 @@ const Blog: NextPage<Props> = ({ post }) => {
             },
             h2({ children }) {
               return (
-                <h2 className="text-xl font-medium text-black dark:text-white mt-12 mb-4 first:mt-0">
+                <h2 className="mt-12 mb-4 text-xl font-medium text-black dark:text-white first:mt-0">
                   {children}
                 </h2>
               )
             },
             h3({ children }) {
               return (
-                <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100 mt-8 mb-4 first:mt-0">
+                <h3 className="mt-8 mb-4 text-lg font-medium text-gray-900 dark:text-gray-100 first:mt-0">
                   {children}
                 </h3>
               )
             },
             h4({ children }) {
               return (
-                <h4 className="text-base font-medium text-gray-700 dark:text-gray-300 mt-4 mb-2 first:mt-0">
+                <h4 className="mt-4 mb-2 text-base font-medium text-gray-700 dark:text-gray-300 first:mt-0">
                   {children}
                 </h4>
               )
@@ -169,7 +170,7 @@ const Blog: NextPage<Props> = ({ post }) => {
                     overlayBgColorEnd="rgba(0, 0, 0, 0.8)"
                     overlayBgColorStart="rgba(0, 0, 0, 0)"
                     zoomMargin={64}>
-                    <img
+                    <Image
                       alt={alt}
                       className={clsx(
                         'rounded-lg',
@@ -177,11 +178,12 @@ const Blog: NextPage<Props> = ({ post }) => {
                       )}
                       height={height}
                       src={source}
+                      unoptimized
                       width={width}
                     />
                   </Zoom>
 
-                  <figcaption className="text-black dark:text-white mt-4 text-center">
+                  <figcaption className="mt-4 text-center text-black dark:text-white">
                     {alt}
                   </figcaption>
                 </figure>
@@ -189,8 +191,8 @@ const Blog: NextPage<Props> = ({ post }) => {
             },
             li({ children, index, ordered }) {
               return (
-                <li className="my-2 relative">
-                  <span className="select-none text-black dark:text-white absolute right-full mr-2 h-full flex items-center">
+                <li className="relative my-2">
+                  <span className="absolute flex items-center h-full mr-2 text-black select-none dark:text-white right-full">
                     {ordered ? index + 1 : '•'}
                   </span>
                   {children}
@@ -198,13 +200,13 @@ const Blog: NextPage<Props> = ({ post }) => {
               )
             },
             ol({ children }) {
-              return <ol className="ml-8 my-4">{children}</ol>
+              return <ol className="my-4 ml-8">{children}</ol>
             },
             p({ children }) {
               return <p className="my-4 first:mt-0 last:mb-0">{children}</p>
             },
             ul({ children }) {
-              return <ul className="ml-8 my-4">{children}</ul>
+              return <ul className="my-4 ml-8">{children}</ul>
             }
           }}
           remarkPlugins={[unwrapImages]}>
@@ -255,7 +257,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
 
   const { post } = await client.request(
     gql`
-      query($data: PostWhereUniqueInput!) {
+      query ($data: PostWhereUniqueInput!) {
         post(where: $data) {
           slug
           title

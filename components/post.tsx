@@ -1,4 +1,5 @@
 import { format, isSameYear, parseISO } from 'date-fns'
+import Image from 'next/image'
 import React, { FunctionComponent } from 'react'
 
 import { Post } from '../types'
@@ -13,18 +14,19 @@ export const PostCard: FunctionComponent<Props> = ({ className, post }) => {
 
   return (
     <div className={className}>
-      <img
+      <Image
         alt={post.title}
-        className="rounded-lg bg-gray-100 dark:bg-gray-900"
+        className="bg-gray-100 rounded-lg dark:bg-gray-900"
         height={400}
         src={post.image.url}
+        unoptimized
         width={600}
       />
-      <div className="font-medium mt-2">{post.title}</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+      <div className="mt-2 font-medium">{post.title}</div>
+      <div className="mt-2 text-sm text-gray-600 dark:text-gray-400">
         {post.excerpt}
       </div>
-      <div className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+      <div className="mt-2 text-sm text-gray-600 dark:text-gray-400">
         {format(date, isSameYear(date, new Date()) ? 'MMMM d' : 'MMMM d, y')}
       </div>
     </div>
