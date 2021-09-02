@@ -20,6 +20,7 @@
     "date-fns": "2.23.0",
     "graphql": "^15.5.2",
     "graphql-request": "^3.5.0",
+    "lodash": "^4.17.21",
     "next": "^11.1.2",
     "next-use-panelbear": "^0.1.1",
     "prism-react-renderer": "^1.2.1",
@@ -33,6 +34,7 @@
   "devDependencies": {
     "@graphql-codegen/cli": "^2.1.1",
     "@graphql-codegen/typescript": "^2.1.2",
+    "@types/lodash": "^4.14.172",
     "@types/node": "^16.7.9",
     "@types/react": "^17.0.19",
     "@typescript-eslint/eslint-plugin": "^4.30.0",
