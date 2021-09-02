@@ -5,10 +5,10 @@ import Link from 'next/link'
 import React from 'react'
 
 import { PostCard } from '../../components'
-import { Post } from '../../types'
+import { Post, Query } from '../../types'
 
 type Props = {
-  posts: Post[]
+  posts: Array<Post>
 }
 
 const Blog: NextPage<Props> = ({ posts }) => (
@@ -23,7 +23,7 @@ const Blog: NextPage<Props> = ({ posts }) => (
     <main>
       <h1 className="text-2xl font-semibold">Blog</h1>
 
-      <div className="mt-12 grid gap-12 lg:grid-cols-3">
+      <div className="grid gap-12 mt-12 lg:grid-cols-3">
         {posts.map((post) => (
           <Link href={`/blog/${post.slug}`} key={post.slug}>
             <a className="text-black dark:text-white">
@@ -39,7 +39,7 @@ const Blog: NextPage<Props> = ({ posts }) => (
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const client = new GraphQLClient(process.env.GRAPH_CMS_URL)
 
-  const { posts } = await client.request(gql`
+  const { posts } = await client.request<Pick<Query, 'posts'>>(gql`
     {
       posts(orderBy: date_DESC) {
         slug

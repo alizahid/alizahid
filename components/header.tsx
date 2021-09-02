@@ -27,40 +27,39 @@ export const Header: FunctionComponent<Props> = ({ className }) => {
       </Link>
 
       <nav className="flex text-sm">
-        <Link href="/">
-          <a
-            className={clsx(
-              'dark:text-white font-medium p-3 hidden lg:block',
-              asPath === '/'
-                ? 'text-emerald-600 dark:text-emerald-400'
-                : 'text-black'
-            )}>
-            Home
-          </a>
-        </Link>
-        <Link href="/blog">
-          <a
-            className={clsx(
-              'dark:text-white font-medium p-3',
-              asPath.startsWith('/blog')
-                ? 'text-emerald-600 dark:text-emerald-400'
-                : 'text-black'
-            )}>
-            Blog
-          </a>
-        </Link>
-        <Link href="/playground">
-          <a
-            className={clsx(
-              'dark:text-white font-medium p-3',
-              asPath.startsWith('/playground')
-                ? 'text-emerald-600 dark:text-emerald-400'
-                : 'text-black'
-            )}>
-            Playground
-          </a>
-        </Link>
+        <NavLink href="/" asPath={asPath}>
+          Home
+        </NavLink>
+        <NavLink href="/blog" asPath={asPath}>
+          Blog
+        </NavLink>
+        <NavLink href="/playground" asPath={asPath}>
+          Playground
+        </NavLink>
       </nav>
     </header>
   )
 }
+
+type NavLinkProps = {
+  asPath: string
+  href: string
+}
+
+const NavLink: FunctionComponent<NavLinkProps> = ({
+  asPath,
+  href,
+  children
+}) => (
+  <Link href={href}>
+    <a
+      className={clsx(
+        'dark:text-white font-medium p-3',
+        (href.slice(-1) === '/' ? asPath === href : asPath.startsWith(href))
+          ? 'text-emerald-600 dark:text-emerald-400'
+          : 'text-black'
+      )}>
+      {children}
+    </a>
+  </Link>
+)

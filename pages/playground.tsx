@@ -4,12 +4,12 @@ import Head from 'next/head'
 import React from 'react'
 
 import { ProjectCard } from '../components'
-import { Project } from '../types'
+import { Project, Query } from '../types'
 
 type Props = {
-  featured: Project[]
-  other: Project[]
-  regular: Project[]
+  featured: Array<Project>
+  other: Array<Project>
+  regular: Array<Project>
 }
 
 const Playground: NextPage<Props> = ({ featured, other, regular }) => (
@@ -24,7 +24,7 @@ const Playground: NextPage<Props> = ({ featured, other, regular }) => (
     <main>
       <h1 className="text-2xl font-semibold">Playground</h1>
 
-      <div className="mt-12 grid gap-12 lg:grid-cols-3">
+      <div className="grid gap-12 mt-12 lg:grid-cols-3">
         {[featured, regular, other].map((projects, index) => (
           <section key={index}>
             {projects.map((project) => (
@@ -44,9 +44,7 @@ const Playground: NextPage<Props> = ({ featured, other, regular }) => (
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const client = new GraphQLClient(process.env.GRAPH_CMS_URL)
 
-  const { projects } = await client.request<{
-    projects: Project[]
-  }>(gql`
+  const { projects } = await client.request<Pick<Query, 'projects'>>(gql`
     {
       projects(orderBy: order_ASC) {
         slug

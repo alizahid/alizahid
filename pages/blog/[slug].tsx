@@ -14,7 +14,7 @@ import Markdown from 'react-markdown'
 import Zoom from 'react-medium-image-zoom'
 import unwrapImages from 'remark-unwrap-images'
 
-import { Post } from '../../types'
+import { Post, Query } from '../../types'
 
 type Props = {
   post: Post
@@ -220,9 +220,7 @@ const Blog: NextPage<Props> = ({ post }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const client = new GraphQLClient(process.env.GRAPH_CMS_URL)
 
-  const { posts } = await client.request<{
-    posts: Post[]
-  }>(gql`
+  const { posts } = await client.request<Pick<Query, 'posts'>>(gql`
     {
       posts {
         slug
@@ -255,7 +253,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
 
   const client = new GraphQLClient(process.env.GRAPH_CMS_URL)
 
-  const { post } = await client.request(
+  const { post } = await client.request<Pick<Query, 'post'>>(
     gql`
       query ($data: PostWhereUniqueInput!) {
         post(where: $data) {

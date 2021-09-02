@@ -5,12 +5,12 @@ import Link from 'next/link'
 import React from 'react'
 
 import { PostCard, ProjectCard, SocialLinks } from '../components'
-import { Post, Project } from '../types'
+import { Post, Project, Query } from '../types'
 
 type Props = {
-  posts: Post[]
-  projects: Project[]
-  resume: string
+  posts: Array<Post>
+  projects: Array<Project>
+  resume?: string
 }
 
 const Home: NextPage<Props> = ({ posts, projects, resume }) => (
@@ -34,7 +34,7 @@ const Home: NextPage<Props> = ({ posts, projects, resume }) => (
             <a>playground</a>
           </Link>
           . And here&#39;s my{' '}
-          <Link href={resume}>
+          <Link href={resume ?? ''}>
             <a>resume</a>
           </Link>
           .
@@ -67,13 +67,13 @@ const Home: NextPage<Props> = ({ posts, projects, resume }) => (
       </section>
 
       <section className="flex flex-col">
-        <h2 className="text-black dark:text-white font-semibold -mb-8">
+        <h2 className="-mb-8 font-semibold text-black dark:text-white">
           Recent articles
         </h2>
 
         {posts.map((post) => (
           <Link href={`/blog/${post.slug}`} key={post.slug}>
-            <a className="text-black dark:text-white mt-12">
+            <a className="mt-12 text-black dark:text-white">
               <PostCard post={post} />
             </a>
           </Link>
@@ -81,7 +81,7 @@ const Home: NextPage<Props> = ({ posts, projects, resume }) => (
       </section>
 
       <section className="flex flex-col">
-        <h2 className="text-black dark:text-white font-semibold -mb-8">
+        <h2 className="-mb-8 font-semibold text-black dark:text-white">
           Featured projects
         </h2>
 
@@ -96,7 +96,9 @@ const Home: NextPage<Props> = ({ posts, projects, resume }) => (
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const client = new GraphQLClient(process.env.GRAPH_CMS_URL)
 
-  const { asset, posts, projects } = await client.request(gql`
+  const { asset, posts, projects } = await client.request<
+    Pick<Query, 'asset' | 'posts' | 'projects'>
+  >(gql`
     {
       asset(where: { id: "cknafmzfk07zo0c61dqx7gq3h" }) {
         url
@@ -130,7 +132,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     props: {
       posts,
       projects,
-      resume: asset.url
+      resume: asset?.url
     }
   }
 }
