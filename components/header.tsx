@@ -27,13 +27,16 @@ export const Header: FunctionComponent<Props> = ({ className }) => {
       </Link>
 
       <nav className="flex text-sm">
-        <NavLink href="/" asPath={asPath}>
+        <NavLink asPath={asPath} className="hidden lg:block" href="/">
           Home
         </NavLink>
-        <NavLink href="/blog" asPath={asPath}>
+        <NavLink asPath={asPath} href="/blog">
           Blog
         </NavLink>
-        <NavLink href="/playground" asPath={asPath}>
+        <NavLink asPath={asPath} href="/links">
+          Links
+        </NavLink>
+        <NavLink asPath={asPath} href="/playground">
           Playground
         </NavLink>
       </nav>
@@ -42,14 +45,16 @@ export const Header: FunctionComponent<Props> = ({ className }) => {
 }
 
 type NavLinkProps = {
+  className?: string
   asPath: string
   href: string
 }
 
 const NavLink: FunctionComponent<NavLinkProps> = ({
   asPath,
-  href,
-  children
+  children,
+  className,
+  href
 }) => (
   <Link href={href}>
     <a
@@ -57,7 +62,8 @@ const NavLink: FunctionComponent<NavLinkProps> = ({
         'dark:text-white font-medium p-3',
         (href.slice(-1) === '/' ? asPath === href : asPath.startsWith(href))
           ? 'text-emerald-600 dark:text-emerald-400'
-          : 'text-black'
+          : 'text-black',
+        className
       )}>
       {children}
     </a>
