@@ -825,10 +825,11 @@ export type Link = Node & {
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['DateTime']>;
   title: Scalars['String'];
+  description?: Maybe<Scalars['String']>;
   url: Scalars['String'];
   image?: Maybe<Scalars['String']>;
   tags: Array<Scalars['String']>;
-  description?: Maybe<Scalars['String']>;
+  visible: Scalars['Boolean'];
   /** User that created this document */
   createdBy?: Maybe<User>;
   /** User that last updated this document */
@@ -889,10 +890,11 @@ export type LinkCreateInput = {
   createdAt?: Maybe<Scalars['DateTime']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
   title: Scalars['String'];
+  description?: Maybe<Scalars['String']>;
   url: Scalars['String'];
   image?: Maybe<Scalars['String']>;
   tags?: Maybe<Array<Scalars['String']>>;
-  description?: Maybe<Scalars['String']>;
+  visible: Scalars['Boolean'];
 };
 
 export type LinkCreateManyInlineInput = {
@@ -1011,6 +1013,25 @@ export type LinkManyWhereInput = {
   title_ends_with?: Maybe<Scalars['String']>;
   /** All values not ending with the given string */
   title_not_ends_with?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  description_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  description_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  description_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  description_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  description_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  description_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  description_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  description_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  description_not_ends_with?: Maybe<Scalars['String']>;
   url?: Maybe<Scalars['String']>;
   /** All values that are not equal to given value. */
   url_not?: Maybe<Scalars['String']>;
@@ -1059,25 +1080,9 @@ export type LinkManyWhereInput = {
   tags_contains_some?: Maybe<Array<Scalars['String']>>;
   /** Matches if the field array does not contain any of the items provided to the filter */
   tags_contains_none?: Maybe<Array<Scalars['String']>>;
-  description?: Maybe<Scalars['String']>;
+  visible?: Maybe<Scalars['Boolean']>;
   /** All values that are not equal to given value. */
-  description_not?: Maybe<Scalars['String']>;
-  /** All values that are contained in given list. */
-  description_in?: Maybe<Array<Scalars['String']>>;
-  /** All values that are not contained in given list. */
-  description_not_in?: Maybe<Array<Scalars['String']>>;
-  /** All values containing the given string. */
-  description_contains?: Maybe<Scalars['String']>;
-  /** All values not containing the given string. */
-  description_not_contains?: Maybe<Scalars['String']>;
-  /** All values starting with the given string. */
-  description_starts_with?: Maybe<Scalars['String']>;
-  /** All values not starting with the given string. */
-  description_not_starts_with?: Maybe<Scalars['String']>;
-  /** All values ending with the given string. */
-  description_ends_with?: Maybe<Scalars['String']>;
-  /** All values not ending with the given string */
-  description_not_ends_with?: Maybe<Scalars['String']>;
+  visible_not?: Maybe<Scalars['Boolean']>;
   createdBy?: Maybe<UserWhereInput>;
   updatedBy?: Maybe<UserWhereInput>;
   publishedBy?: Maybe<UserWhereInput>;
@@ -1094,22 +1099,25 @@ export enum LinkOrderByInput {
   PublishedAtDesc = 'publishedAt_DESC',
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
+  DescriptionAsc = 'description_ASC',
+  DescriptionDesc = 'description_DESC',
   UrlAsc = 'url_ASC',
   UrlDesc = 'url_DESC',
   ImageAsc = 'image_ASC',
   ImageDesc = 'image_DESC',
   TagsAsc = 'tags_ASC',
   TagsDesc = 'tags_DESC',
-  DescriptionAsc = 'description_ASC',
-  DescriptionDesc = 'description_DESC'
+  VisibleAsc = 'visible_ASC',
+  VisibleDesc = 'visible_DESC'
 }
 
 export type LinkUpdateInput = {
   title?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
   url?: Maybe<Scalars['String']>;
   image?: Maybe<Scalars['String']>;
   tags?: Maybe<Array<Scalars['String']>>;
-  description?: Maybe<Scalars['String']>;
+  visible?: Maybe<Scalars['Boolean']>;
 };
 
 export type LinkUpdateManyInlineInput = {
@@ -1131,10 +1139,11 @@ export type LinkUpdateManyInlineInput = {
 
 export type LinkUpdateManyInput = {
   title?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
   url?: Maybe<Scalars['String']>;
   image?: Maybe<Scalars['String']>;
   tags?: Maybe<Array<Scalars['String']>>;
-  description?: Maybe<Scalars['String']>;
+  visible?: Maybe<Scalars['Boolean']>;
 };
 
 export type LinkUpdateManyWithNestedWhereInput = {
@@ -1273,6 +1282,25 @@ export type LinkWhereInput = {
   title_ends_with?: Maybe<Scalars['String']>;
   /** All values not ending with the given string */
   title_not_ends_with?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  description_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  description_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  description_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  description_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  description_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  description_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  description_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  description_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  description_not_ends_with?: Maybe<Scalars['String']>;
   url?: Maybe<Scalars['String']>;
   /** All values that are not equal to given value. */
   url_not?: Maybe<Scalars['String']>;
@@ -1321,25 +1349,9 @@ export type LinkWhereInput = {
   tags_contains_some?: Maybe<Array<Scalars['String']>>;
   /** Matches if the field array does not contain any of the items provided to the filter */
   tags_contains_none?: Maybe<Array<Scalars['String']>>;
-  description?: Maybe<Scalars['String']>;
+  visible?: Maybe<Scalars['Boolean']>;
   /** All values that are not equal to given value. */
-  description_not?: Maybe<Scalars['String']>;
-  /** All values that are contained in given list. */
-  description_in?: Maybe<Array<Scalars['String']>>;
-  /** All values that are not contained in given list. */
-  description_not_in?: Maybe<Array<Scalars['String']>>;
-  /** All values containing the given string. */
-  description_contains?: Maybe<Scalars['String']>;
-  /** All values not containing the given string. */
-  description_not_contains?: Maybe<Scalars['String']>;
-  /** All values starting with the given string. */
-  description_starts_with?: Maybe<Scalars['String']>;
-  /** All values not starting with the given string. */
-  description_not_starts_with?: Maybe<Scalars['String']>;
-  /** All values ending with the given string. */
-  description_ends_with?: Maybe<Scalars['String']>;
-  /** All values not ending with the given string */
-  description_not_ends_with?: Maybe<Scalars['String']>;
+  visible_not?: Maybe<Scalars['Boolean']>;
   createdBy?: Maybe<UserWhereInput>;
   updatedBy?: Maybe<UserWhereInput>;
   publishedBy?: Maybe<UserWhereInput>;
@@ -2009,6 +2021,7 @@ export type Post = Node & {
   excerpt: Scalars['String'];
   content: Scalars['String'];
   date: Scalars['Date'];
+  visible: Scalars['Boolean'];
   /** User that created this document */
   createdBy?: Maybe<User>;
   /** User that last updated this document */
@@ -2079,6 +2092,7 @@ export type PostCreateInput = {
   excerpt: Scalars['String'];
   content: Scalars['String'];
   date: Scalars['Date'];
+  visible: Scalars['Boolean'];
   image: AssetCreateOneInlineInput;
 };
 
@@ -2270,6 +2284,9 @@ export type PostManyWhereInput = {
   date_gt?: Maybe<Scalars['Date']>;
   /** All values greater than or equal the given value. */
   date_gte?: Maybe<Scalars['Date']>;
+  visible?: Maybe<Scalars['Boolean']>;
+  /** All values that are not equal to given value. */
+  visible_not?: Maybe<Scalars['Boolean']>;
   createdBy?: Maybe<UserWhereInput>;
   updatedBy?: Maybe<UserWhereInput>;
   publishedBy?: Maybe<UserWhereInput>;
@@ -2294,7 +2311,9 @@ export enum PostOrderByInput {
   ContentAsc = 'content_ASC',
   ContentDesc = 'content_DESC',
   DateAsc = 'date_ASC',
-  DateDesc = 'date_DESC'
+  DateDesc = 'date_DESC',
+  VisibleAsc = 'visible_ASC',
+  VisibleDesc = 'visible_DESC'
 }
 
 export type PostUpdateInput = {
@@ -2303,6 +2322,7 @@ export type PostUpdateInput = {
   excerpt?: Maybe<Scalars['String']>;
   content?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['Date']>;
+  visible?: Maybe<Scalars['Boolean']>;
   image?: Maybe<AssetUpdateOneInlineInput>;
 };
 
@@ -2328,6 +2348,7 @@ export type PostUpdateManyInput = {
   excerpt?: Maybe<Scalars['String']>;
   content?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['Date']>;
+  visible?: Maybe<Scalars['Boolean']>;
 };
 
 export type PostUpdateManyWithNestedWhereInput = {
@@ -2538,6 +2559,9 @@ export type PostWhereInput = {
   date_gt?: Maybe<Scalars['Date']>;
   /** All values greater than or equal the given value. */
   date_gte?: Maybe<Scalars['Date']>;
+  visible?: Maybe<Scalars['Boolean']>;
+  /** All values that are not equal to given value. */
+  visible_not?: Maybe<Scalars['Boolean']>;
   createdBy?: Maybe<UserWhereInput>;
   updatedBy?: Maybe<UserWhereInput>;
   publishedBy?: Maybe<UserWhereInput>;
@@ -2570,6 +2594,7 @@ export type Project = Node & {
   links: Scalars['Json'];
   featured?: Maybe<Scalars['Boolean']>;
   order: Scalars['Int'];
+  visible: Scalars['Boolean'];
   /** User that created this document */
   createdBy?: Maybe<User>;
   /** User that last updated this document */
@@ -2641,6 +2666,7 @@ export type ProjectCreateInput = {
   links: Scalars['Json'];
   featured?: Maybe<Scalars['Boolean']>;
   order: Scalars['Int'];
+  visible: Scalars['Boolean'];
   image: AssetCreateOneInlineInput;
 };
 
@@ -2816,6 +2842,9 @@ export type ProjectManyWhereInput = {
   order_gt?: Maybe<Scalars['Int']>;
   /** All values greater than or equal the given value. */
   order_gte?: Maybe<Scalars['Int']>;
+  visible?: Maybe<Scalars['Boolean']>;
+  /** All values that are not equal to given value. */
+  visible_not?: Maybe<Scalars['Boolean']>;
   createdBy?: Maybe<UserWhereInput>;
   updatedBy?: Maybe<UserWhereInput>;
   publishedBy?: Maybe<UserWhereInput>;
@@ -2840,7 +2869,9 @@ export enum ProjectOrderByInput {
   FeaturedAsc = 'featured_ASC',
   FeaturedDesc = 'featured_DESC',
   OrderAsc = 'order_ASC',
-  OrderDesc = 'order_DESC'
+  OrderDesc = 'order_DESC',
+  VisibleAsc = 'visible_ASC',
+  VisibleDesc = 'visible_DESC'
 }
 
 export type ProjectUpdateInput = {
@@ -2850,6 +2881,7 @@ export type ProjectUpdateInput = {
   links?: Maybe<Scalars['Json']>;
   featured?: Maybe<Scalars['Boolean']>;
   order?: Maybe<Scalars['Int']>;
+  visible?: Maybe<Scalars['Boolean']>;
   image?: Maybe<AssetUpdateOneInlineInput>;
 };
 
@@ -2876,6 +2908,7 @@ export type ProjectUpdateManyInput = {
   links?: Maybe<Scalars['Json']>;
   featured?: Maybe<Scalars['Boolean']>;
   order?: Maybe<Scalars['Int']>;
+  visible?: Maybe<Scalars['Boolean']>;
 };
 
 export type ProjectUpdateManyWithNestedWhereInput = {
@@ -3070,6 +3103,9 @@ export type ProjectWhereInput = {
   order_gt?: Maybe<Scalars['Int']>;
   /** All values greater than or equal the given value. */
   order_gte?: Maybe<Scalars['Int']>;
+  visible?: Maybe<Scalars['Boolean']>;
+  /** All values that are not equal to given value. */
+  visible_not?: Maybe<Scalars['Boolean']>;
   createdBy?: Maybe<UserWhereInput>;
   updatedBy?: Maybe<UserWhereInput>;
   publishedBy?: Maybe<UserWhereInput>;
