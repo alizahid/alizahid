@@ -42,7 +42,7 @@ export const LinkCard: FunctionComponent<LinkProps> = ({ className, link }) => (
       rel="noopener"
       target="_blank">
       <div
-        className="w-12 h-12 bg-center bg-cover rounded-full"
+        className="w-16 h-16 bg-center bg-cover rounded-full"
         style={{
           backgroundImage: `url(${link.image})`
         }}

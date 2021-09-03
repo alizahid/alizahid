@@ -27,7 +27,7 @@ const TagCard: FunctionComponent<TagProps> = ({ tag }) => {
   const active = useMemo(() => query.tag === tag, [query.tag, tag])
 
   return (
-    <Link href={active ? '/links' : `/links?tag=${tag}`} key={tag} shallow>
+    <Link href={active ? '/links' : `/links/${tag}`} key={tag} shallow>
       <a
         className={clsx(
           'leading-none rounded-lg p-2',

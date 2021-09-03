@@ -11,5 +11,13 @@ module.exports = {
         source: '/index'
       }
     ]
+  },
+  async rewrites() {
+    return [
+      {
+        destination: '/links?tag=:slug',
+        source: '/links/:slug'
+      }
+    ]
   }
 }
