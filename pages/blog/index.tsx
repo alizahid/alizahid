@@ -23,7 +23,7 @@ const Blog: NextPage<Props> = ({ posts }) => (
     <main>
       <h1 className="text-2xl font-bold lg:text-4xl">Blog</h1>
 
-      <div className="grid gap-12 mt-12 lg:grid-cols-3">
+      <div className="grid items-start gap-12 mt-12 lg:grid-cols-3">
         {posts.map((post) => (
           <Link href={`/blog/${post.slug}`} key={post.slug}>
             <a className="text-black dark:text-white">

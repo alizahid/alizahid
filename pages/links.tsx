@@ -1,4 +1,5 @@
 import { gql, GraphQLClient } from 'graphql-request'
+import uniq from 'lodash/uniq'
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import React, { useMemo } from 'react'
@@ -12,7 +13,10 @@ type Props = {
 }
 
 const Links: NextPage<Props> = ({ links }) => {
-  const tags = useMemo(() => links.map(({ tags }) => tags).flat(), [links])
+  const tags = useMemo(
+    () => uniq(links.map(({ tags }) => tags).flat()),
+    [links]
+  )
 
   return (
     <>

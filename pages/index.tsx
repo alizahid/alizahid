@@ -24,7 +24,7 @@ const Home: NextPage<Props> = ({ posts, projects, resume }) => (
       <meta content="website" property="og:type" />
     </Head>
 
-    <main className="grid gap-12 lg:grid-cols-3">
+    <main className="grid items-start gap-12 lg:grid-cols-3">
       <section>
         <h1 className="text-2xl font-bold lg:text-4xl">
           I have a patent on blowing minds with epic design.

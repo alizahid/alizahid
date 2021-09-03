@@ -24,7 +24,7 @@ const Playground: NextPage<Props> = ({ featured, other, regular }) => (
     <main>
       <h1 className="text-2xl font-bold lg:text-4xl">Playground</h1>
 
-      <div className="grid gap-12 mt-12 lg:grid-cols-3">
+      <div className="grid items-start gap-12 mt-12 lg:grid-cols-3">
         {[featured, regular, other].map((projects, index) => (
           <section key={index}>
             {projects.map((project) => (

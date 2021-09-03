@@ -22,7 +22,7 @@ export const LinksCard: FunctionComponent<Props> = ({ className, links }) => {
   }, [links, query.tag])
 
   return (
-    <div className={clsx('grid gap-12 lg:grid-cols-2', className)}>
+    <div className={clsx('grid gap-12 lg:grid-cols-2 items-start', className)}>
       {data.map((link) => (
         <LinkCard key={link.id} link={link} />
       ))}
