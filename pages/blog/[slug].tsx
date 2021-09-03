@@ -131,14 +131,14 @@ const Blog: NextPage<Props> = ({ post }) => {
             },
             del({ children }) {
               return (
-                <RoughNotation show type="strike-through">
+                <RoughNotation color="#f43f5e" show type="strike-through">
                   {children}
                 </RoughNotation>
               )
             },
             em({ children }) {
               return (
-                <RoughNotation show type="underline">
+                <RoughNotation color="#10b981" show type="underline">
                   {children}
                 </RoughNotation>
               )
@@ -223,7 +223,7 @@ const Blog: NextPage<Props> = ({ post }) => {
             },
             strong({ children }) {
               return (
-                <RoughNotation show type="box">
+                <RoughNotation color="#0ea5e9" show type="box">
                   {children}
                 </RoughNotation>
               )
