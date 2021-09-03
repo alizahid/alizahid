@@ -26,7 +26,7 @@ export const Header: FunctionComponent<Props> = ({ className }) => {
         </a>
       </Link>
 
-      <nav className="flex text-sm">
+      <nav className="flex">
         <NavLink asPath={asPath} className="hidden lg:block" href="/">
           Home
         </NavLink>
@@ -61,7 +61,7 @@ const NavLink: FunctionComponent<NavLinkProps> = ({
       className={clsx(
         'dark:text-white font-medium p-3',
         (href.slice(-1) === '/' ? asPath === href : asPath.startsWith(href))
-          ? 'text-emerald-600 dark:text-emerald-400'
+          ? 'text-primary-600 dark:text-primary-400 font-semibold'
           : 'text-black',
         className
       )}>

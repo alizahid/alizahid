@@ -22,12 +22,12 @@ export const PostCard: FunctionComponent<Props> = ({ className, post }) => {
         unoptimized
         width={600}
       />
-      <div className="mt-2 font-medium">{post.title}</div>
-      <div className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+      <div className="mt-2 text-lg font-medium">{post.title}</div>
+      <div className="mt-2 text-gray-800 dark:text-gray-200">
         {post.excerpt}
       </div>
       <div className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-        {format(date, isSameYear(date, new Date()) ? 'MMMM d' : 'MMMM d, y')}
+        {format(date, isSameYear(date, new Date()) ? 'MMM d' : 'MMM d, y')}
       </div>
     </div>
   )

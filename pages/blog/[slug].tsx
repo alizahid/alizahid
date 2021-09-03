@@ -12,6 +12,8 @@ import theme from 'prism-react-renderer/themes/oceanicNext'
 import React from 'react'
 import Markdown from 'react-markdown'
 import Zoom from 'react-medium-image-zoom'
+import { RoughNotation } from 'react-rough-notation'
+import gfm from 'remark-gfm'
 import unwrapImages from 'remark-unwrap-images'
 
 import { Post, Query } from '../../types'
@@ -30,7 +32,7 @@ const Blog: NextPage<Props> = ({ post }) => {
   return (
     <>
       <Head>
-        <title>{post.title} / Blog / Ali Zahid</title>
+        <title>{post.title} &#8226; Blog &#8226; Ali Zahid</title>
         <meta content={post.title} property="og:title" />
         <meta content={post.excerpt} name="description" />
         <meta content={post.excerpt} property="og:description" />
@@ -50,16 +52,16 @@ const Blog: NextPage<Props> = ({ post }) => {
           width={1800}
         />
 
-        <h1 className="mt-4 text-2xl font-semibold">{post.title}</h1>
-        <div className="mt-2 text-sm text-gray-700 dark:text-gray-300">
+        <h1 className="mt-4 text-2xl font-bold lg:text-4xl">{post.title}</h1>
+        <div className="mt-2 text-gray-800 dark:text-gray-200">
           {post.excerpt}
         </div>
-        <div className="mt-2 text-sm">
+        <div className="mt-2 text-sm text-gray-600 dark:text-gray-400">
           {format(date, isSameYear(date, new Date()) ? 'MMMM d' : 'MMMM d, y')}
         </div>
 
         <Markdown
-          className="mt-12 text-sm text-gray-700 dark:text-gray-300"
+          className="mt-12 text-gray-700 dark:text-gray-300"
           components={{
             a({ children, href }) {
               const isExternal = String(href).startsWith('https')
@@ -102,7 +104,7 @@ const Blog: NextPage<Props> = ({ post }) => {
                   }) => (
                     <pre
                       className={clsx(
-                        'rounded-lg p-4 overflow-auto',
+                        'rounded-lg p-4 text-sm overflow-auto',
                         className
                       )}
                       style={style}>
@@ -127,23 +129,37 @@ const Blog: NextPage<Props> = ({ post }) => {
                 </Highlight>
               )
             },
+            del({ children }) {
+              return (
+                <RoughNotation show type="strike-through">
+                  {children}
+                </RoughNotation>
+              )
+            },
+            em({ children }) {
+              return (
+                <RoughNotation show type="underline">
+                  {children}
+                </RoughNotation>
+              )
+            },
             h2({ children }) {
               return (
-                <h2 className="mt-12 mb-4 text-xl font-medium text-black dark:text-white first:mt-0">
+                <h2 className="mt-12 mb-4 text-xl font-semibold text-black lg:text-2xl dark:text-white first:mt-0">
                   {children}
                 </h2>
               )
             },
             h3({ children }) {
               return (
-                <h3 className="mt-8 mb-4 text-lg font-medium text-gray-900 dark:text-gray-100 first:mt-0">
+                <h3 className="mt-8 mb-4 text-lg font-semibold text-gray-900 lg:text-xl dark:text-gray-100 first:mt-0">
                   {children}
                 </h3>
               )
             },
             h4({ children }) {
               return (
-                <h4 className="mt-4 mb-2 text-base font-medium text-gray-700 dark:text-gray-300 first:mt-0">
+                <h4 className="mt-4 mb-2 text-base font-semibold text-gray-700 lg:text-lg dark:text-gray-300 first:mt-0">
                   {children}
                 </h4>
               )
@@ -192,7 +208,7 @@ const Blog: NextPage<Props> = ({ post }) => {
             li({ children, index, ordered }) {
               return (
                 <li className="relative my-2">
-                  <span className="absolute flex items-center h-full mr-2 text-black select-none dark:text-white right-full">
+                  <span className="absolute flex items-center h-full mr-2 text-sm text-black select-none dark:text-white right-full">
                     {ordered ? index + 1 : '•'}
                   </span>
                   {children}
@@ -205,11 +221,18 @@ const Blog: NextPage<Props> = ({ post }) => {
             p({ children }) {
               return <p className="my-4 first:mt-0 last:mb-0">{children}</p>
             },
+            strong({ children }) {
+              return (
+                <RoughNotation show type="box">
+                  {children}
+                </RoughNotation>
+              )
+            },
             ul({ children }) {
               return <ul className="my-4 ml-8">{children}</ul>
             }
           }}
-          remarkPlugins={[unwrapImages]}>
+          remarkPlugins={[gfm, unwrapImages]}>
           {post.content}
         </Markdown>
       </main>

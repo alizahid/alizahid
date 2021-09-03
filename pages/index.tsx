@@ -4,7 +4,9 @@ import Head from 'next/head'
 import Link from 'next/link'
 import React from 'react'
 
-import { PostCard, ProjectCard, SocialLinks } from '../components'
+import { PostCard } from '../components/post'
+import { ProjectCard } from '../components/project'
+import { SocialLinks } from '../components/social'
 import { Post, Project, Query } from '../types'
 
 type Props = {
@@ -24,11 +26,11 @@ const Home: NextPage<Props> = ({ posts, projects, resume }) => (
 
     <main className="grid gap-12 lg:grid-cols-3">
       <section>
-        <h1 className="text-2xl font-semibold">
+        <h1 className="text-2xl font-bold lg:text-4xl">
           I have a patent on blowing minds with epic design.
         </h1>
 
-        <p className="mt-8 text-sm">
+        <p className="mt-8">
           Hello. I&#39;m Ali Zahid. I love to build cool stuff. Check out my{' '}
           <Link href="/playground">
             <a>playground</a>
@@ -39,20 +41,20 @@ const Home: NextPage<Props> = ({ posts, projects, resume }) => (
           </Link>
           .
         </p>
-        <p className="mt-4 text-sm">
+        <p className="mt-4">
           I started my journey when I was 8 years old with FrontPage. Moved on
           to Dreamweaver a few years later and finally learnt how to code. Over
           the last 20 years or so, I&#39;ve played with dozens of technologies
           and programming languages before finally settling on the JavaScript
           ecosystem focusing on Node, React, and React Native.
         </p>
-        <p className="mt-4 text-sm">
+        <p className="mt-4">
           During my career, I&#39;ve worked with large enterprises, government
           organizations, Academy and Emmy award-winning filmmakers, e-sports
           teams, student groups, and everything in between, to help realize
           their ideas.
         </p>
-        <p className="mt-4 text-sm">
+        <p className="mt-4">
           Are you looking for help building your next epic idea or product?{' '}
           <Link href="mailto:ali.zahid@live.com">
             <a>Reach out</a>
@@ -61,13 +63,13 @@ const Home: NextPage<Props> = ({ posts, projects, resume }) => (
         </p>
 
         <div className="flex items-center mt-12">
-          <div className="text-sm">Find me on</div>
+          <div>Find me on</div>
           <SocialLinks className="ml-4" />
         </div>
       </section>
 
       <section className="flex flex-col">
-        <h2 className="-mb-8 font-semibold text-black dark:text-white">
+        <h2 className="-mb-4 text-xl font-semibold text-black lg:text-2xl dark:text-white">
           Recent articles
         </h2>
 
@@ -81,7 +83,7 @@ const Home: NextPage<Props> = ({ posts, projects, resume }) => (
       </section>
 
       <section className="flex flex-col">
-        <h2 className="-mb-8 font-semibold text-black dark:text-white">
+        <h2 className="-mb-4 text-xl font-semibold text-black lg:text-2xl dark:text-white">
           Featured projects
         </h2>
 

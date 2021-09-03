@@ -9,18 +9,18 @@ type Props = {
   tags: Array<string>
 }
 
-export const TagsCard: FunctionComponent<Props> = ({ tags, className }) => {
+export const TagsCard: FunctionComponent<Props> = ({ className, tags }) => {
   const { query } = useRouter()
 
   return (
     <div className={clsx('flex flex-wrap lg:flex-col -m-2', className)}>
       {sortBy(tags).map((tag) => (
-        <Link href={`?tag=${tag}`} key={tag}>
+        <Link href={`?tag=${tag}`} key={tag} shallow>
           <a
             className={clsx(
-              'text-sm leading-none rounded-lg p-2',
+              'leading-none rounded-lg p-2',
               query.tag === tag
-                ? 'text-emerald-600 dark:text-emerald-400 font-medium'
+                ? 'text-primary-600 dark:text-primary-400 font-medium'
                 : 'text-black dark:text-white'
             )}>
             {tag}

@@ -49,9 +49,9 @@ export const LinkCard: FunctionComponent<LinkProps> = ({ className, link }) => (
       />
 
       <div className="flex-1 ml-4">
-        <div className="font-medium">{link.title}</div>
+        <div className="text-lg font-medium">{link.title}</div>
         {link.description && (
-          <div className="text-sm text-gray-600 dark:text-gray-400">
+          <div className="mt-2 text-gray-600 dark:text-gray-400">
             {link.description}
           </div>
         )}

@@ -1,11 +1,12 @@
 // fonts
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap');
+@import url('https://api.fontshare.com/css?f[]=satoshi@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap');
 
 // global
 
 ::selection {
-  @apply bg-emerald-100 text-black dark:bg-emerald-900 dark:text-white;
+  @apply bg-primary-100 text-black dark:bg-primary-900 dark:text-white;
 }
 
 body {
@@ -13,7 +14,7 @@ body {
 }
 
 a {
-  @apply transition-colors text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 dark:hover:text-emerald-300;
+  @apply transition-colors text-primary-600 dark:text-primary-400 hover:text-primary-500 dark:hover:text-primary-300;
 }
 
 button {

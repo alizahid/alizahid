@@ -3,7 +3,7 @@ import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import React from 'react'
 
-import { ProjectCard } from '../components'
+import { ProjectCard } from '../components/project'
 import { Project, Query } from '../types'
 
 type Props = {
@@ -15,14 +15,14 @@ type Props = {
 const Playground: NextPage<Props> = ({ featured, other, regular }) => (
   <>
     <Head>
-      <title>Playground / Ali Zahid</title>
+      <title>Playground &#8226; Ali Zahid</title>
       <meta content="My works" name="description" />
       <meta content="My works" property="og:description" />
       <meta content="website" property="og:type" />
     </Head>
 
     <main>
-      <h1 className="text-2xl font-semibold">Playground</h1>
+      <h1 className="text-2xl font-bold lg:text-4xl">Playground</h1>
 
       <div className="grid gap-12 mt-12 lg:grid-cols-3">
         {[featured, regular, other].map((projects, index) => (

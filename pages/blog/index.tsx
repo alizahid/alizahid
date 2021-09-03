@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import React from 'react'
 
-import { PostCard } from '../../components'
+import { PostCard } from '../../components/post'
 import { Post, Query } from '../../types'
 
 type Props = {
@@ -14,14 +14,14 @@ type Props = {
 const Blog: NextPage<Props> = ({ posts }) => (
   <>
     <Head>
-      <title>Blog / Ali Zahid</title>
+      <title>Blog &#8226; Ali Zahid</title>
       <meta content="My writing" name="description" />
       <meta content="My writing" property="og:description" />
       <meta content="website" property="og:type" />
     </Head>
 
     <main>
-      <h1 className="text-2xl font-semibold">Blog</h1>
+      <h1 className="text-2xl font-bold lg:text-4xl">Blog</h1>
 
       <div className="grid gap-12 mt-12 lg:grid-cols-3">
         {posts.map((post) => (

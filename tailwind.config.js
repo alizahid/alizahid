@@ -7,10 +7,14 @@ module.exports = {
   purge: ['components/**/*.tsx', 'pages/**/*.tsx', 'styles/*.scss'],
   theme: {
     colors,
-    extend: {},
+    extend: {
+      colors: {
+        primary: colors.emerald
+      }
+    },
     fontFamily: {
       mono: ['Roboto Mono', 'monospace'],
-      sans: ['Inter', 'sans-serif']
+      sans: ['Satoshi', 'sans-serif']
     }
   },
   variants: {}

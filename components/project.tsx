@@ -23,11 +23,11 @@ export const ProjectCard: FunctionComponent<Props> = ({
         unoptimized
         width={64}
       />
-      <div className="ml-4 font-medium">{project.name}</div>
+      <div className="ml-4 text-lg font-semibold">{project.name}</div>
     </div>
 
     <Markdown
-      className="text-sm text-gray-600 dark:text-gray-400"
+      className="text-gray-800 dark:text-gray-200"
       components={{
         a({ children, href }) {
           return (
@@ -46,7 +46,7 @@ export const ProjectCard: FunctionComponent<Props> = ({
     <div className="flex flex-wrap items-start -ml-4 text-sm">
       {(project.links as Array<ProjectLink>).map(({ href, label }, index) => (
         <Link href={href} key={`link-${index}`}>
-          <a className="p-2 mt-4 ml-4 leading-none text-black rounded-md bg-emerald-200 hover:bg-emerald-300 dark:bg-emerald-800 dark:hover:bg-emerald-700 hover:text-black dark:text-white dark:hover:text-white">
+          <a className="p-2 mt-4 ml-4 font-medium leading-none text-black rounded-md hover:text-black hover:bg-primary-300 bg-primary-400 dark:bg-primary-600 dark:hover:bg-primary-700 dark:text-white dark:hover:text-white">
             {label}
           </a>
         </Link>
