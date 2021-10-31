@@ -4,12 +4,10 @@
     "node": true
   },
   "extends": [
-    "next",
+    "next/core-web-vitals",
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
     "plugin:prettier/recommended"
   ],
   "overrides": [
@@ -23,8 +21,6 @@
   "parser": "@typescript-eslint/parser",
   "plugins": [
     "@typescript-eslint",
-    "react",
-    "react-hooks",
     "sort-keys-fix",
     "sort-destructure-keys",
     "simple-import-sort",
@@ -33,8 +29,6 @@
   "rules": {
     "@typescript-eslint/explicit-function-return-type": "off",
     "prettier/prettier": "error",
-    "react-hooks/exhaustive-deps": "error",
-    "react-hooks/rules-of-hooks": "error",
     "react/jsx-sort-props": "error",
     "react/prop-types": "off",
     "simple-import-sort/exports": "error",

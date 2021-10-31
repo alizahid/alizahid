@@ -14,7 +14,7 @@ type Props = {
 const Blog: NextPage<Props> = ({ posts }) => (
   <>
     <Head>
-      <title>Blog &#8226; Ali Zahid</title>
+      <title>Blog &#215; Ali Zahid</title>
       <meta content="My writing" name="description" />
       <meta content="My writing" property="og:description" />
       <meta content="website" property="og:type" />

@@ -9,13 +9,12 @@ import { Project, Query } from '../types'
 type Props = {
   featured: Array<Project>
   other: Array<Project>
-  regular: Array<Project>
 }
 
-const Playground: NextPage<Props> = ({ featured, other, regular }) => (
+const Playground: NextPage<Props> = ({ featured, other }) => (
   <>
     <Head>
-      <title>Playground &#8226; Ali Zahid</title>
+      <title>Playground &#215; Ali Zahid</title>
       <meta content="My works" name="description" />
       <meta content="My works" property="og:description" />
       <meta content="website" property="og:type" />
@@ -24,8 +23,8 @@ const Playground: NextPage<Props> = ({ featured, other, regular }) => (
     <main>
       <h1 className="text-2xl font-bold lg:text-4xl">Playground</h1>
 
-      <div className="grid items-start gap-12 mt-12 lg:grid-cols-3">
-        {[featured, regular, other].map((projects, index) => (
+      <div className="grid items-start gap-12 mt-12 lg:grid-cols-2">
+        {[featured, other].map((projects, index) => (
           <section key={index}>
             {projects.map((project) => (
               <ProjectCard
@@ -62,14 +61,12 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   `)
 
   const featured = projects.filter(({ featured }) => featured === true)
-  const regular = projects.filter(({ featured }) => featured === false)
-  const other = projects.filter(({ featured }) => featured === null)
+  const other = projects.filter(({ featured }) => featured !== true)
 
   return {
     props: {
       featured,
-      other,
-      regular
+      other
     }
   }
 }

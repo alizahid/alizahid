@@ -1,8 +1,8 @@
-import clsx from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { FunctionComponent } from 'react'
+import { twMerge } from 'tailwind-merge'
 
 type Props = {
   className?: string
@@ -12,7 +12,7 @@ export const Header: FunctionComponent<Props> = ({ className }) => {
   const { asPath } = useRouter()
 
   return (
-    <header className={clsx('flex items-center justify-between', className)}>
+    <header className={twMerge('flex items-center justify-between', className)}>
       <Link href="/">
         <a>
           <Image
@@ -58,7 +58,7 @@ const NavLink: FunctionComponent<NavLinkProps> = ({
 }) => (
   <Link href={href}>
     <a
-      className={clsx(
+      className={twMerge(
         'dark:text-white font-medium p-3',
         (href.slice(-1) === '/' ? asPath === href : asPath.startsWith(href))
           ? 'text-primary-600 dark:text-primary-400 font-semibold'

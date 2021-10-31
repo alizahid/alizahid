@@ -3,6 +3,7 @@
     "allowJs": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "incremental": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -15,6 +16,6 @@
     "target": "es5",
     "typeRoots": ["typings"]
   },
-  "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "include": ["**/*.ts", "**/*.tsx"]
 }

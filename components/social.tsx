@@ -1,6 +1,6 @@
-import clsx from 'clsx'
 import Link from 'next/link'
 import React, { FunctionComponent } from 'react'
+import { twMerge } from 'tailwind-merge'
 
 import { Icon } from './icon'
 
@@ -13,7 +13,7 @@ export const SocialLinks: FunctionComponent<SocialLinksProps> = ({
   className,
   size = 32
 }) => (
-  <div className={clsx('flex', className)}>
+  <div className={twMerge('flex', className)}>
     <Link href="https://github.com/alizahid">
       <a className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white">
         <Icon name="github" size={size} />

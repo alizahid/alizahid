@@ -21,7 +21,7 @@ const Links: NextPage<Props> = ({ links }) => {
   return (
     <>
       <Head>
-        <title>Links &#8226; Ali Zahid</title>
+        <title>Links &#215; Ali Zahid</title>
         <meta content="My bookmarks" name="description" />
         <meta content="My bookmarks" property="og:description" />
         <meta content="website" property="og:type" />

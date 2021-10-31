@@ -69,9 +69,13 @@ const Home: NextPage<Props> = ({ posts, projects, resume }) => (
       </section>
 
       <section className="flex flex-col">
-        <h2 className="-mb-4 text-xl font-semibold text-black lg:text-2xl dark:text-white">
-          Recent articles
-        </h2>
+        <Link href="/blog">
+          <a>
+            <h2 className="-mb-4 text-xl font-semibold text-black lg:text-2xl dark:text-white">
+              Recent articles
+            </h2>
+          </a>
+        </Link>
 
         {posts.map((post) => (
           <Link href={`/blog/${post.slug}`} key={post.slug}>
@@ -83,9 +87,13 @@ const Home: NextPage<Props> = ({ posts, projects, resume }) => (
       </section>
 
       <section className="flex flex-col">
-        <h2 className="-mb-4 text-xl font-semibold text-black lg:text-2xl dark:text-white">
-          Featured projects
-        </h2>
+        <Link href="/playground">
+          <a>
+            <h2 className="-mb-4 text-xl font-semibold text-black lg:text-2xl dark:text-white">
+              Featured projects
+            </h2>
+          </a>
+        </Link>
 
         {projects.map((project) => (
           <ProjectCard className="mt-12" key={project.slug} project={project} />

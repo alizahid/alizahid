@@ -1,8 +1,9 @@
 import 'tailwindcss/tailwind.css'
 import '../styles/global.scss'
+import '../styles/highlight.scss'
 
+import { usePanelbear } from '@panelbear/panelbear-nextjs'
 import { AppProps } from 'next/app'
-import { usePanelbear } from 'next-use-panelbear'
 import React, { FunctionComponent } from 'react'
 
 import { Footer } from '../components/footer'

@@ -5,7 +5,7 @@ import React from 'react'
 const NotFound: NextPage = () => (
   <>
     <Head>
-      <title>Not found &#8226; Ali Zahid</title>
+      <title>Not found &#215; Ali Zahid</title>
     </Head>
 
     <main className="flex flex-col justify-center">

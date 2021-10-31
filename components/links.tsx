@@ -1,7 +1,7 @@
-import clsx from 'clsx'
 import Hyperlink from 'next/link'
 import { useRouter } from 'next/router'
 import React, { FunctionComponent, useMemo } from 'react'
+import { twMerge } from 'tailwind-merge'
 
 import { Link } from '../types'
 
@@ -22,7 +22,8 @@ export const LinksCard: FunctionComponent<Props> = ({ className, links }) => {
   }, [links, query.tag])
 
   return (
-    <div className={clsx('grid gap-12 lg:grid-cols-2 items-start', className)}>
+    <div
+      className={twMerge('grid gap-12 lg:grid-cols-2 items-start', className)}>
       {data.map((link) => (
         <LinkCard key={link.id} link={link} />
       ))}
@@ -38,7 +39,7 @@ type LinkProps = {
 export const LinkCard: FunctionComponent<LinkProps> = ({ className, link }) => (
   <Hyperlink href={link.url}>
     <a
-      className={clsx('flex items-center', className)}
+      className={twMerge('flex items-center', className)}
       rel="noopener"
       target="_blank">
       <div
