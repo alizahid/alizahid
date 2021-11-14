@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import React, { FunctionComponent, useMemo } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-import { Link } from '../types'
+import { Link } from '../types/graph-cms'
 
 type Props = {
   className?: string

@@ -1,4 +1,3 @@
-import { gql, GraphQLClient } from 'graphql-request'
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
@@ -7,12 +6,13 @@ import React from 'react'
 import { PostCard } from '../components/post'
 import { ProjectCard } from '../components/project'
 import { SocialLinks } from '../components/social'
-import { Post, Project, Query } from '../types'
+import { fetchHome } from '../queries/home'
+import { Asset, Post, Project } from '../types/graph-cms'
 
 type Props = {
   posts: Array<Post>
   projects: Array<Project>
-  resume?: string
+  resume?: Asset
 }
 
 const Home: NextPage<Props> = ({ posts, projects, resume }) => (
@@ -36,7 +36,7 @@ const Home: NextPage<Props> = ({ posts, projects, resume }) => (
             <a>playground</a>
           </Link>
           . And here&#39;s my{' '}
-          <Link href={resume ?? ''}>
+          <Link href={resume?.url ?? ''}>
             <a>resume</a>
           </Link>
           .
@@ -104,46 +104,10 @@ const Home: NextPage<Props> = ({ posts, projects, resume }) => (
 )
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const client = new GraphQLClient(process.env.GRAPH_CMS_URL)
-
-  const { asset, posts, projects } = await client.request<
-    Pick<Query, 'asset' | 'posts' | 'projects'>
-  >(gql`
-    {
-      asset(where: { id: "cknafmzfk07zo0c61dqx7gq3h" }) {
-        url
-      }
-      posts(orderBy: date_DESC, first: 3) {
-        slug
-        title
-        date
-        excerpt
-        image {
-          height
-          width
-          url(transformation: { image: { resize: { width: 600 } } })
-        }
-      }
-      projects(where: { featured: true }) {
-        slug
-        name
-        content
-        image {
-          height
-          width
-          url(transformation: { image: { resize: { width: 128 } } })
-        }
-        links
-      }
-    }
-  `)
+  const props = await fetchHome()
 
   return {
-    props: {
-      posts,
-      projects,
-      resume: asset?.url
-    }
+    props
   }
 }
 

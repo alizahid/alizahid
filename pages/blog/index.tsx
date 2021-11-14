@@ -1,11 +1,11 @@
-import { gql, GraphQLClient } from 'graphql-request'
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import React from 'react'
 
 import { PostCard } from '../../components/post'
-import { Post, Query } from '../../types'
+import { fetchPosts } from '../../queries/posts'
+import { Post } from '../../types/graph-cms'
 
 type Props = {
   posts: Array<Post>
@@ -37,23 +37,7 @@ const Blog: NextPage<Props> = ({ posts }) => (
 )
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const client = new GraphQLClient(process.env.GRAPH_CMS_URL)
-
-  const { posts } = await client.request<Pick<Query, 'posts'>>(gql`
-    {
-      posts(orderBy: date_DESC) {
-        slug
-        title
-        date
-        excerpt
-        image {
-          height
-          width
-          url(transformation: { image: { resize: { width: 600 } } })
-        }
-      }
-    }
-  `)
+  const posts = await fetchPosts()
 
   return {
     props: {

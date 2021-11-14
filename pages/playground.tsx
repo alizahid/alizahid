@@ -1,10 +1,10 @@
-import { gql, GraphQLClient } from 'graphql-request'
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import React from 'react'
 
 import { ProjectCard } from '../components/project'
-import { Project, Query } from '../types'
+import { fetchProjects } from '../queries/projects'
+import { Project } from '../types/graph-cms'
 
 type Props = {
   featured: Array<Project>
@@ -41,33 +41,10 @@ const Playground: NextPage<Props> = ({ featured, other }) => (
 )
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const client = new GraphQLClient(process.env.GRAPH_CMS_URL)
-
-  const { projects } = await client.request<Pick<Query, 'projects'>>(gql`
-    {
-      projects(orderBy: order_ASC) {
-        slug
-        name
-        content
-        featured
-        image {
-          height
-          width
-          url(transformation: { image: { resize: { width: 128 } } })
-        }
-        links
-      }
-    }
-  `)
-
-  const featured = projects.filter(({ featured }) => featured === true)
-  const other = projects.filter(({ featured }) => featured !== true)
+  const props = await fetchProjects()
 
   return {
-    props: {
-      featured,
-      other
-    }
+    props
   }
 }
 

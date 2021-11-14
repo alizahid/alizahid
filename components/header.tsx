@@ -4,15 +4,11 @@ import { useRouter } from 'next/router'
 import React, { FunctionComponent } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-type Props = {
-  className?: string
-}
-
-export const Header: FunctionComponent<Props> = ({ className }) => {
+export const Header: FunctionComponent = () => {
   const { asPath } = useRouter()
 
   return (
-    <header className={twMerge('flex items-center justify-between', className)}>
+    <header className="flex items-center justify-between">
       <Link href="/">
         <a>
           <Image

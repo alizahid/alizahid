@@ -4,7 +4,8 @@ import Link from 'next/link'
 import React, { FunctionComponent } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-import { Project, ProjectLink } from '../types'
+import { ProjectLink } from '../types'
+import { Project } from '../types/graph-cms'
 
 type Props = {
   className?: string

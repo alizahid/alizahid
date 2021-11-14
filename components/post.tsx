@@ -2,7 +2,7 @@ import { format, isSameYear, parseISO } from 'date-fns'
 import Image from 'next/image'
 import React, { FunctionComponent } from 'react'
 
-import { Post } from '../types'
+import { Post } from '../types/graph-cms'
 
 type Props = {
   className?: string

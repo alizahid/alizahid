@@ -1,7 +1,4 @@
-import 'react-medium-image-zoom/dist/styles.css'
-
 import { format, isSameYear, parseISO } from 'date-fns'
-import { gql, GraphQLClient } from 'graphql-request'
 import Markdown from 'markdown-to-jsx'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
@@ -13,7 +10,9 @@ import { RoughNotation } from 'react-rough-notation'
 import { twMerge } from 'tailwind-merge'
 
 import { highlight } from '../../lib/highlight'
-import { Post, Query } from '../../types'
+import { fetchPost } from '../../queries/post'
+import { fetchSlugs } from '../../queries/posts'
+import { Post } from '../../types/graph-cms'
 
 type Props = {
   post: Post
@@ -207,15 +206,7 @@ const Blog: NextPage<Props> = ({ post }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const client = new GraphQLClient(process.env.GRAPH_CMS_URL)
-
-  const { posts } = await client.request<Pick<Query, 'posts'>>(gql`
-    {
-      posts {
-        slug
-      }
-    }
-  `)
+  const posts = await fetchSlugs()
 
   const paths = posts.map(({ slug }) => ({
     params: {
@@ -240,31 +231,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
     }
   }
 
-  const client = new GraphQLClient(process.env.GRAPH_CMS_URL)
-
-  const { post } = await client.request<Pick<Query, 'post'>>(
-    gql`
-      query ($data: PostWhereUniqueInput!) {
-        post(where: $data) {
-          slug
-          title
-          date
-          excerpt
-          content
-          image {
-            height
-            width
-            url
-          }
-        }
-      }
-    `,
-    {
-      data: {
-        slug
-      }
-    }
-  )
+  const post = await fetchPost(slug)
 
   if (!post) {
     return {

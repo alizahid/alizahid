@@ -1,6 +1,5 @@
 import Document, {
   DocumentContext,
-  DocumentInitialProps,
   Head,
   Html,
   Main,
@@ -9,18 +8,25 @@ import Document, {
 import React from 'react'
 
 class AZ extends Document {
-  static async getInitialProps(
-    context: DocumentContext
-  ): Promise<DocumentInitialProps> {
+  static async getInitialProps(context: DocumentContext) {
     const props = await Document.getInitialProps(context)
 
     return props
   }
 
-  render(): JSX.Element {
+  render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <link
+            href="https://api.fontshare.com/css?f[]=satoshi@1&amp;display=swap"
+            rel="stylesheet"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&amp;display=swap"
+            rel="stylesheet"
+          />
+        </Head>
 
         <body>
           <Main />

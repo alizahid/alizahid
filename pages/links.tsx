@@ -1,4 +1,3 @@
-import { gql, GraphQLClient } from 'graphql-request'
 import uniq from 'lodash/uniq'
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
@@ -6,7 +5,8 @@ import React, { useMemo } from 'react'
 
 import { LinksCard } from '../components/links'
 import { TagsCard } from '../components/tags'
-import { Link, Query } from '../types'
+import { fetchLinks } from '../queries/links'
+import { Link } from '../types/graph-cms'
 
 type Props = {
   links: Array<Link>
@@ -40,20 +40,7 @@ const Links: NextPage<Props> = ({ links }) => {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const client = new GraphQLClient(process.env.GRAPH_CMS_URL)
-
-  const { links } = await client.request<Pick<Query, 'links'>>(gql`
-    {
-      links(orderBy: updatedAt_DESC) {
-        id
-        title
-        description
-        url
-        image
-        tags
-      }
-    }
-  `)
+  const links = await fetchLinks()
 
   return {
     props: {
