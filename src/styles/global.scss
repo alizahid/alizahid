@@ -1,7 +1,13 @@
 // fonts
 
-@import 'https://api.fontshare.com/css?f[]=satoshi@1&display=swap';
-@import 'https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap';
+@import url('https://api.fontshare.com/css?f[]=satoshi@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap');
+
+// tailwind
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 // global
 

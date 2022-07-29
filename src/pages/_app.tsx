@@ -1,7 +1,6 @@
-import 'tailwindcss/tailwind.css'
-import 'react-medium-image-zoom/dist/styles.css'
 import '../styles/global.scss'
 import '../styles/highlight.scss'
+import 'react-medium-image-zoom/dist/styles.css'
 
 import { usePanelbear } from '@panelbear/panelbear-nextjs'
 import { AppProps } from 'next/app'
