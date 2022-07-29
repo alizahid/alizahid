@@ -13,9 +13,8 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "es5",
-    "typeRoots": ["typings"]
+    "target": "es5"
   },
   "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx"]
+  "include": ["typings", "**/*.ts", "**/*.tsx"]
 }
