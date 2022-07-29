@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 export const Header: FunctionComponent = () => {
@@ -41,8 +41,9 @@ export const Header: FunctionComponent = () => {
 }
 
 type NavLinkProps = {
-  className?: string
   asPath: string
+  children: ReactNode
+  className?: string
   href: string
 }
 

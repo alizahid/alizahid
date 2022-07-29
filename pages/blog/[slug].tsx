@@ -29,10 +29,12 @@ const Blog: NextPage<Props> = ({ post }) => {
     highlight()
   }, [])
 
+  const title = `${post.title} &#215; Blog &#215; Ali Zahid`
+
   return (
     <>
       <Head>
-        <title>{post.title} &#215; Blog &#215; Ali Zahid</title>
+        <title>{title}</title>
         <meta content={post.title} property="og:title" />
         <meta content={post.excerpt} name="description" />
         <meta content={post.excerpt} property="og:description" />

@@ -1,12 +1,9 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-  darkMode: 'media',
-  mode: 'jit',
+  content: ['components/**/*.tsx', 'pages/**/*.tsx', 'styles/*.scss'],
   plugins: [],
-  purge: ['components/**/*.tsx', 'pages/**/*.tsx', 'styles/*.scss'],
   theme: {
-    colors,
     extend: {
       colors: {
         primary: colors.emerald
