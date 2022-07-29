@@ -1,6 +1,6 @@
 schema: ${GRAPH_CMS_URL}
 overwrite: true
 generates:
-  types/graph-cms.ts:
+  src/types/graph-cms.ts:
     plugins:
       - typescript
