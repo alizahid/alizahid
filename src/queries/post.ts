@@ -23,8 +23,8 @@ const POST = gql`
 export const fetchPost = async (slug: string) => {
   const { post } = await graphcms.request<Pick<Query, 'post'>>(POST, {
     data: {
-      slug
-    }
+      slug,
+    },
   })
 
   return post

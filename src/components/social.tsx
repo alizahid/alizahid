@@ -11,7 +11,7 @@ type SocialLinksProps = {
 
 export const SocialLinks: FunctionComponent<SocialLinksProps> = ({
   className,
-  size = 32
+  size = 32,
 }) => (
   <div className={twMerge('flex', className)}>
     <Link href="https://github.com/alizahid">

@@ -44,8 +44,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
   return {
     props: {
-      links
-    }
+      links,
+    },
   }
 }
 

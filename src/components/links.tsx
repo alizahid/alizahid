@@ -23,7 +23,8 @@ export const LinksCard: FunctionComponent<Props> = ({ className, links }) => {
 
   return (
     <div
-      className={twMerge('grid gap-12 lg:grid-cols-2 items-start', className)}>
+      className={twMerge('grid gap-12 lg:grid-cols-2 items-start', className)}
+    >
       {data.map((link) => (
         <LinkCard key={link.id} link={link} />
       ))}
@@ -41,11 +42,12 @@ export const LinkCard: FunctionComponent<LinkProps> = ({ className, link }) => (
     <a
       className={twMerge('flex items-center', className)}
       rel="noopener"
-      target="_blank">
+      target="_blank"
+    >
       <div
         className="w-16 h-16 bg-center bg-cover rounded-full"
         style={{
-          backgroundImage: `url(${link.image})`
+          backgroundImage: `url(${link.image})`,
         }}
       />
 

@@ -107,7 +107,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const props = await fetchHome()
 
   return {
-    props
+    props,
   }
 }
 

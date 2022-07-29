@@ -44,7 +44,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const props = await fetchProjects()
 
   return {
-    props
+    props,
   }
 }
 

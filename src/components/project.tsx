@@ -14,7 +14,7 @@ type Props = {
 
 export const ProjectCard: FunctionComponent<Props> = ({
   className,
-  project
+  project,
 }) => (
   <div className={twMerge('flex items-start', className)}>
     <Image
@@ -37,15 +37,16 @@ export const ProjectCard: FunctionComponent<Props> = ({
                 <Link href={href}>
                   <a>{children}</a>
                 </Link>
-              )
+              ),
             },
             p: {
               props: {
-                className: 'mt-2'
-              }
-            }
-          }
-        }}>
+                className: 'mt-2',
+              },
+            },
+          },
+        }}
+      >
         {project.content}
       </Markdown>
 

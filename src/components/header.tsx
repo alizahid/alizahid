@@ -51,7 +51,7 @@ const NavLink: FunctionComponent<NavLinkProps> = ({
   asPath,
   children,
   className,
-  href
+  href,
 }) => (
   <Link href={href}>
     <a
@@ -61,7 +61,8 @@ const NavLink: FunctionComponent<NavLinkProps> = ({
           ? 'text-primary-600 dark:text-primary-400 font-semibold'
           : 'text-black',
         className
-      )}>
+      )}
+    >
       {children}
     </a>
   </Link>

@@ -34,7 +34,8 @@ const TagCard: FunctionComponent<TagProps> = ({ tag }) => {
           active
             ? 'text-primary-600 dark:text-primary-400 font-medium'
             : 'text-black dark:text-white'
-        )}>
+        )}
+      >
         {tag}
       </a>
     </Link>

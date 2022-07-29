@@ -28,6 +28,6 @@ export const fetchProjects = async () => {
 
   return {
     featured,
-    other
+    other,
   }
 }

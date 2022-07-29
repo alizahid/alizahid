@@ -81,50 +81,50 @@ const Blog: NextPage<Props> = ({ post }) => {
                       )}
                     </Link>
                   )
-                }
+                },
               },
               blockquote: {
                 props: {
                   className:
-                    'rounded-lg font-medium p-4 bg-primary-100 dark:bg-primary-900'
-                }
+                    'rounded-lg font-medium p-4 bg-primary-100 dark:bg-primary-900',
+                },
               },
               code: {
                 props: {
-                  className: 'rounded-lg'
-                }
+                  className: 'rounded-lg',
+                },
               },
               del: {
                 component: ({ children }) => (
                   <RoughNotation color="#f43f5e" show type="strike-through">
                     {children}
                   </RoughNotation>
-                )
+                ),
               },
               em: {
                 component: ({ children }) => (
                   <RoughNotation color="#10b981" show type="underline">
                     {children}
                   </RoughNotation>
-                )
+                ),
               },
               h2: {
                 props: {
                   className:
-                    'mt-12 mb-4 text-xl font-semibold text-black lg:text-2xl dark:text-white first:mt-0'
-                }
+                    'mt-12 mb-4 text-xl font-semibold text-black lg:text-2xl dark:text-white first:mt-0',
+                },
               },
               h3: {
                 props: {
                   className:
-                    'mt-8 mb-4 text-lg font-semibold text-gray-900 lg:text-xl dark:text-gray-100 first:mt-0'
-                }
+                    'mt-8 mb-4 text-lg font-semibold text-gray-900 lg:text-xl dark:text-gray-100 first:mt-0',
+                },
               },
               h4: {
                 props: {
                   className:
-                    'mt-4 mb-2 text-base font-semibold text-gray-700 lg:text-lg dark:text-gray-300 first:mt-0'
-                }
+                    'mt-4 mb-2 text-base font-semibold text-gray-700 lg:text-lg dark:text-gray-300 first:mt-0',
+                },
               },
               img: {
                 component: ({ alt, src }) => {
@@ -141,11 +141,13 @@ const Blog: NextPage<Props> = ({ post }) => {
                       className={twMerge(
                         'flex flex-col items-center my-8',
                         type === 'chart' && '-mx-8'
-                      )}>
+                      )}
+                    >
                       <Zoom
                         overlayBgColorEnd="rgba(0, 0, 0, 0.8)"
                         overlayBgColorStart="rgba(0, 0, 0, 0)"
-                        zoomMargin={64}>
+                        zoomMargin={64}
+                      >
                         <Image
                           alt={alt}
                           className={twMerge(
@@ -164,42 +166,43 @@ const Blog: NextPage<Props> = ({ post }) => {
                       </figcaption>
                     </figure>
                   )
-                }
+                },
               },
               li: {
                 props: {
-                  className: 'my-2'
-                }
+                  className: 'my-2',
+                },
               },
               ol: {
                 props: {
-                  className: 'my-4 ml-8 list-decimal'
-                }
+                  className: 'my-4 ml-8 list-decimal',
+                },
               },
               p: {
                 props: {
-                  className: 'my-4 first:mt-0 last:mb-0'
-                }
+                  className: 'my-4 first:mt-0 last:mb-0',
+                },
               },
               pre: {
                 props: {
-                  className: 'mt-4 text-sm'
-                }
+                  className: 'mt-4 text-sm',
+                },
               },
               strong: {
                 component: ({ children }) => (
                   <RoughNotation color="#0ea5e9" show type="box">
                     {children}
                   </RoughNotation>
-                )
+                ),
               },
               ul: {
                 props: {
-                  className: 'my-4 ml-8 list-disc'
-                }
-              }
-            }
-          }}>
+                  className: 'my-4 ml-8 list-disc',
+                },
+              },
+            },
+          }}
+        >
           {post.content}
         </Markdown>
       </main>
@@ -212,24 +215,24 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const paths = posts.map(({ slug }) => ({
     params: {
-      slug
-    }
+      slug,
+    },
   }))
 
   return {
     fallback: false,
-    paths
+    paths,
   }
 }
 
 export const getStaticProps: GetStaticProps<Props, Params> = async ({
-  params
+  params,
 }) => {
   const slug = params?.slug
 
   if (!slug) {
     return {
-      notFound: true
+      notFound: true,
     }
   }
 
@@ -237,14 +240,14 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
 
   if (!post) {
     return {
-      notFound: true
+      notFound: true,
     }
   }
 
   return {
     props: {
-      post
-    }
+      post,
+    },
   }
 }
 
