@@ -1,18 +1,18 @@
 import { format, isSameYear, parseISO } from 'date-fns'
 import Markdown from 'markdown-to-jsx'
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { type GetStaticPaths, type GetStaticProps, type NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import Zoom from 'react-medium-image-zoom'
 import { RoughNotation } from 'react-rough-notation'
 import { twMerge } from 'tailwind-merge'
 
-import { highlight } from '../../lib/highlight'
-import { fetchPost } from '../../queries/post'
-import { fetchSlugs } from '../../queries/posts'
-import { Post } from '../../types/graph-cms'
+import { highlight } from '~/lib/highlight'
+import { fetchPost } from '~/queries/post'
+import { fetchSlugs } from '~/queries/posts'
+import { type Post } from '~/types/graph-cms'
 
 type Props = {
   post: Post
@@ -29,7 +29,7 @@ const Blog: NextPage<Props> = ({ post }) => {
     highlight()
   }, [])
 
-  const title = `${post.title} &#215; Blog &#215; Ali Zahid`
+  const title = `${post.title} × Blog × Ali Zahid`
 
   return (
     <>
@@ -48,37 +48,37 @@ const Blog: NextPage<Props> = ({ post }) => {
       <main>
         <Image
           alt={post.title}
-          className="bg-gray-100 rounded-lg dark:bg-gray-900"
+          className="rounded-lg bg-neutral-100 dark:bg-neutral-900"
           height={1200}
           src={post.image.url}
           width={1800}
         />
 
         <h1 className="mt-4 text-2xl font-bold lg:text-4xl">{post.title}</h1>
-        <div className="mt-2 text-gray-800 dark:text-gray-200">
+
+        <div className="mt-2 text-neutral-800 dark:text-neutral-200">
           {post.excerpt}
         </div>
-        <div className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+
+        <div className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
           {format(date, isSameYear(date, new Date()) ? 'MMMM d' : 'MMMM d, y')}
         </div>
 
         <Markdown
-          className="mt-12 text-gray-700 dark:text-gray-300"
+          className="mt-12 text-neutral-700 dark:text-neutral-300"
           options={{
             overrides: {
               a: {
                 component: ({ children, href }) => {
-                  const isExternal = href.startsWith('http')
+                  const external = href.startsWith('http')
 
                   return (
-                    <Link href={href}>
-                      {isExternal ? (
-                        <a rel="noopener" target="_blank">
-                          {children}
-                        </a>
-                      ) : (
-                        <a>{children}</a>
-                      )}
+                    <Link
+                      href={href}
+                      rel={external ? 'noopener' : undefined}
+                      target={external ? '_blank' : undefined}
+                    >
+                      {children}
                     </Link>
                   )
                 },
@@ -117,21 +117,22 @@ const Blog: NextPage<Props> = ({ post }) => {
               h3: {
                 props: {
                   className:
-                    'mt-8 mb-4 text-lg font-semibold text-gray-900 lg:text-xl dark:text-gray-100 first:mt-0',
+                    'mt-8 mb-4 text-lg font-semibold text-neutral-900 lg:text-xl dark:text-neutral-100 first:mt-0',
                 },
               },
               h4: {
                 props: {
                   className:
-                    'mt-4 mb-2 text-base font-semibold text-gray-700 lg:text-lg dark:text-gray-300 first:mt-0',
+                    'mt-4 mb-2 text-base font-semibold text-neutral-700 lg:text-lg dark:text-neutral-300 first:mt-0',
                 },
               },
               img: {
                 component: ({ alt, src }) => {
                   const url = new URL(src)
 
-                  const height = (Number(url.searchParams.get('h')) || 200) / 2
-                  const width = (Number(url.searchParams.get('w')) || 200) / 2
+                  const height = (Number(url.searchParams.get('h')) ?? 200) / 2
+                  const width = (Number(url.searchParams.get('w')) ?? 200) / 2
+
                   const type = url.searchParams.get('type')
 
                   const [source] = src.split('?')
@@ -143,11 +144,7 @@ const Blog: NextPage<Props> = ({ post }) => {
                         type === 'chart' && '-mx-8'
                       )}
                     >
-                      <Zoom
-                        overlayBgColorEnd="rgba(0, 0, 0, 0.8)"
-                        overlayBgColorStart="rgba(0, 0, 0, 0)"
-                        zoomMargin={64}
-                      >
+                      <Zoom zoomMargin={64}>
                         <Image
                           alt={alt}
                           className={twMerge(
@@ -179,6 +176,12 @@ const Blog: NextPage<Props> = ({ post }) => {
                 },
               },
               p: {
+                component: ({ children, ...props }) => {
+                  const Component =
+                    typeof children[0]?.props?.src === 'string' ? 'div' : 'p'
+
+                  return <Component {...props}>{children}</Component>
+                },
                 props: {
                   className: 'my-4 first:mt-0 last:mb-0',
                 },

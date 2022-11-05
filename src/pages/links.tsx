@@ -1,12 +1,12 @@
-import uniq from 'lodash/uniq'
-import { GetStaticProps, NextPage } from 'next'
+import { uniq } from 'lodash'
+import { type GetStaticProps, type NextPage } from 'next'
 import Head from 'next/head'
-import React, { useMemo } from 'react'
+import { useMemo } from 'react'
 
-import { LinksCard } from '../components/links'
-import { TagsCard } from '../components/tags'
-import { fetchLinks } from '../queries/links'
-import { Link } from '../types/graph-cms'
+import { LinksCard } from '~/components/links'
+import { TagsCard } from '~/components/tags'
+import { fetchLinks } from '~/queries/links'
+import { type Link } from '~/types/graph-cms'
 
 type Props = {
   links: Array<Link>
@@ -32,6 +32,7 @@ const Links: NextPage<Props> = ({ links }) => {
 
         <section className="grid items-start gap-12 mt-12 lg:grid-cols-4">
           <TagsCard tags={tags} />
+
           <LinksCard className="lg:col-span-3" links={links} />
         </section>
       </main>

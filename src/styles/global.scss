@@ -40,3 +40,25 @@ hr {
     @apply flex-1 my-16;
   }
 }
+
+// zoom
+
+[data-rmiz-modal-overlay='visible'] {
+  background-color: white !important;
+}
+
+[data-rmiz-btn-unzoom] {
+  color: white !important;
+  background-color: black !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-rmiz-modal-overlay='visible'] {
+    background-color: black !important;
+  }
+
+  [data-rmiz-btn-unzoom] {
+    color: black !important;
+    background-color: white !important;
+  }
+}

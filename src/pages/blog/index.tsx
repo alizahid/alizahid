@@ -1,11 +1,10 @@
-import { GetStaticProps, NextPage } from 'next'
+import { type GetStaticProps, type NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
-import React from 'react'
 
-import { PostCard } from '../../components/post'
-import { fetchPosts } from '../../queries/posts'
-import { Post } from '../../types/graph-cms'
+import { PostCard } from '~/components/post'
+import { fetchPosts } from '~/queries/posts'
+import { type Post } from '~/types/graph-cms'
 
 type Props = {
   posts: Array<Post>
@@ -25,10 +24,12 @@ const Blog: NextPage<Props> = ({ posts }) => (
 
       <div className="grid items-start gap-12 mt-12 lg:grid-cols-3">
         {posts.map((post) => (
-          <Link href={`/blog/${post.slug}`} key={post.slug}>
-            <a className="text-black dark:text-white">
-              <PostCard post={post} />
-            </a>
+          <Link
+            className="text-black dark:text-white"
+            href={`/blog/${post.slug}`}
+            key={post.slug}
+          >
+            <PostCard post={post} />
           </Link>
         ))}
       </div>

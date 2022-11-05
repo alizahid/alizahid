@@ -1,11 +1,11 @@
 import Markdown from 'markdown-to-jsx'
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { FunctionComponent } from 'react'
+import { type FunctionComponent } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-import { ProjectLink } from '../types'
-import { Project } from '../types/graph-cms'
+import { type ProjectLink } from '~/types'
+import { type Project } from '~/types/graph-cms'
 
 type Props = {
   className?: string
@@ -29,14 +29,12 @@ export const ProjectCard: FunctionComponent<Props> = ({
       <div className="text-lg font-semibold">{project.name}</div>
 
       <Markdown
-        className="text-gray-800 dark:text-gray-200"
+        className="text-neutral-800 dark:text-neutral-200"
         options={{
           overrides: {
             a: {
               component: ({ children, href }) => (
-                <Link href={href}>
-                  <a>{children}</a>
-                </Link>
+                <Link href={href}>{children}</Link>
               ),
             },
             p: {
@@ -52,10 +50,12 @@ export const ProjectCard: FunctionComponent<Props> = ({
 
       <div className="flex flex-wrap items-start -ml-4 text-sm">
         {(project.links as Array<ProjectLink>).map(({ href, label }, index) => (
-          <Link href={href} key={`link-${index}`}>
-            <a className="p-2 mt-4 ml-4 font-medium leading-none text-black rounded-md hover:text-black hover:bg-primary-300 bg-primary-400 dark:bg-primary-600 dark:hover:bg-primary-700 dark:text-white dark:hover:text-white">
-              {label}
-            </a>
+          <Link
+            className="p-2 mt-4 ml-4 font-medium leading-none text-black rounded-md hover:text-black hover:bg-primary-300 bg-primary-400 dark:bg-primary-600 dark:hover:bg-primary-700 dark:text-white dark:hover:text-white"
+            href={href}
+            key={`link-${index}`}
+          >
+            {label}
           </Link>
         ))}
       </div>

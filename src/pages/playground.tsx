@@ -1,10 +1,9 @@
-import { GetStaticProps, NextPage } from 'next'
+import { type GetStaticProps, type NextPage } from 'next'
 import Head from 'next/head'
-import React from 'react'
 
-import { ProjectCard } from '../components/project'
-import { fetchProjects } from '../queries/projects'
-import { Project } from '../types/graph-cms'
+import { ProjectCard } from '~/components/project'
+import { fetchProjects } from '~/queries/projects'
+import { type Project } from '~/types/graph-cms'
 
 type Props = {
   featured: Array<Project>

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import React, { FunctionComponent } from 'react'
+import { type FunctionComponent } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 import { Icon } from './icon'
@@ -14,29 +14,40 @@ export const SocialLinks: FunctionComponent<SocialLinksProps> = ({
   size = 32,
 }) => (
   <div className={twMerge('flex', className)}>
-    <Link href="https://github.com/alizahid">
-      <a className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white">
-        <Icon name="github" size={size} />
-        <span className="hidden">GitHub</span>
-      </a>
+    <Link
+      className="text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white"
+      href="https://github.com/alizahid"
+    >
+      <Icon name="github" size={size} />
+
+      <span className="hidden">GitHub</span>
     </Link>
-    <Link href="https://open.spotify.com/user/alizahid">
-      <a className="ml-4 text-gray-600 dark:text-gray-400 hover:text-[#1db954]">
-        <Icon name="spotify" size={size} />
-        <span className="hidden">Spotify</span>
-      </a>
+
+    <Link
+      className="ml-4 text-neutral-600 dark:text-neutral-400 hover:text-[#1db954]"
+      href="https://open.spotify.com/user/alizahid"
+    >
+      <Icon name="spotify" size={size} />
+
+      <span className="hidden">Spotify</span>
     </Link>
-    <Link href="https://twitter.com/alizahid0">
-      <a className="ml-4 text-gray-600 dark:text-gray-400 hover:text-[#1da1f2]">
-        <Icon name="twitter" size={size} />
-        <span className="hidden">Twitter</span>
-      </a>
+
+    <Link
+      className="ml-4 text-neutral-600 dark:text-neutral-400 hover:text-[#1da1f2]"
+      href="https://twitter.com/alizahid0"
+    >
+      <Icon name="twitter" size={size} />
+
+      <span className="hidden">Twitter</span>
     </Link>
-    <Link href="https://dribbble.com/alizahid">
-      <a className="ml-4 text-gray-600 dark:text-gray-400 hover:text-[#ea4c89]">
-        <Icon name="dribbble" size={size} />
-        <span className="hidden">Dribbble</span>
-      </a>
+
+    <Link
+      className="ml-4 text-neutral-600 dark:text-neutral-400 hover:text-[#ea4c89]"
+      href="https://dribbble.com/alizahid"
+    >
+      <Icon name="dribbble" size={size} />
+
+      <span className="hidden">Dribbble</span>
     </Link>
   </div>
 )

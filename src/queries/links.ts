@@ -1,7 +1,7 @@
 import { gql } from 'graphql-request'
 
-import { graphcms } from '../lib/graphcms'
-import { Query } from '../types/graph-cms'
+import { graphcms } from '~/lib/graphcms'
+import { type Query } from '~/types/graph-cms'
 
 const LINKS = gql`
   {

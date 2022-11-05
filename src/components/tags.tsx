@@ -1,7 +1,7 @@
-import sortBy from 'lodash/sortBy'
+import { sortBy } from 'lodash'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React, { FunctionComponent, useMemo } from 'react'
+import { type FunctionComponent, useMemo } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 type Props = {
@@ -27,17 +27,18 @@ const TagCard: FunctionComponent<TagProps> = ({ tag }) => {
   const active = useMemo(() => query.tag === tag, [query.tag, tag])
 
   return (
-    <Link href={active ? '/links' : `/links/${tag}`} key={tag} shallow>
-      <a
-        className={twMerge(
-          'leading-none rounded-lg p-2',
-          active
-            ? 'text-primary-600 dark:text-primary-400 font-medium'
-            : 'text-black dark:text-white'
-        )}
-      >
-        {tag}
-      </a>
+    <Link
+      className={twMerge(
+        'leading-none rounded-lg p-2',
+        active
+          ? 'text-primary-600 dark:text-primary-400 font-medium'
+          : 'text-black dark:text-white'
+      )}
+      href={active ? '/links' : `/links/${tag}`}
+      key={tag}
+      shallow
+    >
+      {tag}
     </Link>
   )
 }

@@ -1,9 +1,9 @@
 import Hyperlink from 'next/link'
 import { useRouter } from 'next/router'
-import React, { FunctionComponent, useMemo } from 'react'
+import { FunctionComponent, useMemo } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-import { Link } from '../types/graph-cms'
+import { Link } from '~/types/graph-cms'
 
 type Props = {
   className?: string
@@ -38,27 +38,27 @@ type LinkProps = {
 }
 
 export const LinkCard: FunctionComponent<LinkProps> = ({ className, link }) => (
-  <Hyperlink href={link.url}>
-    <a
-      className={twMerge('flex items-center', className)}
-      rel="noopener"
-      target="_blank"
-    >
-      <div
-        className="w-16 h-16 bg-center bg-cover rounded-full"
-        style={{
-          backgroundImage: `url(${link.image})`,
-        }}
-      />
+  <Hyperlink
+    className={twMerge('flex items-center', className)}
+    href={link.url}
+    rel="noopener"
+    target="_blank"
+  >
+    <div
+      className="w-16 h-16 bg-center bg-cover rounded-full"
+      style={{
+        backgroundImage: `url(${link.image})`,
+      }}
+    />
 
-      <div className="flex-1 ml-4">
-        <div className="text-lg font-medium">{link.title}</div>
-        {link.description && (
-          <div className="mt-2 text-gray-600 dark:text-gray-400">
-            {link.description}
-          </div>
-        )}
-      </div>
-    </a>
+    <div className="flex-1 ml-4">
+      <div className="text-lg font-medium">{link.title}</div>
+
+      {link.description && (
+        <div className="mt-2 text-neutral-600 dark:text-neutral-400">
+          {link.description}
+        </div>
+      )}
+    </div>
   </Hyperlink>
 )
