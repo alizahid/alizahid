@@ -20,7 +20,7 @@ export default async function Playground() {
 
   return (
     <main className="flex flex-col gap-12">
-      <h1 className="text-2xl font-bold lg:text-4xl">Playground</h1>
+      <h1 className="text-2xl font-extrabold lg:text-4xl">Playground</h1>
 
       <div className="grid items-start gap-12 lg:grid-cols-2">
         {[featured, other].map((projects, index) => (

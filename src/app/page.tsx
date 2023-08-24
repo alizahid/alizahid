@@ -59,8 +59,8 @@ export default async function Page() {
       </Prose>
 
       <section className="flex flex-col gap-12">
-        <Link href="/blog">
-          <h2 className="text-xl font-semibold text-gray-12 lg:text-2xl">
+        <Link className="-mb-4" href="/blog">
+          <h2 className="text-xl font-bold text-gray-12 lg:text-2xl">
             Recent articles
           </h2>
         </Link>
@@ -77,8 +77,8 @@ export default async function Page() {
       </section>
 
       <section className="flex flex-col gap-12">
-        <Link href="/playground">
-          <h2 className="text-xl font-semibold text-gray-12 lg:text-2xl">
+        <Link className="-mb-4" href="/playground">
+          <h2 className="text-xl font-bold text-gray-12 lg:text-2xl">
             Featured projects
           </h2>
         </Link>

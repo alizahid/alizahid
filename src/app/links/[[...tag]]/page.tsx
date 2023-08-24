@@ -1,8 +1,8 @@
 import { uniq } from 'lodash'
 import { Metadata } from 'next'
 
-import { LinksCard } from '~/components/links'
-import { TagsCard } from '~/components/tags'
+import { Links } from '~/components/links'
+import { Tags } from '~/components/tags'
 import { fetchLinks } from '~/queries/links'
 
 export const metadata: Metadata = {
@@ -27,16 +27,12 @@ export default async function Page({ searchParams }: Props) {
 
   return (
     <main className="flex flex-col gap-12">
-      <h1 className="text-2xl font-bold lg:text-4xl">Links</h1>
+      <h1 className="text-2xl font-extrabold lg:text-4xl">Links</h1>
 
-      <section className="grid items-start gap-12 lg:grid-cols-4">
-        <TagsCard active={searchParams.tag} tags={tags} />
+      <section className="flex flex-col lg:flex-row gap-12">
+        <Tags active={searchParams.tag} className="lg:w-40" tags={tags} />
 
-        <LinksCard
-          active={searchParams.tag}
-          className="lg:col-span-3"
-          links={links}
-        />
+        <Links active={searchParams.tag} links={links} />
       </section>
     </main>
   )

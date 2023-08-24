@@ -1,12 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { MDXRemote } from 'next-mdx-remote/rsc'
 import { twMerge } from 'tailwind-merge'
 
 import { fetchProjects } from '~/queries/projects'
 import { type ProjectLink } from '~/types'
 
-import { Prose } from './prose'
+import { Markdown } from './markdown'
 
 type Props = {
   className?: string
@@ -25,20 +24,13 @@ export function ProjectCard({ className, project }: Props) {
       />
 
       <div className="flex-1 flex flex-col gap-4">
-        <div className="text-lg font-semibold">{project.name}</div>
+        <div className="text-xl font-semibold">{project.name}</div>
 
-        <Prose>
-          <MDXRemote
-            components={{
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore
-              a: Link,
-            }}
-            source={project.content}
-          />
-        </Prose>
+        <div className="flex flex-col gap-2">
+          <Markdown>{project.content}</Markdown>
+        </div>
 
-        <div className="flex flex-wrap items-start text-sm gap-4">
+        <div className="flex flex-wrap items-start gap-4">
           {(project.links as Array<ProjectLink>).map(
             ({ href, label }, index) => (
               <Link
