@@ -12,8 +12,9 @@
     "dev": "next dev",
     "generate": "env-cmd -f .env.local graphql-codegen",
     "lint": "next lint",
-    "start": "next start",
-    "prepare": "husky install"
+    "lint:types": "tsc --noEmit",
+    "prepare": "husky install",
+    "start": "next start"
   },
   "dependencies": {
     "bright": "^0.8.4",
