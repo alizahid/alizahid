@@ -6,16 +6,12 @@ import { TagsCard } from '~/components/tags'
 import { fetchLinks } from '~/queries/links'
 
 export const metadata: Metadata = {
+  description: "Things I've collected",
+  metadataBase: new URL('https://alizahid.dev'),
+  openGraph: {
+    type: 'website',
+  },
   title: 'Links × Ali Zahid',
-}
-
-{
-  /* <Head>
-<title>Links &#215; Ali Zahid</title>
-<meta content="My bookmarks" name="description" />
-<meta content="My bookmarks" property="og:description" />
-<meta content="website" property="og:type" />
-</Head> */
 }
 
 type Props = {
@@ -27,7 +23,7 @@ type Props = {
 export default async function Page({ searchParams }: Props) {
   const links = await fetchLinks()
 
-  const tags = uniq(links.map(({ tags }) => tags).flat())
+  const tags = uniq(links.flatMap(({ tags }) => tags))
 
   return (
     <main className="flex flex-col gap-12">

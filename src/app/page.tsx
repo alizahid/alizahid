@@ -8,7 +8,8 @@ import { SocialLinks } from '~/components/social'
 import { fetchHome } from '~/queries/home'
 
 export const metadata: Metadata = {
-  description: '',
+  description: 'Product developer, full-stack engineer',
+  metadataBase: new URL('https://alizahid.dev'),
   openGraph: {
     type: 'website',
   },

@@ -1,15 +1,16 @@
+import { Metadata } from 'next'
 import Link from 'next/link'
 
 import { PostCard } from '~/components/post'
 import { fetchPosts } from '~/queries/posts'
 
-{
-  /* <Head>
-<title>Blog &#215; Ali Zahid</title>
-<meta content="My writing" name="description" />
-<meta content="My writing" property="og:description" />
-<meta content="website" property="og:type" />
-</Head> */
+export const metadata: Metadata = {
+  description: "Things I've written about",
+  metadataBase: new URL('https://alizahid.dev'),
+  openGraph: {
+    type: 'website',
+  },
+  title: 'Blog × Ali Zahid',
 }
 
 export default async function Blog() {
