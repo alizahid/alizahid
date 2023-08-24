@@ -2,7 +2,6 @@
 
 import { sortBy } from 'lodash'
 import Link from 'next/link'
-import { type FunctionComponent } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 type Props = {
@@ -11,24 +10,22 @@ type Props = {
   tags: Array<string>
 }
 
-export const TagsCard: FunctionComponent<Props> = ({
-  active,
-  className,
-  tags,
-}) => (
-  <div className={twMerge('flex flex-wrap lg:flex-col -m-2', className)}>
-    {sortBy(tags).map((tag) => (
-      <TagCard active={active} key={tag} tag={tag} />
-    ))}
-  </div>
-)
+export function TagsCard({ active, className, tags }: Props) {
+  return (
+    <div className={twMerge('flex flex-wrap lg:flex-col -m-2', className)}>
+      {sortBy(tags).map((tag) => (
+        <TagCard active={active} key={tag} tag={tag} />
+      ))}
+    </div>
+  )
+}
 
 type TagProps = {
   active?: string
   tag: string
 }
 
-const TagCard: FunctionComponent<TagProps> = ({ active, tag }) => {
+function TagCard({ active, tag }: TagProps) {
   const isActive = active === tag
 
   return (

@@ -1,26 +1,22 @@
-import { type FunctionComponent } from 'react'
-
 type Props = {
   className?: string
   name: keyof typeof icons
   size?: number
 }
 
-export const Icon: FunctionComponent<Props> = ({
-  className,
-  name,
-  size = 24,
-}) => (
-  <svg
-    className={className}
-    fill="currentColor"
-    height={size}
-    viewBox="0 0 48 48"
-    width={size}
-  >
-    {icons[name]}
-  </svg>
-)
+export function Icon({ className, name, size = 24 }: Props) {
+  return (
+    <svg
+      className={className}
+      fill="currentColor"
+      height={size}
+      viewBox="0 0 48 48"
+      width={size}
+    >
+      {icons[name]}
+    </svg>
+  )
+}
 
 const icons = {
   dribbble: (

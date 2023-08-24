@@ -1,6 +1,5 @@
 import { format, isSameYear, parseISO } from 'date-fns'
 import Image from 'next/image'
-import { type FunctionComponent } from 'react'
 
 import { fetchPosts } from '~/queries/posts'
 
@@ -9,7 +8,7 @@ type Props = {
   post: Awaited<ReturnType<typeof fetchPosts>>[number]
 }
 
-export const PostCard: FunctionComponent<Props> = ({ className, post }) => {
+export function PostCard({ className, post }: Props) {
   const date = parseISO(post.date)
 
   return (

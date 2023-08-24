@@ -3,10 +3,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { type FunctionComponent, type ReactNode } from 'react'
+import { type ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-export const Header: FunctionComponent = () => {
+export function Header() {
   const path = usePathname()
 
   return (
@@ -50,22 +50,19 @@ type NavLinkProps = {
   path: string
 }
 
-const NavLink: FunctionComponent<NavLinkProps> = ({
-  children,
-  className,
-  href,
-  path,
-}) => (
-  <Link
-    className={twMerge(
-      'dark:text-white font-medium p-3',
-      (href.slice(-1) === '/' ? path === href : path.startsWith(href))
-        ? 'text-primary-600 dark:text-primary-400 font-semibold'
-        : 'text-black',
-      className,
-    )}
-    href={href}
-  >
-    {children}
-  </Link>
-)
+function NavLink({ children, className, href, path }: NavLinkProps) {
+  return (
+    <Link
+      className={twMerge(
+        'dark:text-white font-medium p-3',
+        (href.slice(-1) === '/' ? path === href : path.startsWith(href))
+          ? 'text-primary-600 dark:text-primary-400 font-semibold'
+          : 'text-black',
+        className,
+      )}
+      href={href}
+    >
+      {children}
+    </Link>
+  )
+}
