@@ -14,37 +14,33 @@ export function SocialLinks({ className, size = 32 }: Props) {
       <Link
         className="text-gray-11 hover:text-gray-12"
         href="https://github.com/alizahid"
+        title="GitHub"
       >
         <Icon name="github" size={size} />
-
-        <span className="hidden">GitHub</span>
       </Link>
 
       <Link
         className="ml-4 text-gray-11 hover:text-[#1db954]"
         href="https://open.spotify.com/user/alizahid"
+        title="Spotify"
       >
         <Icon name="spotify" size={size} />
-
-        <span className="hidden">Spotify</span>
       </Link>
 
       <Link
         className="ml-4 text-gray-11 hover:text-[#1da1f2]"
         href="https://twitter.com/alizahid0"
+        title="Twitter"
       >
         <Icon name="twitter" size={size} />
-
-        <span className="hidden">Twitter</span>
       </Link>
 
       <Link
         className="ml-4 text-gray-11 hover:text-[#ea4c89]"
         href="https://dribbble.com/alizahid"
+        title="Dribbble"
       >
         <Icon name="dribbble" size={size} />
-
-        <span className="hidden">Dribbble</span>
       </Link>
     </div>
   )
