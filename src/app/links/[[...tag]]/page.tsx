@@ -30,10 +30,10 @@ export default async function Page({ searchParams }: Props) {
   const tags = uniq(links.map(({ tags }) => tags).flat())
 
   return (
-    <main>
+    <main className="flex flex-col gap-12">
       <h1 className="text-2xl font-bold lg:text-4xl">Links</h1>
 
-      <section className="grid items-start gap-12 mt-12 lg:grid-cols-4">
+      <section className="grid items-start gap-12 lg:grid-cols-4">
         <TagsCard active={searchParams.tag} tags={tags} />
 
         <LinksCard

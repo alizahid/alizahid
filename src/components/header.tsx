@@ -14,7 +14,7 @@ export function Header() {
       <Link href="/">
         <Image
           alt="Ali Zahid"
-          className="bg-white rounded-full dark:bg-black"
+          className="bg-gray-3 rounded-full"
           height={48}
           src="https://media.graphcms.com/resize=width:96/GJrB3pURnqRlaj61Z3Qp"
           unoptimized
@@ -31,12 +31,12 @@ export function Header() {
           Blog
         </NavLink>
 
-        <NavLink href="/links" path={path}>
-          Links
-        </NavLink>
-
         <NavLink href="/playground" path={path}>
           Playground
+        </NavLink>
+
+        <NavLink href="/links" path={path}>
+          Links
         </NavLink>
       </nav>
     </header>
@@ -54,10 +54,10 @@ function NavLink({ children, className, href, path }: NavLinkProps) {
   return (
     <Link
       className={twMerge(
-        'dark:text-white font-medium p-3',
+        'font-medium p-3',
         (href.slice(-1) === '/' ? path === href : path.startsWith(href))
-          ? 'text-primary-600 dark:text-primary-400 font-semibold'
-          : 'text-black',
+          ? 'text-grass-11 font-semibold'
+          : 'text-gray-11',
         className,
       )}
       href={href}

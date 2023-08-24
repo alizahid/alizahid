@@ -13,7 +13,7 @@ export function Prose({ as = 'div', children, className }: Props) {
   return (
     <Component
       className={twMerge(
-        'prose prose-neutral prose-a:no-underline max-w-none dark:prose-invert prose-a:text-primary-600 prose-a:dark:text-primary-400',
+        'prose prose-gray prose-a:no-underline max-w-none prose-a:text-grass-11',
         className,
       )}
     >

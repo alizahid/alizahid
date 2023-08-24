@@ -12,7 +12,7 @@ type Props = {
 
 export function TagsCard({ active, className, tags }: Props) {
   return (
-    <div className={twMerge('flex flex-wrap lg:flex-col -m-2', className)}>
+    <div className={twMerge('flex flex-wrap lg:flex-col gap-4', className)}>
       {sortBy(tags).map((tag) => (
         <TagCard active={active} key={tag} tag={tag} />
       ))}
@@ -31,10 +31,8 @@ function TagCard({ active, tag }: TagProps) {
   return (
     <Link
       className={twMerge(
-        'leading-none rounded-lg p-2',
-        isActive
-          ? 'text-primary-600 dark:text-primary-400 font-medium'
-          : 'text-black dark:text-white',
+        'leading-none',
+        isActive ? 'text-grass-11 font-medium' : 'text-gray-11',
       )}
       href={isActive ? '/links' : `/links/${tag}`}
       key={tag}

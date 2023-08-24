@@ -7,15 +7,15 @@
 /* global */
 
 ::selection {
-  @apply bg-primary-100 text-black dark:bg-primary-900 dark:text-white;
+  @apply bg-grass-9/25;
 }
 
 body {
-  @apply cursor-default antialiased text-black dark:text-white bg-white dark:bg-black;
+  @apply cursor-default antialiased text-gray-12 bg-gray-1;
 }
 
 a {
-  @apply transition-colors text-primary-600 dark:text-primary-400 hover:text-primary-500 dark:hover:text-primary-300;
+  @apply transition-colors text-grass-11 hover:text-grass-12;
 }
 
 button {

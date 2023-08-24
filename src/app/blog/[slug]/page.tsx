@@ -2,6 +2,7 @@ import { Code } from 'bright'
 import { format, isSameYear, parseISO } from 'date-fns'
 import { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { isValidElement } from 'react'
@@ -54,26 +55,29 @@ export default async function Page({ params }: Props) {
     <main>
       <Image
         alt={post.title}
-        className="rounded-lg bg-neutral-100 dark:bg-neutral-900"
+        className="rounded-lg bg-gray-3"
         height={1200}
         src={post.image.url}
         unoptimized
         width={1800}
       />
 
-      <h1 className="mt-4 text-2xl font-bold lg:text-4xl">{post.title}</h1>
+      <div className="flex flex-col gap-2 mt-8">
+        <h1 className="text-2xl font-bold lg:text-4xl">{post.title}</h1>
 
-      <div className="mt-2 text-neutral-800 dark:text-neutral-200">
-        {post.excerpt}
+        <div className="text-gray-11">{post.excerpt}</div>
+
+        <div className="text-sm">
+          {format(date, isSameYear(date, new Date()) ? 'MMMM d' : 'MMMM d, y')}
+        </div>
       </div>
 
-      <div className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
-        {format(date, isSameYear(date, new Date()) ? 'MMMM d' : 'MMMM d, y')}
-      </div>
-
-      <Prose as="div" className="mt-12">
+      <Prose className="mt-12">
         <MDXRemote
           components={{
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            a: Link,
             img: ({ alt, src }) => {
               const url = new URL(src!)
 

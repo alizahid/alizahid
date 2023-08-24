@@ -32,6 +32,7 @@
     "@graphql-codegen/cli": "^5.0.0",
     "@graphql-codegen/typescript": "^4.0.1",
     "@graphql-codegen/typescript-operations": "^4.0.1",
+    "@radix-ui/colors": "^2.1.0",
     "@tailwindcss/typography": "^0.5.9",
     "@types/lodash": "^4.14.197",
     "@types/node": "^20.5.4",
@@ -53,7 +54,9 @@
     "postcss": "^8.4.28",
     "prettier": "^3.0.2",
     "tailwindcss": "^3.3.3",
-    "typescript": "^5.1.6"
+    "typescript": "^5.1.6",
+    "windy-radix-palette": "^0.6.1",
+    "windy-radix-typography": "^0.2.1"
   },
   "lint-staged": {
     "*.css": [

@@ -50,23 +50,23 @@ export default async function Page() {
           can work together.
         </p>
 
-        <div className="flex items-center mt-12 not-prose">
+        <div className="flex items-center gap-4 not-prose">
           <div>Find me on</div>
 
-          <SocialLinks className="ml-4" />
+          <SocialLinks />
         </div>
       </Prose>
 
-      <section className="flex flex-col">
+      <section className="flex flex-col gap-12">
         <Link href="/blog">
-          <h2 className="-mb-4 text-xl font-semibold text-black lg:text-2xl dark:text-white">
+          <h2 className="text-xl font-semibold text-gray-12 lg:text-2xl">
             Recent articles
           </h2>
         </Link>
 
         {posts.map((post) => (
           <Link
-            className="mt-12 text-black dark:text-white"
+            className="text-gray-12"
             href={`/blog/${post.slug}`}
             key={post.slug}
           >
@@ -75,15 +75,15 @@ export default async function Page() {
         ))}
       </section>
 
-      <section className="flex flex-col">
+      <section className="flex flex-col gap-12">
         <Link href="/playground">
-          <h2 className="-mb-4 text-xl font-semibold text-black lg:text-2xl dark:text-white">
+          <h2 className="text-xl font-semibold text-gray-12 lg:text-2xl">
             Featured projects
           </h2>
         </Link>
 
         {projects.map((project) => (
-          <ProjectCard className="mt-12" key={project.slug} project={project} />
+          <ProjectCard key={project.slug} project={project} />
         ))}
       </section>
     </main>

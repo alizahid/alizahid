@@ -16,13 +16,13 @@ export default async function Blog() {
   const posts = await fetchPosts()
 
   return (
-    <main>
+    <main className="flex flex-col gap-12">
       <h1 className="text-2xl font-bold lg:text-4xl">Blog</h1>
 
-      <div className="grid items-start gap-12 mt-12 lg:grid-cols-3">
+      <div className="grid items-start gap-12 lg:grid-cols-3">
         {posts.map((post) => (
           <Link
-            className="text-black dark:text-white"
+            className="text-gray-12"
             href={`/blog/${post.slug}`}
             key={post.slug}
           >

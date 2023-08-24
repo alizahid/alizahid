@@ -35,7 +35,7 @@ type LinkProps = {
 export function LinkCard({ className, link }: LinkProps) {
   return (
     <Link
-      className={twMerge('flex items-center', className)}
+      className={twMerge('flex items-center gap-4', className)}
       href={link.url}
       rel="noopener"
       target="_blank"
@@ -47,13 +47,11 @@ export function LinkCard({ className, link }: LinkProps) {
         }}
       />
 
-      <div className="flex-1 ml-4">
+      <div className="flex-1 flex flex-col gap-2">
         <div className="text-lg font-medium">{link.title}</div>
 
         {link.description && (
-          <div className="mt-2 text-neutral-600 dark:text-neutral-400">
-            {link.description}
-          </div>
+          <div className="text-gray-11">{link.description}</div>
         )}
       </div>
     </Link>

@@ -18,18 +18,14 @@ export default async function Playground() {
 
   return (
     <>
-      <main>
+      <main className="flex flex-col gap-12">
         <h1 className="text-2xl font-bold lg:text-4xl">Playground</h1>
 
-        <div className="grid items-start gap-12 mt-12 lg:grid-cols-2">
+        <div className="grid items-start gap-12 lg:grid-cols-2">
           {[featured, other].map((projects, index) => (
-            <section key={index}>
+            <section className="flex flex-col gap-12" key={index}>
               {projects.map((project) => (
-                <ProjectCard
-                  className="mt-12 first:mt-0"
-                  key={project.slug}
-                  project={project}
-                />
+                <ProjectCard key={project.slug} project={project} />
               ))}
             </section>
           ))}

@@ -1368,6 +1368,11 @@
     picocolors "^1.0.0"
     tslib "^2.6.0"
 
+"@radix-ui/colors@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@radix-ui/colors/-/colors-2.1.0.tgz#8aa6f233f68076a92c57db93d7235172e88fda44"
+  integrity sha512-gcBnxjS2u2c6thQz/9K1+Pt2ZYcm5WKU4SLi0emYkRmYbVUw+37rlc5wgLtYOsSsRP9nxVtbJJYj6WVO7UUmZg==
+
 "@repeaterjs/repeater@^3.0.4":
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/@repeaterjs/repeater/-/repeater-3.0.4.tgz#a04d63f4d1bf5540a41b01a921c9a7fddc3bd1ca"
@@ -6192,6 +6197,16 @@ which@^2.0.1:
   integrity sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==
   dependencies:
     isexe "^2.0.0"
+
+windy-radix-palette@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/windy-radix-palette/-/windy-radix-palette-0.6.1.tgz#1e5a6047b521a2a2d4e5ca7e85da96919be4ef26"
+  integrity sha512-n8hy1IWNuieGpQ5NS9gCGoUbtzdQ/j4zPk63ok84NgaCWkyP6kBsno/iHpb4ukt3LCQPqNPo+iok2wUgxw8PBQ==
+
+windy-radix-typography@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/windy-radix-typography/-/windy-radix-typography-0.2.1.tgz#7538d373c1222398a6b0ff9f7c0694478920e5da"
+  integrity sha512-bPrEwsLKAgxcMgLGPh/PE9wx31caC2CqN7G7yuhve1ZRUDhWCvgx/nXWtls44ClmpNc+G1+U0pdpdZjRO3jQ6w==
 
 wrap-ansi@^6.2.0:
   version "6.2.0"
