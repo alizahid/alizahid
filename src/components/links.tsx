@@ -1,25 +1,25 @@
-import Hyperlink from 'next/link'
-import { useRouter } from 'next/router'
-import { FunctionComponent, useMemo } from 'react'
+'use client'
+
+import Link from 'next/link'
+import { FunctionComponent } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-import { Link } from '~/types/graph-cms'
+import { fetchLinks } from '~/queries/links'
 
 type Props = {
+  active?: string
   className?: string
-  links: Array<Link>
+  links: Awaited<ReturnType<typeof fetchLinks>>
 }
 
-export const LinksCard: FunctionComponent<Props> = ({ className, links }) => {
-  const { query } = useRouter()
-
-  const data = useMemo(() => {
-    if (query.tag) {
-      return links.filter(({ tags }) => tags.includes(String(query.tag)))
-    }
-
-    return links
-  }, [links, query.tag])
+export const LinksCard: FunctionComponent<Props> = ({
+  active,
+  className,
+  links,
+}) => {
+  const data = active
+    ? links.filter(({ tags }) => tags.includes(active))
+    : links
 
   return (
     <div
@@ -34,11 +34,11 @@ export const LinksCard: FunctionComponent<Props> = ({ className, links }) => {
 
 type LinkProps = {
   className?: string
-  link: Link
+  link: Awaited<ReturnType<typeof fetchLinks>>[number]
 }
 
 export const LinkCard: FunctionComponent<LinkProps> = ({ className, link }) => (
-  <Hyperlink
+  <Link
     className={twMerge('flex items-center', className)}
     href={link.url}
     rel="noopener"
@@ -60,5 +60,5 @@ export const LinkCard: FunctionComponent<LinkProps> = ({ className, link }) => (
         </div>
       )}
     </div>
-  </Hyperlink>
+  </Link>
 )

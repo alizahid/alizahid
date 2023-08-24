@@ -1,33 +1,27 @@
 import { gql } from 'graphql-request'
 
-import { graphcms } from '~/lib/graphcms'
-import { type Query } from '~/types/graph-cms'
+import { hygraph } from '~/lib/hygraph'
+import { ProjectsQuery } from '~/types/hygraph'
 
 const PROJECTS = gql`
-  {
+  query projects {
     projects(orderBy: order_ASC) {
-      slug
-      name
       content
       featured
+      links
+      name
+      slug
       image {
         height
-        width
         url(transformation: { image: { resize: { width: 128 } } })
+        width
       }
-      links
     }
   }
 `
 
 export const fetchProjects = async () => {
-  const { projects } = await graphcms.request<Pick<Query, 'projects'>>(PROJECTS)
+  const { projects } = await hygraph.request<ProjectsQuery>(PROJECTS)
 
-  const featured = projects.filter(({ featured }) => featured === true)
-  const other = projects.filter(({ featured }) => featured !== true)
-
-  return {
-    featured,
-    other,
-  }
+  return projects
 }

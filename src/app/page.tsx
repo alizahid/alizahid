@@ -1,28 +1,23 @@
-import { type GetStaticProps, type NextPage } from 'next'
-import Head from 'next/head'
+import { Metadata } from 'next'
 import Link from 'next/link'
 
 import { PostCard } from '~/components/post'
 import { ProjectCard } from '~/components/project'
 import { SocialLinks } from '~/components/social'
 import { fetchHome } from '~/queries/home'
-import { type Asset, type Post, type Project } from '~/types/graph-cms'
 
-type Props = {
-  posts: Array<Post>
-  projects: Array<Project>
-  resume?: Asset
+export const metadata: Metadata = {
+  description: '',
+  openGraph: {
+    type: 'website',
+  },
+  title: 'Ali Zahid',
 }
 
-const Home: NextPage<Props> = ({ posts, projects, resume }) => (
-  <>
-    <Head>
-      <title>Ali Zahid</title>
-      <meta content="About me" name="description" />
-      <meta content="About me" property="og:description" />
-      <meta content="website" property="og:type" />
-    </Head>
+export default async function Page() {
+  const { asset, posts, projects } = await fetchHome()
 
+  return (
     <main className="grid items-start gap-12 lg:grid-cols-3">
       <section>
         <h1 className="text-2xl font-bold lg:text-4xl">
@@ -32,7 +27,7 @@ const Home: NextPage<Props> = ({ posts, projects, resume }) => (
         <p className="mt-8">
           Hello. I&#39;m Ali Zahid. I love to build cool stuff. Check out my{' '}
           <Link href="/playground">playground</Link>. And here&#39;s my{' '}
-          <Link href={resume?.url ?? ''}>resume</Link>.
+          <Link href={asset.url}>resume</Link>.
         </p>
 
         <p className="mt-4">
@@ -93,15 +88,5 @@ const Home: NextPage<Props> = ({ posts, projects, resume }) => (
         ))}
       </section>
     </main>
-  </>
-)
-
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const props = await fetchHome()
-
-  return {
-    props,
-  }
+  )
 }
-
-export default Home

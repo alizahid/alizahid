@@ -1,12 +1,11 @@
-import { type NextPage } from 'next'
-import Head from 'next/head'
+import { Metadata } from 'next'
 
-const NotFound: NextPage = () => (
-  <>
-    <Head>
-      <title>Not found &#215; Ali Zahid</title>
-    </Head>
+export const metadata: Metadata = {
+  title: 'Not found × Ali Zahid',
+}
 
+export default function NotFound() {
+  return (
     <main className="flex flex-col justify-center">
       <h2 className="text-2xl font-semibold">
         Looks like you&#39;re looking for something that doesn&#39;t exist.
@@ -16,7 +15,5 @@ const NotFound: NextPage = () => (
         Are you sure you got the right link?
       </p>
     </main>
-  </>
-)
-
-export default NotFound
+  )
+}

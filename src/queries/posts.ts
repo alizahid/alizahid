@@ -1,32 +1,32 @@
 import { gql } from 'graphql-request'
 
-import { graphcms } from '~/lib/graphcms'
-import { type Query } from '~/types/graph-cms'
+import { hygraph } from '~/lib/hygraph'
+import { PostsQuery, SlugsQuery } from '~/types/hygraph'
 
 const POSTS = gql`
-  {
+  query posts {
     posts(orderBy: date_DESC) {
-      slug
-      title
       date
       excerpt
+      slug
+      title
       image {
         height
-        width
         url(transformation: { image: { resize: { width: 600 } } })
+        width
       }
     }
   }
 `
 
 export const fetchPosts = async () => {
-  const { posts } = await graphcms.request<Pick<Query, 'posts'>>(POSTS)
+  const { posts } = await hygraph.request<PostsQuery>(POSTS)
 
   return posts
 }
 
 const SLUGS = gql`
-  {
+  query slugs {
     posts {
       slug
     }
@@ -34,7 +34,7 @@ const SLUGS = gql`
 `
 
 export const fetchSlugs = async () => {
-  const { posts } = await graphcms.request<Pick<Query, 'posts'>>(SLUGS)
+  const { posts } = await hygraph.request<SlugsQuery>(SLUGS)
 
   return posts
 }

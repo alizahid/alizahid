@@ -1,15 +1,15 @@
-import Markdown from 'markdown-to-jsx'
 import Image from 'next/image'
 import Link from 'next/link'
+import { MDXRemote } from 'next-mdx-remote/rsc'
 import { type FunctionComponent } from 'react'
 import { twMerge } from 'tailwind-merge'
 
+import { fetchProjects } from '~/queries/projects'
 import { type ProjectLink } from '~/types'
-import { type Project } from '~/types/graph-cms'
 
 type Props = {
   className?: string
-  project: Project
+  project: Awaited<ReturnType<typeof fetchProjects>>[number]
 }
 
 export const ProjectCard: FunctionComponent<Props> = ({
@@ -28,25 +28,14 @@ export const ProjectCard: FunctionComponent<Props> = ({
     <div className="flex-1 ml-4">
       <div className="text-lg font-semibold">{project.name}</div>
 
-      <Markdown
-        className="text-neutral-800 dark:text-neutral-200"
-        options={{
-          overrides: {
-            a: {
-              component: ({ children, href }) => (
-                <Link href={href}>{children}</Link>
-              ),
-            },
-            p: {
-              props: {
-                className: 'mt-2',
-              },
-            },
-          },
-        }}
-      >
-        {project.content}
-      </Markdown>
+      <div className="prose prose-neutral prose-a:no-underline max-w-none dark:prose-invert prose-a:text-primary-600 prose-a:dark:text-primary-400">
+        <MDXRemote
+          components={{
+            a: ({ children, href }) => <Link href={href!}>{children}</Link>,
+          }}
+          source={project.content}
+        />
+      </div>
 
       <div className="flex flex-wrap items-start -ml-4 text-sm">
         {(project.links as Array<ProjectLink>).map(({ href, label }, index) => (

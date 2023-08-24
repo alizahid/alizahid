@@ -1,6 +1,13 @@
-schema: ${GRAPH_CMS_URL}
+schema: ${HYGRAPH_URL}
 overwrite: true
+documents:
+  - src/**/*.{ts,tsx}
 generates:
-  src/types/graph-cms.ts:
+  src/types/hygraph.ts:
     plugins:
       - typescript
+      - typescript-operations
+    config:
+      avoidOptionals: true
+      inputMaybeValue: T | undefined
+      maybeValue: T

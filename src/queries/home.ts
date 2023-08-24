@@ -1,42 +1,45 @@
 import { gql } from 'graphql-request'
 
-import { graphcms } from '~/lib/graphcms'
-import { type Query } from '~/types/graph-cms'
+import { hygraph } from '~/lib/hygraph'
+import { HomeQuery } from '~/types/hygraph'
 
 const HOME = gql`
-  {
+  query home {
     asset(where: { id: "cknafmzfk07zo0c61dqx7gq3h" }) {
       url
     }
     posts(orderBy: date_DESC, first: 3) {
-      slug
-      title
       date
       excerpt
+      slug
+      title
       image {
         height
-        width
         url(transformation: { image: { resize: { width: 600 } } })
+        width
       }
     }
     projects(where: { featured: true }) {
-      slug
-      name
       content
+      featured
+      links
+      name
+      slug
       image {
         height
-        width
         url(transformation: { image: { resize: { width: 128 } } })
+        width
       }
-      links
     }
   }
 `
 
 export const fetchHome = async () => {
-  const data = await graphcms.request<
-    Pick<Query, 'asset' | 'posts' | 'projects'>
-  >(HOME)
+  const { asset, posts, projects } = await hygraph.request<HomeQuery>(HOME)
 
-  return data
+  return {
+    asset,
+    posts,
+    projects,
+  }
 }

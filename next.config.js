@@ -1,16 +1,7 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   images: {
-    domains: ['media.graphassets.com'],
-  },
-  async redirects() {
-    return [
-      {
-        destination: 'https://willa.app?utm_source=index',
-        permanent: true,
-        source: '/index',
-      },
-    ]
+    domains: ['media.graphassets.com', 'media.graphcms.com'],
   },
   async rewrites() {
     return [

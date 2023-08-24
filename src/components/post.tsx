@@ -2,11 +2,11 @@ import { format, isSameYear, parseISO } from 'date-fns'
 import Image from 'next/image'
 import { type FunctionComponent } from 'react'
 
-import { type Post } from '~/types/graph-cms'
+import { fetchPosts } from '~/queries/posts'
 
 type Props = {
   className?: string
-  post: Post
+  post: Awaited<ReturnType<typeof fetchPosts>>[number]
 }
 
 export const PostCard: FunctionComponent<Props> = ({ className, post }) => {

@@ -1,23 +1,23 @@
 import { gql } from 'graphql-request'
 
-import { graphcms } from '~/lib/graphcms'
-import { type Query } from '~/types/graph-cms'
+import { hygraph } from '~/lib/hygraph'
+import { LinksQuery } from '~/types/hygraph'
 
 const LINKS = gql`
-  {
+  query links {
     links(orderBy: updatedAt_DESC) {
-      id
-      title
       description
-      url
+      id
       image
       tags
+      title
+      url
     }
   }
 `
 
 export const fetchLinks = async () => {
-  const { links } = await graphcms.request<Pick<Query, 'links'>>(LINKS)
+  const { links } = await hygraph.request<LinksQuery>(LINKS)
 
   return links
 }

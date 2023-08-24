@@ -1,27 +1,27 @@
 import { gql } from 'graphql-request'
 
-import { graphcms } from '~/lib/graphcms'
-import { type Query } from '~/types/graph-cms'
+import { hygraph } from '~/lib/hygraph'
+import { PostQuery } from '~/types/hygraph'
 
 const POST = gql`
-  query ($data: PostWhereUniqueInput!) {
+  query post($data: PostWhereUniqueInput!) {
     post(where: $data) {
-      slug
-      title
+      content
       date
       excerpt
-      content
+      slug
+      title
       image {
         height
+        url(transformation: { image: { resize: { width: 1280 } } })
         width
-        url
       }
     }
   }
 `
 
 export const fetchPost = async (slug: string) => {
-  const { post } = await graphcms.request<Pick<Query, 'post'>>(POST, {
+  const { post } = await hygraph.request<PostQuery>(POST, {
     data: {
       slug,
     },

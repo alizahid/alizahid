@@ -14,11 +14,16 @@
     "paths": {
       "~/*": ["src/*"]
     },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
     "target": "es5"
   },
   "exclude": ["node_modules"],
-  "include": ["typings", "**/*.ts", "**/*.tsx"]
+  "include": ["src", "typings", ".next/types/**/*.ts"]
 }

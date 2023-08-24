@@ -1,11 +1,13 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
 import { type FunctionComponent, type ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 export const Header: FunctionComponent = () => {
-  const { asPath } = useRouter()
+  const path = usePathname()
 
   return (
     <header className="flex items-center justify-between">
@@ -21,19 +23,19 @@ export const Header: FunctionComponent = () => {
       </Link>
 
       <nav className="flex">
-        <NavLink asPath={asPath} className="hidden lg:block" href="/">
+        <NavLink className="hidden lg:block" href="/" path={path}>
           Home
         </NavLink>
 
-        <NavLink asPath={asPath} href="/blog">
+        <NavLink href="/blog" path={path}>
           Blog
         </NavLink>
 
-        <NavLink asPath={asPath} href="/links">
+        <NavLink href="/links" path={path}>
           Links
         </NavLink>
 
-        <NavLink asPath={asPath} href="/playground">
+        <NavLink href="/playground" path={path}>
           Playground
         </NavLink>
       </nav>
@@ -42,25 +44,25 @@ export const Header: FunctionComponent = () => {
 }
 
 type NavLinkProps = {
-  asPath: string
   children: ReactNode
   className?: string
   href: string
+  path: string
 }
 
 const NavLink: FunctionComponent<NavLinkProps> = ({
-  asPath,
   children,
   className,
   href,
+  path,
 }) => (
   <Link
     className={twMerge(
       'dark:text-white font-medium p-3',
-      (href.slice(-1) === '/' ? asPath === href : asPath.startsWith(href))
+      (href.slice(-1) === '/' ? path === href : path.startsWith(href))
         ? 'text-primary-600 dark:text-primary-400 font-semibold'
         : 'text-black',
-      className
+      className,
     )}
     href={href}
   >
