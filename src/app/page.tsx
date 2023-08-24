@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import { PostCard } from '~/components/post'
 import { ProjectCard } from '~/components/project'
+import { Prose } from '~/components/prose'
 import { SocialLinks } from '~/components/social'
 import { fetchHome } from '~/queries/home'
 
@@ -19,18 +20,16 @@ export default async function Page() {
 
   return (
     <main className="grid items-start gap-12 lg:grid-cols-3">
-      <section>
-        <h1 className="text-2xl font-bold lg:text-4xl">
-          I have a patent on blowing minds with epic design.
-        </h1>
+      <Prose as="section">
+        <h1>I have a patent on blowing minds with epic design.</h1>
 
-        <p className="mt-8">
+        <p>
           Hello. I&#39;m Ali Zahid. I love to build cool stuff. Check out my{' '}
           <Link href="/playground">playground</Link>. And here&#39;s my{' '}
           <Link href={asset.url}>resume</Link>.
         </p>
 
-        <p className="mt-4">
+        <p>
           I started my journey when I was 8 years old with FrontPage. Moved on
           to Dreamweaver a few years later and finally learnt how to code. Over
           the last 20 years or so, I&#39;ve played with dozens of technologies
@@ -38,25 +37,25 @@ export default async function Page() {
           ecosystem focusing on Node, and React Native.
         </p>
 
-        <p className="mt-4">
+        <p>
           During my career, I&#39;ve worked with large enterprises, government
           organizations, Academy and Emmy award-winning filmmakers, e-sports
           teams, student groups, and everything in between, to help realize
           their ideas.
         </p>
 
-        <p className="mt-4">
+        <p>
           Are you looking for help building your next epic idea or product?{' '}
           <Link href="mailto:ali.zahid@live.com">Reach out</Link> and see if we
           can work together.
         </p>
 
-        <div className="flex items-center mt-12">
+        <div className="flex items-center mt-12 not-prose">
           <div>Find me on</div>
 
           <SocialLinks className="ml-4" />
         </div>
-      </section>
+      </Prose>
 
       <section className="flex flex-col">
         <Link href="/blog">

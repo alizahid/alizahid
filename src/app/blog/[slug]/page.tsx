@@ -8,6 +8,7 @@ import { isValidElement } from 'react'
 import remarkUnwrapImages from 'remark-unwrap-images'
 import { twMerge } from 'tailwind-merge'
 
+import { Prose } from '~/components/prose'
 import { fetchPost } from '~/queries/post'
 import { fetchSlugs } from '~/queries/posts'
 
@@ -70,7 +71,7 @@ export default async function Page({ params }: Props) {
         {format(date, isSameYear(date, new Date()) ? 'MMMM d' : 'MMMM d, y')}
       </div>
 
-      <div className="mt-12 prose prose-neutral prose-a:no-underline max-w-none dark:prose-invert prose-a:text-primary-600 prose-a:dark:text-primary-400">
+      <Prose as="div" className="mt-12">
         <MDXRemote
           components={{
             img: ({ alt, src }) => {
@@ -119,7 +120,7 @@ export default async function Page({ params }: Props) {
           }}
           source={post.content}
         />
-      </div>
+      </Prose>
     </main>
   )
 }

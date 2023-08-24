@@ -6,6 +6,8 @@ import { twMerge } from 'tailwind-merge'
 import { fetchProjects } from '~/queries/projects'
 import { type ProjectLink } from '~/types'
 
+import { Prose } from './prose'
+
 type Props = {
   className?: string
   project: Awaited<ReturnType<typeof fetchProjects>>[number]
@@ -25,14 +27,14 @@ export function ProjectCard({ className, project }: Props) {
       <div className="flex-1 ml-4">
         <div className="text-lg font-semibold">{project.name}</div>
 
-        <div className="prose prose-neutral prose-a:no-underline max-w-none dark:prose-invert prose-a:text-primary-600 prose-a:dark:text-primary-400">
+        <Prose>
           <MDXRemote
             components={{
               a: ({ children, href }) => <Link href={href!}>{children}</Link>,
             }}
             source={project.content}
           />
-        </div>
+        </Prose>
 
         <div className="flex flex-wrap items-start -ml-4 text-sm">
           {(project.links as Array<ProjectLink>).map(

@@ -25,14 +25,12 @@ type Props = {
 export default function Layout({ children }: Props) {
   return (
     <html className={`${sans.variable} ${mono.variable}`} lang="en">
-      <body>
-        <div className="min-h-screen flex flex-col p-8 max-w-6xl mx-auto">
-          <Header />
+      <body className="min-h-screen flex flex-col p-8 max-w-6xl mx-auto">
+        <Header />
 
-          {children}
+        {children}
 
-          <Footer />
-        </div>
+        <Footer />
       </body>
     </html>
   )
