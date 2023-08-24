@@ -1,5 +1,6 @@
 import '~/styles/global.css'
 
+import { Analytics } from '@vercel/analytics/react'
 import localFont from 'next/font/local'
 import { ReactNode } from 'react'
 
@@ -31,6 +32,8 @@ export default function Layout({ children }: Props) {
         {children}
 
         <Footer />
+
+        <Analytics />
       </body>
     </html>
   )
