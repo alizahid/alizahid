@@ -1,7 +1,6 @@
 import '~/styles/global.css'
 
 import { Analytics } from '@vercel/analytics/react'
-import { ServerRuntime } from 'next'
 import localFont from 'next/font/local'
 import { ReactNode } from 'react'
 
@@ -19,8 +18,6 @@ const mono = localFont({
   src: '../assets/fonts/roboto-mono.ttf',
   variable: '--font-mono',
 })
-
-export const runtime: ServerRuntime = 'edge'
 
 type Props = {
   children: ReactNode
