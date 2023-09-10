@@ -13,7 +13,7 @@ export function PostCard({ className, post }: Props) {
   const date = parseISO(post.date)
 
   return (
-    <div className={twMerge('flex flex-col gap-4', className)}>
+    <div className={twMerge('flex flex-col gap-2', className)}>
       <Image
         alt={post.title}
         className="bg-gray-3 rounded-lg"

@@ -39,7 +39,7 @@ export function Links({ active, className, links }: Props) {
             />
           </figure>
 
-          <div className="flex-1 flex flex-col gap-4">
+          <div className="flex-1 flex flex-col gap-2">
             <div className="text-xl font-semibold">{link.title}</div>
 
             <div className="text-gray-11">{link.description}</div>
