@@ -9,13 +9,30 @@ import { Header } from '~/components/header'
 
 const sans = localFont({
   display: 'swap',
-  src: '../assets/fonts/satoshi.ttf',
+  src: [
+    {
+      path: '../assets/fonts/sans-book.woff2',
+      weight: '400',
+    },
+    {
+      path: '../assets/fonts/sans-medium.woff2',
+      weight: '500',
+    },
+    {
+      path: '../assets/fonts/sans-bold.woff2',
+      weight: '700',
+    },
+    {
+      path: '../assets/fonts/sans-black.woff2',
+      weight: '900',
+    },
+  ],
   variable: '--font-sans',
 })
 
 const mono = localFont({
   display: 'swap',
-  src: '../assets/fonts/roboto-mono.ttf',
+  src: '../assets/fonts/mono-regular.woff2',
   variable: '--font-mono',
 })
 

@@ -18,7 +18,7 @@ export default async function Blog() {
 
   return (
     <main className="flex flex-col gap-12">
-      <h1 className="text-2xl font-extrabold lg:text-4xl">Blog</h1>
+      <h1 className="text-2xl font-black lg:text-4xl">Blog</h1>
 
       <div className="grid items-start gap-12 lg:grid-cols-3">
         {posts.map((post) => (

@@ -27,7 +27,7 @@ export default async function Page({ searchParams }: Props) {
 
   return (
     <main className="flex flex-col gap-12">
-      <h1 className="text-2xl font-extrabold lg:text-4xl">Links</h1>
+      <h1 className="text-2xl font-black lg:text-4xl">Links</h1>
 
       <section className="flex flex-col lg:flex-row gap-12">
         <Tags active={searchParams.tag} className="lg:w-40" tags={tags} />
