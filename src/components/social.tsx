@@ -8,9 +8,9 @@ type Props = {
 
 export function SocialLinks({ className, size = 32 }: Props) {
   return (
-    <div className={twMerge('flex', className)}>
+    <div className={twMerge('flex gap-4', className)}>
       <Link
-        className="text-gray-11 hover:text-gray-12"
+        className="text-gray-11 hover:text-gray-9"
         href="https://github.com/alizahid"
         title="GitHub"
       >
@@ -25,7 +25,7 @@ export function SocialLinks({ className, size = 32 }: Props) {
       </Link>
 
       <Link
-        className="ml-4 text-gray-11 hover:text-[#1da1f2]"
+        className="text-gray-11 hover:text-blue-9"
         href="https://twitter.com/alizahid0"
         title="Twitter"
       >
@@ -40,7 +40,7 @@ export function SocialLinks({ className, size = 32 }: Props) {
       </Link>
 
       <Link
-        className="ml-4 text-gray-11 hover:text-[#0077b5]"
+        className="text-gray-11 hover:text-cyan-9"
         href="https://linkedin.com/in/alizahid"
         title="LinkedIn"
       >
@@ -55,7 +55,7 @@ export function SocialLinks({ className, size = 32 }: Props) {
       </Link>
 
       <Link
-        className="ml-4 text-gray-11 hover:text-[#ea4c89]"
+        className="text-gray-11 hover:text-pink-9"
         href="https://dribbble.com/alizahid"
         title="Dribbble"
       >
