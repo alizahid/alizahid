@@ -1,4 +1,4 @@
-import { gql } from 'graphql-request'
+import { gql } from '@urql/core'
 
 import { hygraph } from '~/lib/hygraph'
 import { HomeQuery } from '~/types/hygraph'
@@ -35,11 +35,11 @@ const HOME = gql`
 `
 
 export const fetchHome = async () => {
-  const { asset, posts, projects } = await hygraph.request<HomeQuery>(HOME)
+  const { data } = await hygraph.query<HomeQuery>(HOME, undefined)
 
-  return {
-    asset,
-    posts,
-    projects,
+  if (!data) {
+    throw new Error()
   }
+
+  return data
 }

@@ -1,3 +1,6 @@
-import { GraphQLClient } from 'graphql-request'
+import { cacheExchange, Client, fetchExchange } from '@urql/core'
 
-export const hygraph = new GraphQLClient(process.env.HYGRAPH_URL)
+export const hygraph = new Client({
+  exchanges: [cacheExchange, fetchExchange],
+  url: process.env.HYGRAPH_URL,
+})

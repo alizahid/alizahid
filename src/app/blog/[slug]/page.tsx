@@ -44,6 +44,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const post = await fetchPost(params.slug)
 
+  if (!post) {
+    notFound()
+  }
+
   const date = parseISO(post.date)
 
   return (

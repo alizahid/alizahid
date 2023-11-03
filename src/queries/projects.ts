@@ -1,4 +1,4 @@
-import { gql } from 'graphql-request'
+import { gql } from '@urql/core'
 
 import { hygraph } from '~/lib/hygraph'
 import { ProjectsQuery } from '~/types/hygraph'
@@ -21,7 +21,7 @@ const PROJECTS = gql`
 `
 
 export const fetchProjects = async () => {
-  const { projects } = await hygraph.request<ProjectsQuery>(PROJECTS)
+  const { data } = await hygraph.query<ProjectsQuery>(PROJECTS, undefined)
 
-  return projects
+  return data?.projects ?? []
 }

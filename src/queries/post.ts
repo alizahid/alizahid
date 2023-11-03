@@ -1,4 +1,4 @@
-import { gql } from 'graphql-request'
+import { gql } from '@urql/core'
 
 import { hygraph } from '~/lib/hygraph'
 import { PostQuery } from '~/types/hygraph'
@@ -21,11 +21,11 @@ const POST = gql`
 `
 
 export const fetchPost = async (slug: string) => {
-  const { post } = await hygraph.request<PostQuery>(POST, {
+  const { data } = await hygraph.query<PostQuery>(POST, {
     data: {
       slug,
     },
   })
 
-  return post
+  return data?.post
 }

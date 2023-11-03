@@ -15,7 +15,7 @@ export function Markdown({ children }: Props) {
     <MDXRemote
       components={{
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
+        // @ts-expect-error
         a: Link,
         img: ({ alt, src }) => {
           const url = new URL(src!)
