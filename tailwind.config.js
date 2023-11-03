@@ -9,8 +9,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        mono: ['var(--font-mono)'],
-        sans: ['var(--font-sans)'],
+        mono: ['var(--font-geist-mono)'],
+        sans: ['var(--font-geist-sans)'],
       },
     },
   },
