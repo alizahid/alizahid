@@ -51,7 +51,7 @@ export default async function Page({ params }: Props) {
 
         <Image
           alt={post.title}
-          className="-mx-4 max-w-[100vw] bg-gray-3 lg:mx-0 lg:max-w-full lg:rounded-lg"
+          className="-mx-6 max-w-[100vw] bg-gray-3 lg:mx-0 lg:max-w-full lg:rounded-lg"
           height={1200}
           src={post.image.url}
           unoptimized

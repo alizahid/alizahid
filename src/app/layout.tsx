@@ -32,7 +32,7 @@ export default function Layout({ children }: Props) {
     >
       <body>
         <ThemeProvider attribute="class">
-          <div className="mx-auto flex min-h-screen max-w-5xl flex-col p-4 lg:p-8">
+          <div className="mx-auto flex min-h-screen max-w-5xl flex-col p-6 lg:p-8">
             <Header />
 
             {children}

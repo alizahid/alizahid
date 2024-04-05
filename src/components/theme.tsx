@@ -8,21 +8,24 @@ export function Theme() {
   const { setTheme, theme, themes } = useTheme()
 
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-4">
       {themes.map((item) => (
         <button
-          className={twMerge('rounded-full p-2', item === theme && 'bg-gray-3')}
+          className={twMerge(
+            'text-gray-11 transition-colors hover:text-gray-12',
+            item === theme && 'text-gray-12',
+          )}
           key={item}
           onClick={() => {
             setTheme(item)
           }}
         >
           {item === 'light' ? (
-            <SunIcon className="size-4" />
+            <SunIcon className="size-5" />
           ) : item === 'dark' ? (
-            <MoonIcon className="size-4" />
+            <MoonIcon className="size-5" />
           ) : (
-            <DesktopIcon className="size-4" />
+            <DesktopIcon className="size-5" />
           )}
         </button>
       ))}

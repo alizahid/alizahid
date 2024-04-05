@@ -1,3 +1,8 @@
+import {
+  GitHubLogoIcon,
+  LinkedInLogoIcon,
+  TwitterLogoIcon,
+} from '@radix-ui/react-icons'
 import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
 
@@ -9,19 +14,15 @@ export function SocialLinks({ className }: Props) {
   const links = [
     {
       href: 'https://github.com/alizahid',
-      label: 'GitHub',
+      icon: <GitHubLogoIcon className="size-5" />,
     },
     {
       href: 'https://twitter.com/alizah1d',
-      label: 'Twitter',
+      icon: <TwitterLogoIcon className="size-5" />,
     },
     {
       href: 'https://linkedin.com/in/alizahid',
-      label: 'LinkedIn',
-    },
-    {
-      href: 'https://dribbble.com/alizahid',
-      label: 'Dribbble',
+      icon: <LinkedInLogoIcon className="size-5" />,
     },
   ]
 
@@ -33,7 +34,7 @@ export function SocialLinks({ className }: Props) {
           href={link.href}
           key={link.href}
         >
-          {link.label}
+          {link.icon}
         </Link>
       ))}
     </div>
