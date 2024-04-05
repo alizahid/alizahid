@@ -14,22 +14,30 @@ export default async function Page() {
         <Markdown>{block.content}</Markdown>
       </section>
 
-      <section className="grid gap-8 lg:grid-cols-3">
-        {posts.map((post) => (
-          <Link
-            className="text-gray-12"
-            href={`/blog/${post.slug}`}
-            key={post.slug}
-          >
-            <PostCard post={post} />
-          </Link>
-        ))}
+      <section className="flex flex-col gap-6">
+        <h2 className="text-4xl font-bold">Recent posts</h2>
+
+        <div className="grid gap-8 lg:grid-cols-2">
+          {posts.map((post) => (
+            <Link
+              className="text-gray-12"
+              href={`/blog/${post.slug}`}
+              key={post.slug}
+            >
+              <PostCard post={post} />
+            </Link>
+          ))}
+        </div>
       </section>
 
-      <section className="grid gap-8 lg:grid-cols-2">
-        {projects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
-        ))}
+      <section className="flex flex-col gap-6">
+        <h2 className="text-4xl font-bold">Featured projects</h2>
+
+        <div className="grid gap-8 lg:grid-cols-2">
+          {projects.map((project) => (
+            <ProjectCard key={project.slug} project={project} />
+          ))}
+        </div>
       </section>
     </main>
   )

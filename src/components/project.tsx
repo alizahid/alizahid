@@ -32,7 +32,7 @@ export function ProjectCard({ className, project }: Props) {
         <div className="flex flex-wrap items-start gap-2">
           {project.links.map(({ label, link }, index) => (
             <Link
-              className="font-medium leading-tight"
+              className="rounded-md bg-accent-9 px-2 py-1 text-sm font-medium leading-tight text-white"
               href={link}
               key={`link-${index}`}
             >

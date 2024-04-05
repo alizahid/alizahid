@@ -16,7 +16,7 @@ export default async function Blog() {
     <main className="flex flex-col gap-12">
       <h1 className="text-4xl font-bold">Blog</h1>
 
-      <section className="grid gap-8 lg:grid-cols-3">
+      <section className="grid gap-8 lg:grid-cols-2">
         {posts.map((post) => (
           <Link
             className="text-gray-12"

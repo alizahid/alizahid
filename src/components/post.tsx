@@ -16,7 +16,7 @@ export function PostCard({ className, post }: Props) {
     <div className={twMerge('flex flex-col gap-2', className)}>
       <Image
         alt={post.title}
-        className="rounded-lg bg-gray-3"
+        className="-mx-4 max-w-[100vw] bg-gray-3 lg:mx-0 lg:max-w-full lg:rounded-lg"
         height={400}
         src={post.image.url}
         unoptimized

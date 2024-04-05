@@ -30,13 +30,15 @@ export default function Layout({ children }: Props) {
       lang="en"
       suppressHydrationWarning
     >
-      <body className="mx-auto flex min-h-screen max-w-5xl flex-col p-4 lg:p-8">
+      <body>
         <ThemeProvider attribute="class">
-          <Header />
+          <div className="mx-auto flex min-h-screen max-w-5xl flex-col p-4 lg:p-8">
+            <Header />
 
-          {children}
+            {children}
 
-          <Footer />
+            <Footer />
+          </div>
         </ThemeProvider>
 
         <Analytics />

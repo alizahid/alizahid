@@ -8,7 +8,7 @@ const HOME = gql`
     block(where: { slug: "about" }) {
       content
     }
-    posts(orderBy: date_DESC, first: 6) {
+    posts(orderBy: date_DESC, first: 4) {
       date
       excerpt
       slug
