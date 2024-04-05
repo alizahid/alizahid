@@ -6,10 +6,6 @@ import { fetchPosts } from '~/queries/posts'
 
 export const metadata: Metadata = {
   description: "Things I've written about",
-  metadataBase: new URL('https://alizahid.dev'),
-  openGraph: {
-    type: 'website',
-  },
   title: 'Blog × Ali Zahid',
 }
 
@@ -18,9 +14,9 @@ export default async function Blog() {
 
   return (
     <main className="flex flex-col gap-12">
-      <h1 className="text-2xl font-black lg:text-4xl">Blog</h1>
+      <h1 className="text-4xl font-bold">Blog</h1>
 
-      <div className="grid items-start gap-12 lg:grid-cols-3">
+      <section className="grid gap-8 lg:grid-cols-3">
         {posts.map((post) => (
           <Link
             className="text-gray-12"
@@ -30,7 +26,7 @@ export default async function Blog() {
             <PostCard post={post} />
           </Link>
         ))}
-      </div>
+      </section>
     </main>
   )
 }

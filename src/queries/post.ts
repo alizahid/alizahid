@@ -20,7 +20,7 @@ const POST = gql`
   }
 `
 
-export const fetchPost = async (slug: string) => {
+export async function fetchPost(slug: string) {
   const { data } = await hygraph.query<PostQuery>(POST, {
     data: {
       slug,

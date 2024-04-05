@@ -7,8 +7,6 @@ const PROJECTS = gql`
   query projects {
     projects(orderBy: order_ASC) {
       content
-      featured
-      links
       name
       slug
       image {
@@ -16,11 +14,15 @@ const PROJECTS = gql`
         url(transformation: { image: { resize: { width: 128 } } })
         width
       }
+      links {
+        link
+        label
+      }
     }
   }
 `
 
-export const fetchProjects = async () => {
+export async function fetchProjects() {
   const { data } = await hygraph.query<ProjectsQuery>(PROJECTS, undefined)
 
   return data?.projects ?? []

@@ -5,10 +5,10 @@ import { HomeQuery } from '~/types/hygraph'
 
 const HOME = gql`
   query home {
-    asset(where: { id: "cknafmzfk07zo0c61dqx7gq3h" }) {
-      url
+    block(where: { slug: "about" }) {
+      content
     }
-    posts(orderBy: date_DESC, first: 3) {
+    posts(orderBy: date_DESC, first: 6) {
       date
       excerpt
       slug
@@ -19,10 +19,8 @@ const HOME = gql`
         width
       }
     }
-    projects(where: { featured: true }) {
+    projects(orderBy: order_ASC, first: 4) {
       content
-      featured
-      links
       name
       slug
       image {
@@ -30,11 +28,15 @@ const HOME = gql`
         url(transformation: { image: { resize: { width: 128 } } })
         width
       }
+      links {
+        link
+        label
+      }
     }
   }
 `
 
-export const fetchHome = async () => {
+export async function fetchHome() {
   const { data } = await hygraph.query<HomeQuery>(HOME, undefined)
 
   if (!data) {

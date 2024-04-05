@@ -19,7 +19,7 @@ const POSTS = gql`
   }
 `
 
-export const fetchPosts = async () => {
+export async function fetchPosts() {
   const { data } = await hygraph.query<PostsQuery>(POSTS, undefined)
 
   return data?.posts ?? []
@@ -33,7 +33,7 @@ const SLUGS = gql`
   }
 `
 
-export const fetchSlugs = async () => {
+export async function fetchSlugs() {
   const { data } = await hygraph.query<SlugsQuery>(SLUGS, undefined)
 
   return data?.posts ?? []

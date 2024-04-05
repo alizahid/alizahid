@@ -16,7 +16,7 @@ export function PostCard({ className, post }: Props) {
     <div className={twMerge('flex flex-col gap-2', className)}>
       <Image
         alt={post.title}
-        className="bg-gray-3 rounded-lg"
+        className="rounded-lg bg-gray-3"
         height={400}
         src={post.image.url}
         unoptimized
@@ -25,9 +25,9 @@ export function PostCard({ className, post }: Props) {
 
       <div className="text-xl font-semibold">{post.title}</div>
 
-      <div className="text-gray-11">{post.excerpt}</div>
+      <div className="text-pretty text-gray-12">{post.excerpt}</div>
 
-      <div className="text-sm text-gray-12">
+      <div className="text-sm text-gray-11">
         {format(date, isSameYear(date, new Date()) ? 'MMM d' : 'MMM d, y')}
       </div>
     </div>

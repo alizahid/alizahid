@@ -16,7 +16,7 @@ const LINKS = gql`
   }
 `
 
-export const fetchLinks = async () => {
+export async function fetchLinks() {
   const { data } = await hygraph.query<LinksQuery>(LINKS, undefined)
 
   return data?.links ?? []

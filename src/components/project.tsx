@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
 
 import { fetchProjects } from '~/queries/projects'
-import { type ProjectLink } from '~/types'
 
 import { Markdown } from './markdown'
 
@@ -23,25 +22,23 @@ export function ProjectCard({ className, project }: Props) {
         width={64}
       />
 
-      <div className="flex-1 flex flex-col gap-4">
+      <div className="flex flex-1 flex-col gap-2">
         <div className="text-xl font-semibold">{project.name}</div>
 
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 text-pretty">
           <Markdown>{project.content}</Markdown>
         </div>
 
-        <div className="flex flex-wrap items-start gap-4">
-          {(project.links as Array<ProjectLink>).map(
-            ({ href, label }, index) => (
-              <Link
-                className="p-2 font-medium leading-none text-gray-1 hover:text-gray-1 rounded-md hover:bg-grass-10 bg-grass-9"
-                href={href}
-                key={`link-${index}`}
-              >
-                {label}
-              </Link>
-            ),
-          )}
+        <div className="flex flex-wrap items-start gap-2">
+          {project.links.map(({ label, link }, index) => (
+            <Link
+              className="font-medium leading-tight"
+              href={link}
+              key={`link-${index}`}
+            >
+              {label}
+            </Link>
+          ))}
         </div>
       </div>
     </div>

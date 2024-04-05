@@ -1,70 +1,20 @@
-import { Metadata } from 'next'
 import Link from 'next/link'
 
+import { Markdown } from '~/components/markdown'
 import { PostCard } from '~/components/post'
 import { ProjectCard } from '~/components/project'
-import { Prose } from '~/components/prose'
-import { SocialLinks } from '~/components/social'
 import { fetchHome } from '~/queries/home'
 
-export const metadata: Metadata = {
-  description: 'Product developer, full-stack engineer',
-  metadataBase: new URL('https://alizahid.dev'),
-  openGraph: {
-    type: 'website',
-  },
-  title: 'Ali Zahid',
-}
-
 export default async function Page() {
-  const { asset, posts, projects } = await fetchHome()
+  const { block, posts, projects } = await fetchHome()
 
   return (
-    <main className="grid items-start gap-12 lg:grid-cols-3">
-      <Prose as="section">
-        <h1>I have a patent on blowing minds with epic design.</h1>
+    <main className="flex flex-col gap-24">
+      <section className="flex flex-col gap-4 text-pretty text-lg">
+        <Markdown>{block.content}</Markdown>
+      </section>
 
-        <p>
-          Hello. I&#39;m Ali Zahid. I love to build cool stuff. Check out my{' '}
-          <Link href="/playground">playground</Link>. And here&#39;s my{' '}
-          <Link href={asset.url}>resume</Link>.
-        </p>
-
-        <p>
-          I started my journey when I was 8 years old with FrontPage. Moved on
-          to Dreamweaver a few years later and finally learnt how to code. Over
-          the last 20 years or so, I&#39;ve played with dozens of technologies
-          and programming languages before finally settling on the JavaScript
-          ecosystem focusing on Node, and React Native.
-        </p>
-
-        <p>
-          During my career, I&#39;ve worked with large enterprises, government
-          organizations, Academy and Emmy award-winning filmmakers, e-sports
-          teams, student groups, and everything in between, to help realize
-          their ideas.
-        </p>
-
-        <p>
-          Are you looking for help building your next epic idea or product?{' '}
-          <Link href="mailto:ali.zahid@live.com">Reach out</Link> and see if we
-          can work together.
-        </p>
-
-        <div className="flex items-center gap-4 not-prose">
-          <div>Find me on</div>
-
-          <SocialLinks />
-        </div>
-      </Prose>
-
-      <section className="flex flex-col gap-12">
-        <Link className="-mb-4" href="/blog">
-          <h2 className="text-xl font-bold text-gray-12 lg:text-2xl">
-            Recent articles
-          </h2>
-        </Link>
-
+      <section className="grid gap-8 lg:grid-cols-3">
         {posts.map((post) => (
           <Link
             className="text-gray-12"
@@ -76,13 +26,7 @@ export default async function Page() {
         ))}
       </section>
 
-      <section className="flex flex-col gap-12">
-        <Link className="-mb-4" href="/playground">
-          <h2 className="text-xl font-bold text-gray-12 lg:text-2xl">
-            Featured projects
-          </h2>
-        </Link>
-
+      <section className="grid gap-8 lg:grid-cols-2">
         {projects.map((project) => (
           <ProjectCard key={project.slug} project={project} />
         ))}

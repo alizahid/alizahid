@@ -6,8 +6,8 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <main className="flex flex-col gap-4 justify-center">
-      <h2 className="text-2xl font-semibold">
+    <main className="flex flex-col justify-center gap-2 text-pretty">
+      <h2 className="text-4xl font-bold">
         Looks like you&#39;re looking for something that doesn&#39;t exist.
       </h2>
 
