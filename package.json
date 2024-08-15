@@ -47,6 +47,7 @@
     "@graphql-codegen/cli": "^5.0.2",
     "@graphql-codegen/typescript": "^4.0.9",
     "@graphql-codegen/typescript-operations": "^4.2.3",
+    "@next/eslint-plugin-next": "^14.2.5",
     "@radix-ui/colors": "^3.0.0",
     "@types/lodash": "^4.17.7",
     "@types/node": "^22.3.0",
