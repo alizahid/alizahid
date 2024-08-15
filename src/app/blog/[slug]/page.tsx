@@ -1,10 +1,9 @@
 import { format, isSameYear, parseISO } from 'date-fns'
-import { Metadata } from 'next'
+import { type Metadata } from 'next'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
 import { Markdown } from '~/components/markdown'
-import { Prose } from '~/components/prose'
 import { fetchPost } from '~/queries/post'
 import { fetchSlugs } from '~/queries/posts'
 
@@ -42,32 +41,30 @@ export default async function Page({ params }: Props) {
     notFound()
   }
 
-  const date = parseISO(post.date)
+  const date = parseISO(post.date as string)
 
   return (
     <main>
       <div className="flex flex-col gap-4">
-        <h1 className="text-4xl font-bold">{post.title}</h1>
+        <h1 className="text-9">{post.title}</h1>
 
         <Image
           alt={post.title}
-          className="-mx-6 max-w-[100vw] bg-gray-3 lg:mx-0 lg:max-w-full lg:rounded-lg"
+          className="rounded-4 bg-sageA3"
           height={1200}
           src={post.image.url}
           unoptimized
           width={1800}
         />
 
-        <div className="text-xl font-medium">{post.excerpt}</div>
+        <div className="text-4 font-medium">{post.excerpt}</div>
 
-        <div className="text-sm text-gray-11">
+        <div className="text-2 text-sageA11">
           {format(date, isSameYear(date, new Date()) ? 'MMMM d' : 'MMMM d, y')}
         </div>
       </div>
 
-      <Prose className="mt-12">
-        <Markdown>{post.content}</Markdown>
-      </Prose>
+      <Markdown className="mt-9" content={post.content} />
     </main>
   )
 }

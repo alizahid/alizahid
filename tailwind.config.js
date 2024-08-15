@@ -1,63 +1,51 @@
-const { range } = require('lodash')
-
-function createPalette(name, alpha) {
-  return range(1, 13).reduce(
-    (previous, current) => ({
-      ...previous,
-      [alpha ? `a${current}` : current]:
-        `var(--${name}-${alpha ? 'a' : ''}${current})`,
-    }),
-    {},
-  )
-}
+const { amberA, jadeA, sageA, whiteA } = require('@radix-ui/colors')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['src/**/*.tsx'],
-  darkMode: 'class',
-  plugins: [require('@tailwindcss/typography')],
   theme: {
-    extend: {
-      colors: {
-        accent: {
-          ...createPalette('jade'),
-          ...createPalette('jade', true),
-        },
-        gray: {
-          ...createPalette('sage'),
-          ...createPalette('sage', true),
-        },
-        yellow: {
-          ...createPalette('amber'),
-          ...createPalette('amber', true),
-        },
-      },
-      fontFamily: {
-        mono: ['var(--font-mono)'],
-        sans: ['var(--font-sans)'],
-      },
-      typography: {
-        gray: {
-          css: {
-            '--tw-prose-body': 'var(--gray-12)',
-            '--tw-prose-bold': 'var(--gray-12)',
-            '--tw-prose-bullets': 'var(--gray-8)',
-            '--tw-prose-captions': 'var(--gray-11)',
-            '--tw-prose-code': 'var(--gray-12)',
-            '--tw-prose-counters': 'var(--gray-10)',
-            '--tw-prose-headings': 'var(--gray-12)',
-            '--tw-prose-hr': 'var(--gray-6)',
-            '--tw-prose-lead': 'var(--gray-11)',
-            '--tw-prose-links': 'var(--accent-11)',
-            '--tw-prose-pre-bg': 'var(--gray-2)',
-            '--tw-prose-pre-code': 'var(--gray-12)',
-            '--tw-prose-quote-borders': 'var(--gray-6)',
-            '--tw-prose-quotes': 'var(--gray-11)',
-            '--tw-prose-td-borders': 'var(--gray-6)',
-            '--tw-prose-th-borders': 'var(--gray-6)',
-          },
-        },
-      },
+    borderRadius: {
+      0: '0px',
+      1: '3px',
+      2: '4px',
+      3: '6px',
+      4: '8px',
+      5: '12px',
+      6: '16px',
+      full: '100%',
+    },
+    colors: {
+      ...jadeA,
+      ...sageA,
+      ...amberA,
+      ...whiteA,
+    },
+    fontFamily: {
+      mono: ['var(--font-mono)'],
+      sans: ['var(--font-sans)'],
+    },
+    fontSize: {
+      1: ['12px', '16px'],
+      2: ['14px', '20px'],
+      3: ['16px', '24px'],
+      4: ['18px', '26px'],
+      5: ['20px', '28px'],
+      6: ['24px', '30px'],
+      7: ['28px', '36px'],
+      8: ['35px', '40px'],
+      9: ['60px', '60px'],
+    },
+    spacing: {
+      0: '0px',
+      1: '4px',
+      2: '8px',
+      3: '12px',
+      4: '16px',
+      5: '24px',
+      6: '32px',
+      7: '40px',
+      8: '48px',
+      9: '64px',
     },
   },
 }

@@ -1,26 +1,24 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { twMerge } from 'tailwind-merge'
 
-import { fetchLinks } from '~/queries/links'
+import { type Links } from '~/queries/links'
 
 type Props = {
-  className?: string
-  link: Awaited<ReturnType<typeof fetchLinks>>[number]
+  link: Links[number]
 }
 
-export function LinkCard({ className, link }: Props) {
+export function LinkCard({ link }: Props) {
   return (
     <Link
-      className={twMerge('flex items-start gap-4', className)}
+      className="flex items-start gap-4"
       href={link.url}
       rel="noopener"
       target="_blank"
     >
-      <figure className="relative h-16 w-16">
+      <figure className="relative h-9 w-9">
         <Image
           alt={link.title}
-          className="rounded-lg bg-cover bg-center"
+          className="rounded-4 bg-cover bg-center"
           fill
           src={link.image}
           unoptimized
@@ -28,9 +26,9 @@ export function LinkCard({ className, link }: Props) {
       </figure>
 
       <div className="flex flex-1 flex-col">
-        <div className="text-xl font-semibold">{link.title}</div>
+        <div className="text-4 font-medium">{link.title}</div>
 
-        <div className="text-pretty text-gray-11">{link.description}</div>
+        <div className="text-pretty text-sageA12">{link.description}</div>
       </div>
     </Link>
   )

@@ -1,9 +1,8 @@
 import '~/styles/main.css'
 
 import { Analytics } from '@vercel/analytics/react'
-import { Metadata } from 'next'
-import { ThemeProvider } from 'next-themes'
-import { ReactNode } from 'react'
+import { type Metadata } from 'next'
+import { type ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 import { mono, sans } from '~/assets/fonts'
@@ -31,15 +30,13 @@ export default function Layout({ children }: Props) {
       suppressHydrationWarning
     >
       <body>
-        <ThemeProvider attribute="class">
-          <div className="mx-auto flex min-h-screen max-w-5xl flex-col p-6 lg:p-8">
-            <Header />
+        <div className="mx-auto flex min-h-screen max-w-5xl flex-col gap-9 p-6 lg:p-8">
+          <Header />
 
-            {children}
+          {children}
 
-            <Footer />
-          </div>
-        </ThemeProvider>
+          <Footer />
+        </div>
 
         <Analytics />
       </body>

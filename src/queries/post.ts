@@ -1,7 +1,7 @@
 import { gql } from '@urql/core'
 
 import { hygraph } from '~/lib/hygraph'
-import { PostQuery } from '~/types/hygraph'
+import { type PostQuery } from '~/types/hygraph'
 
 const POST = gql`
   query post($data: PostWhereUniqueInput!) {

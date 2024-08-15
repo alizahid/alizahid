@@ -1,35 +1,34 @@
 import { format, isSameYear, parseISO } from 'date-fns'
 import Image from 'next/image'
-import { twMerge } from 'tailwind-merge'
+import Link from 'next/link'
 
-import { fetchPosts } from '~/queries/posts'
+import { type Posts } from '~/queries/posts'
 
 type Props = {
-  className?: string
-  post: Awaited<ReturnType<typeof fetchPosts>>[number]
+  post: Posts[number]
 }
 
-export function PostCard({ className, post }: Props) {
-  const date = parseISO(post.date)
+export function PostCard({ post }: Props) {
+  const date = parseISO(post.date as string)
 
   return (
-    <div className={twMerge('flex flex-col gap-2', className)}>
+    <Link className="flex flex-col gap-2" href={`/blog/${post.slug}`}>
       <Image
         alt={post.title}
-        className="-mx-6 max-w-[100vw] bg-gray-3 lg:mx-0 lg:max-w-full lg:rounded-lg"
+        className="rounded-4 bg-sageA3"
         height={400}
         src={post.image.url}
         unoptimized
         width={600}
       />
 
-      <div className="text-xl font-semibold">{post.title}</div>
+      <div className="text-4 font-medium">{post.title}</div>
 
-      <div className="text-pretty text-gray-12">{post.excerpt}</div>
+      <div className="text-pretty text-sageA12">{post.excerpt}</div>
 
-      <div className="text-sm text-gray-11">
+      <div className="text-2 text-sageA11">
         {format(date, isSameYear(date, new Date()) ? 'MMM d' : 'MMM d, y')}
       </div>
-    </div>
+    </Link>
   )
 }

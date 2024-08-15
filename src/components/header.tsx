@@ -22,7 +22,7 @@ export function Header() {
       <Link href="/">
         <Image
           alt="Ali Zahid"
-          className="rounded-full bg-gray-3"
+          className="rounded-full bg-sageA3"
           height={48}
           src="https://media.graphcms.com/resize=width:96/GJrB3pURnqRlaj61Z3Qp"
           unoptimized
@@ -30,9 +30,9 @@ export function Header() {
         />
       </Link>
 
-      <nav className="flex gap-3 font-medium">
+      <nav className="flex gap-3">
         {links.map((link) => (
-          <Link className="text-gray-12" href={link.href} key={link.href}>
+          <Link href={link.href} key={link.href}>
             {link.label}
           </Link>
         ))}

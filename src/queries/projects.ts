@@ -1,7 +1,7 @@
 import { gql } from '@urql/core'
 
 import { hygraph } from '~/lib/hygraph'
-import { ProjectsQuery } from '~/types/hygraph'
+import { type ProjectsQuery } from '~/types/hygraph'
 
 const PROJECTS = gql`
   query projects {
@@ -27,3 +27,5 @@ export async function fetchProjects() {
 
   return data?.projects ?? []
 }
+
+export type Projects = Awaited<ReturnType<typeof fetchProjects>>

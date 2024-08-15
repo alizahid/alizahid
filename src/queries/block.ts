@@ -1,7 +1,7 @@
 import { gql } from '@urql/core'
 
 import { hygraph } from '~/lib/hygraph'
-import { BlockQuery } from '~/types/hygraph'
+import { type BlockQuery } from '~/types/hygraph'
 
 const POST = gql`
   query block($data: BlockWhereUniqueInput!) {

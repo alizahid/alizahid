@@ -1,18 +1,3 @@
-/* radix */
-
-@import '@radix-ui/colors/sage.css';
-@import '@radix-ui/colors/sage-alpha.css';
-@import '@radix-ui/colors/sage-dark.css';
-@import '@radix-ui/colors/sage-dark-alpha.css';
-@import '@radix-ui/colors/jade.css';
-@import '@radix-ui/colors/jade-alpha.css';
-@import '@radix-ui/colors/jade-dark.css';
-@import '@radix-ui/colors/jade-dark-alpha.css';
-@import '@radix-ui/colors/amber.css';
-@import '@radix-ui/colors/amber-alpha.css';
-@import '@radix-ui/colors/amber-dark.css';
-@import '@radix-ui/colors/amber-dark-alpha.css';
-
 /* tailwind */
 
 @tailwind base;
@@ -21,24 +6,10 @@
 
 /* global */
 
-::selection {
-  @apply bg-accent-a4;
-}
-
 body {
-  @apply cursor-default bg-gradient-to-tr from-accent-a1 to-accent-a2 text-gray-12 antialiased;
+  @apply cursor-default bg-gradient-to-tr from-jadeA1 to-jadeA2 text-3 text-sageA12 antialiased selection:bg-jadeA4;
 }
 
 a {
-  @apply text-accent-11 transition-colors hover:text-accent-12;
-}
-
-button {
-  @apply focus:outline-none;
-}
-
-/* layout */
-
-main {
-  @apply my-24 flex-1;
+  @apply text-jadeA11 transition-colors hover:text-jadeA12;
 }

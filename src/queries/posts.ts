@@ -1,7 +1,7 @@
 import { gql } from '@urql/core'
 
 import { hygraph } from '~/lib/hygraph'
-import { PostsQuery, SlugsQuery } from '~/types/hygraph'
+import { type PostsQuery, type SlugsQuery } from '~/types/hygraph'
 
 const POSTS = gql`
   query posts {
@@ -25,6 +25,8 @@ export async function fetchPosts() {
   return data?.posts ?? []
 }
 
+export type Posts = Awaited<ReturnType<typeof fetchPosts>>
+
 const SLUGS = gql`
   query slugs {
     posts {
@@ -38,3 +40,5 @@ export async function fetchSlugs() {
 
   return data?.posts ?? []
 }
+
+export type Slugs = Awaited<ReturnType<typeof fetchSlugs>>

@@ -1,7 +1,7 @@
 import { gql } from '@urql/core'
 
 import { hygraph } from '~/lib/hygraph'
-import { HomeQuery } from '~/types/hygraph'
+import { type HomeQuery } from '~/types/hygraph'
 
 const HOME = gql`
   query home {

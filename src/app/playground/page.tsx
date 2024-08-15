@@ -1,4 +1,4 @@
-import { Metadata } from 'next'
+import { type Metadata } from 'next'
 
 import { ProjectCard } from '~/components/project'
 import { fetchProjects } from '~/queries/projects'
@@ -12,8 +12,8 @@ export default async function Playground() {
   const projects = await fetchProjects()
 
   return (
-    <main className="flex flex-col gap-12">
-      <h1 className="text-4xl font-bold">Playground</h1>
+    <main className="flex flex-1 flex-col gap-9">
+      <h1 className="text-9">Playground</h1>
 
       <section className="grid gap-8 lg:grid-cols-2">
         {projects.map((project) => (

@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element -- go away */
+/* eslint-disable @next/next/no-img-element, react/no-unknown-property -- go away */
 
 import { format, isSameYear, parseISO } from 'date-fns'
 import { ImageResponse } from 'next/og'
@@ -16,8 +16,6 @@ export const dimensions = {
     width: 1200,
   },
 } as const
-
-export const runtime = 'edge'
 
 type Props = {
   id: keyof typeof dimensions
@@ -45,17 +43,9 @@ export default async function Image({ id, params }: Props) {
     })
   }
 
-  const fontBold = await fetch(
-    new URL('../../../assets/fonts/sans-bold.otf', import.meta.url),
-  ).then((res) => res.arrayBuffer())
-
-  const fontMedium = await fetch(
-    new URL('../../../assets/fonts/sans-medium.otf', import.meta.url),
-  ).then((res) => res.arrayBuffer())
-
   const { height, width } = dimensions[id]
 
-  const date = parseISO(post.date)
+  const date = parseISO(post.date as string)
 
   return new ImageResponse(
     (
@@ -77,12 +67,12 @@ export default async function Image({ id, params }: Props) {
     {
       fonts: [
         {
-          data: fontBold,
+          data: await fontBold,
           name: 'font',
           weight: 700,
         },
         {
-          data: fontMedium,
+          data: await fontMedium,
           name: 'font',
           weight: 500,
         },
@@ -92,3 +82,11 @@ export default async function Image({ id, params }: Props) {
     },
   )
 }
+
+const fontBold = fetch(
+  new URL('/fonts/basis-sans-bold.ttf', 'https://alizahid.dev'),
+).then((response) => response.arrayBuffer())
+
+const fontMedium = fetch(
+  new URL('/fonts/basis-sans-medium.ttf', 'https://alizahid.dev'),
+).then((response) => response.arrayBuffer())
