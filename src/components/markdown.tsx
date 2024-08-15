@@ -23,7 +23,7 @@ export function Markdown({ className, content }: Props) {
         },
         blockquote({ children }) {
           return (
-            <blockquote className="my-6 flex items-center gap-4 rounded-4 border border-amberA6 bg-amberA4 p-4 leading-tight text-amberA12">
+            <blockquote className="flex items-center gap-4 rounded-4 border border-amberA6 bg-amberA4 p-4 leading-tight text-amberA12">
               <Info className="size-5" />
 
               {children}
