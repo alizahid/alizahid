@@ -8,10 +8,7 @@ export default async function Page() {
 
   return (
     <main className="flex flex-1 flex-col gap-9">
-      <Markdown
-        className="flex flex-col gap-4 text-pretty text-4"
-        content={block.content}
-      />
+      <Markdown className="text-pretty text-4" content={block.content} />
 
       <section className="flex flex-col gap-6">
         <h2 className="text-8">Recent posts</h2>

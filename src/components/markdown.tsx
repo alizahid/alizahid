@@ -11,22 +11,19 @@ import { twMerge } from 'tailwind-merge'
 type Props = {
   className?: string
   content: string
-  overrides?: {
-    p?: string
-  }
 }
 
-export function Markdown({ className, content, overrides }: Props) {
+export function Markdown({ className, content }: Props) {
   return (
     <Component
-      className={className}
+      className={twMerge('space-y-4', className)}
       components={{
         a({ children, href }) {
           return <Link href={href!}>{children}</Link>
         },
         blockquote({ children }) {
           return (
-            <blockquote className="my-6 flex items-center gap-3 rounded-4 border border-amberA6 bg-amberA4 px-4 leading-tight text-amberA12">
+            <blockquote className="my-6 flex items-center gap-4 rounded-4 border border-amberA6 bg-amberA4 p-4 leading-tight text-amberA12">
               <Info className="size-5" />
 
               {children}
@@ -40,10 +37,10 @@ export function Markdown({ className, content, overrides }: Props) {
           return <h1 className="text-9">{children}</h1>
         },
         h2({ children }) {
-          return <h2 className="mb-4 mt-9 text-8">{children}</h2>
+          return <h2 className="!mt-9 text-8">{children}</h2>
         },
         h3({ children }) {
-          return <h3 className="mb-4 mt-6 text-6 font-medium">{children}</h3>
+          return <h3 className="!mt-6 text-6 font-medium">{children}</h3>
         },
         img({ alt, src }) {
           const url = new URL(src!)
@@ -81,9 +78,6 @@ export function Markdown({ className, content, overrides }: Props) {
               {children}
             </ol>
           )
-        },
-        p({ children }) {
-          return <p className={twMerge('my-4', overrides?.p)}>{children}</p>
         },
         pre({ children, ...props }) {
           if (isValidElement<ComponentProps<'pre'>>(children)) {

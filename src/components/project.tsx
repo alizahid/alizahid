@@ -20,16 +20,10 @@ export function ProjectCard({ project }: Props) {
         width={64}
       />
 
-      <div className="flex flex-1 flex-col">
+      <div className="flex flex-1 flex-col gap-2">
         <div className="text-4 font-medium">{project.name}</div>
 
-        <Markdown
-          className="text-pretty"
-          content={project.content}
-          overrides={{
-            p: 'my-2',
-          }}
-        />
+        <Markdown className="space-y-2 text-pretty" content={project.content} />
 
         <div className="flex flex-wrap items-start gap-2">
           {project.links.map((link) => (
