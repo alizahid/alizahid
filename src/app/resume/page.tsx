@@ -127,7 +127,10 @@ const experience: Array<Job> = [
       'React.js',
       'Supabase',
       'Tailwind CSS',
+      'Trigger.dev',
+      'Turborepo',
       'TypeScript',
+      'Upstash',
     ],
   },
   {
@@ -172,8 +175,8 @@ const experience: Array<Job> = [
       {
         from: new Date(2021, 5),
         responsibilities: [
-          'Working on the booking funnel for their web app',
-          'Maintaining the internal design system that powers their web experience',
+          'Worked on the booking funnel for their web app',
+          'Maintaining and improving the internal design system that powers their web experience',
         ],
         title: 'Senior full-stack engineer',
         to: new Date(2022, 0),
@@ -219,7 +222,7 @@ const experience: Array<Job> = [
   {
     company: 'AYM',
     description:
-      'A subsidiary of Danube Online, one of the largest grocers in Saudi Arabia',
+      'Built ops tech for Danube, one of the largest grocers in Saudi Arabia',
     location: 'Dubai',
     positions: [
       {
@@ -235,7 +238,7 @@ const experience: Array<Job> = [
         from: new Date(2018, 0),
         responsibilities: [
           'Designed the architecture and built the backend for a loyalty program for a major consumer brand',
-          'Scaled to over 5 million monthly active users in 8 markets with close to 0% error rate',
+          'Scaled to over 5 million monthly active users in 8 markets with 0% failure rate',
           'Hired and managed a team of 4 remote and 2 on-site developers',
         ],
         title: 'Backend lead',
@@ -245,7 +248,7 @@ const experience: Array<Job> = [
         from: new Date(2017, 5),
         responsibilities: [
           'Built operations and fulfillment tech for the largest chain of supermarkets in Saudi Arabia',
-          'Increased operational capability and efficiency 10,000% by building a suite of apps for warehouse workers, drivers, supervisors, and managers',
+          'Increased operational capability and efficiency from 10 to 200 orders a day by building a suite of apps for warehouse workers, drivers, supervisors, and managers',
         ],
         title: 'Full-stack engineer',
         to: new Date(2018, 0),
