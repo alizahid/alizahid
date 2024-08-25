@@ -1,4 +1,12 @@
-const { amberA, jadeA, sageA, whiteA } = require('@radix-ui/colors')
+const {
+  amberA,
+  indigoA,
+  jadeA,
+  rubyA,
+  sageA,
+  tealA,
+  whiteA,
+} = require('@radix-ui/colors')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -15,13 +23,21 @@ module.exports = {
       full: '100%',
     },
     colors: {
+      ...whiteA,
       ...jadeA,
       ...sageA,
       ...amberA,
-      ...whiteA,
+      ...indigoA,
+      ...tealA,
+      ...rubyA,
+      black: '#fff',
+      current: 'currentColor',
+      transparent: 'transparent',
+      white: '#fff',
     },
     fontFamily: {
       mono: ['var(--font-mono)'],
+      resume: ['var(--font-resume)'],
       sans: ['var(--font-sans)'],
     },
     fontSize: {

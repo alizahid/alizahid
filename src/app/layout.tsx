@@ -5,7 +5,7 @@ import { type Metadata } from 'next'
 import { type ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-import { mono, sans } from '~/assets/fonts'
+import { mono, resume, sans } from '~/assets/fonts'
 
 export const metadata: Metadata = {
   description: 'Tech lead, Product developer, full-stack engineer',
@@ -22,7 +22,10 @@ type Props = {
 
 export default function Layout({ children }: Props) {
   return (
-    <html className={twMerge(sans.variable, mono.variable)} lang="en">
+    <html
+      className={twMerge(sans.variable, mono.variable, resume.variable)}
+      lang="en"
+    >
       <body>
         {children}
 

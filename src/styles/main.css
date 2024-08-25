@@ -8,6 +8,8 @@
 
 body {
   @apply cursor-default bg-gradient-to-tr from-jadeA1 to-jadeA2 text-3 text-sageA12 antialiased selection:bg-jadeA4;
+
+  font-feature-settings: 'ss04' on;
 }
 
 a {
