@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element, react/no-unknown-property -- go away */
 
-import { format, isSameYear, parseISO } from 'date-fns'
+import { format, parseISO } from 'date-fns'
 import { ImageResponse } from 'next/og'
 import { NextResponse } from 'next/server'
 
@@ -56,10 +56,7 @@ export default async function Image({ id, params }: Props) {
           <div tw="text-6xl font-bold">{post.title}</div>
 
           <div tw="font-medium text-2xl mt-4 text-gray-600">
-            {format(
-              date,
-              isSameYear(date, new Date()) ? 'MMMM d' : 'MMMM d, y',
-            )}
+            {format(date, 'MMMM d, y')}
           </div>
         </div>
       </div>
