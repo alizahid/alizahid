@@ -1,15 +1,21 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { twMerge } from 'tailwind-merge'
 
 export function Header() {
+  const path = usePathname()
+
   const links = [
     {
-      href: '/blog',
-      label: 'Blog',
+      href: '/writings',
+      label: 'Writings',
     },
     {
-      href: '/playground',
-      label: 'Playground',
+      href: '/works',
+      label: 'Works',
     },
     {
       href: '/links',
@@ -22,7 +28,7 @@ export function Header() {
       <Link href="/">
         <Image
           alt="Ali Zahid"
-          className="rounded-full bg-sageA3"
+          className="rounded-full bg-gray-a3"
           height={48}
           src="https://media.graphcms.com/resize=width:96/GJrB3pURnqRlaj61Z3Qp"
           unoptimized
@@ -32,7 +38,14 @@ export function Header() {
 
       <nav className="flex gap-3">
         {links.map((link) => (
-          <Link href={link.href} key={link.href}>
+          <Link
+            className={twMerge(
+              'font-medium',
+              link.href === path ? 'text-accent-a11' : 'text-gray-a11',
+            )}
+            href={link.href}
+            key={link.href}
+          >
             {link.label}
           </Link>
         ))}

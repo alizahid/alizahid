@@ -1,14 +1,14 @@
 import localFont from 'next/font/local'
 
-export const sans = localFont({
-  src: './sans.woff2',
-  variable: '--font-sans',
+export const body = localFont({
+  src: './body.woff2',
+  variable: '--font-body',
   weight: '100 900',
 })
 
-export const mono = localFont({
-  src: './mono.woff2',
-  variable: '--font-mono',
+export const code = localFont({
+  src: './code.woff2',
+  variable: '--font-code',
   weight: '100 900',
 })
 

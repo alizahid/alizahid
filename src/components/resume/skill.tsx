@@ -43,7 +43,7 @@ export function SkillCard({ skill }: Props) {
             ))
           : skill.sections.map((section) => (
               <div className="flex flex-col gap-2" key={section.title}>
-                <h5 className="text-2 font-medium text-jadeA11">
+                <h5 className="text-2 font-medium text-accent-a11">
                   {section.title}
                 </h5>
 

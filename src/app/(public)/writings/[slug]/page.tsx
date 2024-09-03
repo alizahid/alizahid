@@ -46,22 +46,22 @@ export default async function Page({ params }: Props) {
   return (
     <main>
       <div className="flex flex-col gap-4">
-        <h1 className="text-9">{post.title}</h1>
+        <h1 className="text-9 font-bold">{post.title}</h1>
+
+        <div className="text-4 font-medium">{post.excerpt}</div>
+
+        <div className="text-2 text-gray-a11">
+          {format(date, isSameYear(date, new Date()) ? 'MMMM d' : 'MMMM d, y')}
+        </div>
 
         <Image
           alt={post.title}
-          className="rounded-4 bg-sageA3"
+          className="rounded-6 bg-gray-a3"
           height={1200}
           src={post.image.url}
           unoptimized
           width={1800}
         />
-
-        <div className="text-4 font-medium">{post.excerpt}</div>
-
-        <div className="text-2 text-sageA11">
-          {format(date, isSameYear(date, new Date()) ? 'MMMM d' : 'MMMM d, y')}
-        </div>
       </div>
 
       <Markdown className="mt-9" content={post.content} />

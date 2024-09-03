@@ -1,12 +1,4 @@
-const {
-  amberA,
-  indigoA,
-  jadeA,
-  rubyA,
-  sageA,
-  tealA,
-  whiteA,
-} = require('@radix-ui/colors')
+const { range } = require('lodash')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -23,22 +15,21 @@ module.exports = {
       full: '100%',
     },
     colors: {
-      ...whiteA,
-      ...jadeA,
-      ...sageA,
-      ...amberA,
-      ...indigoA,
-      ...tealA,
-      ...rubyA,
-      black: '#fff',
+      accent: generatePalette('jade'),
+      amber: generatePalette('amber'),
+      black: generatePalette('black'),
       current: 'currentColor',
+      gray: generatePalette('sage'),
+      indigo: generatePalette('indigo'),
+      ruby: generatePalette('ruby'),
+      teal: generatePalette('teal'),
       transparent: 'transparent',
-      white: '#fff',
+      white: generatePalette('white'),
     },
     fontFamily: {
-      mono: ['var(--font-mono)'],
+      body: ['var(--font-body)'],
+      code: ['var(--font-code)'],
       resume: ['var(--font-resume)'],
-      sans: ['var(--font-sans)'],
     },
     fontSize: {
       1: ['12px', '16px'],
@@ -54,6 +45,7 @@ module.exports = {
     spacing: {
       0: '0px',
       1: '4px',
+      10: '128px',
       2: '8px',
       3: '12px',
       4: '16px',
@@ -64,4 +56,10 @@ module.exports = {
       9: '64px',
     },
   },
+}
+
+function generatePalette(name) {
+  return Object.fromEntries(
+    range(1, 13).map((scale) => [`a${scale}`, `var(--${name}-a${scale})`]),
+  )
 }

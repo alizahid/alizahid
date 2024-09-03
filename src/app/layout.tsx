@@ -5,15 +5,15 @@ import { type Metadata } from 'next'
 import { type ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-import { mono, resume, sans } from '~/assets/fonts'
+import { body, code, resume } from '~/assets/fonts'
 
 export const metadata: Metadata = {
-  description: 'Tech lead, Product developer, full-stack engineer',
+  description: 'Tech lead, Product developer, Full-stack engineer',
   metadataBase: new URL('https://alizahid.dev'),
   openGraph: {
     type: 'website',
   },
-  title: 'Ali Zahid × Tech lead, Product developer, full-stack engineer',
+  title: 'Ali Zahid × Tech lead, Product developer, Full-stack engineer',
 }
 
 type Props = {
@@ -23,8 +23,9 @@ type Props = {
 export default function Layout({ children }: Props) {
   return (
     <html
-      className={twMerge(sans.variable, mono.variable, resume.variable)}
+      className={twMerge(body.variable, code.variable, resume.variable)}
       lang="en"
+      suppressHydrationWarning
     >
       <body>
         {children}

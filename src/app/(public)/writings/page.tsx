@@ -5,17 +5,17 @@ import { fetchPosts } from '~/queries/posts'
 
 export const metadata: Metadata = {
   description: "Things I've written about",
-  title: 'Blog × Ali Zahid',
+  title: 'Writings × Ali Zahid',
 }
 
-export default async function Blog() {
+export default async function Page() {
   const posts = await fetchPosts()
 
   return (
     <main className="flex flex-1 flex-col gap-9">
-      <h1 className="text-9">Blog</h1>
+      <h1 className="text-9 font-bold">Writings</h1>
 
-      <section className="grid gap-8 lg:grid-cols-2">
+      <section className="gap-6 space-y-6 lg:columns-3">
         {posts.map((post) => (
           <PostCard key={post.slug} post={post} />
         ))}

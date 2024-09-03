@@ -10,7 +10,7 @@ export function Paper({ children, className }: Props) {
   return (
     <div
       className={twMerge(
-        'relative mx-auto flex h-[297mm] w-[210mm] flex-col text-pretty bg-white print:h-auto print:min-h-screen print:w-auto print:bg-transparent',
+        'relative mx-auto flex h-[297mm] w-[210mm] flex-col text-pretty bg-[#fff] print:h-auto print:min-h-screen print:w-auto print:bg-transparent',
         className,
       )}
     >

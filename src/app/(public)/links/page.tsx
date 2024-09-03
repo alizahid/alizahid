@@ -13,9 +13,9 @@ export default async function Page() {
 
   return (
     <main className="flex flex-1 flex-col gap-9">
-      <h1 className="text-9">Links</h1>
+      <h1 className="text-9 font-bold">Links</h1>
 
-      <section className="grid gap-8 lg:grid-cols-2">
+      <section className="gap-6 space-y-6 lg:columns-2">
         {links.map((link) => (
           <LinkCard key={link.id} link={link} />
         ))}

@@ -30,7 +30,7 @@ export function JobCard({ job }: Props) {
       <div className="flex items-center gap-4">
         <h4 className="text-4 font-semibold">{job.company}</h4>
 
-        <div className="flex items-center gap-1 text-2 tabular-nums text-sageA11">
+        <div className="flex items-center gap-1 text-2 tabular-nums text-gray-a11">
           {from ? <span>{format(from, 'MMMM yyyy')}</span> : null}
 
           <span>&#8594;</span>
@@ -38,18 +38,18 @@ export function JobCard({ job }: Props) {
           <span>{to ? format(to, 'MMMM yyyy') : 'present'}</span>
         </div>
 
-        <div className="text-2 text-sageA11">{job.location}</div>
+        <div className="text-2 text-gray-a11">{job.location}</div>
       </div>
 
-      <p className="-mt-2 text-2 text-sageA11">{job.description}</p>
+      <p className="-mt-2 text-2 text-gray-a11">{job.description}</p>
 
       {job.positions.map((position) => (
         <div className="flex flex-col gap-1" key={position.title}>
           <div className="flex items-center gap-4">
-            <h4 className="font-medium text-jadeA11">{position.title}</h4>
+            <h4 className="font-medium text-accent-a11">{position.title}</h4>
 
             {job.positions.length > 1 ? (
-              <div className="flex items-center gap-1 text-2 tabular-nums text-sageA11">
+              <div className="flex items-center gap-1 text-2 tabular-nums text-gray-a11">
                 <span>{format(position.from, 'MMMM yyyy')}</span>
 
                 <span>&#8594;</span>
@@ -71,7 +71,7 @@ export function JobCard({ job }: Props) {
 
       <div className="flex flex-wrap gap-2">
         {job.stack.map((item) => (
-          <Chip className="bg-jadeA3" key={item}>
+          <Chip className="bg-accent-a3" key={item}>
             {item}
           </Chip>
         ))}

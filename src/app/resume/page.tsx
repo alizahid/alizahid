@@ -21,13 +21,13 @@ export default function Page() {
     <Document>
       <Paper className="gap-8 p-8">
         <header className="flex flex-col gap-2">
-          <h1 className="text-8 font-bold text-jadeA11">Ali Zahid</h1>
+          <h1 className="text-8 font-bold text-accent-a11">Ali Zahid</h1>
 
           <h2 className="text-6 font-medium">
             Tech Lead &#215; Product Developer &#215; Full-stack Engineer
           </h2>
 
-          <p className="text-sageA11">
+          <p className="text-gray-a11">
             I started my web journey at 8 years old. Since then I&#39;ve worked
             with startups, government organizations, Academy award winning
             filmmakers, and everything in between to build robust and scalable
@@ -290,7 +290,7 @@ const experience: Array<Job> = [
 
 const skills: Array<Skill> = [
   {
-    className: 'bg-jadeA3',
+    className: 'bg-accent-a3',
     items: [
       'Full-stack development',
       'Architecture design',
@@ -305,7 +305,7 @@ const skills: Array<Skill> = [
     type: 'items',
   },
   {
-    className: 'bg-indigoA3',
+    className: 'bg-indigo-a3',
     items: [
       'React',
       'React Native',
@@ -322,7 +322,7 @@ const skills: Array<Skill> = [
     type: 'items',
   },
   {
-    className: 'bg-indigoA3',
+    className: 'bg-indigo-a3',
     items: [
       'Node.js',
       'tPRC',
@@ -338,13 +338,13 @@ const skills: Array<Skill> = [
     type: 'items',
   },
   {
-    className: 'bg-tealA3',
+    className: 'bg-teal-a3',
     items: ['TypeScript', 'JavaScript', 'Ruby on Rails'],
     title: 'Languages',
     type: 'items',
   },
   {
-    className: 'bg-amberA3',
+    className: 'bg-amber-a3',
     sections: [
       {
         items: ['FaunaDB', 'MongoDB', 'MySQL', 'PostgreSQL'],
@@ -372,7 +372,7 @@ const skills: Array<Skill> = [
     type: 'sections',
   },
   {
-    className: 'bg-rubyA3',
+    className: 'bg-ruby-a3',
     sections: [
       {
         items: ['Vercel', 'Heroku', 'Render'],
@@ -407,32 +407,32 @@ const skills: Array<Skill> = [
 const contact = [
   {
     href: 'https://alizahid.dev',
-    icon: <Browser className="text-sageA12" size={20} />,
+    icon: <Browser className="text-gray-a12" size={20} />,
     label: 'alizahid.dev',
   },
   {
     href: 'mailto:ali.zahid@live.com',
-    icon: <EnvelopeSimple className="text-sageA12" size={20} />,
+    icon: <EnvelopeSimple className="text-gray-a12" size={20} />,
     label: 'ali.zahid@live.com',
   },
   {
     href: 'https://github.com/alizahid',
-    icon: <GithubLogo className="text-sageA12" size={20} />,
+    icon: <GithubLogo className="text-gray-a12" size={20} />,
     label: 'alizahid',
   },
   {
     href: 'https://linkedin.com/in/alizahid',
-    icon: <LinkedinLogo className="text-sageA12" size={20} />,
+    icon: <LinkedinLogo className="text-gray-a12" size={20} />,
     label: 'alizahid',
   },
   {
     href: 'https://x.com/alizah1d',
-    icon: <TwitterLogo className="text-sageA12" size={20} />,
+    icon: <TwitterLogo className="text-gray-a12" size={20} />,
     label: 'alizah1d',
   },
   {
     href: 'https://dribbble.com/alizahid',
-    icon: <DribbbleLogo className="text-sageA12" size={20} />,
+    icon: <DribbbleLogo className="text-gray-a12" size={20} />,
     label: 'alizahid',
   },
 ]

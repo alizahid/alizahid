@@ -81,9 +81,9 @@ export default async function Image({ id, params }: Props) {
 }
 
 const fontBold = fetch(
-  new URL('/fonts/basis-sans-bold.ttf', 'https://alizahid.dev'),
+  new URL('/fonts/sans-bold.ttf', 'https://alizahid.dev'),
 ).then((response) => response.arrayBuffer())
 
 const fontMedium = fetch(
-  new URL('/fonts/basis-sans-medium.ttf', 'https://alizahid.dev'),
+  new URL('/fonts/sans-medium.ttf', 'https://alizahid.dev'),
 ).then((response) => response.arrayBuffer())

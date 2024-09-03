@@ -1,7 +1,18 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
-  images: {
-    domains: ['media.graphassets.com', 'media.graphcms.com'],
+  async redirects() {
+    return [
+      {
+        destination: '/writings/:slug',
+        permanent: true,
+        source: '/blog/:slug',
+      },
+      {
+        destination: '/works',
+        permanent: true,
+        source: '/playground',
+      },
+    ]
   },
   async rewrites() {
     return [

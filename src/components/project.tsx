@@ -11,24 +11,24 @@ type Props = {
 
 export function ProjectCard({ project }: Props) {
   return (
-    <div className="flex items-start gap-4">
+    <div className="flex items-start gap-4 overflow-hidden rounded-5 bg-gray-a2 p-5">
       <Image
         alt={project.name}
-        height={64}
+        height={48}
         src={project.image.url}
         unoptimized
-        width={64}
+        width={48}
       />
 
-      <div className="flex flex-1 flex-col gap-2">
-        <div className="text-4 font-medium">{project.name}</div>
+      <div className="flex flex-1 flex-col gap-4">
+        <div className="text-4 font-semibold">{project.name}</div>
 
-        <Markdown className="space-y-2 text-pretty" content={project.content} />
+        <Markdown className="space-y-4 text-pretty" content={project.content} />
 
-        <div className="flex flex-wrap items-start gap-2">
+        <div className="flex flex-wrap items-start gap-4">
           {project.links.map((link) => (
             <Link
-              className="rounded-3 bg-jadeA9 px-2 py-1 text-2 text-whiteA12 hover:bg-jadeA10 hover:text-whiteA12"
+              className="rounded-3 bg-accent-a9 px-2 py-1 text-2 font-medium text-white-a12 hover:bg-accent-a10 hover:text-white-a12 dark:text-black-a12 dark:hover:text-black-a12"
               href={link.link}
               key={link.link}
             >
