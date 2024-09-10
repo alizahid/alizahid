@@ -166,7 +166,7 @@ const experience: Array<Job> = [
       {
         from: new Date(2022, 0),
         responsibilities: [
-          'Building the next generation of their web stack with a focus on performance and accessbility',
+          'Building the next generation of their web stack with a focus on performance and accessibility',
           'Hiring and development for my team of 6',
         ],
         title: 'Tech lead',
