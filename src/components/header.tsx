@@ -10,16 +10,16 @@ export function Header() {
 
   const links = [
     {
-      href: '/writings',
+      href: '#writings',
       label: 'Writings',
     },
     {
-      href: '/works',
+      href: '#works',
       label: 'Works',
     },
     {
-      href: '/links',
-      label: 'Links',
+      href: '#bookmarks',
+      label: 'Bookmarks',
     },
   ]
 

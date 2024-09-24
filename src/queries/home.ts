@@ -33,6 +33,14 @@ const HOME = gql`
         label
       }
     }
+    links(orderBy: updatedAt_DESC) {
+      description
+      id
+      image
+      tags
+      title
+      url
+    }
   }
 `
 

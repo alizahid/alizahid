@@ -3,10 +3,10 @@
 @import '@radix-ui/colors/black-alpha.css';
 @import '@radix-ui/colors/white-alpha.css';
 
-@import '@radix-ui/colors/jade.css';
-@import '@radix-ui/colors/jade-dark.css';
-@import '@radix-ui/colors/jade-alpha.css';
-@import '@radix-ui/colors/jade-dark-alpha.css';
+@import '@radix-ui/colors/ruby.css';
+@import '@radix-ui/colors/ruby-dark.css';
+@import '@radix-ui/colors/ruby-alpha.css';
+@import '@radix-ui/colors/ruby-dark-alpha.css';
 
 @import '@radix-ui/colors/sage.css';
 @import '@radix-ui/colors/sage-dark.css';
@@ -42,6 +42,8 @@
 /* global */
 
 html {
+  @apply scroll-smooth;
+
   font-feature-settings: 'ss04' on;
 }
 

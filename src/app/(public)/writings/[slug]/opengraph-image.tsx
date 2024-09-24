@@ -50,12 +50,22 @@ export default async function Image({ id, params }: Props) {
   return new ImageResponse(
     (
       <div tw="h-full w-full justify-between flex flex-col p-8 bg-white">
-        <img alt={post.title} src={post.image.url} tw="h-full ml-auto" />
+        <img
+          alt={post.title}
+          src={post.image.url}
+          tw="h-full ml-auto rounded-4"
+        />
 
-        <div tw="flex flex-col absolute left-8 bottom-8">
-          <div tw="text-6xl font-bold">{post.title}</div>
+        <div tw="flex flex-col absolute left-8 top-8 bottom-8">
+          <img
+            alt="Ali Zahid"
+            src="https://alizahid.dev/images/ali-zahid.jpg"
+            tw="h-32 w-32 rounded-full"
+          />
 
-          <div tw="font-medium text-2xl mt-4 text-gray-600">
+          <div tw="text-6xl font-bold mt-auto">{post.title}</div>
+
+          <div tw="font-medium text-2xl mt-8 text-gray-600">
             {format(date, 'MMMM d, y')}
           </div>
         </div>
@@ -81,9 +91,9 @@ export default async function Image({ id, params }: Props) {
 }
 
 const fontBold = fetch(
-  new URL('/fonts/sans-bold.ttf', 'https://alizahid.dev'),
+  new URL('/fonts/body-bold.otf', 'https://alizahid.dev'),
 ).then((response) => response.arrayBuffer())
 
 const fontMedium = fetch(
-  new URL('/fonts/sans-medium.ttf', 'https://alizahid.dev'),
+  new URL('/fonts/body-medium.otf', 'https://alizahid.dev'),
 ).then((response) => response.arrayBuffer())
