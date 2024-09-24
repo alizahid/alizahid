@@ -25,6 +25,15 @@ export default async function Page() {
                 href={`/writings/${post.slug}`}
                 key={post.slug}
               >
+                <Image
+                  alt={post.title}
+                  className="rounded-4"
+                  height={320}
+                  src={post.image.url}
+                  unoptimized
+                  width={640}
+                />
+
                 <div className="text-pretty text-4 font-semibold">
                   {post.title}
                 </div>
