@@ -2,7 +2,6 @@ import { Info } from '@phosphor-icons/react/dist/ssr'
 import { Code } from 'bright'
 import Image from 'next/image'
 import Link from 'next/link'
-import { type ComponentProps, isValidElement } from 'react'
 import Component from 'react-markdown'
 import gfm from 'remark-gfm'
 import unwrapImages from 'remark-unwrap-images'
@@ -19,14 +18,18 @@ export function Markdown({ className, content }: Props) {
       className={twMerge('space-y-5', className)}
       components={{
         a({ children, href }) {
-          return <Link href={href!}>{children}</Link>
+          return (
+            <Link className="font-medium" href={href!}>
+              {children}
+            </Link>
+          )
         },
         blockquote({ children }) {
           return (
             <blockquote className="flex items-center gap-4 rounded-4 border border-amber-a6 bg-amber-a4 p-4 leading-tight text-amber-a12">
               <Info className="size-5" />
 
-              {children}
+              <div className="flex-1">{children}</div>
             </blockquote>
           )
         },
@@ -54,7 +57,7 @@ export function Markdown({ className, content }: Props) {
               <Image
                 alt={alt!}
                 className={twMerge(
-                  'rounded-lg',
+                  'rounded-4',
                   type === 'chart' && 'bg-[#fff]',
                 )}
                 height={height}
@@ -79,23 +82,18 @@ export function Markdown({ className, content }: Props) {
             </ol>
           )
         },
-        pre({ children, ...props }) {
-          if (isValidElement<ComponentProps<'pre'>>(children)) {
-            const lang = children.props.className?.match(/language-(\w+)/)?.[1]
-            const code = children.props.children
-
-            return (
-              <Code
-                className="!rounded-4 text-2"
-                lang={lang}
-                theme="github-dark-dimmed"
-              >
-                {typeof code === 'string' ? code.trim() : code}
-              </Code>
-            )
-          }
-
-          return <pre {...props}>{children}</pre>
+        pre(props) {
+          return (
+            <Code
+              {...props}
+              className="!rounded-4"
+              theme={{
+                dark: 'github-dark',
+                light: 'github-light',
+                lightSelector: 'html.light',
+              }}
+            />
+          )
         },
         ul({ children }) {
           return <ul className="mx-6 list-disc">{children}</ul>
