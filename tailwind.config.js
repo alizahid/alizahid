@@ -3,6 +3,7 @@ const { range } = require('lodash')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['src/**/*.tsx'],
+  darkMode: 'class',
   theme: {
     borderRadius: {
       0: '0px',
