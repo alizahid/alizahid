@@ -5,19 +5,19 @@ import Link from 'next/link'
 export function Header() {
   const links = [
     {
-      href: '/#writings',
+      href: '/blog',
       icon: <BookOpen className="size-6 lg:size-5" weight="duotone" />,
-      label: 'Writings',
+      label: 'Blog',
     },
     {
-      href: '/#playground',
+      href: '/playground',
       icon: <Cube className="size-6 lg:size-5" weight="duotone" />,
       label: 'Playground',
     },
     {
-      href: '/#bookmarks',
+      href: '/links',
       icon: <BookmarkSimple className="size-6 lg:size-5" weight="duotone" />,
-      label: 'Bookmarks',
+      label: 'Links',
     },
   ] as const
 

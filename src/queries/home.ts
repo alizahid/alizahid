@@ -8,7 +8,7 @@ const HOME = gql`
     block(where: { slug: "about" }) {
       content
     }
-    posts(orderBy: date_DESC) {
+    posts(orderBy: date_DESC, first: 4) {
       date
       excerpt
       slug
@@ -19,7 +19,7 @@ const HOME = gql`
         width
       }
     }
-    projects(orderBy: order_ASC) {
+    projects(orderBy: order_ASC, first: 4) {
       content
       name
       slug
@@ -32,14 +32,6 @@ const HOME = gql`
         link
         label
       }
-    }
-    links(orderBy: updatedAt_DESC) {
-      description
-      id
-      image
-      tags
-      title
-      url
     }
   }
 `

@@ -1,3 +1,4 @@
+import { format, isSameYear, parseISO } from 'date-fns'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -8,10 +9,12 @@ type Props = {
 }
 
 export function PostCard({ post }: Props) {
+  const date = parseISO(post.date as string)
+
   return (
     <Link
       className="flex flex-col gap-4 overflow-hidden"
-      href={`/writings/${post.slug}`}
+      href={`/blog/${post.slug}`}
     >
       <Image
         alt={post.title}
@@ -25,6 +28,10 @@ export function PostCard({ post }: Props) {
       <div className="text-pretty text-4 font-bold">{post.title}</div>
 
       <div className="text-pretty text-gray-a12">{post.excerpt}</div>
+
+      <div className="text-2 text-gray-a11">
+        {format(date, isSameYear(date, new Date()) ? 'MMMM d' : 'MMMM d, y')}
+      </div>
     </Link>
   )
 }
