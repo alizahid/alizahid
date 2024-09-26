@@ -33,8 +33,8 @@ export default async function Page() {
         </div>
       </section>
 
-      <section className="flex scroll-mt-8 flex-col gap-8" id="works">
-        <h2 className="text-8 font-bold">Works</h2>
+      <section className="flex scroll-mt-8 flex-col gap-8" id="playground">
+        <h2 className="text-8 font-bold">Playground</h2>
 
         <div className="flex flex-col gap-8 md:hidden">
           {projects.map((project) => (

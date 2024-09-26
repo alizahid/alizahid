@@ -42,7 +42,7 @@
 /* global */
 
 html {
-  @apply scroll-smooth;
+  @apply scroll-smooth bg-accent-a1;
 
   font-feature-settings: 'ss04' on;
 }
