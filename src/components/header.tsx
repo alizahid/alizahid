@@ -1,8 +1,14 @@
+'use client'
+
 import { BookmarkSimple, BookOpen, Cube } from '@phosphor-icons/react/dist/ssr'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { twMerge } from 'tailwind-merge'
 
 export function Header() {
+  const path = usePathname()
+
   const links = [
     {
       href: '/blog',
@@ -34,10 +40,13 @@ export function Header() {
         />
       </Link>
 
-      <nav className="flex gap-4">
+      <nav className="flex gap-4 lg:gap-6">
         {links.map((link) => (
           <Link
-            className="flex items-center gap-2 font-medium text-gray-a12 hover:text-accent-a11"
+            className={twMerge(
+              'flex items-center gap-2 font-medium hover:text-accent-a11',
+              link.href.startsWith(path) ? 'text-accent-a11' : 'text-gray-a12',
+            )}
             href={link.href}
             key={link.href}
           >
