@@ -4,7 +4,7 @@ import { Chip } from './chip'
 
 export type Skill = {
   className?: string
-
+  side?: 'left' | 'right'
   title: string
 } & (
   | {

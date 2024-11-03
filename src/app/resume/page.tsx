@@ -21,9 +21,9 @@ export default function Page() {
     <Document>
       <Paper className="gap-8 p-8">
         <header className="flex flex-col gap-2">
-          <h1 className="text-8 font-bold text-accent-a11">Ali Zahid</h1>
+          <h1 className="text-8 font-bold text-accent-a11">Ali Z</h1>
 
-          <h2 className="text-6 font-medium">
+          <h2 className="text-6 font-medium text-accent-a12">
             Tech Lead &#215; Product Developer &#215; Full-stack Engineer
           </h2>
 
@@ -36,7 +36,7 @@ export default function Page() {
         </header>
 
         <section className="flex flex-col gap-6">
-          <h3 className="text-6 font-bold">Experience</h3>
+          <h3 className="text-6 font-bold text-accent-a12">Experience</h3>
 
           {experience
             .filter((job) => job.featured)
@@ -48,7 +48,7 @@ export default function Page() {
 
       <Paper className="gap-8 p-8">
         <section className="flex flex-col gap-6">
-          <h3 className="text-6 font-bold">Experience</h3>
+          <h3 className="text-6 font-bold text-accent-a12">Experience</h3>
 
           {experience
             .filter((job) => !job.featured)
@@ -60,12 +60,12 @@ export default function Page() {
 
       <Paper className="gap-8 p-8">
         <section className="flex flex-col gap-6">
-          <h3 className="text-6 font-bold">Skills</h3>
+          <h3 className="text-6 font-bold text-accent-a12">Skills</h3>
 
           <div className="grid grid-cols-2 gap-6">
             <div className="flex flex-col gap-6">
               {skills
-                .filter((skill, index) => index % 2 === 0)
+                .filter((skill) => skill.side === 'left')
                 .map((skill) => (
                   <SkillCard key={skill.title} skill={skill} />
                 ))}
@@ -73,7 +73,7 @@ export default function Page() {
 
             <div className="flex flex-col gap-6">
               {skills
-                .filter((skill, index) => index % 2 !== 0)
+                .filter((skill) => skill.side === 'right')
                 .map((skill) => (
                   <SkillCard key={skill.title} skill={skill} />
                 ))}
@@ -82,12 +82,12 @@ export default function Page() {
         </section>
 
         <section className="flex flex-col gap-6">
-          <h3 className="text-6 font-bold">Contact</h3>
+          <h3 className="text-6 font-bold text-accent-a12">Contact</h3>
 
           <div className="grid grid-cols-3 gap-4">
             {contact.map((item) => (
               <a
-                className="flex items-center gap-4"
+                className="flex items-center gap-2"
                 href={item.href}
                 key={item.href}
               >
@@ -106,55 +106,39 @@ export default function Page() {
 const experience: Array<Job> = [
   {
     company: 'Workcraft',
-    description: 'Workcraft is an AI based hiring assistant',
+    description: 'Workcraft is an AI powered hiring assistant',
     featured: true,
     location: 'Dubai',
     positions: [
       {
         from: new Date(2023, 9),
         responsibilities: [
-          'Building an AI based hiring assistant that helps you shave days off recruitment times',
+          'Designed and built their flagship app with Next.js, TypeScript, Prisma',
+          'Major focus on speed, accessibility, and clean design',
+          'Background workers with Upstash and Trigger.dev',
         ],
-        title: 'Co-founder',
+        stack: ['Supabase', 'OpenAI', 'Radix UI', 'Tailwind CSS', 'Turborepo'],
+        title: 'Tech lead',
+        to: new Date(),
       },
-    ],
-    stack: [
-      'Next.js',
-      'OpenAI',
-      'PostgreSQL',
-      'Prisma',
-      'Radix',
-      'React.js',
-      'Supabase',
-      'Tailwind CSS',
-      'Trigger.dev',
-      'Turborepo',
-      'TypeScript',
-      'Upstash',
     ],
   },
   {
     company: 'NockNock',
-    description: 'P2P marketplace for event space',
+    description: 'P2P marketplace for event spaces',
     featured: true,
     location: 'Remote',
     positions: [
       {
         from: new Date(2022, 5),
-        responsibilities: ['Architected and built the mobile app'],
+        responsibilities: [
+          'Built their mobile app with Expo, TypeScript, tRPC',
+          'All custom code and design (with help from their design team)',
+        ],
+        stack: ['Next.js', 'React Native', 'PlanetScale', 'Tailwind CSS'],
         title: 'Tech lead',
         to: new Date(2023, 2),
       },
-    ],
-    stack: [
-      'Expo',
-      'Next.js',
-      'PlanetScale',
-      'React Native',
-      'React.js',
-      'Tailwind CSS',
-      'tRPC',
-      'TypeScript',
     ],
   },
   {
@@ -166,8 +150,16 @@ const experience: Array<Job> = [
       {
         from: new Date(2022, 0),
         responsibilities: [
-          'Building the next generation of their web stack with a focus on performance and accessibility',
+          'Built the next generation of their web stack with a focus on performance and accessibility',
           'Hiring and development for my team of 6',
+        ],
+        stack: [
+          'Next.js',
+          'Tailwind CSS',
+          'Storybook',
+          'GraphQL',
+          'Turborepo',
+          'TypeScript',
         ],
         title: 'Tech lead',
         to: new Date(2022, 5),
@@ -175,48 +167,40 @@ const experience: Array<Job> = [
       {
         from: new Date(2021, 5),
         responsibilities: [
-          'Worked on the booking funnel for their web app',
+          'Worked on the booking funnel for their flagship app',
           'Maintaining and improving the internal design system that powers their web experience',
+          'Built a mini frontend for integration with one of their largest partners',
         ],
+        stack: ['Next.js', 'GraphQL', 'Storybook', 'CSS', 'TypeScript'],
         title: 'Senior full-stack engineer',
         to: new Date(2022, 0),
       },
     ],
-    stack: [
-      'CSS',
-      'GraphQL',
-      'Next.js',
-      'Node.js',
-      'React.js',
-      'Storybook',
-      'Tailwind CSS',
-      'Turborepo',
-      'TypeScript',
-    ],
   },
   {
     company: 'Wukla',
-    description: 'DocuSign alternative',
+    description: 'DocuSign alternative for Pakistan and United Arab Emirates',
     location: 'Remote',
     positions: [
       {
         from: new Date(2020, 4),
         responsibilities: [
-          'Building the next generation of their electronic document signing and payment collection platform',
+          'Built the next generation of their electronic document signing and payment collection platform',
+          'Built SDKs that customers can integrate into their apps',
+          'All custom code and design',
         ],
-        title: 'Co-founder',
+        stack: [
+          'Next.js',
+          'Prisma',
+          'Apollo',
+          'GraphQL',
+          'Stripe',
+          'Tailwind CSS',
+          'TypeScript',
+        ],
+        title: 'Tech lead',
+        to: new Date(2023, 9),
       },
-    ],
-    stack: [
-      'Apollo',
-      'GraphQL',
-      'Next.js',
-      'Node.js',
-      'Prisma',
-      'React.js',
-      'Stripe',
-      'Tailwind CSS',
-      'TypeScript',
     ],
   },
   {
@@ -231,6 +215,15 @@ const experience: Array<Job> = [
           'Requirement gathering with stakeholders, sprint planning, and project management for the next generations of our products',
           'Managed hiring, training, retention, and did code reviews for my team of 9 people',
         ],
+        stack: [
+          'Next.js',
+          'Node.js',
+          'Apollo',
+          'GraphQL',
+          'Prisma',
+          'Tailwind CSS',
+          'TypeScript',
+        ],
         title: 'Tech lead',
         to: new Date(2020, 0),
       },
@@ -238,9 +231,10 @@ const experience: Array<Job> = [
         from: new Date(2018, 0),
         responsibilities: [
           'Designed the architecture and built the backend for a loyalty program for a major consumer brand',
-          'Scaled to over 5 million monthly active users in 8 markets with 0% failure rate',
-          'Hired and managed a team of 4 remote and 2 on-site developers',
+          'Scaled to over 5 million monthly active users in 8 markets with close to 0% failure rate',
+          'Hired and managed a team of 4 remote and 2 on-site engineers',
         ],
+        stack: ['Node.js', 'Microsoft Azure', 'TypeScript'],
         title: 'Backend lead',
         to: new Date(2019, 4),
       },
@@ -250,22 +244,10 @@ const experience: Array<Job> = [
           'Built operations and fulfillment tech for the largest chain of supermarkets in Saudi Arabia',
           'Increased operational capability and efficiency from 10 to 200 orders a day by building a suite of apps for warehouse workers, drivers, supervisors, and managers',
         ],
+        stack: ['React Native', 'Ruby on Rails', 'TypeScript'],
         title: 'Full-stack engineer',
         to: new Date(2018, 0),
       },
-    ],
-    stack: [
-      'Apollo',
-      'GraphQL',
-      'Next.js',
-      'Node.js',
-      'PostgreSQL',
-      'Prisma',
-      'React Native',
-      'React.js',
-      'Ruby on Rails',
-      'Tailwind CSS',
-      'TypeScript',
     ],
   },
   {
@@ -277,14 +259,14 @@ const experience: Array<Job> = [
         from: new Date(2016, 9),
         responsibilities: [
           'Localized our flagship React Native app into Arabic, including right-to-left layouts, animations, and iconography',
-          'Designed the strategy and wrote codemods to prepare the existing codebase to support localization',
+          'Designed the strategy and wrote code mods to prepare the existing codebase to support localization',
           'Contributed to the open-source React Native ecosystem with RTL improvements',
         ],
+        stack: ['React Native', 'TypeScript'],
         title: 'Full-stack engineer',
         to: new Date(2017, 1),
       },
     ],
-    stack: ['Node.js', 'React Native', 'React', 'TypeScript'],
   },
 ]
 
@@ -292,7 +274,7 @@ const skills: Array<Skill> = [
   {
     className: 'bg-accent-a3',
     items: [
-      'Full-stack development',
+      'Full-stack engineering',
       'Architecture design',
       'Solutions design',
       'Product design',
@@ -301,23 +283,37 @@ const skills: Array<Skill> = [
       'Team management',
       'Leadership',
     ],
+    side: 'left',
     title: 'Core',
     type: 'items',
   },
   {
     className: 'bg-indigo-a3',
     items: [
-      'React',
-      'React Native',
-      'Next.js',
       'Expo',
+      'React Native',
+      'Reanimated',
+      'Gesture Handler',
+      'iOS',
+      'Android',
+    ],
+    side: 'left',
+    title: 'Mobile',
+    type: 'items',
+  },
+  {
+    className: 'bg-indigo-a3',
+    items: [
+      'Next.js',
+      'React',
       'Solid.js',
       'Ember.js',
       'Tauri',
-      'Radix',
+      'Radix UI',
       'Tailwind CSS',
       'SASS',
     ],
+    side: 'left',
     title: 'Frontend',
     type: 'items',
   },
@@ -325,33 +321,42 @@ const skills: Array<Skill> = [
     className: 'bg-indigo-a3',
     items: [
       'Node.js',
-      'tPRC',
       'Apollo',
       'Fastify',
       'Express',
-      'REST',
+      'tPRC',
       'GraphQL',
+      'REST',
       'microservices',
       'serverless',
     ],
+    side: 'left',
     title: 'Backend',
     type: 'items',
   },
   {
     className: 'bg-teal-a3',
     items: ['TypeScript', 'JavaScript', 'Ruby on Rails'],
+    side: 'left',
     title: 'Languages',
+    type: 'items',
+  },
+  {
+    className: 'bg-amber-a3',
+    items: ['OpenAI', 'GPT', 'Anthropic', 'Claude'],
+    side: 'left',
+    title: 'AI',
     type: 'items',
   },
   {
     className: 'bg-amber-a3',
     sections: [
       {
-        items: ['FaunaDB', 'MongoDB', 'MySQL', 'PostgreSQL'],
+        items: ['PostgreSQL', 'FaunaDB', 'MongoDB', 'MySQL'],
         title: 'Databases',
       },
       {
-        items: ['GraphQL', 'Prisma'],
+        items: ['GraphQL', 'Prisma', 'tRPC'],
         title: 'Frameworks',
       },
       {
@@ -368,6 +373,7 @@ const skills: Array<Skill> = [
         title: 'Services',
       },
     ],
+    side: 'right',
     title: 'Data',
     type: 'sections',
   },
@@ -399,6 +405,7 @@ const skills: Array<Skill> = [
         title: 'Microsoft Azure',
       },
     ],
+    side: 'right',
     title: 'Services',
     type: 'sections',
   },
@@ -426,7 +433,7 @@ const contact = [
     label: 'alizahid',
   },
   {
-    href: 'https://x.com/alizah1d',
+    href: 'https://twitter.com/alizah1d',
     icon: <TwitterLogo className="text-gray-a12" size={20} />,
     label: 'alizah1d',
   },
