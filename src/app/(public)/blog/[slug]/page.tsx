@@ -16,13 +16,15 @@ export async function generateStaticParams() {
 }
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const post = await fetchPost(params.slug)
+  const { slug } = await params
+
+  const post = await fetchPost(slug)
 
   if (!post) {
     notFound()
@@ -35,7 +37,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const post = await fetchPost(params.slug)
+  const { slug } = await params
+
+  const post = await fetchPost(slug)
 
   if (!post) {
     notFound()

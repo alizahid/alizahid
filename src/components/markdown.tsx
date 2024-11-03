@@ -2,9 +2,10 @@ import { Info } from '@phosphor-icons/react/dist/ssr'
 import { Code } from 'bright'
 import Image from 'next/image'
 import Link from 'next/link'
+import { type ReactNode } from 'react'
 import Component from 'react-markdown'
+import unwrapImages from 'rehype-unwrap-images'
 import gfm from 'remark-gfm'
-import unwrapImages from 'remark-unwrap-images'
 import { twMerge } from 'tailwind-merge'
 
 type Props = {
@@ -17,9 +18,9 @@ export function Markdown({ className, content }: Props) {
     <Component
       className={twMerge('space-y-5', className)}
       components={{
-        a({ children, href }) {
+        a({ children, href }: { children: ReactNode; href: string }) {
           return (
-            <Link className="font-medium" href={href!}>
+            <Link className="font-medium" href={href}>
               {children}
             </Link>
           )
@@ -45,8 +46,8 @@ export function Markdown({ className, content }: Props) {
         h3({ children }) {
           return <h3 className="!mt-6 text-7 font-bold">{children}</h3>
         },
-        img({ alt, src }) {
-          const url = new URL(src!)
+        img({ alt, src }: { alt: string; src: string }) {
+          const url = new URL(src)
 
           const height = (Number(url.searchParams.get('h')) || 200) / 2
           const width = (Number(url.searchParams.get('w')) || 200) / 2
@@ -55,7 +56,7 @@ export function Markdown({ className, content }: Props) {
           return (
             <figure className="!my-8 flex flex-col items-center gap-4">
               <Image
-                alt={alt!}
+                alt={alt}
                 className={twMerge(
                   'rounded-4',
                   type === 'chart' && 'bg-[#fff]',
@@ -99,7 +100,8 @@ export function Markdown({ className, content }: Props) {
           return <ul className="mx-6 list-disc">{children}</ul>
         },
       }}
-      remarkPlugins={[gfm, unwrapImages]}
+      rehypePlugins={[unwrapImages]}
+      remarkPlugins={[gfm]}
     >
       {content}
     </Component>

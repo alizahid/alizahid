@@ -19,9 +19,9 @@ export const dimensions = {
 
 type Props = {
   id: keyof typeof dimensions
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 export const facebook = {
@@ -35,7 +35,9 @@ export function generateImageMetadata() {
 }
 
 export default async function Image({ id, params }: Props) {
-  const post = await fetchPost(params.slug)
+  const { slug } = await params
+
+  const post = await fetchPost(slug)
 
   if (!post) {
     return new NextResponse('Post not found', {
