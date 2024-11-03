@@ -28,7 +28,7 @@ export function ProjectCard({ project }: Props) {
         <div className="flex flex-wrap items-start gap-4">
           {project.links.map((link) => (
             <Link
-              className="rounded-3 bg-accent-a9 px-2 py-1 text-2 font-medium text-white-a12 hover:bg-accent-a10 hover:text-white-a12"
+              className="rounded-3 bg-accent-a9 px-2 py-1 text-2 font-medium text-accent-contrast hover:bg-accent-a10 hover:text-accent-contrast"
               href={link.link}
               key={link.link}
             >

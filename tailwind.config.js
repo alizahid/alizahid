@@ -16,7 +16,7 @@ module.exports = {
       full: '100%',
     },
     colors: {
-      accent: generatePalette('ruby'),
+      accent: generatePalette('violet'),
       amber: generatePalette('amber'),
       black: generatePalette('black'),
       current: 'currentColor',
@@ -60,7 +60,12 @@ module.exports = {
 }
 
 function generatePalette(name) {
+  const dark = ['sky', 'mint', 'lime', 'yellow', 'amber']
+
   return Object.fromEntries(
-    range(1, 13).map((scale) => [`a${scale}`, `var(--${name}-a${scale})`]),
+    range(1, 13).flatMap((scale) => [
+      [`a${scale}`, `var(--${name}-a${scale})`],
+      ['contrast', dark.includes(name) ? '#000' : '#fff'],
+    ]),
   )
 }

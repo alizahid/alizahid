@@ -19,10 +19,10 @@ export function PostCard({ post }: Props) {
       <Image
         alt={post.title}
         className="rounded-4"
-        height={360}
+        height={400}
         src={post.image.url}
         unoptimized
-        width={720}
+        width={600}
       />
 
       <div className="text-pretty text-4 font-bold">{post.title}</div>

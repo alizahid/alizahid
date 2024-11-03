@@ -10,12 +10,22 @@ export default async function Page() {
   const { block, posts, projects } = await fetchHome()
 
   return (
-    <main className="flex flex-col gap-9">
-      <Markdown className="text-pretty" content={block.content} />
+    <main className="flex flex-col gap-10">
+      <Markdown
+        className="text-pretty"
+        components={{
+          h1({ children }) {
+            return (
+              <h1 className="text-9 font-bold text-accent-a12">{children}</h1>
+            )
+          },
+        }}
+        content={block.content}
+      />
 
       <section className="flex flex-col gap-8">
         <Link className="flex items-center gap-4 text-gray-a12" href="/blog">
-          <BookOpen className="size-6" weight="duotone" />
+          <BookOpen className="size-6 text-accent-a11" weight="duotone" />
 
           <h2 className="text-8 font-bold">Blog</h2>
         </Link>
@@ -44,7 +54,7 @@ export default async function Page() {
           className="flex items-center gap-4 text-gray-a12"
           href="/playground"
         >
-          <Cube className="size-6" weight="duotone" />
+          <Cube className="size-6 text-accent-a11" weight="duotone" />
 
           <h2 className="text-8 font-bold">Playground</h2>
         </Link>

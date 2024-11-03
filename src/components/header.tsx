@@ -45,7 +45,9 @@ export function Header() {
           <Link
             className={twMerge(
               'flex items-center gap-2 font-medium hover:text-accent-a11',
-              link.href.startsWith(path) ? 'text-accent-a11' : 'text-gray-a12',
+              path.length > 1 && link.href.startsWith(path)
+                ? 'text-accent-a11'
+                : 'text-gray-a12',
             )}
             href={link.href}
             key={link.href}

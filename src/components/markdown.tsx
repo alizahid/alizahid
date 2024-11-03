@@ -3,17 +3,18 @@ import { Code } from 'bright'
 import Image from 'next/image'
 import Link from 'next/link'
 import { type ReactNode } from 'react'
-import Component from 'react-markdown'
+import Component, { type Components } from 'react-markdown'
 import unwrapImages from 'rehype-unwrap-images'
 import gfm from 'remark-gfm'
 import { twMerge } from 'tailwind-merge'
 
 type Props = {
   className?: string
+  components?: Components
   content: string
 }
 
-export function Markdown({ className, content }: Props) {
+export function Markdown({ className, components, content }: Props) {
   return (
     <Component
       className={twMerge('space-y-5', className)}
@@ -99,6 +100,7 @@ export function Markdown({ className, content }: Props) {
         ul({ children }) {
           return <ul className="mx-6 list-disc">{children}</ul>
         },
+        ...components,
       }}
       rehypePlugins={[unwrapImages]}
       remarkPlugins={[gfm]}
