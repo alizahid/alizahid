@@ -29,7 +29,11 @@ export function Footer() {
 
       <div className="flex items-center gap-4">
         {links.map((link) => (
-          <Link href={link.href} key={link.href}>
+          <Link
+            className="outline-none ring-accent-a7 ring-offset-2 focus-visible:rounded-2 focus-visible:ring-2"
+            href={link.href}
+            key={link.href}
+          >
             {link.icon}
 
             <span className="absolute -m-[1px] size-[1px] overflow-hidden">

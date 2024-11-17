@@ -21,7 +21,10 @@ export function Markdown({ className, components, content }: Props) {
       components={{
         a({ children, href }: { children: ReactNode; href: string }) {
           return (
-            <Link className="font-medium" href={href}>
+            <Link
+              className="font-medium outline-none ring-accent-a7 focus-visible:rounded-2 focus-visible:ring"
+              href={href}
+            >
               {children}
             </Link>
           )

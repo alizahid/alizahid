@@ -7,25 +7,25 @@ module.exports = {
   theme: {
     borderRadius: {
       0: '0px',
-      1: '3px',
-      2: '4px',
-      3: '6px',
-      4: '8px',
-      5: '12px',
-      6: '16px',
-      full: '100%',
+      1: '0px', // '3px',
+      2: '0px', // '4px',
+      3: '0px', // '6px',
+      4: '0px', // '8px',
+      5: '0px', // '12px',
+      6: '0px', // '16px',
+      full: '0px', // '100%',
     },
     colors: {
       accent: generatePalette('violet'),
       amber: generatePalette('amber'),
-      black: generatePalette('black'),
+      black: '#000',
       current: 'currentColor',
       gray: generatePalette('sage'),
       indigo: generatePalette('indigo'),
       ruby: generatePalette('ruby'),
       teal: generatePalette('teal'),
       transparent: 'transparent',
-      white: generatePalette('white'),
+      white: '#fff',
     },
     fontFamily: {
       body: ['var(--font-body)'],
@@ -64,6 +64,7 @@ function generatePalette(name) {
 
   return Object.fromEntries(
     range(1, 13).flatMap((scale) => [
+      [scale, `var(--${name}-${scale})`],
       [`a${scale}`, `var(--${name}-a${scale})`],
       ['contrast', dark.includes(name) ? '#000' : '#fff'],
     ]),

@@ -13,7 +13,7 @@ export function PostCard({ post }: Props) {
 
   return (
     <Link
-      className="flex flex-col gap-4 overflow-hidden"
+      className="flex flex-col gap-4 outline-none ring-accent-a7 ring-offset-8 focus-visible:rounded-2 focus-visible:ring"
       href={`/blog/${post.slug}`}
     >
       <Image

@@ -29,7 +29,10 @@ export function Header() {
 
   return (
     <header className="flex items-start justify-between gap-4">
-      <Link href="/">
+      <Link
+        className="rounded-full outline-none ring-accent-a7 focus-visible:ring-2"
+        href="/"
+      >
         <Image
           alt="Ali Zahid"
           className="rounded-full bg-gray-a3"
@@ -40,11 +43,11 @@ export function Header() {
         />
       </Link>
 
-      <nav className="flex gap-4 lg:gap-6">
+      <nav className="flex gap-4">
         {links.map((link) => (
           <Link
             className={twMerge(
-              'flex items-center gap-2 font-medium hover:text-accent-a11',
+              'flex items-center gap-2 rounded-2 px-2 py-1 font-medium outline-none ring-accent-a7 hover:text-accent-a11 focus-visible:ring-2',
               path.length > 1 && link.href.startsWith(path)
                 ? 'text-accent-a11'
                 : 'text-gray-a12',

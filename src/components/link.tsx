@@ -12,7 +12,7 @@ type Props = {
 export function LinkCard({ link }: Props) {
   return (
     <Link
-      className="flex items-start gap-4 overflow-hidden"
+      className="flex items-start gap-4 outline-none ring-accent-a7 ring-offset-8 focus-visible:rounded-2 focus-visible:ring"
       href={link.url}
       rel="noopener"
       target="_blank"

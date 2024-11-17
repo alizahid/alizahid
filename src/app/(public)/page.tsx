@@ -24,7 +24,10 @@ export default async function Page() {
       />
 
       <section className="flex flex-col gap-8">
-        <Link className="flex items-center gap-4 text-gray-a12" href="/blog">
+        <Link
+          className="flex items-center gap-4 self-start text-gray-a12 outline-none ring-accent-a7 ring-offset-4 focus-visible:rounded-2 focus-visible:ring-2"
+          href="/blog"
+        >
           <BookOpen className="size-6 text-accent-a11" weight="duotone" />
 
           <h2 className="text-8 font-bold">Blog</h2>
@@ -51,7 +54,7 @@ export default async function Page() {
 
       <section className="flex flex-col gap-8">
         <Link
-          className="flex items-center gap-4 text-gray-a12"
+          className="flex items-center gap-4 self-start text-gray-a12 outline-none ring-accent-a7 ring-offset-4 focus-visible:rounded-2 focus-visible:ring-2"
           href="/playground"
         >
           <Cube className="size-6 text-accent-a11" weight="duotone" />
