@@ -16,7 +16,7 @@ module.exports = {
       full: '0px', // '100%',
     },
     colors: {
-      accent: generatePalette('violet'),
+      accent: generatePalette('jade'),
       amber: generatePalette('amber'),
       black: '#000',
       current: 'currentColor',

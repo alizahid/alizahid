@@ -22,7 +22,7 @@ export function Markdown({ className, components, content }: Props) {
         a({ children, href }: { children: ReactNode; href: string }) {
           return (
             <Link
-              className="font-medium outline-none ring-accent-a7 focus-visible:rounded-2 focus-visible:ring"
+              className="font-medium outline-none ring-accent-a7 ring-offset-2 focus-visible:rounded-2 focus-visible:ring-2"
               href={href}
             >
               {children}
