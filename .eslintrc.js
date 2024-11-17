@@ -12,7 +12,7 @@ module.exports = {
     require.resolve('@vercel/style-guide/eslint/react'),
     require.resolve('@vercel/style-guide/eslint/next'),
     'plugin:prettier/recommended',
-  ].filter(Boolean),
+  ],
   globals: {
     JSX: true,
     React: true,
