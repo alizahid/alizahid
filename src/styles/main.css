@@ -1,58 +1,13 @@
-/* radix */
-
-@import '@radix-ui/colors/jade.css';
-@import '@radix-ui/colors/jade-dark.css';
-@import '@radix-ui/colors/jade-alpha.css';
-@import '@radix-ui/colors/jade-dark-alpha.css';
-
-@import '@radix-ui/colors/sage.css';
-@import '@radix-ui/colors/sage-dark.css';
-@import '@radix-ui/colors/sage-alpha.css';
-@import '@radix-ui/colors/sage-dark-alpha.css';
-
-@import '@radix-ui/colors/amber.css';
-@import '@radix-ui/colors/amber-dark.css';
-@import '@radix-ui/colors/amber-alpha.css';
-@import '@radix-ui/colors/amber-dark-alpha.css';
-
-@import '@radix-ui/colors/indigo.css';
-@import '@radix-ui/colors/indigo-dark.css';
-@import '@radix-ui/colors/indigo-alpha.css';
-@import '@radix-ui/colors/indigo-dark-alpha.css';
-
-@import '@radix-ui/colors/teal.css';
-@import '@radix-ui/colors/teal-dark.css';
-@import '@radix-ui/colors/teal-alpha.css';
-@import '@radix-ui/colors/teal-dark-alpha.css';
-
-@import '@radix-ui/colors/ruby.css';
-@import '@radix-ui/colors/ruby-dark.css';
-@import '@radix-ui/colors/ruby-alpha.css';
-@import '@radix-ui/colors/ruby-dark-alpha.css';
-
 /* tailwind */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+	--font-sans--font-feature-settings: "ss04";
+}
 
 /* global */
 
-html {
-  @apply scroll-smooth bg-accent-a1;
-
-  font-feature-settings: 'ss04' on;
-}
-
 body {
-  @apply cursor-default bg-gradient-to-tr from-accent-a1 to-accent-a2 font-body text-3 text-gray-a12 antialiased selection:bg-accent-a4;
-}
-
-a {
-  @apply text-accent-a11 transition-colors hover:text-accent-a12;
-}
-
-code,
-pre {
-  @apply font-code;
+	@apply antialiased bg-white cursor-default scroll-smooth text-neutral-900 selection:bg-neutral-400/50;
 }

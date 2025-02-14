@@ -7,79 +7,52 @@ import { ProjectCard } from '~/components/project'
 import { fetchHome } from '~/queries/home'
 
 export default async function Page() {
-  const { block, posts, projects } = await fetchHome()
+	const { block, posts, projects } = await fetchHome()
 
-  return (
-    <main className="flex flex-col gap-10">
-      <Markdown
-        className="text-pretty"
-        components={{
-          h1({ children }) {
-            return (
-              <h1 className="text-9 font-bold text-accent-a12">{children}</h1>
-            )
-          },
-        }}
-        content={block.content}
-      />
+	return (
+		<main className="flex flex-col gap-32">
+			<Markdown
+				components={{
+					h1({ children }) {
+						return <h1 className="font-bold text-6xl">{children}</h1>
+					},
+				}}
+				content={block.content}
+			/>
 
-      <section className="flex flex-col gap-8">
-        <Link
-          className="flex items-center gap-4 self-start text-gray-a12 outline-none ring-accent-a7 ring-offset-4 focus-visible:rounded-2 focus-visible:ring-2"
-          href="/blog"
-        >
-          <BookOpen className="size-6 text-accent-a11" weight="duotone" />
+			<section className="flex flex-col gap-8">
+				<h2>
+					<Link
+						className="font-bold text-2xl outline-none focus-visible:bg-neutral-200"
+						href="/blog"
+					>
+						Blog
+					</Link>
+				</h2>
 
-          <h2 className="text-8 font-bold">Blog</h2>
-        </Link>
+				<div className="grid gap-8 lg:grid-cols-2">
+					{posts.map((post) => (
+						<PostCard key={post.slug} post={post} />
+					))}
+				</div>
+			</section>
 
-        <div className="flex flex-col gap-8 md:hidden">
-          {posts.map((post) => (
-            <PostCard key={post.slug} post={post} />
-          ))}
-        </div>
+			<section className="flex flex-col gap-8">
+				<h2>
+					<Link
+						className="font-bold text-2xl outline-none focus-visible:bg-neutral-200"
+						href="/playground"
+					>
+						Playground
+					</Link>
+				</h2>
 
-        <div className="hidden grid-cols-2 gap-8 md:grid">
-          {[0, 1].map((column) => (
-            <div className="flex flex-col gap-8" key={column}>
-              {posts
-                .filter((post, index) => index % 2 === column)
-                .map((post) => (
-                  <PostCard key={post.slug} post={post} />
-                ))}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="flex flex-col gap-8">
-        <Link
-          className="flex items-center gap-4 self-start text-gray-a12 outline-none ring-accent-a7 ring-offset-4 focus-visible:rounded-2 focus-visible:ring-2"
-          href="/playground"
-        >
-          <Cube className="size-6 text-accent-a11" weight="duotone" />
-
-          <h2 className="text-8 font-bold">Playground</h2>
-        </Link>
-
-        <div className="flex flex-col gap-8 md:hidden">
-          {projects.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
-          ))}
-        </div>
-
-        <div className="hidden grid-cols-2 gap-8 md:grid">
-          {[0, 1].map((column) => (
-            <div className="flex flex-col gap-8" key={column}>
-              {projects
-                .filter((project, index) => index % 2 === column)
-                .map((project) => (
-                  <ProjectCard key={project.slug} project={project} />
-                ))}
-            </div>
-          ))}
-        </div>
-      </section>
-    </main>
-  )
+				<div className="grid gap-8 lg:grid-cols-2">
+					{projects.map((project) => (
+						<ProjectCard key={project.slug} project={project} />
+					))}
+				</div>
+			</section>
+		</main>
+	)
 }

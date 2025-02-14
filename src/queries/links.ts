@@ -1,7 +1,7 @@
 import { gql } from '@urql/core'
 
 import { hygraph } from '~/lib/hygraph'
-import { type LinksQuery } from '~/types/hygraph'
+import type { LinksQuery } from '~/types/hygraph'
 
 const LINKS = gql`
   query links {
@@ -17,9 +17,9 @@ const LINKS = gql`
 `
 
 export async function fetchLinks() {
-  const { data } = await hygraph.query<LinksQuery>(LINKS, undefined)
+	const { data } = await hygraph.query<LinksQuery>(LINKS, undefined)
 
-  return data?.links ?? []
+	return data?.links ?? []
 }
 
 export type Links = Awaited<ReturnType<typeof fetchLinks>>

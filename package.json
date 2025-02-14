@@ -1,79 +1,66 @@
 {
-  "name": "alizahid",
-  "private": true,
-  "license": "MIT",
-  "author": {
-    "name": "Ali Zahid",
-    "email": "ali.zahid@live.com",
-    "url": "https://alizahid.dev"
-  },
-  "scripts": {
-    "build": "next build",
-    "clean": "rimraf --glob '.next'",
-    "dev": "bun clean; next dev",
-    "generate": "env-cmd -f .env.local graphql-codegen",
-    "lint": "next lint --fix",
-    "lint:types": "tsc --noEmit",
-    "nuke": "bun clean '**/node_modules' bun.lockb",
-    "prepare": "husky",
-    "start": "next start"
-  },
-  "lint-staged": {
-    "*.css": [
-      "prettier --write"
-    ],
-    "*.{js,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ]
-  },
-  "dependencies": {
-    "@phosphor-icons/react": "^2.1.7",
-    "@urql/core": "^5.0.8",
-    "@vercel/analytics": "^1.4.0",
-    "bright": "^0.8.5",
-    "date-fns": "4.1.0",
-    "lodash": "^4.17.21",
-    "next": "15.0.3",
-    "next-themes": "^0.4.3",
-    "react": "19.0.0-rc.1",
-    "react-dom": "19.0.0-rc.1",
-    "react-markdown": "^9.0.1",
-    "rehype-unwrap-images": "^1.0.0",
-    "remark-gfm": "^4.0.0",
-    "tailwind-merge": "^2.5.4"
-  },
-  "devDependencies": {
-    "@graphql-codegen/cli": "^5.0.3",
-    "@graphql-codegen/typescript": "^4.1.1",
-    "@graphql-codegen/typescript-operations": "^4.3.1",
-    "@next/eslint-plugin-next": "15.0.3",
-    "@radix-ui/colors": "^3.0.0",
-    "@types/lodash": "^4.17.13",
-    "@types/node": "^22.9.0",
-    "@types/react": "npm:types-react@19.0.0-rc.1",
-    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
-    "@vercel/style-guide": "^6.0.0",
-    "autoprefixer": "^10.4.20",
-    "env-cmd": "^10.1.0",
-    "eslint": "^8.57.1",
-    "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-simple-import-sort": "^12.1.1",
-    "eslint-plugin-sort-destructure-keys": "^2.0.0",
-    "eslint-plugin-sort-keys-fix": "^1.1.2",
-    "eslint-plugin-typescript-sort-keys": "^3.3.0",
-    "husky": "^9.1.6",
-    "lint-staged": "^15.2.10",
-    "postcss": "^8.4.49",
-    "prettier": "^3.3.3",
-    "prettier-plugin-tailwindcss": "^0.6.8",
-    "rimraf": "^6.0.1",
-    "tailwindcss": "^3.4.15",
-    "typescript": "^5.6.3"
-  },
-  "packageManager": "bun@1.1.34",
-  "overrides": {
-    "@types/react": "npm:types-react@19.0.0-rc.1",
-    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
-  }
+	"name": "alizahid",
+	"private": true,
+	"license": "MIT",
+	"author": {
+		"name": "Ali Zahid",
+		"email": "ali.zahid@live.com",
+		"url": "https://alizahid.dev"
+	},
+	"scripts": {
+		"build": "next build",
+		"clean": "rimraf --glob '.next'",
+		"codegen": "env-cmd -f .env.local graphql-codegen",
+		"dev": "bun clean; next dev",
+		"lint": "biome check --write --unsafe .",
+		"lint:types": "tsc --noEmit",
+		"nuke": "bun clean '**/node_modules' bun.lock",
+		"prepare": "husky",
+		"start": "next start"
+	},
+	"dependencies": {
+		"@phosphor-icons/react": "^2.1.7",
+		"@urql/core": "^5.1.0",
+		"@vercel/analytics": "^1.5.0",
+		"bright": "^1.0.0",
+		"date-fns": "4.1.0",
+		"lodash": "^4.17.21",
+		"next": "15.1.7",
+		"next-themes": "^0.4.4",
+		"react": "19.0.0",
+		"react-dom": "19.0.0",
+		"react-markdown": "^9.0.3",
+		"rehype-unwrap-images": "^1.0.0",
+		"remark-gfm": "^4.0.1",
+		"tailwind-merge": "^3.0.1"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@graphql-codegen/cli": "5.0.5",
+		"@graphql-codegen/typescript": "^4.1.3",
+		"@graphql-codegen/typescript-operations": "^4.4.1",
+		"@parcel/watcher": "^2.5.1",
+		"@tailwindcss/postcss": "^4.0.6",
+		"@types/lodash": "^4.17.15",
+		"@types/node": "^22.13.4",
+		"@types/react": "^19.0.8",
+		"@types/react-dom": "^19.0.3",
+		"env-cmd": "^10.1.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^15.4.3",
+		"postcss": "^8.5.2",
+		"rimraf": "^6.0.1",
+		"tailwindcss": "^4.0.6",
+		"typescript": "^5.7.3"
+	},
+	"overrides": {
+		"react": "19.0.0",
+		"react-dom": "19.0.0",
+		"@types/react": "19.0.8",
+		"@types/react-dom": "19.0.3"
+	},
+	"packageManager": "bun@1.2.2",
+	"lint-staged": {
+		"*.{css,js,ts,tsx}": ["biome check --write --unsafe"]
+	}
 }
