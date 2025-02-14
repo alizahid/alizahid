@@ -29,7 +29,7 @@ export default async function Page() {
 					</Link>
 				</h2>
 
-				<div className="grid gap-8 lg:grid-cols-2">
+				<div className="-mx-8 grid gap-8 lg:mx-0 lg:grid-cols-2">
 					{posts.map((post) => (
 						<PostCard key={post.slug} post={post} />
 					))}
@@ -46,7 +46,7 @@ export default async function Page() {
 					</Link>
 				</h2>
 
-				<div className="grid gap-8 lg:grid-cols-2">
+				<div className="-mx-8 grid gap-8 lg:mx-0 lg:grid-cols-2">
 					{projects.map((project) => (
 						<ProjectCard key={project.slug} project={project} />
 					))}

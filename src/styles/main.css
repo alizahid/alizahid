@@ -2,10 +2,6 @@
 
 @import "tailwindcss";
 
-@theme {
-	--font-sans--font-feature-settings: "ss04";
-}
-
 /* global */
 
 body {

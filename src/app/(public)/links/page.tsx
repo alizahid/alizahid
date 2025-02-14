@@ -14,7 +14,7 @@ export default async function Page() {
 		<main className="flex flex-grow flex-col gap-16">
 			<h1 className="font-bold text-6xl">Links</h1>
 
-			<div className="grid gap-8 lg:grid-cols-2">
+			<div className="-mx-8 grid gap-8 lg:mx-0 lg:grid-cols-2">
 				{links.map((link) => (
 					<LinkCard key={link.id} link={link} />
 				))}
