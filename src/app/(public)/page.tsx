@@ -1,4 +1,3 @@
-import { BookOpen, Cube } from '@phosphor-icons/react/dist/ssr'
 import Link from 'next/link'
 
 import { Markdown } from '~/components/markdown'
