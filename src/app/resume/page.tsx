@@ -272,7 +272,7 @@ const experience: Array<Job> = [
 
 const skills: Array<Skill> = [
 	{
-		className: 'bg-emerald-50',
+		className: 'bg-emerald-50 text-emerald-950',
 		items: [
 			'Full-stack engineering',
 			'Architecture design',
@@ -288,7 +288,7 @@ const skills: Array<Skill> = [
 		type: 'items',
 	},
 	{
-		className: 'bg-indigo-50',
+		className: 'bg-indigo-50 text-indigo-950',
 		items: [
 			'Expo',
 			'React Native',
@@ -302,7 +302,7 @@ const skills: Array<Skill> = [
 		type: 'items',
 	},
 	{
-		className: 'bg-indigo-50',
+		className: 'bg-indigo-50 text-indigo-950',
 		items: [
 			'Next.js',
 			'React',
@@ -318,7 +318,7 @@ const skills: Array<Skill> = [
 		type: 'items',
 	},
 	{
-		className: 'bg-indigo-50',
+		className: 'bg-indigo-50 text-indigo-950',
 		items: [
 			'Node.js',
 			'Apollo',
@@ -335,21 +335,21 @@ const skills: Array<Skill> = [
 		type: 'items',
 	},
 	{
-		className: 'bg-teal-50',
+		className: 'bg-teal-50 text-teal-950',
 		items: ['TypeScript', 'JavaScript', 'Ruby on Rails'],
 		side: 'left',
 		title: 'Languages',
 		type: 'items',
 	},
 	{
-		className: 'bg-amber-50',
+		className: 'bg-amber-50 text-amber-950',
 		items: ['OpenAI', 'GPT', 'Anthropic', 'Claude'],
 		side: 'left',
 		title: 'AI',
 		type: 'items',
 	},
 	{
-		className: 'bg-amber-50',
+		className: 'bg-amber-50 text-amber-950',
 		sections: [
 			{
 				items: ['PostgreSQL', 'FaunaDB', 'MongoDB', 'MySQL'],
@@ -378,7 +378,7 @@ const skills: Array<Skill> = [
 		type: 'sections',
 	},
 	{
-		className: 'bg-rose-50',
+		className: 'bg-rose-50 text-rose-950',
 		sections: [
 			{
 				items: ['Vercel', 'Heroku', 'Render'],

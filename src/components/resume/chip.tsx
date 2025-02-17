@@ -7,5 +7,9 @@ type Props = {
 }
 
 export function Chip({ children, className }: Props) {
-	return <span className={twMerge('text-sm', className)}>{children}</span>
+	return (
+		<span className={twMerge('text-sm leading-none', className)}>
+			{children}
+		</span>
+	)
 }
