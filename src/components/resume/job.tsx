@@ -1,10 +1,11 @@
 import { format } from 'date-fns'
 import { maxBy, minBy } from 'lodash'
+import { Chip } from './chip'
 
 export type Job = {
 	company: string
 	description: string
-	featured?: boolean
+	page: number
 	location: string
 	positions: Array<{
 		from: Date
@@ -65,11 +66,20 @@ export function JobCard({ job }: Props) {
 						{position.responsibilities.map((responsibility) => (
 							<li key={responsibility}>{responsibility}</li>
 						))}
-
-						{position.stack.length > 0 ? (
-							<li>Built using {position.stack.join(', ')}</li>
-						) : null}
 					</ul>
+
+					{position.stack.length > 0 ? (
+						<div className="flex gap-2">
+							{position.stack.map((item) => (
+								<Chip className="bg-emerald-50 text-emerald-950" key={item}>
+									{item}{' '}
+									<span className="-m-1 absolute size-1 overflow-hidden">
+										,
+									</span>
+								</Chip>
+							))}
+						</div>
+					) : null}
 				</div>
 			))}
 		</article>

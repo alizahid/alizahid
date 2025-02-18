@@ -6,6 +6,7 @@ import {
 	LinkedinLogo,
 	TwitterLogo,
 } from '@phosphor-icons/react/dist/ssr'
+import { groupBy } from 'lodash'
 
 import { Document } from '~/components/resume/document'
 import { type Job, JobCard } from '~/components/resume/job'
@@ -28,10 +29,11 @@ export default function Page() {
 					</h2>
 
 					<p className="text-neutral-600">
-						I started my web journey at 8 years old. Since then I&#39;ve worked
-						with startups, government organizations, Academy award winning
-						filmmakers, and everything in between to build robust and scalable
-						technology.
+						Passionate tech leader and full-stack engineer with a proven track
+						record in AI-driven products, scalable architectures, and
+						high-performance applications. Built technology for startups,
+						governments, and Oscar-winning filmmakers, delivering impactful
+						solutions across industries.
 					</p>
 				</header>
 
@@ -39,24 +41,28 @@ export default function Page() {
 					<h3 className="font-bold text-2xl text-emerald-900">Experience</h3>
 
 					{experience
-						.filter((job) => job.featured)
+						.filter((job) => job.page === 0)
 						.map((job) => (
 							<JobCard job={job} key={job.company} />
 						))}
 				</section>
 			</Paper>
 
-			<Paper className="gap-12 p-12">
-				<section className="flex flex-col gap-6">
-					<h3 className="font-bold text-2xl text-emerald-900">Experience</h3>
+			{Object.entries(groupBy(experience, 'page'))
+				.filter(([page]) => page !== '0')
+				.map(([page, jobs]) => (
+					<Paper key={page} className="gap-12 p-12">
+						<section className="flex flex-col gap-6">
+							<h3 className="font-bold text-2xl text-emerald-900">
+								Experience
+							</h3>
 
-					{experience
-						.filter((job) => !job.featured)
-						.map((job) => (
-							<JobCard job={job} key={job.company} />
-						))}
-				</section>
-			</Paper>
+							{jobs.map((job) => (
+								<JobCard job={job} key={job.company} />
+							))}
+						</section>
+					</Paper>
+				))}
 
 			<Paper className="gap-12 p-12">
 				<section className="flex flex-col gap-6">
@@ -84,7 +90,7 @@ export default function Page() {
 				<section className="flex flex-col gap-6">
 					<h3 className="font-bold text-2xl text-emerald-900">Contact</h3>
 
-					<div className="grid grid-cols-3 gap-4">
+					<div className="grid grid-cols-3 gap-2">
 						{contact.map((item) => (
 							<a
 								className="flex items-center gap-2"
@@ -106,165 +112,167 @@ export default function Page() {
 const experience: Array<Job> = [
 	{
 		company: 'Workcraft',
-		description: 'Workcraft is an AI powered hiring assistant',
-		featured: true,
+		description:
+			'AI-powered recruiting software that streamlines hiring with competency frameworks, AI-powered candidate ranking, interview scheduling, and feedback collection',
 		location: 'Dubai',
+		page: 0,
 		positions: [
 			{
 				from: new Date(2023, 9),
 				responsibilities: [
-					'Designed and built their flagship app with Next.js, TypeScript, Prisma',
-					'Major focus on speed, accessibility, and clean design',
-					'Background workers with Upstash and Trigger.dev',
+					'Architected and built the entire Workcraft platform from scratch, leveraging Next.js, React Server Components, and Prisma for a high-performance, scalable web app',
+					'Designed and implemented AI-powered hiring workflows, integrating OpenAI and Anthropic via Vercel AI SDK to automate candidate ranking and competency-based evaluations',
+					'Integrated full ATS functionality, including calendar sync and automated interview scheduling, using Nylas to create seamless booking experiences inside users’ calendars',
+					'Optimized performance and scalability, implementing Upstash Redis caching and Trigger.dev background jobs to ensure real-time updates and fast response times',
 				],
-				stack: ['Supabase', 'OpenAI', 'Radix UI', 'Tailwind CSS', 'Turborepo'],
-				title: 'Tech lead',
-				to: new Date(),
+				stack: [
+					'Next.js',
+					'TypeScript',
+					'Prisma',
+					'Supabase',
+					'OpenAI',
+					'Radix UI',
+					'Tailwind CSS',
+					'Turborepo',
+				],
+				title: 'Tech Lead',
 			},
 		],
 	},
 	{
 		company: 'NockNock',
-		description: 'P2P marketplace for event spaces',
-		featured: true,
+		description:
+			'Peer-to-peer space booking platform enabling users to rent unique spaces by the hour, such as rooftops for parties or home theaters for private screenings',
+		page: 0,
 		location: 'Remote',
 		positions: [
 			{
 				from: new Date(2022, 5),
-				responsibilities: [
-					'Built their mobile app with Expo, TypeScript, tRPC',
-					'All custom code and design (with help from their design team)',
-				],
-				stack: ['Next.js', 'React Native', 'PlanetScale', 'Tailwind CSS'],
-				title: 'Tech lead',
 				to: new Date(2023, 2),
+				title: 'Tech Lead',
+				responsibilities: [
+					'Designed and built the NockNock mobile app from scratch using React Native and Expo, enabling seamless space browsing, booking, and management',
+					'Implemented a host management system, allowing hosts to accept/reject bookings and communicate with guests via in-app messaging',
+					'Integrated real-time location and payments, leveraging MapBox for interactive maps and Stripe for secure transactions',
+					'Optimized app performance and UI using Expo Router and Tailwind CSS, ensuring a fast, responsive, and visually engaging experience',
+				],
+				stack: [
+					'TypeScript',
+					'React Native',
+					'Expo Router',
+					'Tailwind CSS',
+					'tRPC',
+					'MapBox',
+					'Firebase',
+					'Stripe',
+					'Stream',
+				],
 			},
 		],
 	},
 	{
 		company: 'Blacklane',
-		description: 'A premium car booking service',
-		featured: true,
+		description:
+			'Premium chauffeur service providing high-end ride bookings with professional drivers in cities worldwide',
+		page: 1,
 		location: 'Berlin',
 		positions: [
 			{
 				from: new Date(2022, 0),
-				responsibilities: [
-					'Built the next generation of their web stack with a focus on performance and accessibility',
-					'Hiring and development for my team of 6',
-				],
-				stack: [
-					'Next.js',
-					'Tailwind CSS',
-					'Storybook',
-					'GraphQL',
-					'Turborepo',
-					'TypeScript',
-				],
-				title: 'Tech lead',
 				to: new Date(2022, 5),
+				title: 'Tech Lead',
+				responsibilities: [
+					'Led a team of 6 engineers, conducting 1:1s, mentoring, and overseeing sprint planning to ensure efficient execution of technical projects',
+					'Re-architected the frontend stack to improve accessibility (a11y) compliance and performance, enhancing usability for all users',
+					'Migrated from CSS Modules to Tailwind CSS and refactored components with Radix UI, resulting in a more maintainable and scalable codebase',
+				],
+				stack: ['Next.js', 'GraphQL', 'Tailwind CSS', 'Radix UI'],
 			},
 			{
 				from: new Date(2021, 5),
-				responsibilities: [
-					'Worked on the booking funnel for their flagship app',
-					'Maintaining and improving the internal design system that powers their web experience',
-					'Built a mini frontend for integration with one of their largest partners',
-				],
-				stack: ['Next.js', 'GraphQL', 'Storybook', 'CSS', 'TypeScript'],
-				title: 'Senior full-stack engineer',
 				to: new Date(2022, 0),
+				title: 'Senior Full-Stack Engineer',
+				responsibilities: [
+					'Developed and shipped high-performance, accessible web features, improving UX across Blacklane’s platform',
+					'Served as the sole frontend engineer for a client integration project, building a web app that enabled seamless ride booking via magic links without authentication',
+					'Optimized GraphQL queries and frontend caching, significantly improving page load speeds and reducing unnecessary re-renders',
+				],
+				stack: ['Next.js', 'CSS Modules', 'GraphQL'],
 			},
 		],
 	},
 	{
 		company: 'Wukla',
-		description: 'DocuSign alternative for Pakistan and United Arab Emirates',
+		page: 1,
+		description:
+			'Modern document signing platform tailored for the legal requirements of Pakistan and the UAE, offering a faster and more user-friendly alternative to DocuSign',
 		location: 'Remote',
 		positions: [
 			{
 				from: new Date(2020, 4),
+				to: new Date(2023, 9),
+				title: 'Tech Lead',
 				responsibilities: [
-					'Built the next generation of their electronic document signing and payment collection platform',
-					'Built SDKs that customers can integrate into their apps',
-					'All custom code and design',
+					'Architected, designed, and developed Wukla from the ground up, building a high-performance document signing platform optimized for local legal requirements',
+					'Built a custom document editor with xyflow, allowing users to drag and drop fields (signatures, dates, text boxes) onto documents for seamless signer input',
+					'Implemented a scalable background job system using BullMQ and Redis to handle PDF generation, conversion, and processing with near real-time efficiency',
+					'Developed a robust backend using Fastify, Apollo GraphQL, and PostgreSQL with Prisma, ensuring fast query execution and data consistency',
 				],
 				stack: [
 					'Next.js',
-					'Prisma',
-					'Apollo',
-					'GraphQL',
-					'Stripe',
-					'Tailwind CSS',
 					'TypeScript',
+					'GraphQL',
+					'Apollo',
+					'Radix UI',
+					'Fastify',
+					'Prisma',
+					'BullMQ',
 				],
-				title: 'Tech lead',
-				to: new Date(2023, 9),
 			},
 		],
 	},
 	{
 		company: 'AYM',
+		page: 2,
 		description:
-			'Built ops tech for Danube, one of the largest grocers in Saudi Arabia',
+			'E-commerce platform powering online grocery shopping and delivery for Danube, Saudi Arabia’s largest supermarket chain',
 		location: 'Dubai',
 		positions: [
 			{
 				from: new Date(2019, 4),
-				responsibilities: [
-					'Requirement gathering with stakeholders, sprint planning, and project management for the next generations of our products',
-					'Managed hiring, training, retention, and did code reviews for my team of 9 people',
-				],
-				stack: [
-					'Next.js',
-					'Node.js',
-					'Apollo',
-					'GraphQL',
-					'Prisma',
-					'Tailwind CSS',
-					'TypeScript',
-				],
-				title: 'Tech lead',
 				to: new Date(2020, 0),
+				title: 'Tech Lead',
+				responsibilities: [
+					'Led the engineering, design, and product teams for Danube’s e-commerce platform, ensuring seamless collaboration and high-quality software delivery',
+					'Drove the migration from a monolithic Ruby on Rails architecture to a microservices-based system, improving scalability, maintainability, and performance',
+					'Collaborated with stakeholders to translate business requirements into technical road maps and sprint plans, ensuring alignment between engineering and business goals',
+					'Focused on team development, mentoring, and hiring, creating an environment that fostered growth, innovation, and high performance',
+				],
+				stack: ['Node.js', 'TypeScript', 'Microservices'],
 			},
 			{
 				from: new Date(2018, 0),
-				responsibilities: [
-					'Designed the architecture and built the backend for a loyalty program for a major consumer brand',
-					'Scaled to over 5 million monthly active users in 8 markets with close to 0% failure rate',
-					'Hired and managed a team of 4 remote and 2 on-site engineers',
-				],
-				stack: ['Node.js', 'Microsoft Azure', 'TypeScript'],
-				title: 'Backend lead',
 				to: new Date(2019, 4),
+				title: 'Backend Lead',
+				responsibilities: [
+					'Designed and built a highly scalable backend for the P&G Pampers Loyalty Program, replacing an unreliable system with a serverless architecture',
+					'Developed a middleware platform that integrated with multiple APIs for authentication, coupon redemption, balance checking, rewards management, and analytics',
+					'Served 5 million MAUs across 8+ markets with an uptime of 99.9%, using feature flags to maintain a single codebase with region-specific customizations',
+					'Led a team of 6 engineers (4 remote, 2 onsite), managing sprint planning, mentoring, hiring, and team development to ensure efficient delivery of backend features',
+				],
+				stack: ['Node.js', 'TypeScript', 'Microsoft Azure'],
 			},
 			{
 				from: new Date(2017, 5),
-				responsibilities: [
-					'Built operations and fulfillment tech for the largest chain of supermarkets in Saudi Arabia',
-					'Increased operational capability and efficiency from 10 to 200 orders a day by building a suite of apps for warehouse workers, drivers, supervisors, and managers',
-				],
-				stack: ['React Native', 'Ruby on Rails', 'TypeScript'],
-				title: 'Full-stack engineer',
 				to: new Date(2018, 0),
-			},
-		],
-	},
-	{
-		company: 'JadoPado',
-		description: 'Amazon-like marketplace which got acquired by Noon in 2017',
-		location: 'Dubai',
-		positions: [
-			{
-				from: new Date(2016, 9),
+				title: 'Full-Stack Engineer',
 				responsibilities: [
-					'Localized our flagship React Native app into Arabic, including right-to-left layouts, animations, and iconography',
-					'Designed the strategy and wrote code mods to prepare the existing codebase to support localization',
-					'Contributed to the open-source React Native ecosystem with RTL improvements',
+					'Developed four, multilingual React Native apps for warehouse operations; optimizing order fulfillment, packing, delivery processes, observability',
+					'Built an optimized order picking system that provided the shortest route through the warehouse, increasing picker efficiency and reducing order processing time. Scaled capacity from 10 to 200 orders a day',
+					'Implemented a driver app with fuel-efficient map routing and on-device credit card payments, reducing delivery costs and improving customer experience for cash-on-delivery orders',
+					'Built the backend for the apps as part of the Ruby on Rails monolith. Learnt Rails on the job to ship all the features required to build the React Native apps',
 				],
-				stack: ['React Native', 'TypeScript'],
-				title: 'Full-stack engineer',
-				to: new Date(2017, 1),
+				stack: ['React Native', 'Ruby on Rails', 'TypeScript', 'PostgreSQL'],
 			},
 		],
 	},
@@ -275,13 +283,10 @@ const skills: Array<Skill> = [
 		className: 'bg-emerald-50 text-emerald-950',
 		items: [
 			'Full-stack engineering',
-			'Architecture design',
-			'Solutions design',
-			'Product design',
-			'User interface design',
-			'Open-source',
-			'Team management',
-			'Leadership',
+			'AI integration',
+			'Architecture & solutions design',
+			'Performance optimization',
+			'Team leadership & mentorship',
 		],
 		side: 'left',
 		title: 'Core',
@@ -289,62 +294,29 @@ const skills: Array<Skill> = [
 	},
 	{
 		className: 'bg-indigo-50 text-indigo-950',
-		items: [
-			'Expo',
-			'React Native',
-			'Reanimated',
-			'Gesture Handler',
-			'iOS',
-			'Android',
-		],
-		side: 'left',
-		title: 'Mobile',
-		type: 'items',
-	},
-	{
-		className: 'bg-indigo-50 text-indigo-950',
-		items: [
-			'Next.js',
-			'React',
-			'Solid.js',
-			'Ember.js',
-			'Tauri',
-			'Radix UI',
-			'Tailwind CSS',
-			'SASS',
-		],
+		items: ['React', 'Next.js', 'React Native', 'Expo', 'Tailwind CSS'],
 		side: 'left',
 		title: 'Frontend',
 		type: 'items',
 	},
 	{
 		className: 'bg-indigo-50 text-indigo-950',
-		items: [
-			'Node.js',
-			'Apollo',
-			'Fastify',
-			'Express',
-			'tPRC',
-			'GraphQL',
-			'REST',
-			'microservices',
-			'serverless',
-		],
+		items: ['Node.js', 'Apollo', 'Fastify', 'Ruby on Rails'],
 		side: 'left',
 		title: 'Backend',
 		type: 'items',
 	},
 	{
 		className: 'bg-teal-50 text-teal-950',
-		items: ['TypeScript', 'JavaScript', 'Ruby on Rails'],
+		items: ['TypeScript', 'JavaScript', 'Ruby'],
 		side: 'left',
 		title: 'Languages',
 		type: 'items',
 	},
 	{
 		className: 'bg-amber-50 text-amber-950',
-		items: ['OpenAI', 'GPT', 'Anthropic', 'Claude'],
-		side: 'left',
+		items: ['OpenAI GPT', 'Anthropic Claude', 'Vercel AI'],
+		side: 'right',
 		title: 'AI',
 		type: 'items',
 	},
@@ -359,54 +331,9 @@ const skills: Array<Skill> = [
 				items: ['GraphQL', 'Prisma', 'tRPC'],
 				title: 'Frameworks',
 			},
-			{
-				items: [
-					'Algolia',
-					'Atlas',
-					'Braze',
-					'Expo',
-					'Neon',
-					'PlanetScale',
-					'Segment',
-					'Supabase',
-				],
-				title: 'Services',
-			},
 		],
 		side: 'right',
 		title: 'Data',
-		type: 'sections',
-	},
-	{
-		className: 'bg-rose-50 text-rose-950',
-		sections: [
-			{
-				items: ['Vercel', 'Heroku', 'Render'],
-				title: 'Platforms',
-			},
-			{
-				items: ['S3', 'SQS', 'Lambda'],
-				title: 'Amazon Web Services',
-			},
-			{
-				items: ['Firebase', 'Firestore', 'Functions', 'Scheduler', 'SQL'],
-				title: 'Google Cloud Platform',
-			},
-			{
-				items: [
-					'Azure DevOps',
-					'API Gateway',
-					'App Service',
-					'Functions',
-					'Cosmos DB',
-					'Service Bus',
-					'Application Insights',
-				],
-				title: 'Microsoft Azure',
-			},
-		],
-		side: 'right',
-		title: 'Services',
 		type: 'sections',
 	},
 ]
