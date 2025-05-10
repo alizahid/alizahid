@@ -11,7 +11,7 @@ export default async function Page() {
 	const links = await fetchLinks()
 
 	return (
-		<main className="flex flex-grow flex-col gap-16">
+		<main className="flex grow flex-col gap-16">
 			<h1 className="font-bold text-6xl">Links</h1>
 
 			<div className="-mx-8 grid gap-8 lg:mx-0 lg:grid-cols-2">

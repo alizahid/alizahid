@@ -44,10 +44,10 @@ export function Markdown({ className, components, content }: Props) {
 						return <h1 className="font-bold text-4xl">{children}</h1>
 					},
 					h2({ children }) {
-						return <h2 className="!mt-16 font-bold text-3xl">{children}</h2>
+						return <h2 className="mt-16! font-bold text-3xl">{children}</h2>
 					},
 					h3({ children }) {
-						return <h3 className="!mt-6 font-bold text-2xl">{children}</h3>
+						return <h3 className="mt-6! font-bold text-2xl">{children}</h3>
 					},
 					img({ alt, src }) {
 						const url = new URL(src ?? '')
@@ -57,7 +57,7 @@ export function Markdown({ className, components, content }: Props) {
 						const type = url.searchParams.get('type')
 
 						return (
-							<figure className="!my-8 flex flex-col items-center gap-4">
+							<figure className="my-8! flex flex-col items-center gap-4">
 								<Image
 									alt={alt ?? ''}
 									height={height}
@@ -73,7 +73,7 @@ export function Markdown({ className, components, content }: Props) {
 						)
 					},
 					li({ children }) {
-						return <li className="!my-2 pl-2">{children}</li>
+						return <li className="my-2! pl-2">{children}</li>
 					},
 					ol({ children }) {
 						return (
@@ -86,7 +86,7 @@ export function Markdown({ className, components, content }: Props) {
 						return (
 							<Code
 								{...props}
-								className="!rounded-none text-sm"
+								className="rounded-none! text-sm"
 								theme="github-dark"
 							/>
 						)
