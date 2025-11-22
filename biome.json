@@ -1,37 +1,70 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-	"files": {
-		"ignore": ["node_modules", ".next", "src/types/hygraph.ts"],
-		"ignoreUnknown": false
-	},
-	"formatter": {
-		"enabled": true,
-		"indentStyle": "tab"
-	},
-	"javascript": {
-		"formatter": {
-			"quoteStyle": "single",
-			"semicolons": "asNeeded"
-		}
-	},
-	"linter": {
-		"enabled": true,
-		"rules": {
-			"correctness": {
-				"noUnusedImports": "error"
-			},
-			"nursery": {
-				"useSortedClasses": "error"
-			},
-			"recommended": true
-		}
-	},
-	"organizeImports": {
-		"enabled": true
-	},
-	"vcs": {
-		"clientKind": "git",
-		"enabled": false,
-		"useIgnoreFile": false
-	}
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [
+              [":BUN:", ":NODE:"],
+              ":BLANK_LINE:",
+              [":PACKAGE:", ":PACKAGE_WITH_PROTOCOL:"],
+              ":BLANK_LINE:",
+              ":ALIAS:",
+              ":BLANK_LINE:",
+              ":PATH:"
+            ]
+          }
+        },
+        "useSortedAttributes": "on",
+        "useSortedKeys": "on",
+        "useSortedProperties": "on"
+      }
+    }
+  },
+  "extends": ["ultracite/core", "ultracite/react", "ultracite/next"],
+  "files": {
+    "includes": ["!src/types/hygraph.ts"]
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "semicolons": "asNeeded",
+      "trailingCommas": "all"
+    }
+  },
+  "linter": {
+    "rules": {
+      "complexity": {
+        "noExcessiveCognitiveComplexity": "off"
+      },
+      "correctness": {
+        "useJsonImportAttributes": "off"
+      },
+      "style": {
+        "noMagicNumbers": "off",
+        "noNestedTernary": "off",
+        "noNonNullAssertion": "off",
+        "useConsistentArrayType": {
+          "level": "error",
+          "options": {
+            "syntax": "generic"
+          }
+        },
+        "useFilenamingConvention": "off",
+        "useImportType": {
+          "level": "error",
+          "options": {
+            "style": "inlineType"
+          }
+        },
+        "useNamingConvention": "off"
+      },
+      "suspicious": {
+        "noRedeclare": "off",
+        "noUnknownAtRules": "off"
+      }
+    }
+  }
 }

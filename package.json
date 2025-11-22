@@ -1,60 +1,63 @@
 {
-	"name": "alizahid",
-	"private": true,
-	"license": "MIT",
-	"author": {
-		"name": "Ali Zahid",
-		"email": "ali.zahid@live.com",
-		"url": "https://alizahid.dev"
-	},
-	"scripts": {
-		"build": "next build",
-		"clean": "rimraf --glob '.next'",
-		"codegen": "env-cmd -f .env.local graphql-codegen",
-		"dev": "bun clean; next dev",
-		"lint": "biome check --write --unsafe .",
-		"lint:types": "tsc --noEmit",
-		"nuke": "bun clean '**/node_modules' bun.lock",
-		"prepare": "husky",
-		"start": "next start"
-	},
-	"dependencies": {
-		"@phosphor-icons/react": "^2.1.7",
-		"@urql/core": "^5.1.1",
-		"@vercel/analytics": "^1.5.0",
-		"bright": "^1.0.0",
-		"date-fns": "4.1.0",
-		"lodash": "^4.17.21",
-		"next": "15.3.2",
-		"next-themes": "^0.4.6",
-		"react": "19.1.0",
-		"react-dom": "19.1.0",
-		"react-markdown": "^10.1.0",
-		"rehype-unwrap-images": "^1.0.0",
-		"remark-gfm": "^4.0.1",
-		"tailwind-merge": "^3.2.0"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "^1.9.4",
-		"@graphql-codegen/cli": "5.0.6",
-		"@graphql-codegen/typescript": "^4.1.6",
-		"@graphql-codegen/typescript-operations": "^4.6.1",
-		"@parcel/watcher": "^2.5.1",
-		"@tailwindcss/postcss": "^4.1.6",
-		"@types/lodash": "^4.17.16",
-		"@types/node": "^22.15.17",
-		"@types/react": "^19.1.3",
-		"@types/react-dom": "^19.1.3",
-		"env-cmd": "^10.1.0",
-		"husky": "^9.1.7",
-		"lint-staged": "^15.5.2",
-		"postcss": "^8.5.3",
-		"rimraf": "^6.0.1",
-		"tailwindcss": "^4.1.6",
-		"typescript": "^5.8.3"
-	},
-	"packageManager": "bun@1.2.12",
-	"lint-staged": {
-		"*.{css,js,ts,tsx}": ["biome check --write --unsafe"]
-	}
+  "name": "alizahid",
+  "private": true,
+  "license": "MIT",
+  "author": {
+    "name": "Ali Zahid",
+    "email": "ali.zahid@live.com",
+    "url": "https://alizahid.dev"
+  },
+  "scripts": {
+    "build": "next build",
+    "clean": "rimraf --glob '.next'",
+    "dev": "bun clean; next dev",
+    "generate": "env-cmd -f .env.local graphql-codegen",
+    "lint": "bun x ultracite fix",
+    "lint:types": "tsc --noEmit",
+    "nuke": "bun clean '**/node_modules' bun.lock",
+    "prepare": "husky",
+    "start": "next start"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,jsonc,css,scss,md,mdx}": [
+      "bun x ultracite fix"
+    ]
+  },
+  "dependencies": {
+    "@phosphor-icons/react": "^2.1.10",
+    "@urql/core": "^6.0.1",
+    "@vercel/analytics": "^1.5.0",
+    "bright": "^1.0.0",
+    "date-fns": "4.1.0",
+    "lodash": "^4.17.21",
+    "next": "16.0.3",
+    "next-themes": "^0.4.6",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "react-markdown": "^10.1.0",
+    "rehype-unwrap-images": "^1.0.0",
+    "remark-gfm": "^4.0.1",
+    "tailwind-merge": "^3.4.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.3.7",
+    "@graphql-codegen/cli": "6.1.0",
+    "@graphql-codegen/typescript": "^5.0.5",
+    "@graphql-codegen/typescript-operations": "^5.0.5",
+    "@parcel/watcher": "^2.5.1",
+    "@tailwindcss/postcss": "^4.1.17",
+    "@types/lodash": "^4.17.21",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.6",
+    "@types/react-dom": "^19.2.3",
+    "env-cmd": "^11.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "postcss": "^8.5.6",
+    "rimraf": "^6.1.2",
+    "tailwindcss": "^4.1.17",
+    "typescript": "^5.9.3",
+    "ultracite": "6.3.5"
+  },
+  "packageManager": "bun@1.3.3"
 }

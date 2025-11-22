@@ -5,5 +5,5 @@
 /* global */
 
 body {
-	@apply antialiased bg-white cursor-default scroll-smooth text-neutral-900 selection:bg-neutral-400/50;
+  @apply antialiased bg-white cursor-default scroll-smooth text-neutral-900 selection:bg-neutral-400/50;
 }
