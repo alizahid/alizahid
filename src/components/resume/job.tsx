@@ -74,7 +74,7 @@ export function JobCard({ job }: Props) {
               {position.stack.map((item) => (
                 <Chip className="bg-emerald-50 text-emerald-950" key={item}>
                   {item}{' '}
-                  <span className="-m-1 absolute size-1 overflow-hidden">
+                  <span className="absolute -m-1 size-1 overflow-hidden">
                     ,
                   </span>
                 </Chip>

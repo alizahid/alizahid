@@ -36,7 +36,7 @@ export function Footer() {
           >
             {link.icon}
 
-            <span className="-m-1 absolute size-1 overflow-hidden">
+            <span className="absolute -m-1 size-1 overflow-hidden">
               {link.label}
             </span>
           </Link>

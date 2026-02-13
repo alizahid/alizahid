@@ -23,7 +23,11 @@
       }
     }
   },
-  "extends": ["ultracite/core", "ultracite/react", "ultracite/next"],
+  "extends": [
+    "ultracite/biome/core",
+    "ultracite/biome/react",
+    "ultracite/biome/next"
+  ],
   "files": {
     "includes": ["!src/types/hygraph.ts"]
   },
@@ -50,6 +54,12 @@
           "level": "error",
           "options": {
             "syntax": "generic"
+          }
+        },
+        "useConsistentTypeDefinitions": {
+          "level": "error",
+          "options": {
+            "style": "type"
           }
         },
         "useFilenamingConvention": "off",
