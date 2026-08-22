@@ -1,4 +1,5 @@
 /** biome-ignore-all lint/correctness/useImageSize: go away */
+/** biome-ignore-all lint/suspicious/noUnknownAttribute: go away */
 /** biome-ignore-all lint/performance/noImgElement: go away */
 
 import { format, parseISO } from 'date-fns'

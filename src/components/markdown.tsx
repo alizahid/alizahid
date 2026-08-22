@@ -61,7 +61,7 @@ export function Markdown({ className, components, content }: Props) {
             const height = (Number(url.searchParams.get('h')) ?? 200) / 2
             const width = (Number(url.searchParams.get('w')) ?? 200) / 2
 
-            const path = url.pathname.split('/')[2]
+            const [, , path] = url.pathname.split('/')
 
             return (
               <figure className="my-8! flex flex-col items-center gap-4">
