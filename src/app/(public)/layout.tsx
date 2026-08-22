@@ -11,7 +11,7 @@ type Props = {
 export default function Layout({ children }: Props) {
   return (
     <ThemeProvider attribute="class">
-      <div className="mx-auto flex min-h-screen max-w-5xl flex-col gap-32 p-8">
+      <div className="mx-auto flex min-h-screen max-w-5xl flex-col gap-32 p-6 lg:p-8">
         <Header />
 
         {children}

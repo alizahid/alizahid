@@ -40,9 +40,9 @@ export function Header() {
         {links.map((link) => (
           <Link
             className={twMerge(
-              'font-medium outline-none hover:text-neutral-800 focus-visible:bg-neutral-200',
+              'font-medium leading-tight outline-none hover:text-neutral-800 focus-visible:bg-neutral-200',
               path.length > 1 && path.startsWith(link.href)
-                ? 'bg-neutral-300 text-neutral-800'
+                ? 'bg-amber-200 text-neutral-800'
                 : 'text-neutral-600',
             )}
             href={link.href}

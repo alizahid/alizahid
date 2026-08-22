@@ -22,14 +22,14 @@ export default async function Page() {
       <section className="flex flex-col gap-8">
         <h2>
           <Link
-            className="font-bold text-2xl outline-none focus-visible:bg-neutral-200"
+            className="font-bold text-4xl outline-none focus-visible:bg-neutral-200"
             href="/blog"
           >
-            Blog
+            Writings
           </Link>
         </h2>
 
-        <div className="-mx-8 grid gap-8 lg:mx-0 lg:grid-cols-2">
+        <div className="grid gap-8 lg:mx-0 lg:grid-cols-2">
           {posts.map((post) => (
             <PostCard key={post.slug} post={post} />
           ))}
@@ -39,14 +39,14 @@ export default async function Page() {
       <section className="flex flex-col gap-8">
         <h2>
           <Link
-            className="font-bold text-2xl outline-none focus-visible:bg-neutral-200"
+            className="font-bold text-4xl outline-none focus-visible:bg-neutral-200"
             href="/playground"
           >
-            Playground
+            Projects
           </Link>
         </h2>
 
-        <div className="-mx-8 grid gap-8 lg:mx-0 lg:grid-cols-2">
+        <div className="grid gap-8 lg:mx-0 lg:grid-cols-2">
           {projects.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}

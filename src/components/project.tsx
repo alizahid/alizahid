@@ -11,7 +11,7 @@ type Props = {
 
 export function ProjectCard({ project }: Props) {
   return (
-    <div className="flex items-start gap-4 bg-neutral-50 p-4 grayscale hover:grayscale-0">
+    <div className="flex items-start gap-4">
       <Image
         alt={project.name}
         height={48}
@@ -25,10 +25,10 @@ export function ProjectCard({ project }: Props) {
 
         <Markdown className="space-y-2" content={project.content} />
 
-        <div className="flex flex-wrap items-start gap-4">
+        <div className="flex flex-wrap items-start gap-2">
           {project.links.map((link) => (
             <Link
-              className="font-medium outline-none focus-visible:bg-neutral-200"
+              className="bg-amber-200 font-medium leading-tight outline-none focus-visible:bg-neutral-200"
               href={link.link}
               key={link.link}
             >

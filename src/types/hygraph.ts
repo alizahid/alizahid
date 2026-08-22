@@ -6614,7 +6614,7 @@ export type BlockQuery = { __typename?: 'Query', block: { __typename?: 'Block', 
 export type HomeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type HomeQuery = { __typename?: 'Query', block: { __typename?: 'Block', content: string }, posts: Array<{ __typename?: 'Post', date: any, excerpt: string, slug: string, title: string, image: { __typename?: 'Asset', height: number, url: string, width: number } }>, projects: Array<{ __typename?: 'Project', content: string, name: string, slug: string, image: { __typename?: 'Asset', height: number, url: string, width: number }, links: Array<{ __typename?: 'ProjectLink', link: string, label: string }> }> };
+export type HomeQuery = { __typename?: 'Query', block: { __typename?: 'Block', content: string }, posts: Array<{ __typename?: 'Post', date: any, excerpt: string, slug: string, title: string, image: { __typename?: 'Asset', height: number, url: string, width: number }, icon: { __typename?: 'Asset', height: number, url: string, width: number } }>, projects: Array<{ __typename?: 'Project', content: string, name: string, slug: string, image: { __typename?: 'Asset', height: number, url: string, width: number }, links: Array<{ __typename?: 'ProjectLink', link: string, label: string }> }> };
 
 export type LinksQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -6631,7 +6631,7 @@ export type PostQuery = { __typename?: 'Query', post: { __typename?: 'Post', con
 export type PostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type PostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', date: any, excerpt: string, slug: string, title: string, image: { __typename?: 'Asset', height: number, url: string, width: number } }> };
+export type PostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', date: any, excerpt: string, slug: string, title: string, image: { __typename?: 'Asset', height: number, url: string, width: number }, icon: { __typename?: 'Asset', height: number, url: string, width: number } }> };
 
 export type SlugsQueryVariables = Exact<{ [key: string]: never; }>;
 

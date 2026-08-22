@@ -13,23 +13,27 @@ export function PostCard({ post }: Props) {
 
   return (
     <Link
-      className="flex flex-col bg-neutral-50 outline-none grayscale hover:grayscale-0 focus-visible:bg-neutral-200"
+      className="flex gap-4 self-start outline-none focus-visible:bg-neutral-200"
       href={`/blog/${post.slug}`}
     >
-      <Image
-        alt={post.title}
-        height={400}
-        src={post.image.url}
-        unoptimized
-        width={600}
-      />
+      <figure className="w-24">
+        <Image
+          alt={post.title}
+          height={200}
+          src={post.icon.url}
+          unoptimized
+          width={200}
+        />
+      </figure>
 
-      <div className="flex flex-1 flex-col gap-2 p-4">
-        <div className="text-pretty font-bold text-xl">{post.title}</div>
+      <div className="flex flex-1 flex-col items-start gap-2">
+        <div className="text-pretty bg-amber-200 font-bold text-xl leading-tight">
+          {post.title}
+        </div>
 
         <div className="text-pretty">{post.excerpt}</div>
 
-        <div className="mt-auto text-neutral-600 text-sm">
+        <div className="text-neutral-600 text-sm tabular-nums">
           {format(date, isSameYear(date, new Date()) ? 'MMMM d' : 'MMMM d, y')}
         </div>
       </div>

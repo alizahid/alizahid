@@ -23,14 +23,14 @@ export function Footer() {
 
   return (
     <footer className="flex items-start justify-between gap-4">
-      <div className="text-neutral-600 text-sm">
+      <div className="text-neutral-600 text-sm tabular-nums">
         &#169; {new Date().getFullYear()} &#215; Ali Zahid
       </div>
 
       <div className="flex items-center gap-4">
         {links.map((link) => (
           <Link
-            className="text-neutral-800 outline-none hover:text-neutral-900 focus-visible:bg-neutral-200"
+            className="rounded-full text-neutral-800 outline-none hover:text-neutral-900 focus-visible:bg-neutral-200"
             href={link.href}
             key={link.href}
           >

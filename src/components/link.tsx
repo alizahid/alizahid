@@ -12,7 +12,7 @@ type Props = {
 export function LinkCard({ link }: Props) {
   return (
     <Link
-      className="flex items-start gap-4 bg-neutral-50 p-4 outline-none grayscale hover:grayscale-0 focus-visible:bg-neutral-200"
+      className="flex items-start gap-4 outline-none focus-visible:bg-neutral-200"
       href={link.url}
       rel="noopener"
       target="_blank"
@@ -25,8 +25,10 @@ export function LinkCard({ link }: Props) {
         width={48}
       />
 
-      <div className="flex flex-1 flex-col gap-4">
-        <div className="font-bold text-xl">{link.title}</div>
+      <div className="flex flex-1 flex-col items-start gap-2">
+        <div className="bg-amber-200 font-bold text-xl leading-tight">
+          {link.title}
+        </div>
 
         <Markdown className="space-y-2" content={link.description} />
       </div>

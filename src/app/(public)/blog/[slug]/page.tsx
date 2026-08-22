@@ -54,7 +54,7 @@ export default async function Page({ params }: Props) {
 
         <div className="font-medium text-xl">{post.excerpt}</div>
 
-        <div className="text-neutral-600 text-sm">
+        <div className="text-neutral-600 text-sm tabular-nums">
           {format(date, isSameYear(date, new Date()) ? 'MMMM d' : 'MMMM d, y')}
         </div>
       </div>

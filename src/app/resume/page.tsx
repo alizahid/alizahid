@@ -1,10 +1,10 @@
 import {
-  Browser,
-  DribbbleLogo,
-  EnvelopeSimple,
-  GithubLogo,
-  LinkedinLogo,
-  TwitterLogo,
+  BrowserIcon,
+  DribbbleLogoIcon,
+  EnvelopeSimpleIcon,
+  GithubLogoIcon,
+  LinkedinLogoIcon,
+  TwitterLogoIcon,
 } from '@phosphor-icons/react/dist/ssr'
 import { groupBy } from 'lodash'
 
@@ -341,32 +341,32 @@ const skills: Array<Skill> = [
 const contact = [
   {
     href: 'https://alizahid.dev',
-    icon: <Browser className="size-5" />,
+    icon: <BrowserIcon className="size-5" />,
     label: 'alizahid.dev',
   },
   {
     href: 'mailto:ali.zahid@live.com',
-    icon: <EnvelopeSimple className="size-5" />,
+    icon: <EnvelopeSimpleIcon className="size-5" />,
     label: 'ali.zahid@live.com',
   },
   {
     href: 'https://github.com/alizahid',
-    icon: <GithubLogo className="size-5" />,
+    icon: <GithubLogoIcon className="size-5" />,
     label: 'alizahid',
   },
   {
     href: 'https://linkedin.com/in/alizahid',
-    icon: <LinkedinLogo className="size-5" />,
+    icon: <LinkedinLogoIcon className="size-5" />,
     label: 'alizahid',
   },
   {
     href: 'https://twitter.com/alizah1d',
-    icon: <TwitterLogo className="size-5" />,
+    icon: <TwitterLogoIcon className="size-5" />,
     label: 'alizah1d',
   },
   {
     href: 'https://dribbble.com/alizahid',
-    icon: <DribbbleLogo className="size-5" />,
+    icon: <DribbbleLogoIcon className="size-5" />,
     label: 'alizahid',
   },
 ]

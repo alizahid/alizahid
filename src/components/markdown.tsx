@@ -1,4 +1,4 @@
-import { Info } from '@phosphor-icons/react/dist/ssr'
+import { InfoIcon } from '@phosphor-icons/react/dist/ssr'
 import { Code } from 'bright'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -31,7 +31,7 @@ export function Markdown({ className, components, content }: Props) {
           blockquote({ children }) {
             return (
               <blockquote className="flex items-center gap-2 bg-neutral-200 p-4 leading-tight">
-                <Info className="size-5" />
+                <InfoIcon className="size-5" />
 
                 <div className="flex-1">{children}</div>
               </blockquote>

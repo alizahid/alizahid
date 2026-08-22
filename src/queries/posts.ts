@@ -15,6 +15,15 @@ const POSTS = gql`
         url(transformation: { image: { resize: { width: 600 } } })
         width
       }
+      icon: image {
+        height
+        url(
+          transformation: {
+            image: { resize: { height: 300, width: 300, fit: crop } }
+          }
+        )
+        width
+      }
     }
   }
 `
