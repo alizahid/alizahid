@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import { type Links } from '~/queries/links'
 
+import { Highlight } from './highlight'
 import { Markdown } from './markdown'
 
 type Props = {
@@ -26,8 +27,8 @@ export function LinkCard({ link }: Props) {
       />
 
       <div className="flex flex-1 flex-col items-start gap-2">
-        <div className="bg-amber-200 font-bold text-xl leading-tight">
-          {link.title}
+        <div className="font-bold text-xl leading-tight">
+          <Highlight show>{link.title}</Highlight>
         </div>
 
         <Markdown className="space-y-2" content={link.description} />

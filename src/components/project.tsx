@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import { type Projects } from '~/queries/projects'
 
+import { Highlight } from './highlight'
 import { Markdown } from './markdown'
 
 type Props = {
@@ -28,11 +29,11 @@ export function ProjectCard({ project }: Props) {
         <div className="flex flex-wrap items-start gap-2">
           {project.links.map((link) => (
             <Link
-              className="bg-amber-200 font-medium leading-tight outline-none focus-visible:bg-neutral-200"
+              className="font-medium leading-tight outline-none focus-visible:bg-neutral-200"
               href={link.link}
               key={link.link}
             >
-              {link.label}
+              <Highlight show>{link.label}</Highlight>
             </Link>
           ))}
         </div>

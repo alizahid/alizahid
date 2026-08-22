@@ -4,6 +4,8 @@ import Link from 'next/link'
 
 import { type Posts } from '~/queries/posts'
 
+import { Highlight } from './highlight'
+
 type Props = {
   post: Posts[number]
 }
@@ -27,8 +29,8 @@ export function PostCard({ post }: Props) {
       </figure>
 
       <div className="flex flex-1 flex-col items-start gap-2">
-        <div className="text-pretty bg-amber-200 font-bold text-xl leading-tight">
-          {post.title}
+        <div className="text-pretty font-bold text-xl leading-tight">
+          <Highlight show>{post.title}</Highlight>
         </div>
 
         <div className="text-pretty">{post.excerpt}</div>

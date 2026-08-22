@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { twMerge } from 'tailwind-merge'
 
+import { Highlight } from './highlight'
+
 export function Header() {
   const path = usePathname()
 
@@ -42,13 +44,15 @@ export function Header() {
             className={twMerge(
               'font-medium leading-tight outline-none hover:text-neutral-800 focus-visible:bg-neutral-200',
               path.length > 1 && path.startsWith(link.href)
-                ? 'bg-amber-200 text-neutral-800'
+                ? ''
                 : 'text-neutral-600',
             )}
             href={link.href}
             key={link.href}
           >
-            {link.label}
+            <Highlight show={path.length > 1 && path.startsWith(link.href)}>
+              {link.label}
+            </Highlight>
           </Link>
         ))}
       </nav>
