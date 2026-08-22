@@ -1,6 +1,7 @@
 import { format, isSameYear, parseISO } from 'date-fns'
 import Image from 'next/image'
 import Link from 'next/link'
+import uniqolor from 'uniqolor'
 
 import { type Posts } from '~/queries/posts'
 
@@ -18,13 +19,20 @@ export function PostCard({ post }: Props) {
       className="flex gap-4 self-start outline-none focus-visible:bg-neutral-200"
       href={`/blog/${post.slug}`}
     >
-      <figure className="w-24">
+      <figure
+        className="flex size-24"
+        style={{
+          backgroundColor: uniqolor(post.slug, {
+            lightness: 90,
+          }).color,
+        }}
+      >
         <Image
           alt={post.title}
-          height={200}
-          src={post.icon.url}
+          height={192}
+          src={post.image.url}
           unoptimized
-          width={200}
+          width={192}
         />
       </figure>
 

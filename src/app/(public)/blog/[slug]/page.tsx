@@ -2,6 +2,7 @@ import { format, isSameYear, parseISO } from 'date-fns'
 import { type Metadata } from 'next'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
+import uniqolor from 'uniqolor'
 
 import { Markdown } from '~/components/markdown'
 import { fetchPost } from '~/queries/post'
@@ -64,6 +65,11 @@ export default async function Page({ params }: Props) {
         className="bg-neutral-100"
         height={1200}
         src={post.image.url}
+        style={{
+          backgroundColor: uniqolor(post.slug, {
+            lightness: 90,
+          }).color,
+        }}
         unoptimized
         width={1800}
       />

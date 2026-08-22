@@ -20,7 +20,7 @@ export const dimensions = {
 } as const
 
 type Props = {
-  id: keyof typeof dimensions
+  id: Promise<keyof typeof dimensions>
   params: Promise<{
     slug: string
   }>
@@ -47,26 +47,26 @@ export default async function Image({ id, params }: Props) {
     })
   }
 
-  const { height, width } = dimensions[id]
+  const { height, width } = dimensions[await id]
 
   const date = parseISO(post.date as string)
 
   return new ImageResponse(
-    <div tw="size-full justify-between flex flex-col p-8 bg-white">
+    <div tw="h-full w-full bg-blue-300 justify-between flex flex-col bg-white">
       <img
         alt={post.title}
-        src={post.image.url}
-        tw="h-full ml-auto rounded-4"
+        src={post.icon.url}
+        tw="h-128 w-128 absolute top-8 right-8"
       />
 
-      <div tw="flex flex-col absolute left-8 top-8 bottom-8">
+      <div tw="flex flex-col absolute left-0 top-0 bottom-0 p-8 max-w-2/3">
         <img
           alt="Ali Zahid"
           src="https://alizahid.dev/images/ali-zahid.jpg"
-          tw="size-32 rounded-full"
+          tw="h-32 w-32 rounded-full"
         />
 
-        <div tw="text-6xl font-bold mt-auto">{post.title}</div>
+        <div tw="text-6xl font-bold mt-auto text-pretty">{post.title}</div>
 
         <div tw="font-medium text-2xl mt-8 text-gray-600">
           {format(date, 'MMMM d, y')}

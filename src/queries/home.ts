@@ -15,14 +15,9 @@ const HOME = gql`
       title
       image {
         height
-        url(transformation: { image: { resize: { width: 600 } } })
-        width
-      }
-      icon: image {
-        height
         url(
           transformation: {
-            image: { resize: { height: 300, width: 300, fit: crop } }
+            image: { resize: { height: 192, width: 192, fit: crop } }
           }
         )
         width
@@ -34,7 +29,7 @@ const HOME = gql`
       slug
       image {
         height
-        url(transformation: { image: { resize: { width: 128 } } })
+        url(transformation: { image: { resize: { width: 96 } } })
         width
       }
       links {

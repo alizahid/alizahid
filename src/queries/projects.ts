@@ -11,7 +11,7 @@ const PROJECTS = gql`
       slug
       image {
         height
-        url(transformation: { image: { resize: { width: 128 } } })
+        url(transformation: { image: { resize: { width: 96 } } })
         width
       }
       links {
